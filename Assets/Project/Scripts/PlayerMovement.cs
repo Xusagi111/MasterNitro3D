@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement instnce;
 
+    [HideInInspector] public RotateType type;
+
     int rotating;
     bool canMoving;
     private void Start()
@@ -26,16 +28,33 @@ public class PlayerMovement : MonoBehaviour
 
     public void RotateDirection()
     {
-        if (rotating != 115)
+        if (type == RotateType.Left)
         {
-            var toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * -0.8f);
-            rotating++;
-            transform.rotation = toAngle;
+            if (rotating != 115)
+            {
+                var toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * -0.8f);
+                rotating++;
+                transform.rotation = toAngle;
+            }
+            else
+            {
+                RotatorController.instance.gameObject.SetActive(false);
+                rotating = 0;
+            }
         }
-        else
+        if (type == RotateType.Right)
         {
-            RotatorController.instance.gameObject.SetActive(false);
-            rotating = 0;
+            if (rotating != 115)
+            {
+                var toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * 0.8f);
+                rotating++;
+                transform.rotation = toAngle;
+            }
+            else
+            {
+                RotatorController.instance.gameObject.SetActive(false);
+                rotating = 0;
+            }
         }
     }
 
