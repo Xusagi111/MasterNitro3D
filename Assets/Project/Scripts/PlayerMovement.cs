@@ -30,9 +30,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (type == RotateType.Left)
         {
-            if (rotating != 115)
+            if (rotating != 90)
             {
-                var toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * -0.8f);
+                var toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * -1f);
                 rotating++;
                 transform.rotation = toAngle;
             }
@@ -44,9 +44,9 @@ public class PlayerMovement : MonoBehaviour
         }
         if (type == RotateType.Right)
         {
-            if (rotating != 115)
+            if (rotating != 90)
             {
-                var toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * 0.8f);
+                var toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * 1f);
                 rotating++;
                 transform.rotation = toAngle;
             }
