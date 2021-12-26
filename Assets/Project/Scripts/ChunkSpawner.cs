@@ -21,8 +21,8 @@ public class ChunkSpawner : MonoBehaviour
         {
             SpawnChunk();
         }
-        if(Transform1 != null)
-        Debug.DrawLine(Transform1.position, Transform1.position + Transform1.forward * 10);
+        if (Transform1 != null)
+            Debug.DrawLine(Transform1.position, Transform1.position + Transform1.forward * 10);
     }
     public void ChechHouse(Chunk chunk)
     {
@@ -35,7 +35,6 @@ public class ChunkSpawner : MonoBehaviour
         {
             hit.collider.gameObject.SetActive(false);
             Debug.Log(hit.collider.name);
-            
         }
     }
     private void SpawnChunk()

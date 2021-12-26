@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Garage");
     }    
     public void RestartLevel()
     {
