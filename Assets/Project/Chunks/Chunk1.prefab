@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 1061804135428796274}
   - component: {fileID: 2979340565966412728}
   - component: {fileID: 2984415910315257439}
+  - component: {fileID: 6720879560067036126}
   m_Layer: 0
   m_Name: Track_Corner_90d_type_01_15x15m_free_obs
   m_TagString: Untagged
@@ -57,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3627722091605359213}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.094, y: 0.95, z: 1.0559}
+  m_LocalPosition: {x: 0.094, y: 0.9, z: 1.0559}
   m_LocalScale: {x: -0.07094459, y: 0.5214, z: 0.00830783}
   m_Children: []
   m_Father: {fileID: 5957595923738502654}
@@ -126,6 +127,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2338065179423325097, guid: 40fb36f372bde5d458239a1186366c6a, type: 3}
+--- !u!65 &6720879560067036126
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3627722091605359213}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.999999, y: 0.10000099, z: 14.999999}
+  m_Center: {x: 1.1599556, y: 0.05000045, z: 1.1599559}
 --- !u!1 &4274915708794271369
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,8 +277,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6280454773841692605}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0005268, y: 0.0044786, z: 0.512}
+  m_LocalScale: {x: 0.96, y: 0.96, z: 1.0149326}
   m_Children:
   - {fileID: 6280454772089828842}
   - {fileID: 8306891249963045181}
@@ -391,10 +405,10 @@ GameObject:
   - component: {fileID: 9198046945452884863}
   - component: {fileID: 1092819814021038181}
   - component: {fileID: 344867202414636981}
-  - component: {fileID: 1347381104634499540}
+  - component: {fileID: 3064216269186152766}
   m_Layer: 0
   m_Name: Track_line_type_01_30m_free_obs
-  m_TagString: Untagged
+  m_TagString: ChunkTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -484,23 +498,27 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7252759706005512874}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 15.000003, y: 0.100001, z: 30}
   m_Center: {x: 0.000000029802322, y: 0.0500005, z: 0.0000009536743}
---- !u!114 &1347381104634499540
-MonoBehaviour:
+--- !u!54 &3064216269186152766
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7252759706005512874}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbd043fda47ffaf4688055053ce648fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Mass: 10000
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7353775020497966647
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,9 +588,10 @@ GameObject:
   - component: {fileID: 5957595923738502654}
   - component: {fileID: 298994591895998693}
   - component: {fileID: 7485194893407267127}
+  - component: {fileID: 3282247227186976273}
   m_Layer: 0
   m_Name: Chunk1
-  m_TagString: Untagged
+  m_TagString: ChunkTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -622,3 +641,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd043fda47ffaf4688055053ce648fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &3282247227186976273
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8938058001028499340}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0.5}
