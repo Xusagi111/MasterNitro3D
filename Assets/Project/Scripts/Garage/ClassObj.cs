@@ -1,42 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClassObj : MonoBehaviour
 {
     [SerializeField] GameObject[] CarDes = new GameObject[6];
-    [SerializeField] GameObject[] gameObjects = new GameObject[6];
-    [SerializeField] GameObject inite;
+    [SerializeField] public GameObject[] gameObjects = new GameObject[6];
+    [SerializeField] public GameObject inite;
     [SerializeField] GameObject CarSevDesc;
-    bool f = false;
-    bool t = true;
+    [SerializeField] Text CarName;
     int count = 0;
 
     private void Start()
     {
         inite = gameObjects[count];
         CarDes[count] = inite;
-        inite.SetActive(t);
+        inite.SetActive(true);
     }
     public void LeftSwitchbutton()
     {
         if (count != 0)
         {
-            if (count == 0)
-            {
-                inite = gameObjects[count];
-                CarDes[count] = inite;
-                CarSevDesc = CarDes[count+1];
-                CarSevDesc.SetActive(f);
-                inite.SetActive(t);
-            }
             if (count > 0)
             {
                 inite = gameObjects[count - 1];
                 CarDes[count - 1] = inite;
                 CarSevDesc = CarDes[count];
-                CarSevDesc.SetActive(f);
-                inite.SetActive(t);
+                CarSevDesc.SetActive(false);
+                inite.SetActive(true);
             }
             count--;
         }
@@ -51,8 +43,16 @@ public class ClassObj : MonoBehaviour
             inite = gameObjects[count];
             CarDes[count] = inite;
             CarSevDesc = CarDes[count-1];
-            CarSevDesc.SetActive(f);
-            inite.SetActive(t);
+            CarSevDesc.SetActive(false);
+            inite.SetActive(true);
         }
     }  
 }
+//if (count == 0)
+//{
+//    inite = gameObjects[count];
+//    CarDes[count] = inite;
+//    CarSevDesc = CarDes[count+1];
+//    CarSevDesc.SetActive(f);
+//    inite.SetActive(t);
+//}

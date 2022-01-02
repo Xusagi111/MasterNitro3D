@@ -603,7 +603,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 992194443}
   m_Father: {fileID: 525668894}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -876,7 +877,7 @@ GameObject:
   - component: {fileID: 143590295}
   - component: {fileID: 143590294}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: PanelGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -956,7 +957,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1948821525999562, guid: 7b367dccc659de64b8c4d882ca0505fc, type: 3}
       propertyPath: m_Name
-      value: Chev666
+      value: Chev
       objectReference: {fileID: 0}
     - target: {fileID: 1948821525999562, guid: 7b367dccc659de64b8c4d882ca0505fc, type: 3}
       propertyPath: m_IsActive
@@ -1438,6 +1439,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 357599910}
+        m_TargetAssemblyTypeName: NewCarTheGarage, Assembly-CSharp
+        m_MethodName: DisplayToNameCar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &193957433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1744,6 +1757,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280557810}
   m_CullTransparentMesh: 1
+--- !u!1 &284450271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 284450272}
+  - component: {fileID: 284450274}
+  - component: {fileID: 284450273}
+  m_Layer: 5
+  m_Name: Tank (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &284450272
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284450271}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2046743897}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 299.1, y: 0}
+  m_SizeDelta: {x: 300, y: 77.9}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &284450273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284450271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u0411\u0430\u043A"
+--- !u!222 &284450274
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284450271}
+  m_CullTransparentMesh: 1
 --- !u!1 &288479386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1835,7 +1927,7 @@ GameObject:
   - component: {fileID: 292856061}
   - component: {fileID: 292856060}
   m_Layer: 5
-  m_Name: SpeedB (1)
+  m_Name: TankB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1858,7 +1950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 643, y: 448}
+  m_AnchoredPosition: {x: 483, y: 460}
   m_SizeDelta: {x: 500, y: 148.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &292856060
@@ -1936,7 +2028,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 435, y: 9.000397}
+  m_AnchoredPosition: {x: 451, y: 0.000030518}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &294242931
@@ -2167,7 +2259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -490, y: 469}
+  m_AnchoredPosition: {x: -529, y: 485}
   m_SizeDelta: {x: 500, y: 106.4392}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &323942029
@@ -2379,6 +2471,8 @@ GameObject:
   - component: {fileID: 357599908}
   - component: {fileID: 357599907}
   - component: {fileID: 357599909}
+  - component: {fileID: 357599910}
+  - component: {fileID: 357599911}
   m_Layer: 0
   m_Name: UIController
   m_TagString: Untagged
@@ -2439,6 +2533,169 @@ MonoBehaviour:
   - {fileID: 1846918253}
   inite: {fileID: 1317774925}
   CarSevDesc: {fileID: 0}
+  CarName: {fileID: 2047997667}
+--- !u!114 &357599910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357599906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc674abfe201f9847b92cafa29abe5f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  garageController: {fileID: 0}
+  classObj: {fileID: 0}
+  conclusionNameCarOnUI: {fileID: 2047997667}
+  conclusionOnPowerUI: {fileID: 1168392883}
+  conclusionOnSpeedUI: {fileID: 992194444}
+  conclusionOnFuelUI: {fileID: 284450273}
+  UpgrageToUIPanelPowerLvl: {fileID: 1539595875}
+  UpgrageToUIPanelSpeedLvl: {fileID: 1454999511}
+  UpgrageToUIPanelTowerLvl: {fileID: 1340757651}
+  initeNameCar: []
+  NameCarArray:
+  - "\u041C\u0443\u0441\u0442\u0430\u043D\u0433"
+  - "\u041A\u0440\u0430\u0441\u043D\u0430\u044F666"
+  - "\u041B\u0430\u0434\u0430"
+  - "\u0427\u0435\u0440\u043D\u044B\u0439 \u043F\u043B\u0430\u0449"
+  - "\u0412\u0441\u043F\u044B\u0448\u043A\u04308"
+  allCarTheGarage:
+    Name: 
+    Price: 0
+    Power: 0
+    Speed: 0
+    Fuel: 0
+    CarYellow:
+    - Name
+    - CarYellow
+    - Price
+    - 1000
+    - Power
+    - Lvl
+    - 0
+    - State
+    - 11
+    - Speed
+    - Lvl
+    - 0
+    - State
+    - 12
+    - Fuel
+    - Lvl
+    - 0
+    - State
+    - 13
+    Chev:
+    - Name
+    - Chev
+    - Price
+    - 2000
+    - Power
+    - Lvl
+    - 0
+    - State
+    - 21
+    - Speed
+    - Lvl
+    - 0
+    - State
+    - 22
+    - Fuel
+    - Lvl
+    - 0
+    - State
+    - 23
+    Vehicle:
+    - Name
+    - Vehicle
+    - Price
+    - 3000
+    - Power
+    - Lvl
+    - 0
+    - State
+    - 31
+    - Speed
+    - Lvl
+    - 0
+    - State
+    - 32
+    - Fuel
+    - Lvl
+    - 0
+    - State
+    - 33
+    CarCarbon:
+    - Name
+    - CarCarbon
+    - Price
+    - 4000
+    - Power
+    - Lvl
+    - 0
+    - State
+    - 41
+    - Speed
+    - Lvl
+    - 0
+    - State
+    - 42
+    - Fuel
+    - Lvl
+    - 0
+    - State
+    - 43
+    FocE:
+    - Name
+    - FocE
+    - Price
+    - 5000
+    - Power
+    - Lvl
+    - 0
+    - State
+    - 51
+    - Speed
+    - Lvl
+    - 0
+    - State
+    - 52
+    - Fuel
+    - Lvl
+    - 0
+    - State
+    - 53
+    upgradeAllLvl:
+    - 1000
+    - 2000
+    - 3000
+    - 4000
+    - 5000
+    - 6000
+    - 7000
+--- !u!114 &357599911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357599906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd378ce68067c04a92a1b10a21c8683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  savePlayerStats:
+    NamePlayer: Name
+    Money: 10
+    Idt: 10
+  conclusionOnMoneyUI: {fileID: 1779447202}
+  conclusionOnDiamondsUI: {fileID: 231749036}
+  Panel: {fileID: 0}
+  a: {fileID: 0}
 --- !u!1 &361466086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2474,7 +2731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -568, y: 9.000397}
+  m_AnchoredPosition: {x: -558, y: 0.000030518}
   m_SizeDelta: {x: 372.5, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &361466088
@@ -2659,7 +2916,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -162, y: -87}
+  m_AnchoredPosition: {x: -162, y: -71}
   m_SizeDelta: {x: 200, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &583627852
@@ -2936,7 +3193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -71, y: 9.000397}
+  m_AnchoredPosition: {x: -51, y: 0}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &637389154
@@ -3142,7 +3399,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3700183097348009938, guid: 1e7250932be338a4b8fbf477c0ba8e94, type: 3}
       propertyPath: m_Name
-      value: vehicle1-red
+      value: Vehicle
       objectReference: {fileID: 0}
     - target: {fileID: 3700183097348009938, guid: 1e7250932be338a4b8fbf477c0ba8e94, type: 3}
       propertyPath: m_IsActive
@@ -3635,7 +3892,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1679316337262068, guid: 400ae1c92d3d7164c98601f4394b0931, type: 3}
       propertyPath: m_Name
-      value: Free_Racing_Car_Yellow
+      value: CarYellow
       objectReference: {fileID: 0}
     - target: {fileID: 1679316337262068, guid: 400ae1c92d3d7164c98601f4394b0931, type: 3}
       propertyPath: m_IsActive
@@ -3800,7 +4057,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -183, y: 0}
+  m_AnchoredPosition: {x: -169, y: 2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &965344920
@@ -3823,7 +4080,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3685531567728649988, guid: 5043aba6a1b42bb42b70d44e7bd94fea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b2df48c66f3c4a34797016b699d9f1b3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3992,6 +4249,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966780820}
+  m_CullTransparentMesh: 1
+--- !u!1 &992194442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 992194443}
+  - component: {fileID: 992194445}
+  - component: {fileID: 992194444}
+  m_Layer: 5
+  m_Name: Speed (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &992194443
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992194442}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 115539102}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 299, y: 0}
+  m_SizeDelta: {x: 300, y: 66.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &992194444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992194442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
+--- !u!222 &992194445
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992194442}
   m_CullTransparentMesh: 1
 --- !u!1 &996331390
 GameObject:
@@ -4359,6 +4695,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 357599910}
+        m_TargetAssemblyTypeName: NewCarTheGarage, Assembly-CSharp
+        m_MethodName: DisplayToNameCar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1045243371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4480,18 +4828,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1373190512}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 139193298}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -4783,12 +5119,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -4803,8 +5139,8 @@ Canvas:
   m_GameObject: {fileID: 1074001807}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1044280011}
   m_PlaneDistance: 0.7
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -4826,8 +5162,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1415228963}
   - {fileID: 1373190513}
+  - {fileID: 1415228963}
   - {fileID: 1037055493}
   - {fileID: 169354360}
   - {fileID: 1045243369}
@@ -5039,7 +5375,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163431493}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0006673482}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 171198324}
@@ -5048,7 +5384,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -200.99988, y: -181.00027}
+  m_AnchoredPosition: {x: -146, y: -181}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1163431495
@@ -5133,6 +5469,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163431493}
   m_CullTransparentMesh: 1
+--- !u!1 &1168392881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1168392882}
+  - component: {fileID: 1168392884}
+  - component: {fileID: 1168392883}
+  m_Layer: 5
+  m_Name: Power (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1168392882
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168392881}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1315077678}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 299.5, y: 0}
+  m_SizeDelta: {x: 300, y: 62.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1168392883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168392881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u041C\u043E\u0449\u043D\u043E\u0441\u0442\u044C\n"
+--- !u!222 &1168392884
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168392881}
+  m_CullTransparentMesh: 1
 --- !u!1 &1170349021
 GameObject:
   m_ObjectHideFlags: 0
@@ -5197,13 +5612,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 966373855}
-  - {fileID: 1406355251}
   m_Father: {fileID: 143590293}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -634, y: 236}
+  m_AnchoredPosition: {x: -5, y: 236}
   m_SizeDelta: {x: 619.80005, y: 381.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1221386787
@@ -5226,7 +5640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 47708ddfc10357543a0f3a9e7e41b70d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fee87262480b0c84b9ee593e469adaa4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5526,11 +5940,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1143364652642573260, guid: 46fbb20cf9353634484dc8093221e461, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 91.42102
+      value: 91.421875
       objectReference: {fileID: 0}
     - target: {fileID: 1143364652642573260, guid: 46fbb20cf9353634484dc8093221e461, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -118.880005
+      value: -118.87891
       objectReference: {fileID: 0}
     - target: {fileID: 1143364652642573260, guid: 46fbb20cf9353634484dc8093221e461, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5996,7 +6410,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1309576894}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 357599910}
+        m_TargetAssemblyTypeName: NewCarTheGarage, Assembly-CSharp
+        m_MethodName: UpgradePower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1315077677
 GameObject:
   m_ObjectHideFlags: 0
@@ -6025,7 +6451,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1168392882}
   m_Father: {fileID: 525668894}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6275,7 +6702,7 @@ RectTransform:
   - {fileID: 583627851}
   - {fileID: 1163431494}
   m_Father: {fileID: 1074001811}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -6426,17 +6853,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406355250}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2012956877}
-  m_Father: {fileID: 1221386786}
+  m_Father: {fileID: 1755495397}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 251, y: -139}
+  m_AnchoredPosition: {x: -636, y: 0.9000244}
   m_SizeDelta: {x: 100, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1406355252
@@ -6643,11 +7070,11 @@ RectTransform:
   - {fileID: 1944714281}
   - {fileID: 292856059}
   m_Father: {fileID: 1074001811}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 6, y: -161}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1416145486
@@ -6737,7 +7164,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1844329927030080, guid: 0f7265637d2c58d49a57253b2879a946, type: 3}
       propertyPath: m_Name
-      value: Free_Racing_Car_Carbon
+      value: CarCarbon
       objectReference: {fileID: 0}
     - target: {fileID: 1844329927030080, guid: 0f7265637d2c58d49a57253b2879a946, type: 3}
       propertyPath: m_IsActive
@@ -7157,7 +7584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: 236}
+  m_AnchoredPosition: {x: 628, y: 236}
   m_SizeDelta: {x: 619.8, y: 381.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1530755452
@@ -7929,7 +8356,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1648346742}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 357599910}
+        m_TargetAssemblyTypeName: NewCarTheGarage, Assembly-CSharp
+        m_MethodName: MethodWrappingMoney
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1663859723
 GameObject:
   m_ObjectHideFlags: 0
@@ -8411,12 +8850,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1309407515}
+  - {fileID: 1406355251}
   m_Father: {fileID: 1801979151}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 245.7, y: -139.9}
+  m_AnchoredPosition: {x: 878, y: -139.9}
   m_SizeDelta: {x: 109.3, y: 78.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1755495398
@@ -8746,7 +9186,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 628, y: 236}
+  m_AnchoredPosition: {x: -641, y: 236}
   m_SizeDelta: {x: 619.80005, y: 381.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1801979152
@@ -9274,7 +9714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 103, y: 448}
+  m_AnchoredPosition: {x: -22, y: 462}
   m_SizeDelta: {x: 500, y: 148.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944714283
@@ -9582,7 +10022,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 284450272}
   m_Father: {fileID: 525668894}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9692,7 +10133,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 70
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 5
@@ -9712,91 +10153,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047997665}
   m_CullTransparentMesh: 1
---- !u!1 &2080935603
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2080935607}
-  - component: {fileID: 2080935604}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2080935604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080935603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cd378ce68067c04a92a1b10a21c8683, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  savePlayerStats:
-    NameCar: Name
-    Money: 10
-    Idt: 10
-  Machin1:
-    Price: 0
-    Name: 
-    Power: 0
-    Speed: 0
-    Fuel: 0
-  Machin2:
-    Price: 0
-    Name: 
-    Power: 0
-    Speed: 0
-    Fuel: 0
-  Machin3:
-    Price: 0
-    Name: 
-    Power: 0
-    Speed: 0
-    Fuel: 0
-  Machin4:
-    Price: 0
-    Name: 
-    Power: 0
-    Speed: 0
-    Fuel: 0
-  Machin5:
-    Price: 0
-    Name: 
-    Power: 0
-    Speed: 0
-    Fuel: 0
-  Machin6:
-    Price: 0
-    Name: 
-    Power: 0
-    Speed: 0
-    Fuel: 0
-  conclusionOnMoneyUI: {fileID: 1779447202}
-  conclusionOnDiamondsUI: {fileID: 231749036}
---- !u!4 &2080935607
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080935603}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.89, y: -4.9000874, z: 1.13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2087079846
 GameObject:
   m_ObjectHideFlags: 0
@@ -10003,7 +10359,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1666233454436870, guid: 764bc68a1a0dd384184fdeedf75892f9, type: 3}
       propertyPath: m_Name
-      value: FocE08
+      value: FocE
       objectReference: {fileID: 0}
     - target: {fileID: 1666233454436870, guid: 764bc68a1a0dd384184fdeedf75892f9, type: 3}
       propertyPath: m_IsActive
