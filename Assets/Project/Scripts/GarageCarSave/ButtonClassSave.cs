@@ -27,22 +27,5 @@ public static class ButtonClassSave //: MonoBehaviour
         }
     }
 }
-//public static T LoadFromPlayerPrefs<T>(string key)
-//{
-//    if (PlayerPrefs.HasKey(key))
-//    {
-//        Debug.Log(key + "Key");
-//        if (JsonUtility.FromJson<T>(PlayerPrefs.GetString(key)) == null)
-//        {
-//            Debug.Log("Null чувак");
-
-//        }
-//        return JsonUtility.FromJson<T>(PlayerPrefs.GetString(key));
-//    }
-//    else
-//    {
-//        return default(T);
-//    }
-//}
 
 

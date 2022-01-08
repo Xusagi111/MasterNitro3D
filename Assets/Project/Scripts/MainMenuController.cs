@@ -6,10 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    public GameObject SatingsPanel;
+    [SerializeField] GameObject SettingsPanel;
+    [SerializeField] GameObject UpdatePanel;
     public void OpenSatingsPanel(bool state)
     {
-        SatingsPanel.SetActive(state);
+        SettingsPanel.SetActive(state);
+    }
+    public void OpenUpdatePanel()
+    {
+        if (!UpdatePanel.activeSelf )
+        {
+            UpdatePanel.SetActive(true);
+        }
+        else
+        {
+            UpdatePanel.SetActive(false);
+        }
+
     }
     public void OpenGame()
     {

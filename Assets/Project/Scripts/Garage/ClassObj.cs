@@ -48,11 +48,3 @@ public class ClassObj : MonoBehaviour
         }
     }  
 }
-//if (count == 0)
-//{
-//    inite = gameObjects[count];
-//    CarDes[count] = inite;
-//    CarSevDesc = CarDes[count+1];
-//    CarSevDesc.SetActive(f);
-//    inite.SetActive(t);
-//}
