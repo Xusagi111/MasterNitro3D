@@ -16,10 +16,12 @@ public class ChunkSpawner : MonoBehaviour
     }
     private void Update()
     {
+       
         if (Vector3.Distance(spawnedChunks[spawnedChunks.Count - 1].End.position, Player.position) < 50f)
         {
             SpawnChunk();
         }
+
 
     }
 
@@ -37,4 +39,5 @@ public class ChunkSpawner : MonoBehaviour
             spawnedChunks.RemoveAt(0);
         }
     }
+
 }

@@ -12,11 +12,15 @@ public class RotateTrigger : MonoBehaviour
     public RotateType curType;
     private void OnTriggerEnter(Collider other)
     {
-        UIController.instance.OpenRotateMenu();
+        if (other.tag == "Player")
+        {
+            UIController.instance.OpenRotateMenu();
 
-        PlayerMovement.instnce.type = curType;
+            PlayerMovement.instnce.type = curType;
 
-        PlayerMovement.instnce.speed = 3f;
+            PlayerMovement.instnce.speed = 3f;
+        }
+      
     }
 
     private void OnTriggerExit(Collider other)
