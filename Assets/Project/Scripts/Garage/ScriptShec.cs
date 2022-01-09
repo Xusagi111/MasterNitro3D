@@ -26,15 +26,15 @@ public class ScriptShec : MonoBehaviour
         Debug.Log("НЕ смог войти " + name);
     }
 
-    public void OnTriggerExit(Collider other)
-    {
+    //public void OnTriggerExit(Collider other)
+    //{
        
-            Debug.Log("вход " + name);
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
-            if (GetComponent<BoxCollider>() != null)
-            gameObject.GetComponent<BoxCollider>().enabled = true;
+    //        Debug.Log("вход " + name);
+    //        gameObject.GetComponent<MeshRenderer>().enabled = true;
+    //        if (GetComponent<BoxCollider>() != null)
+    //        gameObject.GetComponent<BoxCollider>().enabled = true;
         
-        Debug.Log("НЕ смог выйти " + name);
-    }
+    //    Debug.Log("НЕ смог выйти " + name);
+    //}
 }
 
