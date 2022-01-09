@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScriptShec : MonoBehaviour
+public class ChecPosToLvl : MonoBehaviour
 {
     private void OnTriggerStay(Collider other)
     {
@@ -18,23 +18,10 @@ public class ScriptShec : MonoBehaviour
                 else
                 {
                     gameObject.GetComponent<MeshCollider>().enabled = false;
-                    Debug.Log("0");
+                 
                 }
             }
-
         }
-        Debug.Log("НЕ смог войти " + name);
     }
-
-    //public void OnTriggerExit(Collider other)
-    //{
-       
-    //        Debug.Log("вход " + name);
-    //        gameObject.GetComponent<MeshRenderer>().enabled = true;
-    //        if (GetComponent<BoxCollider>() != null)
-    //        gameObject.GetComponent<BoxCollider>().enabled = true;
-        
-    //    Debug.Log("НЕ смог выйти " + name);
-    //}
 }
 

@@ -9,8 +9,6 @@ public class GarageController : MonoBehaviour
     [SerializeField] public SavePlayerStats savePlayerStats = new SavePlayerStats(); //статистика игрока
     [SerializeField] Text conclusionOnMoneyUI;
     [SerializeField] Text conclusionOnDiamondsUI;
-    public GameObject Panel;
-    public InputField a;
     private void Start()
     {
         loaging(); // Загрузка денег.

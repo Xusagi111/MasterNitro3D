@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ClassObj : MonoBehaviour
+public class SetActiveCarSceneGarage : MonoBehaviour
 {
     [SerializeField] GameObject[] CarDes = new GameObject[6];
     [SerializeField] public GameObject[] gameObjects = new GameObject[6];

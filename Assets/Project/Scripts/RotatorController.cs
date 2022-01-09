@@ -30,7 +30,7 @@ public class RotatorController : MonoBehaviour
     {
         if (neededValue < 1 && plusing)
         {
-            neededValue += 0.5f;// 0.003f;
+            neededValue += 0.003f;
         }
         else if (neededValue >= 1 && plusing)
         {

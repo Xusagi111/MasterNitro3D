@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class NewCarTheGarage : MonoBehaviour
 {
     [SerializeField] GarageController garageController;
-    [SerializeField] ClassObj classObj;
+    [SerializeField] SetActiveCarSceneGarage classObj;
     [SerializeField] Text conclusionNameCarOnUI;
     [SerializeField] Text conclusionOnPowerUI;
     [SerializeField] Text conclusionOnSpeedUI;
@@ -28,7 +28,7 @@ public class NewCarTheGarage : MonoBehaviour
     private void Start()
     {
         garageController = GetComponent<GarageController>();
-        classObj = GetComponent<ClassObj>();
+        classObj = GetComponent<SetActiveCarSceneGarage>();
         //Debug.Log("allCarTheGarage " + allCarTheGarage);
         allCarTheGarage = ButtonClassSave.LoadFromPlayerPrefs<AllCarTheGarage>(allCarTheGarage, "AllCarTheGarage");
         DisplayToNameCar();
@@ -98,7 +98,6 @@ public class NewCarTheGarage : MonoBehaviour
                 conclusionOnPowerUI.text = Ttt[i][PowerState]; 
                 conclusionOnSpeedUI.text = Ttt[i][SpeedState];
                 conclusionOnFuelUI.text = Ttt[i][FuelState];
-                Debug.Log("индекс машины " + i);
                 ConclusionUpgrageToUIPanel(Ttt, i);
             }
         }
