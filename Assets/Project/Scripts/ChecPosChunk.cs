@@ -15,6 +15,7 @@ public class ChecPosChunk : MonoBehaviour
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
                 if(GetComponent<BoxCollider>() != null)
                 gameObject.GetComponent<BoxCollider>().enabled = false;
+
                 else
                 {
                     gameObject.GetComponent<MeshCollider>().enabled = false;
