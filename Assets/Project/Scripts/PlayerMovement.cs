@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
-
     public static PlayerMovement instnce;
 
     [HideInInspector] public RotateType type;
@@ -18,11 +17,22 @@ public class PlayerMovement : MonoBehaviour
         rotating = 0;
         instnce = this;
     }
-    void Update()
+    void FixedUpdate() //test управление
     {
+        float moveSide = Input.GetAxis("Horizontal");
         if (canMoving)
         {
             transform.position += transform.forward * Time.deltaTime * speed;
+            if (moveSide > 0)
+            {
+                transform.position += (new Vector3(1, 0, 0) * Time.deltaTime  *2); 
+                transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * speed * 2 );
+            }
+            if (moveSide < 0)
+            {
+                transform.position += (new Vector3(-1, 0, 0) * Time.deltaTime * 2); 
+                transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * speed *2);
+            }
         }
     }
 
