@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChecPosToLvl : MonoBehaviour
+public class ChecPosChunk : MonoBehaviour
 {
     private void OnTriggerStay(Collider other)
     {
