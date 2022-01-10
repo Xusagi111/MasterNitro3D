@@ -3841,7 +3841,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.120635815, y: -0.21658082, z: 0.02697978, w: 0.96840686}
+  m_LocalRotation: {x: 0.12063583, y: -0.21658084, z: 0.026979784, w: 0.96840686}
   m_LocalPosition: {x: 3.58, y: 3.066, z: 4.9542027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4216,7 +4216,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016221290}
-  m_LocalRotation: {x: 0.120635815, y: -0.21658082, z: 0.02697978, w: 0.96840686}
+  m_LocalRotation: {x: 0.12063583, y: -0.21658084, z: 0.026979784, w: 0.96840686}
   m_LocalPosition: {x: 3.58, y: 3.066, z: 4.9542027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4509,6 +4509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  RotCar: 0
   type: 0
 --- !u!65 &1068571035
 BoxCollider:
@@ -4691,7 +4692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1068571038}
   ChunkPrefabs:
-  - {fileID: 3817202875988782718, guid: c66f5d212dddb0d439009f2c3c334e5e, type: 3}
+  - {fileID: 3817202875988782718, guid: cc1a38af0b265c744b174175dacae091, type: 3}
   firstChunk: {fileID: 5984885505451264190}
 --- !u!4 &1104844951
 Transform:

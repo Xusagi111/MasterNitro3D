@@ -6,12 +6,12 @@ public class ChecPosChunk : MonoBehaviour
 {
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.tag);
+        //Debug.Log(other.tag);
         if (other.tag == "ChunkTag")
         {
             if(GetComponent<MeshRenderer>() != false)
             {
-                Debug.Log("вход " + name);
+                //Debug.Log("вход " + name);
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
                 if(GetComponent<BoxCollider>() != null)
                 gameObject.GetComponent<BoxCollider>().enabled = false;

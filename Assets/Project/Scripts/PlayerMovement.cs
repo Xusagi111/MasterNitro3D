@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
     public static PlayerMovement instnce;
+    public bool RotCar;
 
     [HideInInspector] public RotateType type;
 
@@ -17,22 +18,36 @@ public class PlayerMovement : MonoBehaviour
         rotating = 0;
         instnce = this;
     }
-    void FixedUpdate() //test управление
+    void Update() //test управление
     {
         float moveSide = Input.GetAxis("Horizontal");
         if (canMoving)
         {
-            transform.position += transform.forward * Time.deltaTime * speed;
-            if (moveSide > 0)
+            if(RotCar == false)
             {
-                transform.position += (new Vector3(1, 0, 0) * Time.deltaTime  *2); 
-                transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * speed * 2 );
+                transform.position += transform.forward * Time.deltaTime * speed;
+                if (moveSide > 0)
+                {
+                    transform.position += (new Vector3(1, 0, 0) * Time.deltaTime * 2);
+                }
+                if (moveSide < 0)
+                {
+                    transform.position += (new Vector3(-1, 0, 0) * Time.deltaTime * 2);
+                }
             }
-            if (moveSide < 0)
+            else
             {
-                transform.position += (new Vector3(-1, 0, 0) * Time.deltaTime * 2); 
-                transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * speed *2);
+                transform.position += transform.forward * Time.deltaTime * speed;
+                if (moveSide > 0)
+                {
+                    transform.position += (new Vector3(0, 0, 1) * Time.deltaTime * 2);
+                }
+                if (moveSide < 0)
+                {
+                    transform.position += (new Vector3(0, 0, -1) * Time.deltaTime * 2);
+                }
             }
+          
         }
     }
 
@@ -45,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
                 var toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * -1f);
                 rotating++;
                 transform.rotation = toAngle;
+                Debug.Log("Лево");
+                RotCar = true;
             }
             else
             {
@@ -59,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
                 var toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * 1f);
                 rotating++;
                 transform.rotation = toAngle;
+                Debug.Log("Право");
             }
             else
             {
