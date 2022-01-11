@@ -21,9 +21,9 @@ public class ShowHideMobileUI : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        MobileUI.SetActive (IsMobilePlatform);
-        PcConcoleUI.SetActive (!IsMobilePlatform);
-    }
+    //void Start()
+    //{
+    //    MobileUI.SetActive (IsMobilePlatform);
+    //    PcConcoleUI.SetActive (!IsMobilePlatform);
+    //}
 }
