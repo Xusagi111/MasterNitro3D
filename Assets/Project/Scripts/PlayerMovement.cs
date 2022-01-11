@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
     public float speed = 5f;
     public static PlayerMovement instnce;
-    public bool RotCar;
+    [SerializeField] bool RotCar;
+    [SerializeField]  GameObject Point;
 
     [HideInInspector] public RotateType type;
 
@@ -20,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update() //test управление
     {
+        var ray = new Ray(transform.position, transform.position.normalized);
+        Debug.DrawRay(Point.transform.position, ray.direction * 1000);
+
         float moveSide = Input.GetAxis("Horizontal");
         if (canMoving)
         {
@@ -59,8 +64,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 var toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * -1f);
                 rotating++;
-                transform.rotation = toAngle;
-                Debug.Log("Лево");
+                transform.rotation = toAngle; 
                 RotCar = true;
             }
             else
@@ -76,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
                 var toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * 1f);
                 rotating++;
                 transform.rotation = toAngle;
-                Debug.Log("Право");
+              
             }
             else
             {
