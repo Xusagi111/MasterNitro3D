@@ -7,24 +7,24 @@ public enum RotateType
     Left, Right
 }
 
-public class RotateTrigger : MonoBehaviour
+public class RotateTrigger : MonoBehaviour //Пока не используется
 {
-    public RotateType curType;
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            UIController.instance.OpenRotateMenu();
+    //public RotateType curType;
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag == "Player")
+    //    {
+    //        UIController.instance.OpenRotateMenu();
 
-            PlayerMovement.instnce.type = curType;
+    //        PlayerMovement.instnce.type = curType;
 
-            PlayerMovement.instnce.speed = 3f;
-        }
+    //        PlayerMovement.instnce.speed = 3f;
+    //    }
       
-    }
+    //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        PlayerMovement.instnce.speed = 10f;
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    PlayerMovement.instnce.speed = 10f;
+    //} 
 }
