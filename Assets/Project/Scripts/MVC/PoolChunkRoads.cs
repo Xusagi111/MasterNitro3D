@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Project.Scripts.MVC
 {
-    public class PoolChunkRoads
+    public class PoolChunkRoads : MonoBehaviour
     {
         [SerializeField] private int _countRoad;
         [SerializeField] private Chunk _road;
@@ -12,8 +14,9 @@ namespace Project.Scripts.MVC
 
         private GameObject _container;
 
-        public PoolChunkRoads()
+        private void Start()
         {
+            Initialization();
         }
 
         public void Initialization()
