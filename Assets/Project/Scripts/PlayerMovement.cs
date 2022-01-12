@@ -22,37 +22,11 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update() //test управление
     {
-        var ray = new Ray(transform.position, transform.position.normalized);
-        Debug.DrawRay(Point.transform.position, ray.direction * 1000);
 
         float moveSide = Input.GetAxis("Horizontal");
         if (canMoving)
         {
-            if(RotCar == false)
-            {
                 transform.position += transform.forward * Time.deltaTime * speed;
-                if (moveSide > 0)
-                {
-                    transform.position += (new Vector3(1, 0, 0) * Time.deltaTime * 2);
-                }
-                if (moveSide < 0)
-                {
-                    transform.position += (new Vector3(-1, 0, 0) * Time.deltaTime * 2);
-                }
-            }
-            else
-            {
-                transform.position += transform.forward * Time.deltaTime * speed;
-                if (moveSide > 0)
-                {
-                    transform.position += (new Vector3(0, 0, 1) * Time.deltaTime * 2);
-                }
-                if (moveSide < 0)
-                {
-                    transform.position += (new Vector3(0, 0, -1) * Time.deltaTime * 2);
-                }
-            }
-          
         }
     }
 
@@ -65,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
                 var toAngle = Quaternion.Euler(transform.eulerAngles + Vector3.up * -1f);
                 rotating++;
                 transform.rotation = toAngle; 
-                RotCar = true;
             }
             else
             {
