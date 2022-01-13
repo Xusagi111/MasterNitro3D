@@ -21,8 +21,6 @@ public class ChunkSpawner : MonoBehaviour
         {
             SpawnChunk();
         }
-
-
     }
 
     private void SpawnChunk()
