@@ -1024,9 +1024,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 900161687897742106}
-  - component: {fileID: 8028243562474561176}
   - component: {fileID: 900161687897742107}
-  - component: {fileID: 900161687897742108}
+  - component: {fileID: 4841854141036050607}
   m_Layer: 0
   m_Name: Road_Right
   m_TagString: ChunkTag
@@ -1056,20 +1055,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!114 &8028243562474561176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900161687897742109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5c5d89eb5cf24348b4fee7a7e1a8c20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  End: {fileID: 900161687364922088}
-  Start: {fileID: 900161687685707050}
 --- !u!65 &900161687897742107
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1083,7 +1068,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.98, y: 1, z: 1.295311}
   m_Center: {x: 0, y: 1, z: 0.6242411}
---- !u!114 &900161687897742108
+--- !u!114 &4841854141036050607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1092,9 +1077,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 900161687897742109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbd043fda47ffaf4688055053ce648fc, type: 3}
+  m_Script: {fileID: 11500000, guid: b81e8ff73bc04074a28010ad0aaf4a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  End: {fileID: 900161687364922088}
+  Start: {fileID: 900161687685707050}
 --- !u!1 &900161688010110540
 GameObject:
   m_ObjectHideFlags: 0

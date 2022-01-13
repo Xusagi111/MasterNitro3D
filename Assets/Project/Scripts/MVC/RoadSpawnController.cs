@@ -4,7 +4,7 @@ using Random = System.Random;
 
 namespace Project.Scripts.MVC
 {
-    public class RoadSpawnController : MonoBehaviour
+    public class RoadSpawnController : IUpdate
     {
         private PoolChunkRoads _poolRoads;
         private Chunk newChunk;
@@ -15,13 +15,14 @@ namespace Project.Scripts.MVC
 
         private List<Chunk> spawnedChunks = new List<Chunk>();
 
-        private void Start()
+        public RoadSpawnController(PoolChunkRoads pool, Chunk chunk)
         {
-            spawnedChunks.Add(firstChunk);
+            _poolRoads = pool;
+            newChunk = chunk;
         }
         
         
-        private void Update()
+        public void Update(float deltaTime)
         {
             if (Vector3.Distance(spawnedChunks[spawnedChunks.Count - 1].End.position, Player.position) < 50f)
             {
@@ -36,7 +37,7 @@ namespace Project.Scripts.MVC
 
         private void SpawnChunk()
         {
-            newChunk = _poolRoads.GetChunkRoad(); 
+            newChunk = _poolRoads.GetChunkRoad(UnityEngine.Random.Range(0, ChunkPrefabs.Length)); 
                 
                // newChunk = Object.Instantiate(ChunkPrefabs[UnityEngine.Random.Range(0, ChunkPrefabs.Length)]);
             newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].End.position - newChunk.Start.localPosition;
@@ -46,8 +47,8 @@ namespace Project.Scripts.MVC
 
             if (spawnedChunks.Count >= 3)
             {
-                _poolRoads.ReturnChunkRoad();
-                spawnedChunks.RemoveAt(0);
+                _poolRoads.ReturnChunkRoad(spawnedChunks[0]);
+                spawnedChunks.Remove(spawnedChunks[0]);
             }
         }
     }
