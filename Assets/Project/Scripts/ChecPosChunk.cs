@@ -6,16 +6,17 @@ public class ChecPosChunk : MonoBehaviour
 {
     private void OnTriggerStay(Collider other)
     {
-        //Debug.Log(other.tag);
         if (other.tag == "ChunkTag")
         {
-            if(GetComponent<MeshRenderer>() != false)
+            Debug.Log("re");
+            if(gameObject.GetComponent<MeshRenderer>() != false)
             {
-                //Debug.Log("вход " + name);
+                Debug.Log("вход " + name);
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
                 if(GetComponent<BoxCollider>() != null)
-                gameObject.GetComponent<BoxCollider>().enabled = false;
-
+                {
+                    gameObject.GetComponent<BoxCollider>().enabled = false;
+                }
                 else
                 {
                     gameObject.GetComponent<MeshCollider>().enabled = false;
@@ -24,5 +25,28 @@ public class ChecPosChunk : MonoBehaviour
             }
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Вышел");
+        gameObject.GetComponent<BoxCollider>().enabled = true;
+    }
 }
 
+//      if (other.gameObject.TryGetComponent<SceneObjectTexture>(out SceneObjectTexture sceneObjectTexture))
+//{
+//    Debug.Log("re");
+//    if (gameObject.GetComponent<MeshRenderer>() != false)
+//    {
+//        Debug.Log("вход " + name);
+//        gameObject.GetComponent<MeshRenderer>().enabled = false;
+//        if (GetComponent<BoxCollider>() != null)
+//        {
+//            gameObject.GetComponent<BoxCollider>().enabled = false;
+//        }
+//        else
+//        {
+//            gameObject.GetComponent<MeshCollider>().enabled = false;
+
+//        }
+//    }
+//}
