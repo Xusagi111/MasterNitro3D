@@ -807,7 +807,6 @@ GameObject:
   - component: {fileID: 8611315869481541816}
   - component: {fileID: 1483235266217043258}
   - component: {fileID: 8611315869481541817}
-  - component: {fileID: 8611315869481541822}
   m_Layer: 0
   m_Name: Road_Left
   m_TagString: ChunkTag
@@ -860,18 +859,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.98, y: 1, z: 1.295311}
   m_Center: {x: 0, y: 1, z: 0.6242411}
---- !u!114 &8611315869481541822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8611315869481541823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbd043fda47ffaf4688055053ce648fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8611315869516425053
 GameObject:
   m_ObjectHideFlags: 0
