@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ChecPosChunk : MonoBehaviour
 {
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.tag + " тег");
         if (other.tag == "ChunkTag")
         {
-            Debug.Log("re");
-            if(gameObject.GetComponent<MeshRenderer>() != false)
+            Debug.Log(other.tag + " тег");
+            if (gameObject.GetComponent<MeshRenderer>() != false)
             {
                 Debug.Log("вход " + name);
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
@@ -22,31 +23,17 @@ public class ChecPosChunk : MonoBehaviour
                     gameObject.GetComponent<MeshCollider>().enabled = false;
                  
                 }
-            }
+            } 
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Вышел");
-        gameObject.GetComponent<BoxCollider>().enabled = true;
+        Debug.Log(" Вышел" + other.tag);
+        if(gameObject.GetComponent<MeshRenderer>().enabled == false)
+        {
+            gameObject.GetComponent<MeshRenderer>().enabled = true;
+        }
+        Debug.Log("Должен появиться " + gameObject);
     }
+   
 }
-
-//      if (other.gameObject.TryGetComponent<SceneObjectTexture>(out SceneObjectTexture sceneObjectTexture))
-//{
-//    Debug.Log("re");
-//    if (gameObject.GetComponent<MeshRenderer>() != false)
-//    {
-//        Debug.Log("вход " + name);
-//        gameObject.GetComponent<MeshRenderer>().enabled = false;
-//        if (GetComponent<BoxCollider>() != null)
-//        {
-//            gameObject.GetComponent<BoxCollider>().enabled = false;
-//        }
-//        else
-//        {
-//            gameObject.GetComponent<MeshCollider>().enabled = false;
-
-//        }
-//    }
-//}
