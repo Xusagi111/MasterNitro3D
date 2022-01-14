@@ -8,6 +8,7 @@ public class MainMenuController : MonoBehaviour
 {
     [SerializeField] GameObject SettingsPanel;
     [SerializeField] GameObject UpdatePanel;
+    [SerializeField] GameObject FpsPanel;
     public void OpenSatingsPanel(bool state)
     {
         SettingsPanel.SetActive(state);
@@ -21,6 +22,18 @@ public class MainMenuController : MonoBehaviour
         else
         {
             UpdatePanel.SetActive(false);
+        }
+
+    }
+    public void OpenFpsPanel()
+    {
+        if (!FpsPanel.activeSelf)
+        {
+            FpsPanel.SetActive(true);
+        }
+        else
+        {
+            FpsPanel.SetActive(false);
         }
 
     }
