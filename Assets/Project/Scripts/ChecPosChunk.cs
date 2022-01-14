@@ -6,13 +6,10 @@ public class ChecPosChunk : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag + " тег");
-        if (other.tag == "ChunkTag")
+        if (other.gameObject.TryGetComponent<Chunk>(out Chunk chunk))
         {
-            Debug.Log(other.tag + " тег");
             if (gameObject.GetComponent<MeshRenderer>() != false)
             {
-                Debug.Log("вход " + name);
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
                 if(GetComponent<BoxCollider>() != null)
                 {
@@ -28,12 +25,50 @@ public class ChecPosChunk : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log(" Вышел" + other.tag);
-        if(gameObject.GetComponent<MeshRenderer>().enabled == false)
+        if (other.gameObject.TryGetComponent<Chunk>(out Chunk chunk))
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            if (gameObject.GetComponent<MeshRenderer>().enabled == false)
+            {
+                gameObject.GetComponent<MeshRenderer>().enabled = true;
+            }
         }
-        Debug.Log("Должен появиться " + gameObject);
+            
     }
    
 }
+
+//private void OnTriggerEnter(Collider other)
+//{
+//    Debug.Log(other.tag + " тег");
+//    if (other.tag == "ChunkTag")
+//    {
+//        Debug.Log(other.tag + " тег");
+//        if (gameObject.GetComponent<MeshRenderer>() != false)
+//        {
+//            Debug.Log("вход " + name);
+//            gameObject.GetComponent<MeshRenderer>().enabled = false;
+//            if (GetComponent<BoxCollider>() != null)
+//            {
+//                gameObject.GetComponent<BoxCollider>().enabled = false;
+//            }
+//            else
+//            {
+//                gameObject.GetComponent<MeshCollider>().enabled = false;
+
+//            }
+//        }
+//    }
+//}
+//private void OnTriggerExit(Collider other)
+//{
+//    if (other.tag == "ChunkTag")
+//    {
+//        Debug.Log(" Вышел" + other.tag);
+//        if (gameObject.GetComponent<MeshRenderer>().enabled == false)
+//        {
+//            gameObject.GetComponent<MeshRenderer>().enabled = true;
+//        }
+//        Debug.Log("Должен появиться " + gameObject);
+//    }
+
+//}

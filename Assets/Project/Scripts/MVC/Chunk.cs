@@ -15,12 +15,12 @@ namespace Project.Scripts.MVC
         public Transform End;
         public Transform Start;
 
-        public ChunkType Type;
+        //public ChunkType Type;
 
-        public Chunk(ChunkType type)
-        {
-            Type = type;
-        }
+        //public Chunk(ChunkType type)
+        //{
+        //    Type = type;
+        //}
 
         
     }

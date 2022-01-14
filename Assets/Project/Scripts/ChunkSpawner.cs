@@ -33,9 +33,15 @@ public class ChunkSpawner : MonoBehaviour
 
         if (spawnedChunks.Count >= 3)
         {
-            Destroy(spawnedChunks[0].gameObject);
-            spawnedChunks.RemoveAt(0);
+            spawnedChunks[0].gameObject.transform.position = new Vector3(0, -10, 0);
+            StartCoroutine("DestroyObjRoad");
         }
     }
+    IEnumerator DestroyObjRoad()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(spawnedChunks[0].gameObject);
+        spawnedChunks.RemoveAt(0);
 
+    }
 }
