@@ -3489,6 +3489,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Graphy] '
       objectReference: {fileID: 0}
+    - target: {fileID: 5198467656708630698, guid: 5c8394e9f90ba7a4baeefd7e4c735971, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5198467656720418968, guid: 5c8394e9f90ba7a4baeefd7e4c735971, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5245,7 +5249,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.6934147, b: 0.031372547, a: 1}
   m_Intensity: 1
-  m_Range: 7.69
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -8995,7 +8999,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 4.57
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
