@@ -2579,6 +2579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClouseFpsPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 2940917766390157207, guid: 894e9a5ed1ff37b48888295769b3ab86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 894e9a5ed1ff37b48888295769b3ab86, type: 3}
 --- !u!1 &348056106 stripped
@@ -5947,7 +5951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1143364652642573263, guid: 46fbb20cf9353634484dc8093221e461, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1143364654316242883, guid: 46fbb20cf9353634484dc8093221e461, type: 3}
       propertyPath: m_IsActive
