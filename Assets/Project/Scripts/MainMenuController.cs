@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class MainMenuController : MonoBehaviour
     {
         SettingsPanel.SetActive(state);
     }
+
     public void OpenUpdatePanel()
     {
         if (!UpdatePanel.activeSelf )
