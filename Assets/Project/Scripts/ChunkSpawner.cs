@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ChunkSpawner : MonoBehaviour
 {
+
     public Transform Player;
     public Chunk[] ChunkPrefabs;
     public Chunk firstChunk;
-
     private List<Chunk> spawnedChunks = new List<Chunk>();
 
     private void Start()
@@ -28,14 +29,15 @@ public class ChunkSpawner : MonoBehaviour
         Chunk newChunk = Instantiate(ChunkPrefabs[Random.Range(0, ChunkPrefabs.Length)]);
         newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].End.position - newChunk.Start.localPosition;
         newChunk.transform.rotation = spawnedChunks[spawnedChunks.Count - 1].End.rotation;
-        Debug.Log(spawnedChunks[spawnedChunks.Count - 1].End.rotation);
         spawnedChunks.Add(newChunk);
-
-        if (spawnedChunks.Count >= 3)
-        {
-            spawnedChunks[0].gameObject.transform.position = new Vector3(0, -10, 0);
-            StartCoroutine("DestroyObjRoad");
-        }
+        
+            if (spawnedChunks.Count >= 4)
+            {
+                spawnedChunks[0].gameObject.transform.position = new Vector3(0, -10, 0);
+                StartCoroutine("DestroyObjRoad");
+             }
+        
+        
     }
     IEnumerator DestroyObjRoad()
     {

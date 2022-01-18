@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class NewCarTheGarage : MonoBehaviour
 {
     [SerializeField] GarageController garageController;
@@ -41,8 +43,8 @@ public class NewCarTheGarage : MonoBehaviour
     }
     public void UpgradePower() //снимает деньги от основной валюты и прибавляет характеристики к текущей машине.
     {
-        string[][] Ttt = { allCarTheGarage.CarYellow, allCarTheGarage.Chev, allCarTheGarage.Vehicle, allCarTheGarage.CarCarbon, allCarTheGarage.FocE };
-        int IndexPowerLvl1 = int.Parse(Ttt[indexMachin][PowerLvl]); //получаем лвл машины
+        string[][] AllStateMachin = { allCarTheGarage.CarYellow, allCarTheGarage.Chev, allCarTheGarage.Vehicle, allCarTheGarage.CarCarbon, allCarTheGarage.FocE };
+        int IndexPowerLvl1 = int.Parse(AllStateMachin[indexMachin][PowerLvl]); //получаем лвл машины
         if (IndexPowerLvl1 < allCarTheGarage.upgradeAllLvl.Length - 1 ) 
         {
             int LvlThecurrentCar = int.Parse(allCarTheGarage.upgradeAllLvl[IndexPowerLvl1]);
@@ -50,10 +52,10 @@ public class NewCarTheGarage : MonoBehaviour
             {
                 garageController.savePlayerStats.Money -= LvlThecurrentCar; //отнимает текущую сумму
                 IndexPowerLvl1 += 1;
-                Ttt[indexMachin][PowerLvl] = IndexPowerLvl1.ToString();
-                int state = int.Parse(Ttt[indexMachin][PowerState]);
+                AllStateMachin[indexMachin][PowerLvl] = IndexPowerLvl1.ToString();
+                int state = int.Parse(AllStateMachin[indexMachin][PowerState]);
                 state += 5;
-                conclusionOnPowerUI.text = Ttt[indexMachin][PowerState] = state.ToString();
+                conclusionOnPowerUI.text = AllStateMachin[indexMachin][PowerState] = state.ToString();
                 //сохранения 
                 garageController.SaveAndConclusionMetod();
                 ButtonClassSave.SaveToPlayerPrefs<AllCarTheGarage>(allCarTheGarage, "AllCarTheGarage");
@@ -68,13 +70,13 @@ public class NewCarTheGarage : MonoBehaviour
             Debug.Log("Достугнут Максимальный лвл");
         }
     }
-    public int ConclusionUpgrageToUIPanel(string[][] Ttt, int indexMachin)
+    public int ConclusionUpgrageToUIPanel(string[][] AllStateMachin, int indexMachin)
     {
         //считывания лвл 
-        int IndexPowerLvl = int.Parse(Ttt[indexMachin][PowerLvl]);
+        int IndexPowerLvl = int.Parse(AllStateMachin[indexMachin][PowerLvl]);
         //Debug.Log("индекс машины" + indexMachin + "lvl Power" + IndexPowerLvl);
-        int IndexSpeedLvl = int.Parse(Ttt[indexMachin][SpeedLvl]);
-        int IndexFuelLvl = int.Parse(Ttt[indexMachin][FuelLvl]);
+        int IndexSpeedLvl = int.Parse(AllStateMachin[indexMachin][SpeedLvl]);
+        int IndexFuelLvl = int.Parse(AllStateMachin[indexMachin][FuelLvl]);
 
         //выводит стоимость на текущий лвл
         if(IndexPowerLvl < allCarTheGarage.upgradeAllLvl.Length)
@@ -88,17 +90,18 @@ public class NewCarTheGarage : MonoBehaviour
 
     public void DisplayToNameCar()
     {
-        string[][] Ttt = { allCarTheGarage.CarYellow, allCarTheGarage.Chev, allCarTheGarage.Vehicle, allCarTheGarage.CarCarbon, allCarTheGarage.FocE };
+        string[][] AllStateMachin = { allCarTheGarage.CarYellow, allCarTheGarage.Chev, allCarTheGarage.Vehicle, allCarTheGarage.CarCarbon, allCarTheGarage.FocE };
 
         for (int i = 0; i < NameCarArray.Length; i++)
         {
             if (classObj.gameObjects[i] == classObj.inite)
             {
                 conclusionNameCarOnUI.text = NameCarArray[i];
-                conclusionOnPowerUI.text = Ttt[i][PowerState]; 
-                conclusionOnSpeedUI.text = Ttt[i][SpeedState];
-                conclusionOnFuelUI.text = Ttt[i][FuelState];
-                ConclusionUpgrageToUIPanel(Ttt, i);
+                conclusionOnPowerUI.text = AllStateMachin[i][PowerState]; 
+                conclusionOnSpeedUI.text = AllStateMachin[i][SpeedState];
+                conclusionOnFuelUI.text = AllStateMachin[i][FuelState];
+                ConclusionUpgrageToUIPanel(AllStateMachin, i);
+                EventManager.SetActiveUI(i);
             }
         }
     }

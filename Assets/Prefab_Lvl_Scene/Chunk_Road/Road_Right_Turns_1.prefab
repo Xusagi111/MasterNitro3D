@@ -2367,6 +2367,7 @@ GameObject:
   - component: {fileID: 1650553240494407733}
   - component: {fileID: 1650553240494407729}
   - component: {fileID: 1810690229412471527}
+  - component: {fileID: 2199455053152351234}
   m_Layer: 0
   m_Name: Road_Right_Turns_1
   m_TagString: ChunkTag
@@ -2418,6 +2419,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 15.555277, y: 1, z: 80.7172}
   m_Center: {x: -0.04958439, y: -0.54, z: 39.951824}
+--- !u!114 &2199455053152351234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650553240494407730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd043fda47ffaf4688055053ce648fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1650553240503013182
 GameObject:
   m_ObjectHideFlags: 0
