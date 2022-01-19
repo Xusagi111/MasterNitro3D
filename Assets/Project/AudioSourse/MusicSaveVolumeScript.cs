@@ -16,8 +16,8 @@ public class MusicSaveVolumeScript : MonoBehaviour
     }
     public void Save()
     {
-        GarageController.savePlayerStats.Music = SaveMusic;
-        GarageController.savePlayerStats.Effects = SaveEffect;
+        GarageController.savePlayerStats.Music = this.SaveMusic;
+        GarageController.savePlayerStats.Effects = this.SaveEffect;
         ButtonClassSave.SaveToPlayerPrefs<SavePlayerStats>(GarageController.savePlayerStats, "SavePlayerStats");
     }
     public void loaging()
@@ -36,7 +36,6 @@ public class MusicSaveVolumeScript : MonoBehaviour
     }
     public float SaveMusicState(float SaveMusic)
     {
-        Debug.Log(SaveMusic);
         return this.SaveMusic = SaveMusic;
         
     }
@@ -52,7 +51,6 @@ public class MusicSaveVolumeScript : MonoBehaviour
     }
     public float SaveEffectState(float SaveEffect)
     {
-        Debug.Log(SaveEffect);
         return this.SaveEffect = SaveEffect;
         
     }
