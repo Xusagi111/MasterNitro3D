@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.Events;
 
 public class MusicController : MonoBehaviour
 {
     public AudioMixerGroup Mixer;
+    private void Awake()
+    {
+        //MusicSaveVolumeScript.MusicSaveEvent.AddListener(MusicLevel);
+    }
+
     public void ToggleMusic(bool enabled)
     {
         if (enabled)
@@ -37,5 +43,4 @@ public class MusicController : MonoBehaviour
     {
         Mixer.audioMixer.SetFloat("SoundsVolume", Mathf.Log10(volume) * 20);
     }
-
 }

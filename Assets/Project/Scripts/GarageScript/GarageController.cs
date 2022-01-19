@@ -6,12 +6,12 @@ using System;
 
 public class GarageController : MonoBehaviour
 {
-    [SerializeField] public SavePlayerStats savePlayerStats = new SavePlayerStats(); //статистика игрока
+    [SerializeField] public static SavePlayerStats savePlayerStats = new SavePlayerStats(); //статистика игрока
     [SerializeField] Text conclusionOnMoneyUI;
     [SerializeField] Text conclusionOnDiamondsUI;
     private void Start()
     {
-        loaging(); // «агрузка денег.
+        loaging(); // «агрузка денег. ToDo ¬ынести в другой метод, переработать текущий метод
     }
     public void SaveAndConclusionMetod()
     {

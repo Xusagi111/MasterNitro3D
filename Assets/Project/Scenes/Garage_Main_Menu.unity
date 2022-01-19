@@ -2349,6 +2349,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1657980976}
+        m_TargetAssemblyTypeName: MusicSaveVolumeScript, Assembly-CSharp
+        m_MethodName: SetEffectSlider
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 152314357}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &154118408
 GameObject:
   m_ObjectHideFlags: 0
@@ -4866,10 +4878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd378ce68067c04a92a1b10a21c8683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savePlayerStats:
-    NamePlayer: Name
-    Money: 10
-    Idt: 10
   conclusionOnMoneyUI: {fileID: 1779447202}
   conclusionOnDiamondsUI: {fileID: 231749036}
 --- !u!1 &361466086
@@ -8094,6 +8102,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1657980976}
+        m_TargetAssemblyTypeName: MusicSaveVolumeScript, Assembly-CSharp
+        m_MethodName: SetMusicSlider
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 836974975}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -12095,6 +12115,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1657980976}
+        m_TargetAssemblyTypeName: MusicSaveVolumeScript, Assembly-CSharp
+        m_MethodName: Save
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16128,6 +16160,7 @@ GameObject:
   - component: {fileID: 1657980975}
   - component: {fileID: 1657980974}
   - component: {fileID: 1657980973}
+  - component: {fileID: 1657980976}
   m_Layer: 0
   m_Name: UI_Controller
   m_TagString: Untagged
@@ -16273,6 +16306,20 @@ MonoBehaviour:
   SettingsPanel: {fileID: 0}
   UpdatePanel: {fileID: 1415228962}
   FpsPanel: {fileID: 2008246283}
+--- !u!114 &1657980976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657980971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdee98141cd34064b9aff38cdcf3b061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MusicSlider: {fileID: 836974975}
+  EffectsSlider: {fileID: 152314357}
 --- !u!1 &1660685801
 GameObject:
   m_ObjectHideFlags: 0

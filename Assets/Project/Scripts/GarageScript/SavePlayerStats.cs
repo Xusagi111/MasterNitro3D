@@ -9,6 +9,8 @@ public class SavePlayerStats
     public string NamePlayer = "Name";
     public int Money = 1000;
     public int Idt = 10;
+    public float Music;
+    public float Effects;
 }
 [System.Serializable]
 public class AllCarTheGarage

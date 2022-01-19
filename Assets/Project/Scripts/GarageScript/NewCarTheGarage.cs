@@ -37,7 +37,7 @@ public class NewCarTheGarage : MonoBehaviour
     }
     public void MethodWrappingMoney()
     {
-        garageController.savePlayerStats.Money += 10000;
+        GarageController.savePlayerStats.Money += 10000;
         garageController.SaveAndConclusionMetod();
 
     }
@@ -48,9 +48,9 @@ public class NewCarTheGarage : MonoBehaviour
         if (IndexPowerLvl1 < allCarTheGarage.upgradeAllLvl.Length - 1 ) 
         {
             int LvlThecurrentCar = int.Parse(allCarTheGarage.upgradeAllLvl[IndexPowerLvl1]);
-            if (garageController.savePlayerStats.Money >= LvlThecurrentCar)
+            if (GarageController.savePlayerStats.Money >= LvlThecurrentCar)
             {
-                garageController.savePlayerStats.Money -= LvlThecurrentCar; //отнимает текущую сумму
+                GarageController.savePlayerStats.Money -= LvlThecurrentCar; //отнимает текущую сумму
                 IndexPowerLvl1 += 1;
                 AllStateMachin[indexMachin][PowerLvl] = IndexPowerLvl1.ToString();
                 int state = int.Parse(AllStateMachin[indexMachin][PowerState]);
