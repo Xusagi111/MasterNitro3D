@@ -10,7 +10,7 @@ public class MusicController : MonoBehaviour
     public AudioMixerGroup Mixer;
     private void Awake()
     {
-        //MusicSaveVolumeScript.MusicSaveEvent.AddListener(MusicLevel);
+
     }
 
     public void ToggleMusic(bool enabled)

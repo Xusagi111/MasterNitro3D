@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class MusicSaveVolumeScript : MonoBehaviour
 {
-    public float SaveMusic { get; set; }
-    public float SaveEffect { get; set;  }
     [SerializeField] Slider MusicSlider;
     [SerializeField] Slider EffectsSlider;
+
+    public float SaveMusic { get; set; }
+    public float SaveEffect { get; set;  }
+
+
     private void Start()
     {
         loaging();
@@ -23,40 +26,27 @@ public class MusicSaveVolumeScript : MonoBehaviour
     public void loaging()
     {
         GarageController.savePlayerStats = ButtonClassSave.LoadFromPlayerPrefs<SavePlayerStats>(GarageController.savePlayerStats, "SavePlayerStats");
-        SaveMusicState(GarageController.savePlayerStats.Music);
-        SaveEffectState( GarageController.savePlayerStats.Effects);
+        this.SaveMusic = GarageController.savePlayerStats.Music;
+        this.SaveEffect = GarageController.savePlayerStats.Effects;
         GetMusicSlider(MusicSlider);
         GetEffectSlider(EffectsSlider);
         
     }
     public void SetMusicSlider(Slider MusicSlider)
     {
-        SaveMusic = this.MusicSlider.value;
-        SaveMusicState(SaveMusic);
-    }
-    public float SaveMusicState(float SaveMusic)
-    {
-        return this.SaveMusic = SaveMusic;
-        
+        this.SaveMusic = MusicSlider.value;
     }
     public void  GetMusicSlider(Slider MusicSlider)
     {
-        this.MusicSlider.value = SaveMusic;
+        this.MusicSlider.value = this.SaveMusic;
     }
 
     public void SetEffectSlider(Slider EffectsSlider)
     {
-        SaveEffect = this.EffectsSlider.value;
-        SaveEffectState(SaveEffect);
-    }
-    public float SaveEffectState(float SaveEffect)
-    {
-        return this.SaveEffect = SaveEffect;
-        
+        SaveEffect = EffectsSlider.value;
     }
     public void GetEffectSlider(Slider EffectsSlider)
     {
-        this.EffectsSlider.value = SaveEffect;
+        this.EffectsSlider.value = this.SaveEffect;
     }
-   
 }
