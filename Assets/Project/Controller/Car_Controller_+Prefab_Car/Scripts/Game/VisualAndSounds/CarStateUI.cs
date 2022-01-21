@@ -18,11 +18,18 @@ public class CarStateUI :MonoBehaviour
 	[SerializeField] RectTransform TahometerArrow;
 	[SerializeField] float MinArrowAngle = 0;
 	[SerializeField] float MaxArrowAngle = -315f;
-
+	[SerializeField] GameObject Player;
+	CarController SelectedCar;
 	int CurrentFrame;
-	CarController SelectedCar { get { return GameController.PlayerCar; } }
+	//CarController SelectedCar { get { return GameController.PlayerCar; } }
 
-	private void Update ()
+    private void Start()
+    {
+	    Player = GameObject.Find("Player");
+		SelectedCar = Player.GetComponent<CarController>(); 
+
+	}
+    private void Update ()
 	{
 
 		if (CurrentFrame >= UpdateFrameCount)
