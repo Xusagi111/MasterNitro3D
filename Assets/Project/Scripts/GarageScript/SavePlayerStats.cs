@@ -13,7 +13,7 @@ public class SavePlayerStats
     public float Effects;
 }
 [System.Serializable]
-public class AllCarTheGarage
+public class AllCarTheGarage //ToDo подгрузка с гугл таблиц
 {
     public string Name;
     public int Price;
@@ -27,4 +27,10 @@ public class AllCarTheGarage
     public string[] FocE = { "Name", "FocE", "Price", "5000", "Power", "Lvl", "0", "State", "51", "Speed", "Lvl", "0", "State", "52", "Fuel", "Lvl", "0", "State", "53" };
     public string[] upgradeAllLvl = { "1000", "2000", "3000", "4000", "5000", "6000", "7000"};
 
+}
+[System.Serializable]
+public class StateMachin  //ToDo хранение на гугл таблицах(пока тест) 
+{
+    public int indexMachin;
+    public int Speed;
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateMachin : MonoBehaviour
+public class ManagerStatsMachin : MonoBehaviour
 {
 
 }

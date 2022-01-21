@@ -83,7 +83,10 @@ public class CarController :MonoBehaviour
 	public float CurrentSpeed { get; private set; }							//Speed, magnitude of velocity.
 	public float SpeedInHour { get { return CurrentSpeed * C.KPHMult; } }
 	public int CarDirection { get { return CurrentSpeed < 1 ? 0 : (VelocityAngle < 90 && VelocityAngle > -90 ? 1 : -1); } }
-
+	public float MachinMaxRPM(float MinRPM)
+    {
+		return GetCarConfig.MinRPM += MinRPM;
+	}
 	float CurrentSteerAngle;
 	float CurrentAcceleration;
 	float CurrentBrake;
