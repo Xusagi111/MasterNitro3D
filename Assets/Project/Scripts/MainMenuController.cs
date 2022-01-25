@@ -10,6 +10,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] GameObject SettingsPanel;
     [SerializeField] GameObject UpdatePanel;
     [SerializeField] GameObject FpsPanel;
+    public GameObject PanelAlertsTrafficNotSide;
     public void OpenSatingsPanel(bool state)
     {
         SettingsPanel.SetActive(state);
