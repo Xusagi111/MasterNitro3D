@@ -8,10 +8,9 @@ public class MusicSaveVolumeScript : MonoBehaviour
 {
     [SerializeField] Slider MusicSlider;
     [SerializeField] Slider EffectsSlider;
-
+    SaveMusicStats saveMusicStats = new SaveMusicStats();
     public float SaveMusic { get; set; }
     public float SaveEffect { get; set;  }
-
 
     private void Start()
     {
@@ -19,15 +18,15 @@ public class MusicSaveVolumeScript : MonoBehaviour
     }
     public void Save()
     {
-        GarageController.savePlayerStats.Music = this.SaveMusic;
-        GarageController.savePlayerStats.Effects = this.SaveEffect;
-        ButtonClassSave.SaveToPlayerPrefs<SavePlayerStats>(GarageController.savePlayerStats, "SavePlayerStats");
+        saveMusicStats.Music = this.SaveMusic;
+        saveMusicStats.Effects = this.SaveEffect;
+        ButtonClassSave.SaveToPlayerPrefs<SaveMusicStats>(saveMusicStats, "SaveMusicStats");
     }
     public void loaging()
     {
-        GarageController.savePlayerStats = ButtonClassSave.LoadFromPlayerPrefs<SavePlayerStats>(GarageController.savePlayerStats, "SavePlayerStats");
-        this.SaveMusic = GarageController.savePlayerStats.Music;
-        this.SaveEffect = GarageController.savePlayerStats.Effects;
+        saveMusicStats = ButtonClassSave.LoadFromPlayerPrefs<SaveMusicStats>(saveMusicStats, "SaveMusicStats");
+        this.SaveMusic = saveMusicStats.Music;
+        this.SaveEffect = saveMusicStats.Effects;
         GetMusicSlider(MusicSlider);
         GetEffectSlider(EffectsSlider);
         

@@ -4429,11 +4429,6 @@ MonoBehaviour:
   - "\u0427\u0435\u0440\u043D\u044B\u0439 \u043F\u043B\u0430\u0449"
   - "\u0412\u0441\u043F\u044B\u0448\u043A\u04308"
   allCarTheGarage:
-    Name: 
-    Price: 0
-    Power: 0
-    Speed: 0
-    Fuel: 0
     CarYellow:
     - Name
     - CarYellow
@@ -11397,18 +11392,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 357599910}
         m_TargetAssemblyTypeName: NewCarTheGarage, Assembly-CSharp
-        m_MethodName: UpgradePowerTest
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 357599910}
-        m_TargetAssemblyTypeName: NewCarTheGarage, Assembly-CSharp
         m_MethodName: UpgradePower
         m_Mode: 1
         m_Arguments:
@@ -15055,6 +15038,7 @@ MonoBehaviour:
   SettingsPanel: {fileID: 0}
   UpdatePanel: {fileID: 1415228962}
   FpsPanel: {fileID: 2008246283}
+  PanelAlertsTrafficNotSide: {fileID: 0}
 --- !u!114 &1657980976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19193,7 +19177,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2107649409}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 357599911}
+        m_TargetAssemblyTypeName: GarageController, Assembly-CSharp
+        m_MethodName: ResetGameCar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2107649409
 MonoBehaviour:
   m_ObjectHideFlags: 0

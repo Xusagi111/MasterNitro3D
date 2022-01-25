@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GetAccess : MonoBehaviour
+public class GetAccess : MonoBehaviour // тестовый класс дл€ харакеристик, TODO позже убрать 
 {
     int ConvertingStateChar = 100;
     

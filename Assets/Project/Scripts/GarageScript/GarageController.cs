@@ -25,4 +25,10 @@ public class GarageController : MonoBehaviour
         Debug.Log("Кол-во денег " + savePlayerStats.Money.ToString());
         conclusionOnMoneyUI.text = savePlayerStats.Money.ToString(); // вывод на ui
     }
+    public void ResetGameCar()
+    {
+        ButtonClassSave.ResetFromPlayerPrefs("SavePlayerStats");
+        savePlayerStats.Money = 0;
+        ButtonClassSave.SaveToPlayerPrefs<SavePlayerStats>(savePlayerStats, "SavePlayerStats");
+    }
 }
