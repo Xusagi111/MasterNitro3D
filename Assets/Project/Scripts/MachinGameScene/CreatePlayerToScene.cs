@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreatePlayerScene : MonoBehaviour
+public class CreatePlayerToScene : MonoBehaviour
 {
     [SerializeField] public GameObject player;
     [SerializeField] GameObject[] ArrayGameObj;

@@ -8,7 +8,7 @@ public class SavePlayerStats
 {
     public string NamePlayer = "Name";
     public int Money = 1000;
-
+    public int Diamons;
 }
 public class SaveMusicStats
 {

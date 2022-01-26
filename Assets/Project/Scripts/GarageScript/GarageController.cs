@@ -11,7 +11,7 @@ public class GarageController : MonoBehaviour
     [SerializeField] Text conclusionOnDiamondsUI;
     private void Start()
     {
-        loaging(); // Загрузка денег. ToDo Вынести в другой метод, переработать текущий метод
+        loaging(); // Загрузка профиля персонажа
     }
     public void SaveAndConclusionMetod()
     {
