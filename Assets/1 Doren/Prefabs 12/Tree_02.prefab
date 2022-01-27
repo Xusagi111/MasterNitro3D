@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 4661435515762813124}
   - component: {fileID: 4661435515761518820}
   - component: {fileID: 4661435515760519716}
-  - component: {fileID: 1398089050591220670}
-  - component: {fileID: 726995494501616983}
   - component: {fileID: 4669327958913131790}
   - component: {fileID: 2742668494598976853}
   m_Layer: 0
@@ -85,35 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1398089050591220670
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4661435515762455780}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.6703215, y: 2.39, z: 1.6981602}
-  m_Center: {x: -0.01845619, y: 2.092121, z: -0.003755778}
---- !u!54 &726995494501616983
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4661435515762455780}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &4669327958913131790
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33928794569446624}
   - component: {fileID: 23055742997544132}
   - component: {fileID: 465410232450032777}
-  - component: {fileID: 8389247446214466591}
   - component: {fileID: 139222165308555530}
   m_Layer: 0
   m_Name: House_1
@@ -96,22 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd043fda47ffaf4688055053ce648fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &8389247446214466591
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1578830224910802}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!136 &139222165308555530
 CapsuleCollider:
   m_ObjectHideFlags: 0
