@@ -10,7 +10,6 @@ public class ChecPosChunk : MonoBehaviour
         {
             if (gameObject.GetComponent<MeshRenderer>() != false) //(gameObject.GetComponent<MeshRenderer>() != false)
             {
-                //Debug.Log("1"); 
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
                 //if(GetComponent<BoxCollider>() != null)
                 //{
@@ -20,20 +19,19 @@ public class ChecPosChunk : MonoBehaviour
                 //{
                 //    gameObject.GetComponent<MeshCollider>().enabled = false;
                 //}
-            } 
+            }
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.TryGetComponent<Chunk>(out Chunk chunk))//(other.gameObject.name == "Road_Straight" || other.gameObject.name == "Road_Right_Turn")//(other.gameObject.TryGetComponent<Chunk>(out Chunk chunk))
+        if (other.gameObject.TryGetComponent<Chunk>(out Chunk chunk))//(other.gameObject.name == "Road_Straight" || other.gameObject.name == "Road_Right_Turn")//(other.gameObject.TryGetComponent<Chunk>(out Chunk chunk))
         {
             if (gameObject.GetComponent<MeshRenderer>().enabled == false)
             {
-                gameObject.GetComponent<MeshRenderer>().enabled = true;
-                //Debug.Log("2");
+                gameObject.GetComponent<MeshRenderer>().enabled = true;  
             }
         }
-            
+
     }
-   
+
 }

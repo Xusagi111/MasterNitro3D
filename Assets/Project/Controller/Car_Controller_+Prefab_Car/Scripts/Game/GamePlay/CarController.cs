@@ -164,13 +164,13 @@ public class CarController :MonoBehaviour
         InHandBrake = handBrake;
 	}
 
-	private void Update ()
-	{
-		for (int i = 0; i < Wheels.Length; i++)
-		{
-			Wheels[i].UpdateVisual ();
-		}
-	}
+	//private void Update ()
+	//{
+	//	for (int i = 0; i < Wheels.Length; i++)
+	//	{
+	//		Wheels[i].UpdateVisual ();
+	//	}
+	//}
 
 	private void FixedUpdate ()
 	{
