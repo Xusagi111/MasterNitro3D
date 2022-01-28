@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class ButtonClassSave //: MonoBehaviour
+public static class ButtonClassSave
 {
     public static void SaveToPlayerPrefs<T>(T data, string key)
     {
@@ -14,8 +14,6 @@ public static class ButtonClassSave //: MonoBehaviour
     {
         if (JsonUtility.FromJson<T>(PlayerPrefs.GetString(key)) == null)
         {
-            //Debug.Log(key + "Key");
-            //Debug.Log("Null чувак");
             PlayerPrefs.SetString(key, JsonUtility.ToJson(data));
             var a = JsonUtility.ToJson(data);
             Debug.Log(a);
@@ -25,6 +23,10 @@ public static class ButtonClassSave //: MonoBehaviour
         {
             return JsonUtility.FromJson<T>(PlayerPrefs.GetString(key));
         }
+    }
+    public static void ResetFromPlayerPrefs(string key)
+    {
+        PlayerPrefs.DeleteKey(key);
     }
 }
 

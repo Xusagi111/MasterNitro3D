@@ -1819,6 +1819,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142890365}
   m_CullTransparentMesh: 1
+--- !u!1 &142975496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 142975498}
+  - component: {fileID: 142975497}
+  m_Layer: 0
+  m_Name: ScriptStatePlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &142975497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142975496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cca2f9391677e54f98dd440676e703e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &142975498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142975496}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27.138233, y: -18.500807, z: -17.426853}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &143590292
 GameObject:
   m_ObjectHideFlags: 0
@@ -4386,11 +4429,6 @@ MonoBehaviour:
   - "\u0427\u0435\u0440\u043D\u044B\u0439 \u043F\u043B\u0430\u0449"
   - "\u0412\u0441\u043F\u044B\u0448\u043A\u04308"
   allCarTheGarage:
-    Name: 
-    Price: 0
-    Power: 0
-    Speed: 0
-    Fuel: 0
     CarYellow:
     - Name
     - CarYellow
@@ -4499,6 +4537,8 @@ MonoBehaviour:
     - 5000
     - 6000
     - 7000
+  GameTest: {fileID: 0}
+  GameState: {fileID: 0}
 --- !u!114 &357599911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12369,7 +12409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1415228963
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14998,6 +15038,7 @@ MonoBehaviour:
   SettingsPanel: {fileID: 0}
   UpdatePanel: {fileID: 1415228962}
   FpsPanel: {fileID: 2008246283}
+  PanelAlertsTrafficNotSide: {fileID: 0}
 --- !u!114 &1657980976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19136,7 +19177,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2107649409}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 357599911}
+        m_TargetAssemblyTypeName: GarageController, Assembly-CSharp
+        m_MethodName: ResetGameCar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2107649409
 MonoBehaviour:
   m_ObjectHideFlags: 0

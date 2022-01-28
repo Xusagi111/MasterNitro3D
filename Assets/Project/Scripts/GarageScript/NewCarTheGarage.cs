@@ -19,6 +19,7 @@ public class NewCarTheGarage : MonoBehaviour
     [SerializeField] string[] initeNameCar;
     [SerializeField] string[] NameCarArray = { "Мустанг", "Красная666", "Лада", "Черный плащ", "Вспышка8" }; //Названия машины
     [SerializeField] AllCarTheGarage allCarTheGarage = new AllCarTheGarage();
+    //ScriptStatePlayer ManagerStatsMachin
 
     int PowerLvl = 6;
     int SpeedLvl = 11;
@@ -41,6 +42,43 @@ public class NewCarTheGarage : MonoBehaviour
         garageController.SaveAndConclusionMetod();
 
     }
+    public void UpgradePowerTest()
+    {
+        int IndexPowerLvl1 = int.Parse(allCarTheGarage.CarYellow[PowerLvl]);
+        if (indexMachin == 0)
+        {
+            int LvlThecurrentCar = int.Parse(allCarTheGarage.upgradeAllLvl[IndexPowerLvl1]);
+            if (GarageController.savePlayerStats.Money >= LvlThecurrentCar)
+            {
+                IndexPowerLvl1 += 1;
+                allCarTheGarage.CarYellow[PowerLvl] = IndexPowerLvl1.ToString();
+                int state = int.Parse(allCarTheGarage.CarYellow[PowerState]);
+                state += 10;
+                conclusionOnPowerUI.text = allCarTheGarage.CarYellow[PowerState] = state.ToString();
+                // Вся суть метода 
+                GetStatePlayer(state);
+
+                //сохранения 
+                garageController.SaveAndConclusionMetod();
+                ButtonClassSave.SaveToPlayerPrefs<AllCarTheGarage>(allCarTheGarage, "AllCarTheGarage");
+            }
+              
+        }
+        
+    }
+    public static StateMachin stateMachin = new StateMachin();
+    public GameObject GameTest;
+    public GameObject GameState;
+    ManagerStatsMachin managerStatsMachin;
+
+    public void GetStatePlayer(int state)
+    {
+        //var CreationPlayer = Instantiate(ArrayGameObj[0]);
+        GameTest = GameObject.Find("ScriptStatePlayer");
+        managerStatsMachin = GameTest.GetComponentInChildren<ManagerStatsMachin>();
+        stateMachin.Speed += state;
+        ButtonClassSave.SaveToPlayerPrefs<StateMachin>(stateMachin, "StateMachin");
+    } 
     public void UpgradePower() //снимает деньги от основной валюты и прибавляет характеристики к текущей машине.
     {
         string[][] AllStateMachin = { allCarTheGarage.CarYellow, allCarTheGarage.Chev, allCarTheGarage.Vehicle, allCarTheGarage.CarCarbon, allCarTheGarage.FocE };

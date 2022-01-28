@@ -15,14 +15,14 @@ public class GameController :MonoBehaviour
 	public static CarController PlayerCar { get { return Instance.m_PlayerCar; } }
 	public static bool RaceIsStarted { get { return true; } }
 	public static bool RaceIsEnded { get { return false; } }
-
+	[SerializeField] GameObject Player;
 	CarController m_PlayerCar;
 	List<CarController> Cars = new List<CarController>();
 	int CurrentCarIndex = 0;
-
-	protected virtual void Awake ()
+	protected virtual void Start ()
 	{
-
+		Player = GameObject.Find("Player");
+		m_PlayerCar = Player.GetComponent<CarController>();
 		Instance = this;
 
 		//Find all cars in current game.

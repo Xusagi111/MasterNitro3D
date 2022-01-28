@@ -11,7 +11,7 @@ public class GarageController : MonoBehaviour
     [SerializeField] Text conclusionOnDiamondsUI;
     private void Start()
     {
-        loaging(); // Загрузка денег. ToDo Вынести в другой метод, переработать текущий метод
+        loaging(); // Загрузка профиля персонажа
     }
     public void SaveAndConclusionMetod()
     {
@@ -24,5 +24,11 @@ public class GarageController : MonoBehaviour
         savePlayerStats = ButtonClassSave.LoadFromPlayerPrefs<SavePlayerStats>(savePlayerStats, "SavePlayerStats");
         Debug.Log("Кол-во денег " + savePlayerStats.Money.ToString());
         conclusionOnMoneyUI.text = savePlayerStats.Money.ToString(); // вывод на ui
+    }
+    public void ResetGameCar()
+    {
+        ButtonClassSave.ResetFromPlayerPrefs("SavePlayerStats");
+        savePlayerStats.Money = 0;
+        ButtonClassSave.SaveToPlayerPrefs<SavePlayerStats>(savePlayerStats, "SavePlayerStats");
     }
 }

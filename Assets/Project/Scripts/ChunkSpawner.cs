@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 public class ChunkSpawner : MonoBehaviour
 {
-
+    CarController CarController;
+    GameObject PlayerLink;
     public Transform Player;
     public Chunk[] ChunkPrefabs;
     public Chunk firstChunk;
@@ -13,6 +14,9 @@ public class ChunkSpawner : MonoBehaviour
 
     private void Start()
     {
+        PlayerLink = GameObject.Find("Player");
+        CarController = PlayerLink.GetComponent<CarController>();
+        this.Player = PlayerLink.transform;
         spawnedChunks.Add(firstChunk);
     }
     private void Update()
