@@ -18,9 +18,8 @@ public class NewCarTheGarage : MonoBehaviour
     [SerializeField] Text UpgrageToUIPanelTowerLvl;
     [SerializeField] string[] initeNameCar;
     [SerializeField] string[] NameCarArray = { "Мустанг", "Красная666", "Лада", "Черный плащ", "Вспышка8" }; //Названия машины
-    [SerializeField] AllCarTheGarage allCarTheGarage = new AllCarTheGarage();
-    //ScriptStatePlayer ManagerStatsMachin
-
+    [SerializeField] public static AllCarTheGarage allCarTheGarage = new AllCarTheGarage();
+    [SerializeField] public static SavePlayerStats savePlayerStats = new SavePlayerStats();
     int PowerLvl = 6;
     int SpeedLvl = 11;
     int FuelLvl = 16;
@@ -32,7 +31,6 @@ public class NewCarTheGarage : MonoBehaviour
     {
         garageController = GetComponent<GarageController>();
         classObj = GetComponent<SetActiveCarSceneGarage>();
-        //Debug.Log("allCarTheGarage " + allCarTheGarage);
         allCarTheGarage = ButtonClassSave.LoadFromPlayerPrefs<AllCarTheGarage>(allCarTheGarage, "AllCarTheGarage");
         DisplayToNameCar();
     }
@@ -41,6 +39,12 @@ public class NewCarTheGarage : MonoBehaviour
         GarageController.savePlayerStats.Money += 10000;
         garageController.SaveAndConclusionMetod();
 
+    }
+    public void ButtonRessetsStateMachin() //сброс стат машины
+    {
+        allCarTheGarage.CarYellow[PowerState] = 11.ToString();
+        allCarTheGarage.CarYellow[PowerLvl] = 0.ToString();
+        ButtonClassSave.SaveToPlayerPrefs<AllCarTheGarage>(allCarTheGarage, "AllCarTheGarage");
     }
     public void UpgradePowerTest()
     {
@@ -55,9 +59,6 @@ public class NewCarTheGarage : MonoBehaviour
                 int state = int.Parse(allCarTheGarage.CarYellow[PowerState]);
                 state += 10;
                 conclusionOnPowerUI.text = allCarTheGarage.CarYellow[PowerState] = state.ToString();
-                // Вся суть метода 
-                GetStatePlayer(state);
-
                 //сохранения 
                 garageController.SaveAndConclusionMetod();
                 ButtonClassSave.SaveToPlayerPrefs<AllCarTheGarage>(allCarTheGarage, "AllCarTheGarage");
@@ -66,19 +67,6 @@ public class NewCarTheGarage : MonoBehaviour
         }
         
     }
-    public static StateMachin stateMachin = new StateMachin();
-    public GameObject GameTest;
-    public GameObject GameState;
-    ManagerStatsMachin managerStatsMachin;
-
-    public void GetStatePlayer(int state)
-    {
-        //var CreationPlayer = Instantiate(ArrayGameObj[0]);
-        GameTest = GameObject.Find("ScriptStatePlayer");
-        managerStatsMachin = GameTest.GetComponentInChildren<ManagerStatsMachin>();
-        stateMachin.Speed += state;
-        ButtonClassSave.SaveToPlayerPrefs<StateMachin>(stateMachin, "StateMachin");
-    } 
     public void UpgradePower() //снимает деньги от основной валюты и прибавляет характеристики к текущей машине.
     {
         string[][] AllStateMachin = { allCarTheGarage.CarYellow, allCarTheGarage.Chev, allCarTheGarage.Vehicle, allCarTheGarage.CarCarbon, allCarTheGarage.FocE };
@@ -112,7 +100,6 @@ public class NewCarTheGarage : MonoBehaviour
     {
         //считывания лвл 
         int IndexPowerLvl = int.Parse(AllStateMachin[indexMachin][PowerLvl]);
-        //Debug.Log("индекс машины" + indexMachin + "lvl Power" + IndexPowerLvl);
         int IndexSpeedLvl = int.Parse(AllStateMachin[indexMachin][SpeedLvl]);
         int IndexFuelLvl = int.Parse(AllStateMachin[indexMachin][FuelLvl]);
 

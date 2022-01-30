@@ -4353,7 +4353,7 @@ GameObject:
   - component: {fileID: 357599910}
   - component: {fileID: 357599911}
   m_Layer: 0
-  m_Name: Game_Controller
+  m_Name: Game_Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4428,117 +4428,6 @@ MonoBehaviour:
   - "\u041B\u0430\u0434\u0430"
   - "\u0427\u0435\u0440\u043D\u044B\u0439 \u043F\u043B\u0430\u0449"
   - "\u0412\u0441\u043F\u044B\u0448\u043A\u04308"
-  allCarTheGarage:
-    CarYellow:
-    - Name
-    - CarYellow
-    - Price
-    - 1000
-    - Power
-    - Lvl
-    - 0
-    - State
-    - 11
-    - Speed
-    - Lvl
-    - 0
-    - State
-    - 12
-    - Fuel
-    - Lvl
-    - 0
-    - State
-    - 13
-    Chev:
-    - Name
-    - Chev
-    - Price
-    - 2000
-    - Power
-    - Lvl
-    - 0
-    - State
-    - 21
-    - Speed
-    - Lvl
-    - 0
-    - State
-    - 22
-    - Fuel
-    - Lvl
-    - 0
-    - State
-    - 23
-    Vehicle:
-    - Name
-    - Vehicle
-    - Price
-    - 3000
-    - Power
-    - Lvl
-    - 0
-    - State
-    - 31
-    - Speed
-    - Lvl
-    - 0
-    - State
-    - 32
-    - Fuel
-    - Lvl
-    - 0
-    - State
-    - 33
-    CarCarbon:
-    - Name
-    - CarCarbon
-    - Price
-    - 4000
-    - Power
-    - Lvl
-    - 0
-    - State
-    - 41
-    - Speed
-    - Lvl
-    - 0
-    - State
-    - 42
-    - Fuel
-    - Lvl
-    - 0
-    - State
-    - 43
-    FocE:
-    - Name
-    - FocE
-    - Price
-    - 5000
-    - Power
-    - Lvl
-    - 0
-    - State
-    - 51
-    - Speed
-    - Lvl
-    - 0
-    - State
-    - 52
-    - Fuel
-    - Lvl
-    - 0
-    - State
-    - 53
-    upgradeAllLvl:
-    - 1000
-    - 2000
-    - 3000
-    - 4000
-    - 5000
-    - 6000
-    - 7000
-  GameTest: {fileID: 0}
-  GameState: {fileID: 0}
 --- !u!114 &357599911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9447,7 +9336,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.6934147, b: 0.031372547, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -9485,7 +9374,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -11282,7 +11171,7 @@ GameObject:
   - component: {fileID: 1309576894}
   - component: {fileID: 1309576896}
   m_Layer: 5
-  m_Name: bye
+  m_Name: bye_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13205,7 +13094,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.9811321, g: 0.68398744, b: 0.28138122, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -13243,7 +13132,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -14894,7 +14783,7 @@ GameObject:
   - component: {fileID: 1657980973}
   - component: {fileID: 1657980976}
   m_Layer: 0
-  m_Name: UI_Controller
+  m_Name: UI_Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16735,7 +16624,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -16773,7 +16662,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -19178,9 +19067,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 357599911}
-        m_TargetAssemblyTypeName: GarageController, Assembly-CSharp
-        m_MethodName: ResetGameCar
+      - m_Target: {fileID: 357599910}
+        m_TargetAssemblyTypeName: NewCarTheGarage, Assembly-CSharp
+        m_MethodName: ButtonRessetsStateMachin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

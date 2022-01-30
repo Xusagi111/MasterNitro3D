@@ -9306,7 +9306,6 @@ GameObject:
   - component: {fileID: 6594854929394905033}
   - component: {fileID: 939258321517663477}
   - component: {fileID: 6455305160983453229}
-  - component: {fileID: 991356117555846844}
   m_Layer: 0
   m_Name: Track_Corner_90d_type_01_30x30m_free_obs (1)
   m_TagString: Untagged
@@ -9404,22 +9403,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   End: {fileID: 0}
   Start: {fileID: 0}
---- !u!54 &991356117555846844
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4649225468010991132}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &4691185772067124986
 GameObject:
   m_ObjectHideFlags: 0
@@ -12948,7 +12931,6 @@ GameObject:
   - component: {fileID: 8969682923711508231}
   - component: {fileID: 2261674559390257938}
   - component: {fileID: 6446118247954364118}
-  - component: {fileID: 34987424426398544}
   m_Layer: 0
   m_Name: Track_Corner_90d_type_01_30x30m_free_obs
   m_TagString: Untagged
@@ -13046,22 +13028,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   End: {fileID: 0}
   Start: {fileID: 0}
---- !u!54 &34987424426398544
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7456355044340371154}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &7460092590989586382
 GameObject:
   m_ObjectHideFlags: 0

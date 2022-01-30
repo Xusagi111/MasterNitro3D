@@ -29478,7 +29478,6 @@ GameObject:
   - component: {fileID: 1104844951}
   - component: {fileID: 1104844950}
   - component: {fileID: 1104844952}
-  - component: {fileID: 1104844953}
   m_Layer: 0
   m_Name: ChunkSpawner
   m_TagString: Player
@@ -29534,18 +29533,6 @@ MonoBehaviour:
   ArrayGameObj:
   - {fileID: 4204967012610168667, guid: 4cfbd0806d966694d8b1e0e2928d621f, type: 3}
   CarController: {fileID: 0}
---- !u!114 &1104844953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104844949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 262435f94fb3c80479971d5c5ae58b43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1106510660
 GameObject:
   m_ObjectHideFlags: 0

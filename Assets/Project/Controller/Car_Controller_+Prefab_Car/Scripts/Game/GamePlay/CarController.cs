@@ -9,7 +9,6 @@ using UnityEngine;
 [RequireComponent (typeof (Rigidbody))]
 public class CarController :MonoBehaviour
 {
-
 	[SerializeField] Wheel FrontLeftWheel;
 	[SerializeField] Wheel FrontRightWheel;
 	[SerializeField] Wheel RearLeftWheel;
@@ -21,7 +20,7 @@ public class CarController :MonoBehaviour
 
 	#region Properties of car parameters
 
-	float MaxMotorTorque;
+	float MaxMotorTorque; //прикрученно
 	float MaxSteerAngle { get { return CarConfig.MaxSteerAngle; } }
 	DriveType DriveType { get { return CarConfig.DriveType; } }
 	bool AutomaticGearBox { get { return CarConfig.AutomaticGearBox; } }
@@ -83,10 +82,15 @@ public class CarController :MonoBehaviour
 	public float CurrentSpeed { get; private set; }							//Speed, magnitude of velocity.
 	public float SpeedInHour { get { return CurrentSpeed * C.KPHMult; } }
 	public int CarDirection { get { return CurrentSpeed < 1 ? 0 : (VelocityAngle < 90 && VelocityAngle > -90 ? 1 : -1); } }
-	public float MachinMaxRPM(float MinRPM)
+
+	public float MachinRpmToNextGear(float RpmToNextGear) //MyMethod
     {
-		return GetCarConfig.MinRPM += MinRPM;
+		return GetCarConfig.RpmToNextGear += RpmToNextGear;
 	}
+	//public float MachinMaxMotorTorque(float MaxMotorTorque)
+	//{
+	//	return GetCarConfig.MaxMotorTorque += MaxMotorTorque;
+	//}
 	float CurrentSteerAngle;
 	float CurrentAcceleration;
 	float CurrentBrake;
@@ -276,6 +280,7 @@ public class CarController :MonoBehaviour
 	public float EngineRPM { get; private set; }
 	public float GetMaxRPM { get { return MaxRPM; } }
 	public float GetMinRPM { get { return MinRPM; } }
+	public float GetMaxMotorTorque { get { return MaxMotorTorque; } } //прикрученно
 	public float GetInCutOffRPM { get { return CutOffRPM - CutOffOffsetRPM; } }
 
 	float CutOffTimer;

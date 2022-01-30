@@ -4,32 +4,18 @@ using UnityEngine;
 
 public class GetAccess : MonoBehaviour // тестовый класс дл€ харакеристик, TODO позже убрать 
 {
-    int ConvertingStateChar = 100;
-    
-    public static GetAccess Instance { get; private set; }
-    CarController Config;
+    AllCarTheGarage allCarTheGarage;
+    CarController carController;
     private void Start()
     {
-        Config = GetComponent<CarController>();
-        Instance = this;
+        allCarTheGarage = ButtonClassSave.LoadFromPlayerPrefs<AllCarTheGarage>(allCarTheGarage, "AllCarTheGarage");
+        carController = GetComponent<CarController>();
         ConvertingStateMachin();
-        //Config.MachinMaxRPM(20000);
     }
     public void ConvertingStateMachin()
     { 
-        var a = NewCarTheGarage.stateMachin.Speed;
-        if(a == 10)
-        {
-            var g = Config.GetMinRPM;
-            Config.MachinMaxRPM((g / 2));
-            //var b = a * 100;
-        }
-        if (a == 20)
-        {
-            var g = Config.GetMinRPM;
-            Config.MachinMaxRPM(((g +350) / 2));
-            //var b = a * 100;
-        }
-
+        var StatseOneMachinPower = int.Parse(allCarTheGarage.CarYellow[8]);
+        Debug.Log(StatseOneMachinPower);
+        carController.MachinRpmToNextGear(StatseOneMachinPower * 100);
     }
 }

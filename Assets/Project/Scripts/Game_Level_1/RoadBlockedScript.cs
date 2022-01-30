@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class RoadBlockedScript : MonoBehaviour
 {
     MainMenuController mainMenuController;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if(other.gameObject.TryGetComponent<PlayerCheckBlockingRoad>(out PlayerCheckBlockingRoad player))
         {
