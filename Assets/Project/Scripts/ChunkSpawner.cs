@@ -34,14 +34,12 @@ public class ChunkSpawner : MonoBehaviour
         newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].End.position - newChunk.Start.localPosition;
         newChunk.transform.rotation = spawnedChunks[spawnedChunks.Count - 1].End.rotation;
         spawnedChunks.Add(newChunk);
-        
-            if (spawnedChunks.Count >= 4)
-            {
-                spawnedChunks[0].gameObject.transform.position = new Vector3(0, -10, 0);
-                StartCoroutine("DestroyObjRoad");
-             }
-        
-        
+
+        if (spawnedChunks.Count >= 4)
+        {
+            spawnedChunks[0].gameObject.transform.position = new Vector3(0, -10, 0);
+            StartCoroutine("DestroyObjRoad");
+        }
     }
     IEnumerator DestroyObjRoad()
     {

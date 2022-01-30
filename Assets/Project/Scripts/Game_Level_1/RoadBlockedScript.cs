@@ -7,7 +7,7 @@ public class RoadBlockedScript : MonoBehaviour
     MainMenuController mainMenuController;
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.TryGetComponent<PlayerCheckBlockingRoad>(out PlayerCheckBlockingRoad player))
+        if(other.gameObject.TryGetComponent<PlayerCheckTrigger>(out PlayerCheckTrigger player))
         {
             StartCoroutine(BoxColliderOnActive());
         }

@@ -126,7 +126,7 @@ public class NewCarTheGarage : MonoBehaviour
                 conclusionOnSpeedUI.text = AllStateMachin[i][SpeedState];
                 conclusionOnFuelUI.text = AllStateMachin[i][FuelState];
                 ConclusionUpgrageToUIPanel(AllStateMachin, i);
-                EventManager.SetActiveUI(i);
+                //EventManager.SetActiveUI(i);
             }
         }
     }
