@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7251219882604833753}
   - component: {fileID: 5105661678850024553}
   - component: {fileID: 6544565678887673129}
+  - component: {fileID: -552780533602671711}
   m_Layer: 0
   m_Name: Money
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9044978592248847211}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.44800198, y: 1.8096604, z: 16.58}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 350, y: 350, z: 350}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,9 +96,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0023007505
-  m_Height: 0.004601501
+  m_Height: 0.0070495373
   m_Direction: 1
-  m_Center: {x: -0.000025111018, y: -0.000058145844, z: -0.00007952605}
+  m_Center: {x: -0.000025111096, y: -0.0012821654, z: -0.00007952605}
 --- !u!114 &6544565678887673129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,3 +111,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b8b3db6aaa349458d2786e20109ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &-552780533602671711
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9044978592248847211}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9cd88f96908877b45bf8fff4726443a8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
