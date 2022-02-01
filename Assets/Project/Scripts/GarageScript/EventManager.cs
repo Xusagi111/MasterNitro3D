@@ -9,22 +9,14 @@ public class EventManager : MonoBehaviour
 {
     [SerializeField] Text MoneDisplayUi;
     int Money; //Прикрутить текущие кол-во денег
-    private void Start()
+    public static UnityEvent<int> MoneyDisplay = new UnityEvent<int>();
+    public void StateMoneyUpdateDisplayUi(int CountMoneyScene)
     {
-        EventManagerGame.AddListener<UpdateDisplayToUi>(UpdateDisplayToUiMethod);
+        if (MoneyDisplay != null)
+        {
+            MoneyDisplay.Invoke(CountMoneyScene);
+            Money += CountMoneyScene;
+            MoneDisplayUi.text = Money.ToString();
+        }
     }
-    void UpdateDisplayToUiMethod(UpdateDisplayToUi evt)
-    {
-        Money += 10;
-        MoneDisplayUi.text = Money.ToString();
-    }
-
-}
-public static class Events
-{
-    public static UpdateDisplayToUi  updateDisplayToUi= new UpdateDisplayToUi();
-}
-public class UpdateDisplayToUi : GameEvent
-{
-    public int Value;
 }

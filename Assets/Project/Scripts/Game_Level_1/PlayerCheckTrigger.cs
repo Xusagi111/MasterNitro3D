@@ -4,29 +4,28 @@ using UnityEngine;
 
 public class PlayerCheckTrigger : MonoBehaviour
 {
+    int CountMoney = 10;
     EventManager EventManager;
     private void Start()
     {
         EventManager = FindObjectOfType<EventManager>();
-      
+
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<RoadBlockedScript>())
+        if (other.gameObject.TryGetComponent<RoadBlockedScript>(out RoadBlockedScript Road))
         {
-            other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            Road.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
         if (other.gameObject.GetComponent<MoneyGameObject>())
         {
             SetActiveMoney(other.gameObject);
         }
     }
+
     public void SetActiveMoney(GameObject gameObject)
     {
         gameObject.SetActive(false);
-        
-        UpdateDisplayToUi evt = Events.updateDisplayToUi;
-        EventManagerGame.Broadcast(evt);
-
+        EventManager.StateMoneyUpdateDisplayUi(CountMoney);
     }
 }

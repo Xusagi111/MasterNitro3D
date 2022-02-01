@@ -29,7 +29,7 @@ public class CarStateUI :MonoBehaviour
 		SelectedCar = Player.GetComponent<CarController>(); 
 
 	}
-    private void Update ()
+    private void FixedUpdate ()
 	{
 
 		if (CurrentFrame >= UpdateFrameCount)

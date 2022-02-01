@@ -46,6 +46,11 @@ public class NewCarTheGarage : MonoBehaviour
         allCarTheGarage.CarYellow[PowerLvl] = 0.ToString();
         ButtonClassSave.SaveToPlayerPrefs<AllCarTheGarage>(allCarTheGarage, "AllCarTheGarage");
     }
+    public void ButtonRessetsMoney() //сброс денег игрока
+    {
+        GarageController.savePlayerStats.Money = 0;
+        garageController.SaveAndConclusionMetod();
+    } 
     public void UpgradePowerTest()
     {
         int IndexPowerLvl1 = int.Parse(allCarTheGarage.CarYellow[PowerLvl]);
@@ -126,7 +131,6 @@ public class NewCarTheGarage : MonoBehaviour
                 conclusionOnSpeedUI.text = AllStateMachin[i][SpeedState];
                 conclusionOnFuelUI.text = AllStateMachin[i][FuelState];
                 ConclusionUpgrageToUIPanel(AllStateMachin, i);
-                //EventManager.SetActiveUI(i);
             }
         }
     }
