@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkidСontrollerScene : MonoBehaviour //Наработки
+public class DriftCountСontrollerScene : MonoBehaviour //Наработки
 {
     [SerializeField] Text ConclusionUi;
     [SerializeField] Transform View;
@@ -41,7 +41,7 @@ public class SkidСontrollerScene : MonoBehaviour //Наработки
         {
             if (SpeedCar.SpeedInHour > 50 && SpeedCar.SpeedInHour > ProgressCounterDinamic + 10)
             {
-                ProgressCounterDinamic += 10;
+                ProgressCounterDinamic += 1;
                 a = ((ProgressCounterDinamic - 50) / 10) * 5; //текущий бонус 
                                                               // money +5
             }

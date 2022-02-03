@@ -6,18 +6,17 @@ using System;
 
 public class ChunkSpawner : MonoBehaviour
 {
-    CarController CarController;
-    GameObject PlayerLink;
-    public Transform Player;
+    private CarController CarController;
+    private GameObject PlayerLink;
+    private Transform Player;
+    private Chunk[] GamePrefabsCountRoad;
     public Chunk[] ChunkPrefabs;
-    public Chunk[] GamePrefabsCountRoad;
     public Chunk firstChunk;
-    public List<Chunk> spawnedChunks = new List<Chunk>();
-    public ArrayList arrayList = new ArrayList();
-    public List<Chunk> SpawnPrefab = new List<Chunk>();
-    public Chunk newChunk;
-    private int Countspawn = 0; 
-    RotateType rotateType;
+    private List<Chunk> spawnedChunks = new List<Chunk>();
+    private ArrayList arrayList = new ArrayList();
+    private List<Chunk> SpawnPrefab = new List<Chunk>();
+    private Chunk newChunk;
+    private RotateType rotateType;
 
     private void Start()
     {
@@ -32,14 +31,12 @@ public class ChunkSpawner : MonoBehaviour
 
         if (Vector3.Distance(spawnedChunks[spawnedChunks.Count - 1].End.position, Player.position) < 50f)
         {
-            SpavnCheckedBlockLevel();
+            SpawnCheckedBlockLevel();
         }
 
     }
-    private void SpawnChunk(Chunk[] GamePrefabsCountRoad) // выборка из доступных направлений и спавн рандомной дороги по направлениям которые доступны
+    private void SpawnChunk(Chunk[] GamePrefabsCountRoad) 
     {
-       
-        //SpavnCheckedBlockLevel();
         Chunk newChunk = Instantiate(GamePrefabsCountRoad[UnityEngine.Random.Range(0, GamePrefabsCountRoad.Length)]);
         newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].End.position - newChunk.Start.localPosition;
         newChunk.transform.rotation = spawnedChunks[spawnedChunks.Count - 1].End.rotation;
@@ -49,12 +46,13 @@ public class ChunkSpawner : MonoBehaviour
         if (spawnedChunks.Count >= 4)
         {
             GamePrefabsCountRoad[0].gameObject.transform.position = new Vector3(0, -10, 0);
-            StartCoroutine("DestroyObjRoad");
+            StartCoroutine(DestroyObjRoad());
         }
+
+        #region Cleaning
         for (int i = SpawnPrefab.Count; i > 0; i--) //удаление элементов из коллекции 
         {
             SpawnPrefab.RemoveAt(0);
-
         }
         for (int i = 0; i < GamePrefabsCountRoad.Length; i++)
         {
@@ -64,29 +62,24 @@ public class ChunkSpawner : MonoBehaviour
         {
             arrayList.RemoveAt(0);
         }
+        #endregion
     }
-    public void SpavnCheckedBlockLevel()
+    public void SpawnCheckedBlockLevel()
     {
         Ray RayForward = new Ray(newChunk.ChecBlockLevel.position, newChunk.ChecBlockLevel.transform.forward);
         Ray RayRight = new Ray(newChunk.ChecBlockLevel.position, newChunk.ChecBlockLevel.transform.right);
         Ray RayLeft = new Ray(newChunk.ChecBlockLevel.position, newChunk.ChecBlockLevel.transform.right*-1f);
-        Debug.DrawRay(newChunk.ChecBlockLevel.position, newChunk.ChecBlockLevel.forward * 130f, Color.red);
-        Debug.DrawRay(newChunk.ChecBlockLevel.position, newChunk.ChecBlockLevel.right * 130f, Color.red);
-        Debug.DrawRay(newChunk.ChecBlockLevel.position, newChunk.ChecBlockLevel.right * -130f, Color.red);
         RaycastHit hit;
-        foreach (var value in Enum.GetValues(typeof(RotateType))) // начало метода спавн SpavnCheckedBlockLevel()
+        foreach (var value in Enum.GetValues(typeof(RotateType))) 
         {
             var a = value.ToString();
             arrayList.Add(a);
         }
-        
         if (Physics.Raycast(RayForward, out hit, 130f))
         {
             if (hit.collider.gameObject.GetComponent<ComponentWallToScene>())
             {
-                var a = hit.distance;
-                Debug.Log("RayForward" + a);
-                if (a < 130f) //текущие сравнение дистанции
+                if (hit.distance < 130f)
                 {
                     arrayList.Remove(RotateType.ForwardType.ToString());
                 }
@@ -96,35 +89,27 @@ public class ChunkSpawner : MonoBehaviour
         {
             if (hit.collider.gameObject.GetComponent<ComponentWallToScene>())
             {
-                var a = hit.distance;
-                Debug.Log("RayRight" + a);
-                if (a < 80f) //текущие сравнение дистанции
+                if (hit.distance < 80f)
                 {
                     arrayList.Remove(RotateType.Right.ToString());
                 }
-                if (a < 130f) 
+                if (hit.distance < 130f) 
                 {
                     arrayList.Remove(RotateType.ForwardType.ToString());
                 }
-              
-                
             }
         }
         if (Physics.Raycast(RayLeft, out hit, 130f))
         {
             if (hit.collider.gameObject.GetComponent<ComponentWallToScene>())
             {
-                var a = hit.distance;
-                Debug.Log("RayLeft" + a);
-                if (a < 80f) //текущие сравнение дистанции
+                if (hit.distance < 80f) 
                 {
                     arrayList.Remove(RotateType.Left.ToString());
                 }
             }
         }
         #region DopLogic
-
-        Countspawn++;
 
         foreach (var item in ChunkPrefabs)
         {
@@ -139,13 +124,13 @@ public class ChunkSpawner : MonoBehaviour
             }
         }
         Chunk[] GamePrefabsCountRoad = new Chunk[SpawnPrefab.Count];
-        int b = 0;
+        int CountIndexArrayGamePrefabs = 0;
         foreach (var item in SpawnPrefab)
         {
-            GamePrefabsCountRoad[b] = item;
-            b++;
+            GamePrefabsCountRoad[CountIndexArrayGamePrefabs] = item;
+            CountIndexArrayGamePrefabs++;
         }
-        SpawnChunk(GamePrefabsCountRoad);
+        SpawnChunk(GamePrefabsCountRoad); //передача массива с ChunkPrefab допустимого RotateType
 
         #endregion
     }
@@ -154,6 +139,5 @@ public class ChunkSpawner : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Destroy(spawnedChunks[0].gameObject);
         spawnedChunks.RemoveAt(0);
-
     }
 }
