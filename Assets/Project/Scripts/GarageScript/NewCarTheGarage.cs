@@ -17,7 +17,7 @@ public class NewCarTheGarage : MonoBehaviour
     [SerializeField] Text UpgrageToUIPanelSpeedLvl;
     [SerializeField] Text UpgrageToUIPanelTowerLvl;
     [SerializeField] string[] initeNameCar;
-    [SerializeField] string[] NameCarArray = { "Мустанг", "Красная666", "Лада", "Черный плащ", "Вспышка8" }; //Названия машины
+    [SerializeField] string[] NameCarArray = { "Car_1", "Красная666", "Лада", "Черный плащ", "Вспышка8" }; //Названия машины
     [SerializeField] public static AllCarTheGarage allCarTheGarage = new AllCarTheGarage();
     [SerializeField] public static SavePlayerStats savePlayerStats = new SavePlayerStats();
     int PowerLvl = 6;

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public enum RotateType
-{
-    Left, Right
-}
+//public enum RotateType
+//{
+//    Left, Right
+//}
 
 public class RotateTrigger : MonoBehaviour //Пока не используется
 {
