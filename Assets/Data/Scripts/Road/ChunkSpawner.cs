@@ -34,6 +34,7 @@ public class ChunkSpawner : MonoBehaviour
         {
             SpavnCheckedBlockLevel();
         }
+
     }
     private void SpawnChunk(Chunk[] GamePrefabsCountRoad) // выборка из доступных направлений и спавн рандомной дороги по направлениям которые доступны
     {
@@ -68,7 +69,7 @@ public class ChunkSpawner : MonoBehaviour
     {
         Ray RayForward = new Ray(newChunk.ChecBlockLevel.position, newChunk.ChecBlockLevel.transform.forward);
         Ray RayRight = new Ray(newChunk.ChecBlockLevel.position, newChunk.ChecBlockLevel.transform.right);
-        Ray RayLeft = new Ray(newChunk.ChecBlockLevel.position, newChunk.ChecBlockLevel.transform.forward);
+        Ray RayLeft = new Ray(newChunk.ChecBlockLevel.position, newChunk.ChecBlockLevel.transform.right*-1f);
         Debug.DrawRay(newChunk.ChecBlockLevel.position, newChunk.ChecBlockLevel.forward * 130f, Color.red);
         Debug.DrawRay(newChunk.ChecBlockLevel.position, newChunk.ChecBlockLevel.right * 130f, Color.red);
         Debug.DrawRay(newChunk.ChecBlockLevel.position, newChunk.ChecBlockLevel.right * -130f, Color.red);
@@ -81,7 +82,7 @@ public class ChunkSpawner : MonoBehaviour
         
         if (Physics.Raycast(RayForward, out hit, 130f))
         {
-            if (hit.collider.gameObject.GetComponent<SceneObjectTexture>())
+            if (hit.collider.gameObject.GetComponent<ComponentWallToScene>())
             {
                 var a = hit.distance;
                 Debug.Log("RayForward" + a);
@@ -93,7 +94,7 @@ public class ChunkSpawner : MonoBehaviour
         }
         if (Physics.Raycast(RayRight, out hit, 130f))
         {
-            if (hit.collider.gameObject.GetComponent<SceneObjectTexture>())
+            if (hit.collider.gameObject.GetComponent<ComponentWallToScene>())
             {
                 var a = hit.distance;
                 Debug.Log("RayRight" + a);
@@ -101,7 +102,7 @@ public class ChunkSpawner : MonoBehaviour
                 {
                     arrayList.Remove(RotateType.Right.ToString());
                 }
-                if (a < 130f)
+                if (a < 130f) 
                 {
                     arrayList.Remove(RotateType.ForwardType.ToString());
                 }
@@ -109,9 +110,9 @@ public class ChunkSpawner : MonoBehaviour
                 
             }
         }
-        if (Physics.Raycast(RayLeft, out hit, -130f))
+        if (Physics.Raycast(RayLeft, out hit, 130f))
         {
-            if (hit.collider.gameObject.GetComponent<SceneObjectTexture>())
+            if (hit.collider.gameObject.GetComponent<ComponentWallToScene>())
             {
                 var a = hit.distance;
                 Debug.Log("RayLeft" + a);
