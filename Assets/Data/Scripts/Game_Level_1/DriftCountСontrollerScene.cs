@@ -33,30 +33,32 @@ public class DriftCountСontrollerScene : MonoBehaviour //Наработки
             ConclusionUi.text = DriftCount.ToString();
             if (DriftCount >= _PointDriftCount)
             {
-                EventManager.StateMoneyUpdateDisplayUi(SumMoneyPassagePoint);
+                EventMoney evt = EventManager.OptionsMenuEvent;
+                evt.value = SumMoneyPassagePoint;
+                EventManagerGame.Broadcast(evt);
                 _PointDriftCount += 5000;
             }
         }
-        if (SpeedCar.SpeedInHour > 50)
-        {
-            if (SpeedCar.SpeedInHour > 50 && SpeedCar.SpeedInHour > ProgressCounterDinamic + 10)
-            {
-                ProgressCounterDinamic += 1;
-                a = ((ProgressCounterDinamic - 50) / 10) * 5; //текущий бонус 
-                                                              // money +5
-            }
-            if (SpeedCar.SpeedInHour > 50 && SpeedCar.SpeedInHour < ProgressCounterDinamic)
-            {
-                ProgressCounterDinamic -= 10;
+        //if (SpeedCar.SpeedInHour > 50)
+        //{
+        //    if (SpeedCar.SpeedInHour > 50 && SpeedCar.SpeedInHour > ProgressCounterDinamic + 10)
+        //    {
+        //        ProgressCounterDinamic += 1;
+        //        a = ((ProgressCounterDinamic - 50) / 10) * 5; //текущий бонус 
+        //                                                      // money +5
+        //    }
+        //    if (SpeedCar.SpeedInHour > 50 && SpeedCar.SpeedInHour < ProgressCounterDinamic)
+        //    {
+        //        ProgressCounterDinamic -= 10;
 
-                if (a == 0)
-                {
-                    a = ((ProgressCounterDinamic - 50) / 10) * 5; //текущий бонус 
-                }
-            }
-            EventManager.StateMoneyUpdateDisplayUi(CountMoney + a);
-            a = 0;
-        }
+        //        if (a == 0)
+        //        {
+        //            a = ((ProgressCounterDinamic - 50) / 10) * 5; //текущий бонус 
+        //        }
+        //    }
+        //    EventManager.StateMoneyUpdateDisplayUi(CountMoney + a);
+        //    a = 0;
+        //}
 
     }
 

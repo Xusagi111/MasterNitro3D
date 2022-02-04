@@ -8,8 +8,7 @@ public class PlayerCheckTrigger : MonoBehaviour
     EventManager EventManager;
     private void Start()
     {
-        EventManager = FindObjectOfType<EventManager>();
-
+        //EventManager = FindObjectOfType<EventManager>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -26,6 +25,8 @@ public class PlayerCheckTrigger : MonoBehaviour
     public void SetActiveMoney(GameObject gameObject)
     {
         gameObject.SetActive(false);
-        EventManager.StateMoneyUpdateDisplayUi(CountMoney);
+        EventMoney evt = EventManager.OptionsMenuEvent;
+        evt.value = CountMoney;
+        EventManagerGame.Broadcast(evt);
     }
 }

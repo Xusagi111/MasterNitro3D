@@ -7,16 +7,21 @@ using UnityEngine.UI;
 
 public class EventManager : MonoBehaviour
 {
+    public static EventMoney OptionsMenuEvent = new EventMoney();
     [SerializeField] Text MoneDisplayUi;
     int Money; //Прикрутить текущие кол-во денег
-    public static UnityEvent<int> MoneyDisplay = new UnityEvent<int>();
-    public void StateMoneyUpdateDisplayUi(int CountMoneyScene)
+    private void Start()
     {
-        if (MoneyDisplay != null)
-        {
-            MoneyDisplay.Invoke(CountMoneyScene);
-            Money += CountMoneyScene;
-            MoneDisplayUi.text = Money.ToString();
-        }
+        EventManagerGame.AddListener<EventMoney>(UpdateMoneyDisplay);
     }
+    public void UpdateMoneyDisplay(EventMoney evt)
+    {
+        Money += evt.value;
+        MoneDisplayUi.text = Money.ToString();
+    }
+
+}
+public class EventMoney : GameEvent
+{
+    public int value;
 }

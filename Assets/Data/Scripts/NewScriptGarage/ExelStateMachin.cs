@@ -90,5 +90,5 @@ public class CarS_Player
     //public int Speed;
     //public int Control;  
 }
-public class index { public ArrayList indices = new ArrayList(); }
+public class index { public static ArrayList indices = new ArrayList(); }
 
