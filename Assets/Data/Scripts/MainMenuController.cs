@@ -42,6 +42,6 @@ public class MainMenuController : MonoBehaviour
     }
     public void OpenGame()
     {
-        SceneManager.LoadScene("Game_Level1_G");
+        SceneManager.LoadScene("Game_Level1_Suburb");
     }    
 }
