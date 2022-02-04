@@ -26,8 +26,11 @@ public class AllCarTheGarage //ToDo подгрузка с гугл таблиц
     public string[] upgradeAllLvl = { "1000", "2000", "3000", "4000", "5000", "6000", "7000"};
 }
 [System.Serializable]
-public class StateMachin  //ToDo хранение на гугл таблицах(пока тест) 
+public class AllGarageCarsThePlayer  //ToDo хранение на гугл таблицах(пока тест) 
 {
-    public int indexMachin;
-    public int Speed;
+    public static List<CarS_Player> AllCarState;// = new List<AllCarState>();
 }
+//перенести этот класс где будет реализованна гугл таблица
+[System.Serializable]
+public class AllCarState { }
+

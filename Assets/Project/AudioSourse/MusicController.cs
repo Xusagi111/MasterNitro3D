@@ -8,11 +8,6 @@ using UnityEngine.Events;
 public class MusicController : MonoBehaviour
 {
     public AudioMixerGroup Mixer;
-    private void Awake()
-    {
-
-    }
-
     public void ToggleMusic(bool enabled)
     {
         if (enabled)

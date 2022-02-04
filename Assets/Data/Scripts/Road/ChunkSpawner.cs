@@ -12,10 +12,10 @@ public class ChunkSpawner : MonoBehaviour
     private Chunk[] GamePrefabsCountRoad;
     public Chunk[] ChunkPrefabs;
     public Chunk firstChunk;
+    public Chunk newChunk;
     private List<Chunk> spawnedChunks = new List<Chunk>();
     private ArrayList arrayList = new ArrayList();
     private List<Chunk> SpawnPrefab = new List<Chunk>();
-    private Chunk newChunk;
     private RotateType rotateType;
 
     private void Start()
