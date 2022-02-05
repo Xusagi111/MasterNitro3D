@@ -58,7 +58,6 @@ public class UpdateCarStateToGarage : MonoBehaviour //EventConclusionTheDisplayU
             CarS_Player.IndexMachin = item;
             AllGarageCarsThePlayer.AllCarState.Add(CarS_Player);
         }
-        
     }
     public void ChecState()
     {

@@ -1819,50 +1819,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142890365}
   m_CullTransparentMesh: 1
---- !u!1 &142975496
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 142975498}
-  - component: {fileID: 142975497}
-  m_Layer: 0
-  m_Name: ScriptStatePlayer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &142975497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142975496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4b79106ebd1c3c4c9056b9fa943f525, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ListClassCarState: []
---- !u!4 &142975498
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142975496}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.138233, y: -18.500807, z: -17.426853}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &143590292
 GameObject:
   m_ObjectHideFlags: 0
@@ -3664,7 +3620,7 @@ GameObject:
   - component: {fileID: 284450274}
   - component: {fileID: 284450273}
   m_Layer: 5
-  m_Name: Tank (1)
+  m_Name: Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3722,7 +3678,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0411\u0430\u043A"
+  m_Text: Control
 --- !u!222 &284450274
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4348,6 +4304,9 @@ GameObject:
   - component: {fileID: 357599909}
   - component: {fileID: 357599910}
   - component: {fileID: 357599911}
+  - component: {fileID: 357599912}
+  - component: {fileID: 357599907}
+  - component: {fileID: 357599913}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: Untagged
@@ -4355,6 +4314,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &357599907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357599906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb8ed681f967bf4cad46aa106724e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conclusionNameCarOnUI: {fileID: 0}
+  conclusionOnPowerUI: {fileID: 1168392883}
+  conclusionOnSpeedUI: {fileID: 992194444}
+  conclusionOnControlUI: {fileID: 284450273}
+  UpgrageToUIPanelPowerLvl: {fileID: 0}
+  UpgrageToUIPanelSpeedLvl: {fileID: 0}
+  UpgrageToUIPanelControlLvl: {fileID: 0}
 --- !u!4 &357599908
 Transform:
   m_ObjectHideFlags: 0
@@ -4432,6 +4410,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conclusionOnMoneyUI: {fileID: 1779447202}
   conclusionOnDiamondsUI: {fileID: 231749036}
+--- !u!114 &357599912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357599906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fdb34c385b205345b91dd5c28dd10c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Power: 10
+  IndexCar: 0
+--- !u!114 &357599913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357599906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b79106ebd1c3c4c9056b9fa943f525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &361466086
 GameObject:
   m_ObjectHideFlags: 0
@@ -12220,7 +12224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1415228963
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13298,49 +13302,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1539595873}
   m_CullTransparentMesh: 1
---- !u!1 &1550959756
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1550959758}
-  - component: {fileID: 1550959757}
-  m_Layer: 0
-  m_Name: EventTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1550959757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550959756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6ca6c92330a959479b5698a437d8d35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1550959758
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550959756}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 172.2261, y: 730.88605, z: -46.40527}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1552713829
 GameObject:
   m_ObjectHideFlags: 0
@@ -18642,7 +18603,7 @@ GameObject:
   - component: {fileID: 2046743899}
   - component: {fileID: 2046743898}
   m_Layer: 5
-  m_Name: Tank
+  m_Name: Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18701,7 +18662,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0411\u0430\u043A"
+  m_Text: Control
 --- !u!222 &2046743899
 CanvasRenderer:
   m_ObjectHideFlags: 0
