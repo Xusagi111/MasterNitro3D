@@ -87,8 +87,8 @@ public class CarS_Player
     public int IndexMachin;
     public string NameCar;
     public int Power;
-    //public int Speed;
-    //public int Control;  
+    public int Speed;
+    public int Control;  
 }
-public class index { public static ArrayList indices = new ArrayList(); }
+public class index { public static List<int> indices = new List<int>(); }
 

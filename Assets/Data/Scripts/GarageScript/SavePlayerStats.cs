@@ -28,7 +28,7 @@ public class AllCarTheGarage //ToDo подгрузка с гугл таблиц
 [System.Serializable]
 public class AllGarageCarsThePlayer  //ToDo хранение на гугл таблицах(пока тест) 
 {
-    public static List<CarS_Player> AllCarState;// = new List<AllCarState>();
+    public static List<CarS_Player> AllCarState = new List<CarS_Player>();
 }
 //перенести этот класс где будет реализованна гугл таблица
 [System.Serializable]

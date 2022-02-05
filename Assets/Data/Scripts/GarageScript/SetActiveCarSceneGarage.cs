@@ -10,10 +10,12 @@ public class SetActiveCarSceneGarage : MonoBehaviour
     [SerializeField] public GameObject inite;
     [SerializeField] GameObject CarSevDesc;
     [SerializeField] Text CarName;
-    int count = 0;
+    private int count = 0;
+    public static int IndexMachinInList { get; private set; }
 
     private void Start()
     {
+        IndexMachinInList = index.indices[count];
         inite = gameObjects[count];
         CarDes[count] = inite;
         inite.SetActive(true);
@@ -24,6 +26,8 @@ public class SetActiveCarSceneGarage : MonoBehaviour
         {
             if (count > 0)
             {
+                IndexMachinInList = index.indices[count - 1];
+                Debug.Log(IndexMachinInList);
                 inite = gameObjects[count - 1];
                 CarDes[count - 1] = inite;
                 CarSevDesc = CarDes[count];
@@ -31,6 +35,7 @@ public class SetActiveCarSceneGarage : MonoBehaviour
                 inite.SetActive(true);
             }
             count--;
+            
         }
     }  
     public void RightSwitchbutton()
@@ -38,6 +43,8 @@ public class SetActiveCarSceneGarage : MonoBehaviour
         int ArrayCarLength = gameObjects.Length;
         if (count != ArrayCarLength - 1)
             count++;
+        IndexMachinInList = index.indices[count];
+        Debug.Log(IndexMachinInList);
         if (count < gameObjects.Length)
         {
             inite = gameObjects[count];
