@@ -8,20 +8,27 @@ public class UpdateCarStateToGarage : MonoBehaviour //EventConclusionTheDisplayU
     public int IndexCar;
     AllGarageCarsThePlayer allGarageCarsThePlayer = new AllGarageCarsThePlayer();
     private List<int> intermediateIndex = new List<int>();
+    public  List<CarS_Player> ItemsListMachin = new List<CarS_Player>();
+
     private void Start() //Load
     {
         allGarageCarsThePlayer = ButtonClassSave.LoadFromPlayerPrefs<AllGarageCarsThePlayer>(allGarageCarsThePlayer, "AllGarageCarsThePlayer");
+        EventManagerGame.AddListener<EventPushList>(GetIndexMachin);
         jogIndex();
-
-
+        LoadingStatsPoIndex();
     }
     public void UpgradeStatePower()
     {
+        if (true)//деньги нужное кол-во то отнять
+        {
+
+        }
         Test1 evt= EventManager.Test1;
         evt.Power = Power;
         EventManagerGame.Broadcast(evt);
-    }
+        LoadingStatsPoIndex();
 
+    }
     public void UpgradeStateSpeed()
     {
         Test1 evt = EventManager.Test1;
@@ -49,14 +56,24 @@ public class UpdateCarStateToGarage : MonoBehaviour //EventConclusionTheDisplayU
                     intermediateIndex.Remove(it);
                 }
             }
- 
         }
-
-        foreach (var item in intermediateIndex) //Добавляет экземпляры с индексом, если их нету
+        foreach (var item in intermediateIndex) //добавление дефолтных стат для машины
         {
-            CarS_Player CarS_Player = new CarS_Player();
-            CarS_Player.IndexMachin = item;
-            AllGarageCarsThePlayer.AllCarState.Add(CarS_Player);
+            foreach (var it in UpdateCarExel.ListClassCarState)
+            {
+                if (item == it.IndexMachin)
+                {
+                    CarS_Player CarS_Player = new CarS_Player();
+                    CarS_Player.IndexMachin = it.IndexMachin;
+                    CarS_Player.Power = it.Power;
+                    CarS_Player.Speed = it.Speed;
+                    CarS_Player.Control = it.Control;
+                    CarS_Player.NameCar = it.NameCar;
+                    AllGarageCarsThePlayer.AllCarState.Add(CarS_Player);
+                    break;
+                }
+
+            }
         }
     }
     public void ChecState()
@@ -65,6 +82,32 @@ public class UpdateCarStateToGarage : MonoBehaviour //EventConclusionTheDisplayU
     }
     public void LoadingStatsPoIndex()
     {
-
+        for (int i = 0; i < ItemsListMachin.Count; i++)
+        {
+            if(ItemsListMachin.Count == 0)
+            {
+                break;
+            }
+            ItemsListMachin.Clear() ;
+        }
+        foreach (var item in UpdateCarExel.ListClassCarState) //текущая машина, используемая под прокачку
+        {
+            if (SetActiveCarSceneGarage.IndexMachinInList == item.IndexMachin)
+            {
+                ItemsListMachin.Add(item);
+            }
+            //if (SetActiveCarSceneGarage.IndexMachinInList != item.IndexMachin)
+            //{
+            //    //если через цикл фор , то добавить +9 i увеличит быстоту пробега
+            //}
+            //for (int i = 0; i < AllGarageCarsThePlayer.AllCarState.Count; i++)
+            //{
+            //    AllGarageCarsThePlayer.AllCarState[i].
+            //}
+        }
+    }
+    public void GetIndexMachin(EventPushList evt)
+    {
+        this.IndexCar = evt.indexCarMachin;
     }
 }

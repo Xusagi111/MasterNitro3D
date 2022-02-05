@@ -88,7 +88,10 @@ public class CarS_Player
     public string NameCar;
     public int Power;
     public int Speed;
-    public int Control;  
+    public int Control;
+    public int indexPowerLevel;
+    public int indexSpeedLevel;
+    public int indexControlLevel;
 }
 public class index { public static List<int> indices = new List<int>(); }
 

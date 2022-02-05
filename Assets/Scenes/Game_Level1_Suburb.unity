@@ -9897,15 +9897,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c49594fbed377b4ea38fda7ab3b5742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   ChunkPrefabs:
   - {fileID: 438626329126179517, guid: 5c983a1ba2872ea47bb62a25b1b7cc50, type: 3}
   - {fileID: 6605345511137930017, guid: f80b940e1eb74834c8fb8fe4289097bf, type: 3}
   - {fileID: 1650553240494407729, guid: 011b960f99f5a2548baed235d55a62fc, type: 3}
-  GamePrefabsCountRoad: []
   firstChunk: {fileID: 1352749437}
-  spawnedChunks: []
-  SpawnPrefab: []
   newChunk: {fileID: 1352749437}
 --- !u!4 &395217270
 Transform:
@@ -15338,15 +15334,8 @@ MonoBehaviour:
   ConclusionUi: {fileID: 455124005}
   View: {fileID: 0}
   ViewPlayerTransform: {fileID: 0}
-  DriftCount: 0
-  _PointDriftCount: 5000
-  SumMoneyPassagePoint: 1000
-  CountMoney: 10
-  ProgressCounterDefolt: 50
   ProgressCounterDinamic: 50
   a: 0
-  EventManager: {fileID: 0}
-  SpeedCar: {fileID: 0}
 --- !u!4 &607512063
 Transform:
   m_ObjectHideFlags: 0
@@ -17698,7 +17687,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -27490,15 +27479,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c49594fbed377b4ea38fda7ab3b5742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   ChunkPrefabs:
   - {fileID: 438626329126179517, guid: 5c983a1ba2872ea47bb62a25b1b7cc50, type: 3}
   - {fileID: 6605345511137930017, guid: f80b940e1eb74834c8fb8fe4289097bf, type: 3}
   - {fileID: 1650553240494407729, guid: 011b960f99f5a2548baed235d55a62fc, type: 3}
-  GamePrefabsCountRoad: []
   firstChunk: {fileID: 0}
-  spawnedChunks: []
-  SpawnPrefab: []
   newChunk: {fileID: 0}
 --- !u!4 &1057232816
 Transform:

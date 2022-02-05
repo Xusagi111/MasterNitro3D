@@ -11193,9 +11193,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 357599910}
-        m_TargetAssemblyTypeName: NewCarTheGarage, Assembly-CSharp
-        m_MethodName: UpgradePower
+      - m_Target: {fileID: 357599912}
+        m_TargetAssemblyTypeName: UpdateCarStateToGarage, Assembly-CSharp
+        m_MethodName: UpgradeStatePower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

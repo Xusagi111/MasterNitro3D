@@ -8,12 +8,12 @@ public class UpdateCarExel : MonoBehaviour //Load Class
     public static List<CarS_Player> ListClassCarState; // Лист стат машин получаемый с таблицы эксель
     private int indexCar;
 
-    void Start()
+    void Awake()
     {
-        for (int i = 0; i < index.indices.Count; i++)
-        {
-            index.indices.Remove(i);
-        }
+        //for (int i = 0; i < index.indices.Count; i++)
+        //{
+        //    index.indices.Remove(i);
+        //}
         //CarS_Player[] CarS_Player = new CarS_Player[] { };
         ListClassCarState = ExelStateMachin.CarStatsRead();
         foreach (var item in ListClassCarState) //работает с перечислениями выводит с таблицы на консоль 

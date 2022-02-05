@@ -11,14 +11,15 @@ public class SetActiveCarSceneGarage : MonoBehaviour
     [SerializeField] GameObject CarSevDesc;
     [SerializeField] Text CarName;
     private int count = 0;
-    public static int IndexMachinInList { get; private set; }
+    public static int IndexMachinInList { get; set; }
 
     private void Start()
     {
-        IndexMachinInList = index.indices[count];
+        IndexMachinInList = 123;
         inite = gameObjects[count];
         CarDes[count] = inite;
         inite.SetActive(true);
+        
     }
     public void LeftSwitchbutton()
     {
@@ -26,13 +27,17 @@ public class SetActiveCarSceneGarage : MonoBehaviour
         {
             if (count > 0)
             {
-                //IndexMachinInList = index.indices[count - 1];
-                //Debug.Log(IndexMachinInList);
+                IndexMachinInList = index.indices[count - 1];
+                Debug.Log(IndexMachinInList);
                 inite = gameObjects[count - 1];
                 CarDes[count - 1] = inite;
                 CarSevDesc = CarDes[count];
                 CarSevDesc.SetActive(false);
                 inite.SetActive(true);
+                //Event
+                EventPushList evt = EventManager.EventPushOn;
+                evt.indexCarMachin = IndexMachinInList;
+                EventManagerGame.Broadcast(evt);
             }
             count--;
             
@@ -43,8 +48,8 @@ public class SetActiveCarSceneGarage : MonoBehaviour
         int ArrayCarLength = gameObjects.Length;
         if (count != ArrayCarLength - 1)
             count++;
-        //IndexMachinInList = index.indices[count];
-        //Debug.Log(IndexMachinInList);
+        IndexMachinInList = index.indices[count];
+        Debug.Log(IndexMachinInList);
         if (count < gameObjects.Length)
         {
             inite = gameObjects[count];
@@ -52,6 +57,10 @@ public class SetActiveCarSceneGarage : MonoBehaviour
             CarSevDesc = CarDes[count-1];
             CarSevDesc.SetActive(false);
             inite.SetActive(true);
+            //Event
+            EventPushList evt = EventManager.EventPushOn;
+            evt.indexCarMachin = IndexMachinInList;
+            EventManagerGame.Broadcast(evt);
         }
     }  
 }
