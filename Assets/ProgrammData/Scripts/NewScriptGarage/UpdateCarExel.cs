@@ -7,16 +7,16 @@ public class UpdateCarExel : MonoBehaviour //Load Class
 {
     public static List<CarS_Player> ListClassCarState; // Лист стат машин получаемый с таблицы эксель
     private int indexCar;
-
+    
     void Awake()
     {
-        //for (int i = 0; i < index.indices.Count; i++)
-        //{
-        //    index.indices.Remove(i);
-        //}
-        //CarS_Player[] CarS_Player = new CarS_Player[] { };
-        ListClassCarState = ExelStateMachin.CarStatsRead();
-        foreach (var item in ListClassCarState) //работает с перечислениями выводит с таблицы на консоль 
+        GoogleSheetLoader.OnProcessData += DataMachin;
+        //ListClassCarState = ExelStateMachin.CarStatsRead(); //старая логика 
+       
+    }
+    public void DataMachin(CarStateToList carStateToList)
+    {
+        foreach (var item in carStateToList.CubeOptionsList) //работает с перечислениями выводит с таблицы на консоль 
         {
             Debug.Log(item.Power);
             if (indexCar != item.IndexMachin)
@@ -27,5 +27,16 @@ public class UpdateCarExel : MonoBehaviour //Load Class
             }
         }
     }
+}
+[System.Serializable]
+public class CarS_Player
+{
+    public int IndexMachin;
+    public string NameCar;
+    public int Power;
+    public int Speed;
+    public int Control;
 
 }
+public class index { public static List<int> indices = new List<int>(); }
+

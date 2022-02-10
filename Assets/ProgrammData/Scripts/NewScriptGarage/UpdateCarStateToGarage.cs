@@ -90,8 +90,8 @@ public class UpdateCarStateToGarage : MonoBehaviour //EventConclusionTheDisplayU
             }
             ItemsListMachin.Clear() ;
         }
-        foreach (var item in UpdateCarExel.ListClassCarState) //текущая машина, используемая под прокачку
-        {
+        foreach (var item in UpdateCarExel.ListClassCarState) //текущая машина, используемая под прокачку 
+        {//продумать прокид сслыки на список.
             if (SetActiveCarSceneGarage.IndexMachinInList == item.IndexMachin)
             {
                 ItemsListMachin.Add(item);
