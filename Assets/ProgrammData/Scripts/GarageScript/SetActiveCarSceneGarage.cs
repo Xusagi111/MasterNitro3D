@@ -19,7 +19,6 @@ public class SetActiveCarSceneGarage : MonoBehaviour
         inite = gameObjects[count];
         CarDes[count] = inite;
         inite.SetActive(true);
-        
     }
     public void LeftSwitchbutton()
     {
@@ -27,7 +26,7 @@ public class SetActiveCarSceneGarage : MonoBehaviour
         {
             if (count > 0)
             {
-                IndexMachinInList = index.indices[count - 1];
+                //IndexMachinInList = index.indices[count - 1];
                 Debug.Log(IndexMachinInList);
                 inite = gameObjects[count - 1];
                 CarDes[count - 1] = inite;
@@ -35,8 +34,8 @@ public class SetActiveCarSceneGarage : MonoBehaviour
                 CarSevDesc.SetActive(false);
                 inite.SetActive(true);
                 //Event
-                EventPushList evt = EventManager.EventPushOn;
-                evt.indexCarMachin = IndexMachinInList;
+                CarS_Player evt = EventManager.EventAllGarageCarsThePlayer;
+                evt = AllGarageCarsThePlayer.AllCarState[count -1];
                 EventManagerGame.Broadcast(evt);
             }
             count--;
@@ -48,7 +47,7 @@ public class SetActiveCarSceneGarage : MonoBehaviour
         int ArrayCarLength = gameObjects.Length;
         if (count != ArrayCarLength - 1)
             count++;
-        IndexMachinInList = index.indices[count];
+        //IndexMachinInList = index.indices[count];
         Debug.Log(IndexMachinInList);
         if (count < gameObjects.Length)
         {
@@ -58,8 +57,8 @@ public class SetActiveCarSceneGarage : MonoBehaviour
             CarSevDesc.SetActive(false);
             inite.SetActive(true);
             //Event
-            EventPushList evt = EventManager.EventPushOn;
-            evt.indexCarMachin = IndexMachinInList;
+            CarS_Player evt = EventManager.EventAllGarageCarsThePlayer;
+            evt = AllGarageCarsThePlayer.AllCarState[count];
             EventManagerGame.Broadcast(evt);
         }
     }  

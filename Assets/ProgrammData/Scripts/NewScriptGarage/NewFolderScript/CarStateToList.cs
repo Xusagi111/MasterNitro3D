@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class CarStateToList
 {
-    public List<CarsState> CubeOptionsList;
+    public List<CarS_Player> CubeOptionsList;
 
     public override string ToString()
     {
@@ -17,7 +17,7 @@ public class CarStateToList
     }
 }
 [System.Serializable]
-public class CarsState
+public class CarS_Player : GameEvent
 {
     public int IndexMachin;
     public string NameCar;

@@ -14,13 +14,21 @@ public class UpdateUIToGarage : MonoBehaviour //GetUpdateUIToGarage
     [SerializeField] Text UpgrageToUIPanelControlLvl;
     private void Start()
     {
-        EventManagerGame.AddListener<Test1>(DisplayUiStatsR);
+        EventManagerGame.AddListener<EventClassDisplayToUi>(DisplayUiStatsR);
+        EventManagerGame.AddListener<CarS_Player>(DisplayUistateRS); 
     }
-    public void DisplayUiStatsR(Test1 evt)
+    public void DisplayUiStatsR(EventClassDisplayToUi evt)
     {
         conclusionOnPowerUI.text = evt.Power.ToString();
         conclusionOnSpeedUI.text = evt.Speed.ToString();
         conclusionOnControlUI.text = evt.Control.ToString();
+    }
+    public void DisplayUistateRS(CarS_Player evt)
+    {
+        conclusionOnPowerUI.text = evt.Power.ToString();
+        conclusionOnSpeedUI.text = evt.Speed.ToString();
+        conclusionOnControlUI.text = evt.Control.ToString();
+        conclusionNameCarOnUI.text = evt.NameCar;
     }
 
 }

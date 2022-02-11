@@ -30,7 +30,6 @@ public class CVSLoader : MonoBehaviour  //загузка по url гугл таблицы
             {
                 if (_debug)
                 {
-                    Debug.Log("Successful download");
                     Debug.Log(request.downloadHandler.text);
                     text.text = request.downloadHandler.text;
                 }
