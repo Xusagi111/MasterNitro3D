@@ -1,0 +1,34 @@
+using System;
+using UnityEngine;
+
+[RequireComponent(typeof(CVSLoader), typeof(SheetProcessor))]
+public class GoogleSheetLoader : MonoBehaviour
+{
+    public static event Action<CarStateToList> OnProcessData;
+    public static event Action LoadingCar;
+    
+    [SerializeField] private string _sheetId;
+    [SerializeField] private CarStateToList _data;
+    
+    private CVSLoader _cvsLoader;
+    private SheetProcessor _sheetProcessor;
+
+    private void Awake()
+    {
+        _cvsLoader = GetComponent<CVSLoader>();
+        _sheetProcessor = GetComponent<SheetProcessor>();
+        DownloadTable();
+    }
+
+    private void DownloadTable()
+    {
+        _cvsLoader.DownloadTable(_sheetId, OnRawCVSLoaded);
+    }
+
+    private void OnRawCVSLoaded(string rawCVSText)
+    {
+        _data = _sheetProcessor.ProcessData(rawCVSText);
+        OnProcessData?.Invoke(_data); //вернул отсортированный список со статами машин
+        LoadingCar?.Invoke();
+    }
+}
