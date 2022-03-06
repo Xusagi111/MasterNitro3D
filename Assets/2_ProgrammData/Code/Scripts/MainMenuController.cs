@@ -7,13 +7,28 @@ using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
-    [SerializeField] GameObject SettingsPanel;
-    [SerializeField] GameObject UpdatePanel;
-    [SerializeField] GameObject FpsPanel;
-    public GameObject PanelAlertsTrafficNotSide;
-    public void OpenSatingsPanel(bool state)
+    [SerializeField] private GameObject SettingsPanel;
+    [SerializeField] private GameObject UpdatePanel;
+    [SerializeField] private GameObject FpsPanel;
+    [SerializeField] private GameObject LoadingPanel;
+    [SerializeField] private GameObject PlayGameButton;
+
+    private void Start()
+    {
+        if (DontDestroy.CountLoad == 0)
+        {
+            DontDestroy.CountLoad++;
+            LoadingPanel.SetActive(true);
+            StartCoroutine(ActivationPlayButton());
+        }
+    }
+    public void OpenSettingsPanel(bool state)
     {
         SettingsPanel.SetActive(state);
+    }
+    public void OpenGame()
+    {
+        SceneManager.LoadScene("Game_Level1_Suburb");
     }
 
     public void OpenUpdatePanel()
@@ -40,8 +55,14 @@ public class MainMenuController : MonoBehaviour
         }
 
     }
-    public void OpenGame()
+    IEnumerator ActivationPlayButton()
     {
-        SceneManager.LoadScene("Game_Level1_Suburb");
-    }    
+        yield return new WaitForSeconds(3f);
+        PlayGameButton.SetActive(true);
+    }
+    public void ActivationMainMenuScene()
+    {
+        LoadingPanel.SetActive(false);
+        PlayGameButton.SetActive(false);
+    }
 }

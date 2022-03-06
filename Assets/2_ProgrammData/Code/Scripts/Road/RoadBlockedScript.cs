@@ -21,20 +21,21 @@ public class RoadBlockedScript : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
+    //void OnCollisionEnter(Collision collision)
+    //{
 
-        if (collision.gameObject.name == "Player")
-        {
-            StartCoroutine(MessageActiveUI());
-        }
-    }
-    IEnumerator MessageActiveUI()
-    {
-        var a = GameObject.Find("UIController");
-        mainMenuController = a.GetComponent<MainMenuController>();
-        mainMenuController.PanelAlertsTrafficNotSide.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        mainMenuController.PanelAlertsTrafficNotSide.SetActive(false);
-    }
+    //    if (collision.gameObject.name == "Player")
+    //    {
+    //        StartCoroutine(MessageActiveUI());
+    //    }
+    //}
+
+    //IEnumerator MessageActiveUI()
+    //{
+    //    var a = GameObject.Find("UIController");
+    //    mainMenuController = a.GetComponent<MainMenuController>();
+    //    mainMenuController.PanelAlertsTrafficNotSide.SetActive(true);
+    //    yield return new WaitForSeconds(1f);
+    //    mainMenuController.PanelAlertsTrafficNotSide.SetActive(false);
+    //}
 }
