@@ -19,13 +19,9 @@ public class BuyStateToList: MonoBehaviour//переименовать
 [System.Serializable]
 public class Buy : MonoBehaviour
 {
-    public int IndexMachin;
-    public string NameCar;
-    public string levelCar;
-    public int Power;
-    public int Speed;
-    public int Control;
-    public int indexPowerLevel;
-    public int indexSpeedLevel;
-    public int indexControlLevel;
+    public int IndexKey;
+    public int NameOffer;
+    public int CountCurrency;
+    public int LevelBust;
+    public int PersentBust;
 }
