@@ -7,7 +7,7 @@ public class DataTransferUsingGoogleSheet : MonoBehaviour
     public static event Action LoadingData;
 
     [SerializeField] private string _sheetId;
-    [SerializeField] private BuyStateToList _data;
+    public BuyStateToList _data;
 
     private UrlSheetLoading _urlSheetLoading;
     private ReadingGoogleSheet _readingGoogleSheet;

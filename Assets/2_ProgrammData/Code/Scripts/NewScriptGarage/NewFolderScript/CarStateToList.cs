@@ -4,12 +4,12 @@ using UnityEngine;
 [System.Serializable]
 public class CarStateToList
 {
-    public List<CarS_Player> CubeOptionsList;
+    public List<CarS_Player> CarsPlayersList;
 
     public override string ToString()
     {
         string result = "";
-        CubeOptionsList.ForEach(o =>
+        CarsPlayersList.ForEach(o =>
         {
             result += o.ToString();
         });

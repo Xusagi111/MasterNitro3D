@@ -21,8 +21,8 @@ public class UpdateCarStateToGarage : MonoBehaviour //текущий индекс хранения ма
 
     public void LoadingCarExcel(CarStateToList carStateToList)
     {
-        ListClassCarState = carStateToList.CubeOptionsList;
-        foreach (var item in carStateToList.CubeOptionsList)
+        ListClassCarState = carStateToList.CarsPlayersList;
+        foreach (var item in carStateToList.CarsPlayersList)
         {
             Debug.Log(item.Power);
             if (indexCar1 != item.IndexMachin)

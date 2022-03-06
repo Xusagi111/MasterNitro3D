@@ -23,7 +23,7 @@ public class SheetProcessor: MonoBehaviour
         char lineEnding = GetPlatformSpecificLineEnd();
         string[] rows = cvsRawData.Split(lineEnding);
         CarStateToList data = new CarStateToList();
-        data.CubeOptionsList = new List<CarS_Player>();
+        data.CarsPlayersList = new List<CarS_Player>();
 
         for (int i = dataStartRawIndex; i < rows.Length; i++)
         {
@@ -44,7 +44,7 @@ public class SheetProcessor: MonoBehaviour
             }
             if (levelCar != "" && Power != 0)
             {
-                data.CubeOptionsList.Add(new CarS_Player()
+                data.CarsPlayersList.Add(new CarS_Player()
                 {
                     IndexMachin = id,
                     NameCar = NameCar,
@@ -55,7 +55,7 @@ public class SheetProcessor: MonoBehaviour
                 });
             }
         }
-        Debug.Log(data.CubeOptionsList.ToString());
+        Debug.Log(data.CarsPlayersList.ToString());
         return data;
     }
     #region DopLogic
