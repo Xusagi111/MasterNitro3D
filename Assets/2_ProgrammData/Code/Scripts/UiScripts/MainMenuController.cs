@@ -28,7 +28,7 @@ public class MainMenuController : MonoBehaviour
     }
     public void OpenGame()
     {
-        SceneManager.LoadScene("Game_Level1_Suburb");
+        SceneManager.LoadScene("Game");
     }
 
     public void OpenUpdatePanel()
