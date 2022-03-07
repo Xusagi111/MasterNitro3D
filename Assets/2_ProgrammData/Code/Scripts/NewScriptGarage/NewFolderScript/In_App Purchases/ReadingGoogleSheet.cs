@@ -51,7 +51,7 @@ public class ReadingGoogleSheet : MonoBehaviour
                 });
             }
         }
-        Debug.Log(data.ListBuy.ToString());
+        //Debug.Log(data.ListBuy.ToString());
         return data;
     }
     #region DopLogic

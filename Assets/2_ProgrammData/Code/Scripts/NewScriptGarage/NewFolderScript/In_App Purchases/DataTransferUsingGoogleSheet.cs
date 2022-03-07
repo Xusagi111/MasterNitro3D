@@ -4,7 +4,7 @@ using UnityEngine;
 public class DataTransferUsingGoogleSheet : MonoBehaviour
 {
     public static event Action<BuyStateToList> EventData;
-    public static event Action LoadingData;
+
 
     [SerializeField] private string _sheetId;
     public BuyStateToList _data;
@@ -28,6 +28,5 @@ public class DataTransferUsingGoogleSheet : MonoBehaviour
     {
         _data = _readingGoogleSheet.ProcessData(rawCVSText);
         EventData?.Invoke(_data); //вернул отсортированный список 
-        LoadingData?.Invoke();
     }
 }

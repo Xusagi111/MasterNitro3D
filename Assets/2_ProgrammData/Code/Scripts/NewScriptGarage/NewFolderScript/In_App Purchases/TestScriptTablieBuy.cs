@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,11 @@ public class TestScriptTablieBuy : MonoBehaviour
 {
     [SerializeField] private BuyStateToList BuyStateToList;
     [SerializeField] private List<Buy> _buyStateToLists;
-    [SerializeField] private List<Buy> diamons;
-    [SerializeField] private List<Buy> money;
-    public List<Buy> Diamons { get; set; }
-    public List<Buy> Money { get; set; }
+    [SerializeField] private List<Buy> _diamons;
+    [SerializeField] private List<Buy> _money;
+    public List<Buy> Diamons { get { return _diamons; } set { _diamons = value; } }
+    public List<Buy> Money { get { return _money; } set { _money = value; } }
+    public static event Action LoadingData;
     private void Start()
     {
         DataTransferUsingGoogleSheet.EventData += GetList;
@@ -26,12 +28,13 @@ public class TestScriptTablieBuy : MonoBehaviour
         {
             if (_buyStateToLists[i].IndexKey == CurrentIndex)
             {
-                diamons.Add(_buyStateToLists[i]);
+                _diamons.Add(_buyStateToLists[i]);
             }
             else
             {
-                money.Add(_buyStateToLists[i]);
+                _money.Add(_buyStateToLists[i]);
             }
         }
+        LoadingData?.Invoke();
     }
 }
