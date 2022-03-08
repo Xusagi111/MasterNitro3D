@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InizializationData : MonoBehaviour //текущий индекс хранения машины 
+public class InizializationDataAboutMachinesObtainedFromTable : MonoBehaviour //текущий индекс хранения машины 
 {
     private int Power = 10;
     private int IndexCar;

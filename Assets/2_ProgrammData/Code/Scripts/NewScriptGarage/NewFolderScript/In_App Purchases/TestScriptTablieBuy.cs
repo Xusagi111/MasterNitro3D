@@ -9,8 +9,12 @@ public class TestScriptTablieBuy : MonoBehaviour
     [SerializeField] private List<Buy> _buyStateToLists;
     [SerializeField] private List<Buy> _diamons;
     [SerializeField] private List<Buy> _money;
+    [SerializeField] private List<Buy> _offersPurchases;
+    [SerializeField] private int[] Index = new int[3];
     public List<Buy> Diamons { get { return _diamons; } set { _diamons = value; } }
     public List<Buy> Money { get { return _money; } set { _money = value; } }
+    public List<Buy> OffersPurchases { get { return _offersPurchases; } set { _offersPurchases = value; } }
+
     public static event Action LoadingData;
     private void Start()
     {
@@ -24,6 +28,14 @@ public class TestScriptTablieBuy : MonoBehaviour
     public void DataDistrebution()
     {
         int CurrentIndex = _buyStateToLists[0].IndexKey;
+        for (int i = 0; i < _buyStateToLists.Count; i++)
+        {
+            if (CurrentIndex == Index[0])
+            {
+
+            }
+        }
+        
         for (int i = 0; i < _buyStateToLists.Count; i++)
         {
             if (_buyStateToLists[i].IndexKey == CurrentIndex)
