@@ -11,15 +11,12 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject FpsPanel;
     [SerializeField] private GameObject LoadingPanel;
     [SerializeField] private GameObject PlayGameButton;
+    [SerializeField] private GameObject PlayerNoConnectToServerImage;
 
     private void Start()
     {
-        if (DontDestroy.CountLoad == 0)
-        {
-            DontDestroy.CountLoad++;
-            LoadingPanel.SetActive(true);
-            StartCoroutine(ActivationPlayButton());
-        }
+        UrlSheetLoading.NotConnectToServer += ServerConnectionCheck;
+        LoadingPanel.SetActive(true);
     }
     public void OpenGame()
     {
@@ -50,10 +47,34 @@ public class MainMenuController : MonoBehaviour
         }
 
     }
+    public void ServerConnectionCheck(bool state)
+    {
+        if (state)
+        {
+            if (DontDestroy.CountLoad == 0)
+            {
+                DontDestroy.CountLoad++;
+                StartCoroutine(ActivationPlayButton());
+            }
+            else
+            {
+                StartCoroutine(ActivationPlayButton());
+            }
+        }
+        else if (state != true)
+        {
+            NoServerConnection();
+        }
+      
+    }
     IEnumerator ActivationPlayButton()
     {
         yield return new WaitForSeconds(3f);
         PlayGameButton.SetActive(true);
+    }
+    public void NoServerConnection()
+    {
+        PlayerNoConnectToServerImage.SetActive(true);
     }
     public void ActivationMainMenuScene()
     {

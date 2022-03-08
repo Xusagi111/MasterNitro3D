@@ -2457,6 +2457,7 @@ MonoBehaviour:
   FpsPanel: {fileID: 5198467657394742872}
   LoadingPanel: {fileID: 389380328}
   PlayGameButton: {fileID: 735353582}
+  PlayerNoConnectToServerImage: {fileID: 5655518358558104979}
 --- !u!114 &1657980976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3682,6 +3683,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loading_Image
       objectReference: {fileID: 0}
+    - target: {fileID: 5655518358208718202, guid: 0295e8349d762c34cb1c81aaf9469a46, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5655518358208718203, guid: 0295e8349d762c34cb1c81aaf9469a46, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3772,6 +3777,11 @@ PrefabInstance:
       objectReference: {fileID: 1657980975}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0295e8349d762c34cb1c81aaf9469a46, type: 3}
+--- !u!1 &5655518358558104979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5078399484147351352, guid: 0295e8349d762c34cb1c81aaf9469a46, type: 3}
+  m_PrefabInstance: {fileID: 5655518358558104978}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9039776415954314772
 PrefabInstance:
   m_ObjectHideFlags: 0

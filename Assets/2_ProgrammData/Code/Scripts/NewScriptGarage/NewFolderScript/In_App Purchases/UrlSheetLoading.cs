@@ -9,6 +9,7 @@ public class UrlSheetLoading : MonoBehaviour // Можно переиспользовать. //Добави
     [SerializeField] private Text text;
     private bool _debug = true;
     private const string url = "https://docs.google.com/spreadsheets/d/*/export?format=csv"; // &gid=2056821665 смена листа
+    public static event Action<bool> NotConnectToServer;
 
     public void DownloadTable(string sheetId, Action<string> onSheetLoadedAction)
     {
@@ -25,6 +26,7 @@ public class UrlSheetLoading : MonoBehaviour // Можно переиспользовать. //Добави
                 request.result == UnityWebRequest.Result.DataProcessingError)
             {
                 Debug.LogError(request.error);
+                NotConnectToServer.Invoke(false);
             }
             else
             {
@@ -33,7 +35,7 @@ public class UrlSheetLoading : MonoBehaviour // Можно переиспользовать. //Добави
                     Debug.Log(request.downloadHandler.text);
                     text.text = request.downloadHandler.text;
                 }
-
+                NotConnectToServer.Invoke(true);
                 callback(request.downloadHandler.text);
             }
         }
