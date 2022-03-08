@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
-    [SerializeField] private GameObject SettingsPanel;
     [SerializeField] private GameObject UpdatePanel;
     [SerializeField] private GameObject FpsPanel;
     [SerializeField] private GameObject LoadingPanel;
@@ -21,10 +20,6 @@ public class MainMenuController : MonoBehaviour
             LoadingPanel.SetActive(true);
             StartCoroutine(ActivationPlayButton());
         }
-    }
-    public void OpenSettingsPanel(bool state)
-    {
-        SettingsPanel.SetActive(state);
     }
     public void OpenGame()
     {

@@ -24,12 +24,12 @@ public class UpdateCarStateToGarage : MonoBehaviour //текущий индекс хранения ма
         ListClassCarState = carStateToList.CarsPlayersList;
         foreach (var item in carStateToList.CarsPlayersList)
         {
-            Debug.Log(item.Power);
+            //Debug.Log(item.Power);
             if (indexCar1 != item.IndexMachin)
             {
                 this.indexCar1 = item.IndexMachin;
                 index.indices.Add(item.IndexMachin);
-                Debug.Log(item.IndexMachin);
+                //Debug.Log(item.IndexMachin);
             }
         }
         jogIndex();
