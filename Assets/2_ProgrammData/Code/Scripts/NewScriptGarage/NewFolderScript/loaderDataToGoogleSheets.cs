@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class CVSLoader : MonoBehaviour  //загузка по url гугл таблицы
+public class loaderDataToGoogleSheets : MonoBehaviour  //загузка по url гугл таблицы
 {
     [SerializeField] private Text text;
     private bool _debug = true;

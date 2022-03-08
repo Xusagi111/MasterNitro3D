@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class SheetProcessor: MonoBehaviour
+public class ReadingDataFromSheet: MonoBehaviour
 {
     #region Const
     private const int _id = 0;

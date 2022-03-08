@@ -47,9 +47,9 @@ public static class EventManagerGame
             action.Invoke(evt);
     }
 
-    //public static void Clear()
-    //{
-    //    s_Events.Clear();
-    //    s_EventLookups.Clear();
-    //}
+    public static void Clear()
+    {
+        s_Events.Clear();
+        s_EventLookups.Clear();
+    }
 }

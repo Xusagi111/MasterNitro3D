@@ -5,7 +5,6 @@ public class DataTransferUsingGoogleSheet : MonoBehaviour
 {
     public static event Action<BuyStateToList> EventData;
 
-
     [SerializeField] private string _sheetId;
     public BuyStateToList _data;
 

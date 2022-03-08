@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(CVSLoader), typeof(SheetProcessor))]
+[RequireComponent(typeof(loaderDataToGoogleSheets), typeof(ReadingDataFromSheet))]
 public class GoogleSheetLoader : MonoBehaviour
 {
     public static event Action<CarStateToList> OnProcessData;
@@ -10,19 +10,19 @@ public class GoogleSheetLoader : MonoBehaviour
     [SerializeField] private string _sheetId;
     [SerializeField] private CarStateToList _data;
     
-    private CVSLoader _cvsLoader;
-    private SheetProcessor _sheetProcessor;
+    private loaderDataToGoogleSheets _loaderDataToGoogleSheets;
+    private ReadingDataFromSheet _sheetProcessor;
 
     private void Awake()
     {
-        _cvsLoader = GetComponent<CVSLoader>();
-        _sheetProcessor = GetComponent<SheetProcessor>();
+        _loaderDataToGoogleSheets = GetComponent<loaderDataToGoogleSheets>();
+        _sheetProcessor = GetComponent<ReadingDataFromSheet>();
         DownloadTable();
     }
 
     private void DownloadTable()
     {
-        _cvsLoader.DownloadTable(_sheetId, OnRawCVSLoaded);
+        _loaderDataToGoogleSheets.DownloadTable(_sheetId, OnRawCVSLoaded);
     }
 
     private void OnRawCVSLoaded(string rawCVSText)

@@ -36,7 +36,6 @@ public class UrlSheetLoading : MonoBehaviour // Можно переиспользовать. //Добави
 
                 callback(request.downloadHandler.text);
             }
-
         }
         yield return null;
     }

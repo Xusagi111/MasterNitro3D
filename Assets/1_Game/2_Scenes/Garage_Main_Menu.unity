@@ -2124,7 +2124,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 10
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2453,7 +2453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8673935fb7f2e654fb1ae2726159cd4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SettingsPanel: {fileID: 0}
   UpdatePanel: {fileID: 1415228962}
   FpsPanel: {fileID: 5198467657394742872}
   LoadingPanel: {fileID: 389380328}
