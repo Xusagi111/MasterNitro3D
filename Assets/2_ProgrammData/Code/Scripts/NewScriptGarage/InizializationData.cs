@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpdateCarStateToGarage : MonoBehaviour //текущий индекс хранения машины 
+public class InizializationData : MonoBehaviour //текущий индекс хранения машины 
 {
     private int Power = 10;
     private int IndexCar;
@@ -22,18 +22,17 @@ public class UpdateCarStateToGarage : MonoBehaviour //текущий индекс хранения ма
     {
         GoogleSheetLoader.OnProcessData -= LoadingCarExcel;
     }
-
-    public void LoadingCarExcel(CarStateToList carStateToList)
+    // Иницизация полученного списка машин с гугл таблицы.
+    //Сделать меньши ответственности.
+    public void LoadingCarExcel(CarStateToList carStateToList) 
     {
         ListClassCarState = carStateToList.CarsPlayersList;
         foreach (var item in carStateToList.CarsPlayersList)
         {
-            //Debug.Log(item.Power);
             if (indexCar1 != item.IndexMachin)
             {
                 this.indexCar1 = item.IndexMachin;
                 index.indices.Add(item.IndexMachin);
-                //Debug.Log(item.IndexMachin);
             }
         }
         jogIndex();
@@ -100,10 +99,6 @@ public class UpdateCarStateToGarage : MonoBehaviour //текущий индекс хранения ма
 
             }
         }
-    }
-    public void ChecState()
-    {
-
     }
     public void LoadingStatsPoIndex()
     {
