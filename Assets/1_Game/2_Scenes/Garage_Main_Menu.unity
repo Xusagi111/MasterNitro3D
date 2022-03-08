@@ -729,6 +729,7 @@ GameObject:
   - component: {fileID: 357599911}
   - component: {fileID: 357599912}
   - component: {fileID: 357599907}
+  - component: {fileID: 357599913}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: Untagged
@@ -842,6 +843,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fdb34c385b205345b91dd5c28dd10c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &357599913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357599906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b7ae369f5ebba4cb8d99a525f89369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &378129251 stripped
@@ -2196,6 +2209,8 @@ MonoBehaviour:
   _buyStateToLists: []
   _diamons: []
   _money: []
+  _offersPurchases: []
+  Index: 000000000000000000000000
 --- !u!1 &1483733143
 GameObject:
   m_ObjectHideFlags: 0
