@@ -18,6 +18,10 @@ public class UpdateCarStateToGarage : MonoBehaviour //текущий индекс хранения ма
         EventManagerGame.AddListener<EventPushList>(GetIndexMachin);
         GoogleSheetLoader.OnProcessData += LoadingCarExcel;
     }
+    public void OnDestroy()
+    {
+        GoogleSheetLoader.OnProcessData -= LoadingCarExcel;
+    }
 
     public void LoadingCarExcel(CarStateToList carStateToList)
     {

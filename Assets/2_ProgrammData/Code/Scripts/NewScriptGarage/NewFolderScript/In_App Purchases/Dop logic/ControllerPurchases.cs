@@ -10,6 +10,10 @@ public class ControllerPurchases : MonoBehaviour
     {
         TestScriptTablieBuy.LoadingData += InitializationPurchases;
     }
+    private void OnDestroy()
+    {
+        TestScriptTablieBuy.LoadingData -= InitializationPurchases;
+    }
     private void InitializationPurchases()
     {
         _managerShopping = FindObjectOfType<ManagerShopping>();

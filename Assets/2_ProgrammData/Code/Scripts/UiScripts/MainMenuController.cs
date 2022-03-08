@@ -18,6 +18,10 @@ public class MainMenuController : MonoBehaviour
         UrlSheetLoading.NotConnectToServer += ServerConnectionCheck;
         LoadingPanel.SetActive(true);
     }
+    private void OnDestroy()
+    {
+        UrlSheetLoading.NotConnectToServer -= ServerConnectionCheck;
+    }
     public void OpenGame()
     {
         SceneManager.LoadScene("Game");
@@ -80,5 +84,11 @@ public class MainMenuController : MonoBehaviour
     {
         LoadingPanel.SetActive(false);
         PlayGameButton.SetActive(false);
+        PlayerNoConnectToServerImage.SetActive(false);
+    }
+    public void RestartScene()
+    {
+        ActivationMainMenuScene();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
