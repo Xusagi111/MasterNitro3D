@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -13,10 +10,11 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject PlayGameButton;
     [SerializeField] private GameObject PlayerNoConnectToServerImage;
 
-    private void Start()
+    private void Awake()
     {
         UrlSheetLoading.NotConnectToServer += ServerConnectionCheck;
-        LoadingPanel.SetActive(true);
+        if (DontDestroy.CountLoad == 0) { LoadingPanel.SetActive(true); }
+            
     }
     private void OnDestroy()
     {
@@ -26,7 +24,6 @@ public class MainMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
-
     public void OpenUpdatePanel()
     {
         if (!UpdatePanel.activeSelf )
@@ -84,11 +81,9 @@ public class MainMenuController : MonoBehaviour
     {
         LoadingPanel.SetActive(false);
         PlayGameButton.SetActive(false);
-        PlayerNoConnectToServerImage.SetActive(false);
     }
     public void RestartScene()
-    {
-        ActivationMainMenuScene();
+    {   
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

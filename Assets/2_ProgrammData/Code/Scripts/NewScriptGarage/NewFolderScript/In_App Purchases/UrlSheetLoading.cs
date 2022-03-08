@@ -26,7 +26,7 @@ public class UrlSheetLoading : MonoBehaviour // Можно переиспользовать. //Добави
                 request.result == UnityWebRequest.Result.DataProcessingError)
             {
                 Debug.LogError(request.error);
-                NotConnectToServer.Invoke(false);
+                NotConnectToServer?.Invoke(false);
             }
             else
             {
