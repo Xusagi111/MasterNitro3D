@@ -74,7 +74,7 @@ public class YodoAnalitycs : MonoBehaviour
         // ƒобавить событи€
         Yodo1U3dMasCallback.Rewarded.OnAdOpenedEvent += OnRewardedAdOpenedEvent;
         Yodo1U3dMasCallback.Rewarded.OnAdClosedEvent += OnRewardedAdClosedEvent;
-        Yodo1U3dMasCallback.Rewarded.OnAdReceivedRewardEvent += OnAdReceivedRewardEvent;//
+        Yodo1U3dMasCallback.Rewarded.OnAdReceivedRewardEvent += OnAdReceivedRewardEvent;//»спользуетс€.
         Yodo1U3dMasCallback.Rewarded.OnAdErrorEvent += OnRewardedAdErorEvent;
     }
 
@@ -91,7 +91,7 @@ public class YodoAnalitycs : MonoBehaviour
 
     private void OnAdReceivedRewardEvent()
     {
-       //что получает пользователь при просмотре рекламы.
+       //„то получает пользователь при просмотре рекламы.
     }
 
     private void OnRewardedAdErorEvent(Yodo1U3dAdError adError)

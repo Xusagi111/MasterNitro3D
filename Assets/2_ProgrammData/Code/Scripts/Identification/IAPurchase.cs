@@ -6,6 +6,7 @@ using UnityEngine.Purchasing;
 public class IAPurchase : IStoreListener
 {
     public const string _removeADS = "remove_ads";
+    public const string _testPurch = "4141411";
     public static IStoreController _storeController;
     private static IExtensionProvider _storeExtensionProvider;
 
@@ -13,9 +14,15 @@ public class IAPurchase : IStoreListener
     {
         if (IsIapInitialized())
             return;
-        var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
-        builder.AddProduct(_removeADS, ProductType.NonConsumable);
-        UnityPurchasing.Initialize(this, builder);
+        //Пример продажи товара
+        //var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+        //builder.AddProduct(_removeADS, ProductType.NonConsumable);
+        //UnityPurchasing.Initialize(this, builder);
+
+        var NewBilder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+        NewBilder.AddProduct(_testPurch, ProductType.NonConsumable);
+        UnityPurchasing.Initialize(this, NewBilder);
+
     }
 
     public static bool IsIapInitialized()
@@ -26,32 +33,34 @@ public class IAPurchase : IStoreListener
     {
 
     }
-    public static IEnumerator CheckSubscription()
-    {
-        while (!IsIapInitialized())
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
-        if (_storeController != null || _storeController.products != null)
-        {
-            foreach (var product in _storeController.products.all)
-            {
-                if (product.hasReceipt)
-                {
-                    AdsAndIAP.isRemoveADS = true;
-                    AdsAndIAP.instance.HideAds();
-                    break;
-                }
-                AdsAndIAP.isRemoveADS = false;
-            }
-        }
-    }
+    //public static IEnumerator CheckSubscription()
+    //{
+    //    while (!IsIapInitialized())
+    //    {
+    //        yield return new WaitForSeconds(0.5f);
+    //    }
+    //    if (_storeController != null || _storeController.products != null)
+    //    {
+    //        foreach (var product in _storeController.products.all)
+    //        {
+    //            if (product.hasReceipt)
+    //            {
+    //                AdsAndIAP.isRemoveADS = true;
+    //                AdsAndIAP.instance.HideAds();
+    //                break;
+    //            }
+    //            AdsAndIAP.isRemoveADS = false;
+    //        }
+    //    }
+    //}
 
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs purchaseEvent)
     {
         switch (purchaseEvent.purchasedProduct.definition.id)
         {
             case _removeADS:
+                break;
+            case _testPurch:
                 break;
            /* case _subscribtionIdWeek:
                 break;
@@ -76,8 +85,8 @@ public class IAPurchase : IStoreListener
     public static bool CheckBuyState(string id)
     {
         Product product = _storeController.products.WithID(id);
-        if (product.hasReceipt) { return true; }
-        else { return false; }
+        if (product.hasReceipt) { Debug.Log("Test True Buy"); return true;  }
+        else { Debug.Log("Test false Buy"); return false;  }
     }
 
     public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
@@ -96,6 +105,7 @@ public class IAPurchase : IStoreListener
             {
                 Debug.Log("Start buy: " + productId);
                 _storeController.InitiatePurchase(product);
+                CheckBuyState(productId);
             }
         }
     }

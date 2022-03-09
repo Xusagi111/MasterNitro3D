@@ -21,7 +21,7 @@ public class AdsAndIAP : MonoBehaviour
     {
         IAPurchase iAPurchase = new IAPurchase();
         iAPurchase.IapInitializate();
-        StartCoroutine(IAPurchase.CheckSubscription());
+        //StartCoroutine(IAPurchase.CheckSubscription());
     }
 
     public void HideAds()
@@ -32,9 +32,14 @@ public class AdsAndIAP : MonoBehaviour
         }
     }
 
-
+    //Пример
     public void BuyRemoveADS() //вешается на кнопку отключения рекламы
     {
         IAPurchase.BuyProductID(IAPurchase._removeADS);
+    }
+    //Buy Product.
+    public void BuyProduct() //вешается на кнопку покупки продукта
+    {
+        IAPurchase.BuyProductID(IAPurchase._testPurch);
     }
 }
