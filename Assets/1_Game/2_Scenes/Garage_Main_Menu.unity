@@ -209,6 +209,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6d22c4b9ccbef7444b5689936ba95944, type: 3}
   m_PrefabInstance: {fileID: 16999326}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &39959000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2634429981084974256, guid: 5adf01b4471c78d4ea50fb4a0829b670, type: 3}
+  m_PrefabInstance: {fileID: 2634429982246302453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &39959005
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39959000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1f18259fe2e030a4eb7164ccd2b5a1fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &64134583
 GameObject:
   m_ObjectHideFlags: 0
@@ -3618,6 +3642,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 639744991}
+    - target: {fileID: 2634429981084974259, guid: 5adf01b4471c78d4ea50fb4a0829b670, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9986295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634429981084974259, guid: 5adf01b4471c78d4ea50fb4a0829b670, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634429981084974259, guid: 5adf01b4471c78d4ea50fb4a0829b670, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634429981084974259, guid: 5adf01b4471c78d4ea50fb4a0829b670, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.052335896
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634429981084974259, guid: 5adf01b4471c78d4ea50fb4a0829b670, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2634429981280453693, guid: 5adf01b4471c78d4ea50fb4a0829b670, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
