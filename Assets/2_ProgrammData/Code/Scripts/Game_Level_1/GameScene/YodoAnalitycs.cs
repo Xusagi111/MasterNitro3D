@@ -88,10 +88,12 @@ public class YodoAnalitycs : MonoBehaviour
         //GameManager.Reward = false;
         //PlayerPrefs.SetString("Reward", GameManager.Reward.ToString());
     }
-
+    //Что получает пользователь при просмотре рекламы.
     private void OnAdReceivedRewardEvent()
     {
-       //Что получает пользователь при просмотре рекламы.
+        //GarageController _garageController = FindObjectOfType<GarageController>();
+        //GarageController.savePlayerStats.Money = 10000;
+        //_garageController.SaveAndConclusionMetod();
     }
 
     private void OnRewardedAdErorEvent(Yodo1U3dAdError adError)
@@ -102,6 +104,10 @@ public class YodoAnalitycs : MonoBehaviour
     public void ShowReward() //запуск рекламы
     {
         Debug.Log("Show reward");
+        if (Debug.isDebugBuild)
+        {
+            Yodo1EditorAds.RewardedVideoSampleAdEditor.SetActive(true);
+        }
         if (!AdsAndIAP.isRemoveADS)
         {
             bool isLoaded = Yodo1U3dMas.IsRewardedAdLoaded();

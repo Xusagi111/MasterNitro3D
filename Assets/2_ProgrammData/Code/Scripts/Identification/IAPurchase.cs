@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class IAPurchase : IStoreListener
 {
-    public const string _removeADS = "remove_ads";
+    //public const string _removeADS = "remove_ads";
     public const string _testPurch = "4141411";
     public static IStoreController _storeController;
     private static IExtensionProvider _storeExtensionProvider;
@@ -62,8 +62,8 @@ public class IAPurchase : IStoreListener
     {
         switch (purchaseEvent.purchasedProduct.definition.id)
         {
-            case _removeADS:
-                break;
+            //case _removeADS:
+            //    break;
             case _testPurch:
                 break;
            /* case _subscribtionIdWeek:
@@ -107,6 +107,8 @@ public class IAPurchase : IStoreListener
         if (IsIapInitialized())
         {
             Product product = _storeController.products.WithID(productId);
+            Debug.Log("Product: " + product);
+            Debug.Log("availableToPurchase: " + product.availableToPurchase);
             if (product != null && product.availableToPurchase)
             {
                 Debug.Log("Start buy: " + productId);

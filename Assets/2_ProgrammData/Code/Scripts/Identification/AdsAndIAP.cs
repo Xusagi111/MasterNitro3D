@@ -33,10 +33,10 @@ public class AdsAndIAP : MonoBehaviour
     }
 
     //Пример
-    public void BuyRemoveADS() //вешается на кнопку отключения рекламы
-    {
-        IAPurchase.BuyProductID(IAPurchase._removeADS);
-    }
+    //public void BuyRemoveADS() //вешается на кнопку отключения рекламы
+    //{
+    //    IAPurchase.BuyProductID(IAPurchase._removeADS);
+    //}
     //Buy Product.
     public void BuyProduct(string IdProduct) //вешается на кнопку покупки продукта
     {

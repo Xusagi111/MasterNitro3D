@@ -5,59 +5,58 @@ using UnityEngine;
 
 public class TestScriptTablieBuy : MonoBehaviour
 {
-    //private BuyStateToList BuyStateToList;
-    private List<Buy> _buyStateToLists;
+    [SerializeField] private BuyStateToList BuyStateToList;
+    [SerializeField] private List<Buy> _buyStateToLists;
+    [SerializeField] private List<Buy> _diamons;
+    [SerializeField] private List<Buy> _money;
+    [SerializeField] private List<Buy> _offersPurchases;
+    [SerializeField] private int[] Index = new int[3];
+    public List<Buy> Diamons { get { return _diamons; } set { _diamons = value; } }
+    public List<Buy> Money { get { return _money; } set { _money = value; } }
+    public List<Buy> OffersPurchases { get { return _offersPurchases; } set { _offersPurchases = value; } }
+
     public static event Action LoadingData;
-    private int[] Index = new int[3];
-    private InizializationController _inizializationController;
-    private  List<IInitializationPurchasescs> _initializationPurchases = new List<IInitializationPurchasescs>(3);
     private void Start()
     {
         DataTransferUsingGoogleSheet.EventData += GetList;
-        //DataTransferUsingGoogleSheet.EventIndexId += GetIndex;
-
-        // No use
-        //_inizializationController = new();
-
-        //_initializationPurchases.Add(new DiamonsData());
     }
     public void GetList(BuyStateToList buyStateToList)
     {
         _buyStateToLists = buyStateToList.ListBuy;
-    }
-    public void GetIndex(int[] Indexid)
-    {
-        Index = Indexid;
         DataDistrebution();
     }
-    public void DataDistrebution()
+    public void DataDistrebution() //получение индексов
     {
+        Index[0] = _buyStateToLists[0].IndexKey;
+        int ItemIndex = Index[0];
         for (int i = 0; i < _buyStateToLists.Count; i++)
         {
-            for (int h = 0; h < Index.Length; h++)
+            if (ItemIndex != _buyStateToLists[i].IndexKey)
             {
-                if (_initializationPurchases[h].Getinizialization(_buyStateToLists[i].IndexKey))
+                for (int h = 0; h < Index.Length; h++)
                 {
-                    TransferProduct(h,i);
-                    //Cделать реализацию через интерфейсы,
-                    //добавить выход из цикла если true;
-                }
-                else if (_initializationPurchases[h].Getinizialization(_buyStateToLists[i].IndexKey))
-                {
-                    TransferProduct(h, i);
-                }
-                else if (_initializationPurchases[h].Getinizialization(_buyStateToLists[i].IndexKey))
-                {
-                    TransferProduct(h, i);
+                    if (Index[h]  != 0)
+                    {
+                        Index[h] = _buyStateToLists[i].IndexKey;
+                        ItemIndex = _buyStateToLists[i].IndexKey;
+                        break;
+                    }
                 }
             }
-
         }
         
-        LoadingData?.Invoke(); //вызов контроллера
-    }
-    public void TransferProduct(int indexInitPurch, int indexStatePurch )
-    {
-        _initializationPurchases[indexInitPurch].TransferCurrentProduct(_buyStateToLists[indexStatePurch]);
+        for (int i = 0; i < _buyStateToLists.Count; i++)
+        {
+            //int ItemInt;
+            //if (_buyStateToLists[i].IndexKey == CurrentIndex)
+            //{
+            //    _diamons.Add(_buyStateToLists[i]);
+            //}
+            //if
+            //{
+            //    _money.Add(_buyStateToLists[i]);
+            //}
+        }
+        LoadingData?.Invoke();
     }
 }

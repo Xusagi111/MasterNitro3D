@@ -23,7 +23,5 @@ public class ChecPosChunk : MonoBehaviour
                 gameObject.GetComponent<MeshRenderer>().enabled = true;  
             }
         }
-
     }
-
 }

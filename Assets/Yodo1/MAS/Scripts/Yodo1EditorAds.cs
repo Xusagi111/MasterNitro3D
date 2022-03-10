@@ -9,7 +9,7 @@ public class Yodo1EditorAds : MonoBehaviour
     public static GameObject AdHolder;
     public static GameObject BannerSampleAdEditor;
     private static GameObject InterstitialSampleAdEditor;
-    private static GameObject RewardedVideoSampleAdEditor;
+    public static GameObject RewardedVideoSampleAdEditor;
 
     public static bool DisableGUI = false;
     public static bool GrantReward = false;
