@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
+using UnityEngine.Events;
 
 public class IAPurchase : IStoreListener
 {
@@ -9,6 +10,9 @@ public class IAPurchase : IStoreListener
     public const string _testPurch = "4141411";
     public static IStoreController _storeController;
     private static IExtensionProvider _storeExtensionProvider;
+
+    public static UnityEvent PurchaseComplete = new UnityEvent();
+
 
     public void IapInitializate()
     {
@@ -69,7 +73,9 @@ public class IAPurchase : IStoreListener
         }
         AdsAndIAP.isRemoveADS = true;
         AdsAndIAP.instance.HideAds(); Debug.Log("buy: " + (purchaseEvent.purchasedProduct.definition.id));
+        PurchaseComplete?.Invoke();
         return PurchaseProcessingResult.Complete;
+        
     }
 
     public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)

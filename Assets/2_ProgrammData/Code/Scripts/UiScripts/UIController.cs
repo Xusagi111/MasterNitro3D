@@ -1,4 +1,3 @@
-using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,13 +9,13 @@ public class UIController : MonoBehaviour
     [SerializeField]GameObject finishMenu;
     [SerializeField]GameObject scrollerMenu;
     [SerializeField]GameObject deadMenu;
-
-    public CinemachineBrain camera = new CinemachineBrain();
+    [SerializeField] private GameObject PopupCompletePanel;
 
 
     private void Start()
     {
         instance = this;
+        IAPurchase.PurchaseComplete.AddListener(OpenPopupPurchase);
     }
 
     public void LoadMainMenu()
@@ -42,6 +41,18 @@ public class UIController : MonoBehaviour
         scrollerMenu.SetActive(true);
     }
 
+    public void OpenPopupPurchase()
+    {
+        PopupCompletePanel.SetActive(true);
+    }
+
+    public void DisactivPanel(GameObject gameObject)
+    {
+        if(gameObject == PopupCompletePanel)
+            IAPurchase.PurchaseComplete.RemoveListener(OpenPopupPurchase);
+        gameObject.SetActive(false);
+
+    }
     public void FinishLevel()
     {
         finishMenu.SetActive(true);
