@@ -58,7 +58,7 @@ public class IAPurchase : IStoreListener
     //    }
     //}
 
-    public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs purchaseEvent)
+    public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs purchaseEvent)// вызывается после покупки.
     {
         switch (purchaseEvent.purchasedProduct.definition.id)
         {
