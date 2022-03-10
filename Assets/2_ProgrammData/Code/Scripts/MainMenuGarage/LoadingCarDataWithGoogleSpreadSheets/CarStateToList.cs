@@ -5,16 +5,6 @@ using UnityEngine;
 public class CarStateToList
 {
     public List<CarS_Player> CarsPlayersList;
-
-    public override string ToString()
-    {
-        string result = "";
-        CarsPlayersList.ForEach(o =>
-        {
-            result += o.ToString();
-        });
-        return result;
-    }
 }
 [System.Serializable]
 public class CarS_Player : GameEvent
