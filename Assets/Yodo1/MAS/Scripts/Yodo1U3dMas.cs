@@ -66,8 +66,10 @@ namespace Yodo1.MAS
                 var sdkObjEditor = new GameObject("Yodo1U3dMasCallback", typeEditor).GetComponent<Yodo1U3dMasCallback>(); // Its Awake() method sets Instance.
                 if (Yodo1U3dMasCallback.Instance != sdkObjEditor)
                 {
-                    Debug.LogError(Yodo1U3dMas.TAG + "It looks like you have the " + typeEditor.Name + " on a GameObject in your scene. Please remove the script from your scene.");
-                    return;
+                    GameObject.Destroy(Yodo1U3dMasCallback.Instance.gameObject);
+                    Yodo1U3dMasCallback.Instance = sdkObjEditor;
+                    //Debug.LogError(Yodo1U3dMas.TAG + "It looks like you have the " + typeEditor.Name + " on a GameObject in your scene. Please remove the script from your scene.");
+
                 }
                 Yodo1U3dMasCallback.ForwardEvent("onSdkInitializedEvent");
 #endif

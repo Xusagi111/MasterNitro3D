@@ -12,7 +12,7 @@ public class YodoAnalitycs : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        DontDestroy.DontDestroyOnLoad(this);
+        //DontDestroy.DontDestroyOnLoad(this);
     }
     void Start()
     {

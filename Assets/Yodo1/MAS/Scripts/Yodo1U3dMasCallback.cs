@@ -22,7 +22,7 @@ namespace Yodo1.MAS
             Banner = 3,
         }
 
-        public static Yodo1U3dMasCallback Instance { get; private set; }
+        public static Yodo1U3dMasCallback Instance { get; set; }
 
         public string SdkMethodName
         {
