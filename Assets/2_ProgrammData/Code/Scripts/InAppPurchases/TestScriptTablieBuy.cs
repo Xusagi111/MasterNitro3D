@@ -14,7 +14,7 @@ public class TestScriptTablieBuy : MonoBehaviour
     private void Start()
     {
         DataTransferUsingGoogleSheet.EventData += GetList;
-        DataTransferUsingGoogleSheet.EventIndexId += GetIndex;
+        //DataTransferUsingGoogleSheet.EventIndexId += GetIndex;
 
         // No use
         //_inizializationController = new();

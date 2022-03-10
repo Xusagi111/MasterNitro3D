@@ -22,15 +22,15 @@ public class Yodo1EditorAds : MonoBehaviour
         }
         if (BannerSampleAdEditor == null)
         {
-            BannerSampleAdEditor = Instantiate(Resources.Load("SampleAds/BannerSampleAdPanel") as GameObject, GameObject.Find("Canvas").transform);
+            BannerSampleAdEditor = Instantiate(Resources.Load("SampleAds/BannerSampleAdPanel") as GameObject, GameObject.Find("Canvas_Main_Menu").transform);
         }
         if (InterstitialSampleAdEditor == null)
         {
-            InterstitialSampleAdEditor = Instantiate(Resources.Load("SampleAds/InterstitialSampleAdPanel") as GameObject, GameObject.Find("Canvas").transform);
+            InterstitialSampleAdEditor = Instantiate(Resources.Load("SampleAds/InterstitialSampleAdPanel") as GameObject, GameObject.Find("Canvas_Main_Menu").transform);
         }
         if (RewardedVideoSampleAdEditor == null)
         {
-            RewardedVideoSampleAdEditor = Instantiate(Resources.Load("SampleAds/RewardedVideoSampleAdPanel") as GameObject, GameObject.Find("Canvas").transform);
+            RewardedVideoSampleAdEditor = Instantiate(Resources.Load("SampleAds/RewardedVideoSampleAdPanel") as GameObject, GameObject.Find("Canvas_Main_Menu").transform);
         }
     }
 
