@@ -13,6 +13,8 @@ public class TestScriptTablieBuy : MonoBehaviour //Возможно применять и без моно
         DataTransferUsingGoogleSheet.EventData += DataDistrebution;
 
         _initializationPurchases.Add(new DiamonsData());
+        _initializationPurchases.Add(new MoneyData());
+        _initializationPurchases.Add(new MoneyData());
     }
     public void DataDistrebution(BuyStateToList buyStateToList, int[] Indexid)
     {

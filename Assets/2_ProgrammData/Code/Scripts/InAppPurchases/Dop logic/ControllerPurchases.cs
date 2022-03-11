@@ -24,13 +24,14 @@ public class ControllerPurchases : MonoBehaviour
         int CountMoney = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexMoney).Count;
         for (int i = 0; i < CountDiamons; i++)
         {
-            _managerShopping.ListDataOffersMoney[i].QuantityPurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexDiamons)[i].NameOffer.ToString();
-            _managerShopping.ListDataOffersMoney[i].PrisePurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexDiamons)[i].CountCurrency.ToString();
+            _managerShopping.ListDataOffersDiamons[i].QuantityPurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexDiamons)[i].NameOffer.ToString();
+            _managerShopping.ListDataOffersDiamons[i].PrisePurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexDiamons)[i].CountCurrency.ToString();
+            Debug.Log(_testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexDiamons)[i].CountCurrency.ToString());
         }
         for (int i = 0; i < CountMoney; i++)
         {
-            _managerShopping.ListDataOffersDiamons[i].QuantityPurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexMoney)[i].NameOffer.ToString();
-            _managerShopping.ListDataOffersDiamons[i].PrisePurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexMoney)[i].CountCurrency.ToString();
+            _managerShopping.ListDataOffersMoney[i].QuantityPurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexMoney)[i].NameOffer.ToString();
+            _managerShopping.ListDataOffersMoney[i].PrisePurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexMoney)[i].CountCurrency.ToString();
         }
     }
 }

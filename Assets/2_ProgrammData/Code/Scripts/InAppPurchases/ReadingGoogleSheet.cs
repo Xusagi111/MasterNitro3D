@@ -34,19 +34,21 @@ public class ReadingGoogleSheet : MonoBehaviour
             if (id != 0 && _indexIdProduct != ParseInt(cells[_id]))
             {
                 _indexIdProduct = id;
-            }
-            else
-            {
                 for (int b = 0; b < indexId.Length; b++)
                 {
                     if (indexId[b] == 0)
                     {
                         indexId[b] = _indexIdProduct;
-                        id = _indexIdProduct;
+
                         break;
                     }
-                    
+
                 }
+            }
+            else
+            {
+                id = _indexIdProduct;
+                
             }
             if (NameOffer.ToString() != "" && CountCurrency != 0)
             {
