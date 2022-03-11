@@ -31,7 +31,7 @@ public class loaderDataToGoogleSheets : MonoBehaviour  //загузка по url гугл таб
                 if (_debug)
                 {
                     Debug.Log(request.downloadHandler.text);
-                    text.text = request.downloadHandler.text;
+                    //text.text = request.downloadHandler.text;
                 }
 
                 callback(request.downloadHandler.text);

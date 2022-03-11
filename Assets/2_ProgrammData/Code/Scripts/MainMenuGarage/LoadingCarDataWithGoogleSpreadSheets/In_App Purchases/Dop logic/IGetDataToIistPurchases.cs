@@ -1,7 +1,6 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-interface IGetDataToIistPurchases: IController
+interface IGetDataToIistPurchases
 {
     public List<Buy> GetList();
 }

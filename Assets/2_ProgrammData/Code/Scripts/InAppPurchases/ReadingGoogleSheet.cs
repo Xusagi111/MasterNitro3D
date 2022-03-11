@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,10 +12,11 @@ public class ReadingGoogleSheet : MonoBehaviour
     private const char _cellSeporator = ',';
     private const char _inCellSeporator = ';';
     #endregion
-    private int _idCar;
+    private int _indexIdProduct;
     private int dataStartRawIndex = 1;
+    private int[] indexId = new int[3];
 
-    public BuyStateToList ProcessData(string cvsRawData) //logic filling in existing machine statistics
+    public (BuyStateToList, int[] IndexId) ProcessData(string cvsRawData) //logic filling in existing machine statistics
     {
         char lineEnding = GetPlatformSpecificLineEnd();
         string[] rows = cvsRawData.Split(lineEnding);
@@ -31,13 +31,24 @@ public class ReadingGoogleSheet : MonoBehaviour
             int CountCurrency = ParseInt(cells[_countCurrency]);
             int LevelBust = ParseInt(cells[_levelBust]);
             int PersentBust = ParseInt(cells[_persentBust]);
-            if (id != 0 && _idCar != ParseInt(cells[_id]))
+            if (id != 0 && _indexIdProduct != ParseInt(cells[_id]))
             {
-                _idCar = id;
+                _indexIdProduct = id;
+                for (int b = 0; b < indexId.Length; b++)
+                {
+                    if (indexId[b] == 0)
+                    {
+                        indexId[b] = _indexIdProduct;
+
+                        break;
+                    }
+
+                }
             }
             else
             {
-                id = _idCar;
+                id = _indexIdProduct;
+                
             }
             if (NameOffer.ToString() != "" && CountCurrency != 0)
             {
@@ -51,8 +62,7 @@ public class ReadingGoogleSheet : MonoBehaviour
                 });
             }
         }
-        //Debug.Log(data.ListBuy.ToString());
-        return data;
+        return (data, indexId);
     }
     #region DopLogic
     private int ParseInt(string s)
