@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class DataTransferUsingGoogleSheet : MonoBehaviour
 {
-    public static event Action<BuyStateToList> EventData;
-
+    public static event Action<BuyStateToList, int[]> EventData;
     [SerializeField] private string _sheetId;
     public BuyStateToList _data;
+    private int[] IndexProduct;
 
     private UrlSheetLoading _urlSheetLoading;
     private ReadingGoogleSheet _readingGoogleSheet;
 
-    private void Awake()
+    private void Start()
     {
         _urlSheetLoading = GetComponent<UrlSheetLoading>();
         _readingGoogleSheet = GetComponent<ReadingGoogleSheet>();
@@ -25,7 +25,9 @@ public class DataTransferUsingGoogleSheet : MonoBehaviour
 
     private void OnRawCVSLoaded(string rawCVSText)
     {
-        _data = _readingGoogleSheet.ProcessData(rawCVSText);
-        EventData?.Invoke(_data); //вернул отсортированный список 
+        (_data, IndexProduct) = (_readingGoogleSheet.ProcessData(rawCVSText));
+        Debug.Log(EventData);
+        EventData?.Invoke(_data, IndexProduct); //вернул отсортированный список 
     }
+
 }

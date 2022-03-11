@@ -8,7 +8,7 @@ public class GoogleSheetLoader : MonoBehaviour
     public static event Action LoadingCar;
     
     [SerializeField] private string _sheetId;
-    [SerializeField] private CarStateToList _data;
+    public CarStateToList _data;
     
     private loaderDataToGoogleSheets _loaderDataToGoogleSheets;
     private ReadingDataFromSheet _sheetProcessor;
