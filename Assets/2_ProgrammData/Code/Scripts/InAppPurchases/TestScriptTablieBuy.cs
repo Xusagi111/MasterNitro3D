@@ -14,7 +14,7 @@ public class TestScriptTablieBuy : MonoBehaviour //Возможно применять и без моно
 
         _initializationPurchases.Add(new DiamonsData());
         _initializationPurchases.Add(new MoneyData());
-        _initializationPurchases.Add(new MoneyData());
+        _initializationPurchases.Add(new OffersData());
     }
     public void DataDistrebution(BuyStateToList buyStateToList, int[] Indexid)
     {

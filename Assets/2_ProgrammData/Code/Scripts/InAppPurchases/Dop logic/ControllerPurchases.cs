@@ -33,5 +33,6 @@ public class ControllerPurchases : MonoBehaviour
             _managerShopping.ListDataOffersMoney[i].QuantityPurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexMoney)[i].NameOffer.ToString();
             _managerShopping.ListDataOffersMoney[i].PrisePurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexMoney)[i].CountCurrency.ToString();
         }
+        Debug.Log("ergregergwg: " + _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].Timer);
     }
 }

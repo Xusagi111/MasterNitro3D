@@ -9,6 +9,8 @@ public class ReadingGoogleSheet : MonoBehaviour
     private const int _countCurrency = 2;
     private const int _levelBust= 3;
     private const int _persentBust = 4;
+    private const int _timer = 5;
+
     private const char _cellSeporator = ',';
     private const char _inCellSeporator = ';';
     #endregion
@@ -31,6 +33,8 @@ public class ReadingGoogleSheet : MonoBehaviour
             int CountCurrency = ParseInt(cells[_countCurrency]);
             int LevelBust = ParseInt(cells[_levelBust]);
             int PersentBust = ParseInt(cells[_persentBust]);
+            int Timer = ParseInt(cells[_timer]);
+
             if (id != 0 && _indexIdProduct != ParseInt(cells[_id]))
             {
                 _indexIdProduct = id;
@@ -57,8 +61,9 @@ public class ReadingGoogleSheet : MonoBehaviour
                     IndexKey = id,
                     NameOffer = NameOffer,
                     CountCurrency = CountCurrency,
-                    LevelBust = LevelBust,
-                    PersentBust = PersentBust
+                    Level = LevelBust,
+                    PersentBust = PersentBust,
+                    Timer = Timer,
                 });
             }
         }

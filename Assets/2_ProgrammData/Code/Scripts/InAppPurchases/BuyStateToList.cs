@@ -12,6 +12,8 @@ public class Buy
     public int IndexKey;
     public int NameOffer;
     public int CountCurrency;
-    public int LevelBust;
+    public int Level;
     public int PersentBust;
+    public int Timer;
 }
+
