@@ -8,8 +8,14 @@ public class TestScriptTablieBuy : MonoBehaviour //Возможно применять и без моно
     private List<IInitializationPurchasescs> _initializationPurchases = new List<IInitializationPurchasescs>(3);
     [SerializeField] private BuyStateToList _buyStateToList;
 
+    public static TestScriptTablieBuy Instance;
+
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else Destroy(gameObject);
+
         DataTransferUsingGoogleSheet.EventData += DataDistrebution;
 
         _initializationPurchases.Add(new DiamonsData());
