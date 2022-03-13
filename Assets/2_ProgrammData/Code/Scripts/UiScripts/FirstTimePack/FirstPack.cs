@@ -25,7 +25,7 @@ public class FirstPack : MonoBehaviour
         timeInSec = hours * 3600;
         _timer.text = $"TIME LEFT: {hours}:00:00";
         hours--;
-        
+
     }
 
     private void OnEnable()
