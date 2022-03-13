@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(loaderDataToGoogleSheets), typeof(ReadingDataFromSheet))]
+[RequireComponent(typeof(UrlSheetLoading))]
 public class GoogleSheetLoader : MonoBehaviour
 {
     public static event Action<CarStateToList> OnProcessData;
@@ -10,24 +10,23 @@ public class GoogleSheetLoader : MonoBehaviour
     [SerializeField] private string _sheetId;
     public CarStateToList _data;
     
-    private loaderDataToGoogleSheets _loaderDataToGoogleSheets;
-    private ReadingDataFromSheet _sheetProcessor;
+    private UrlSheetLoading _loaderDataToGoogleSheets;
+    private ReadingGoogleSheet _sheetProcessor = new ReadingGoogleSheet();
 
     private void Awake()
     {
-        _loaderDataToGoogleSheets = GetComponent<loaderDataToGoogleSheets>();
-        _sheetProcessor = GetComponent<ReadingDataFromSheet>();
+        _loaderDataToGoogleSheets = GetComponent<UrlSheetLoading>();
         DownloadTable();
     }
 
     private void DownloadTable()
     {
-        _loaderDataToGoogleSheets.DownloadTable(_sheetId, OnRawCVSLoaded);
+        _loaderDataToGoogleSheets.DownloadTable(_sheetId, null,OnRawCVSLoaded);
     }
 
     private void OnRawCVSLoaded(string rawCVSText)
     {
-        _data = _sheetProcessor.ProcessData(rawCVSText);
+        _data = _sheetProcessor.ProcessDataCar(rawCVSText);
         OnProcessData?.Invoke(_data); //вернул отсортированный список со статами машин
         LoadingCar?.Invoke();
     }

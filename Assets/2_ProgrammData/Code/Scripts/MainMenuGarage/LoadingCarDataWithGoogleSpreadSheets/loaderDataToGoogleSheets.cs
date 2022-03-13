@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+// Ќе используетс€ -------------------------------------------------
 public class loaderDataToGoogleSheets : MonoBehaviour  //загузка по url гугл таблицы
 {
     [SerializeField] private Text text;

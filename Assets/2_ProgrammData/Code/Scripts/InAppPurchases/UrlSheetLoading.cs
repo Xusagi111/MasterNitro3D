@@ -4,16 +4,22 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class UrlSheetLoading : MonoBehaviour // Можно переиспользовать. //Добавить подгрузку с помощью изменения листа.
+public enum DataName
+{
+    BuyState, CarState
+}
+public class UrlSheetLoading : MonoBehaviour 
 {
     [SerializeField] private Text text;
     private bool _debug = true;
     private const string url = "https://docs.google.com/spreadsheets/d/*/export?format=csv"; // &gid=2056821665 смена листа
     public static event Action<bool> NotConnectToServer;
 
-    public void DownloadTable(string sheetId, Action<string> onSheetLoadedAction)
+    public void DownloadTable(string sheetId, string addLastString, Action<string> onSheetLoadedAction)
     {
         string actualUrl = url.Replace("*", sheetId);
+        if (addLastString != null)
+            actualUrl = actualUrl + addLastString;
         StartCoroutine(DownloadRawCvsTable(actualUrl, onSheetLoadedAction));
     }
 
