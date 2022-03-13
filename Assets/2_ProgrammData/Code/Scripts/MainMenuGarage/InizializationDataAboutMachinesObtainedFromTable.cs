@@ -20,7 +20,7 @@ public class InizializationDataAboutMachinesObtainedFromTable : MonoBehaviour //
     }
     public void OnDestroy()
     {
-        DataTransferUsingGoogleSheet.OnProcessData -= LoadingCarExcel;
+        DataTransferUsingGoogleSheet.OnProcessDataCar -= LoadingCarExcel;
     }
     // Иницизация полученного списка машин с гугл таблицы.
     //Сделать меньши ответственности.

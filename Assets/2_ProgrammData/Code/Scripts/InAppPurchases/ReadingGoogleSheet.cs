@@ -14,7 +14,6 @@ public class ReadingGoogleSheet
     private const int _const5 = 5;
     #endregion
 
-
     private int dataStartRawIndex = 1;
 
     private int _idCar;
@@ -34,15 +33,42 @@ public class ReadingGoogleSheet
 
         for (int i = dataStartRawIndex; i < rows.Length; i++)
         {
+           
             string[] cells = rows[i].Split(_cellSeporator);
             int id = ParseInt(cells[_id]);
-            int const1 = ParseInt(cells[_const1]);
-            string const2 = cells[_const2];
+            string const1 = cells[_const1];
+            int const2 = ParseInt(cells[_const2]);
             int const3 = ParseInt(cells[_const3]);
             int const4 = ParseInt(cells[_const4]);
             int const5 = ParseInt(cells[_const5]);
+            //if (dataStartRawIndex == 0)
+            //{
+            //    if (data is BuyStateToList listbuy)
+            //    {
+            //        if (listbuy.ListBuy[0].IndexKey == ButtonClassSave.LoadFromPlayerPrefs(listbuy.ListBuy[0].IndexKey, "BuyStateToList"))
+            //        {
+            //             (listbuy, indexId) = (ButtonClassSave.LoadFromPlayerPrefs(listbuy, "BuyStateToList"), indexId) ;
+            //            return;
+            //        }
+            //        else
+            //        {
+            //            ButtonClassSave.SaveToPlayerPrefs(listbuy.ListBuy[0].IndexKey, "BuyStateToList");
+            //        }
+                    
+            //    }
+            //    else if (data is CarStateToList carState)
+            //    {
 
-            if (id != 0 && _index != ParseInt(cells[_id]))
+            //        return;
+            //    }
+            //    else if (data is GiftsStatsToList giftsStatsToList)
+            //    {
+
+            //        return;
+            //    }
+            //}
+
+            if ( id != 0 && _index != ParseInt(cells[_id]))
             {
                 _index = id;
                 for (int b = 0; b < indexId.Length; b++)
@@ -61,27 +87,41 @@ public class ReadingGoogleSheet
                 id = _index;
 
             }
-            if (const1.ToString() != "" && const1 != 0)
+            if (true)
+            {
+
+            }
+            if (dataStartRawIndex == 0 || const1 != null && const2 != 0)
             {
                 if(data is BuyStateToList listbuy)
                     listbuy.ListBuy.Add(new Buy()
                     {
                         IndexKey = id,
                         NameOffer = const1,
-                        CountCurrency = ParseInt(const2),
+                        CountCurrency = const2,
                         Level = const3,
                         PersentBust = const4,
                         Timer = const5,
                     });
-                if(data is CarStateToList carState)
+                else if(data is CarStateToList carState)
                     carState.CarsPlayersList.Add(new CarS_Player()
                     {
                         IndexMachin = id,
-                        levelCar = const2,
-                        Power = const3,
-                        Speed = const4,
-                        Control = const5
+                        levelCar = const1,
+                        Power = const2,
+                        Speed = const3,
+                        Control = const4
                     });
+                else if (data is GiftsStatsToList giftsStatsToList)
+                    giftsStatsToList.ListCifts.Add(new Cifts()
+                    {
+                        IndexKey = id,
+                        NameOffer = const1,
+                        CountMoney = const2,
+                        CountDiamons = const3,
+                        BustPercent = const4
+                    });
+                
             }
         }
     }
@@ -101,8 +141,15 @@ public class ReadingGoogleSheet
         ParserTable(cvsRawData, _idCar, data);
         return (data, indexId);
     }
-    #region DopLogic
-    private int ParseInt(string s)
+    public (GiftsStatsToList, int[] IndexId) ProcessDataGifts(string cvsRawData) //logic filling in existing machine statistics
+    {
+        GiftsStatsToList data = new GiftsStatsToList();
+        data.ListCifts = new List<Cifts>();
+        ParserTable(cvsRawData, _idCar, data);
+        return (data, indexId);
+    }   
+        #region DopLogic
+        private int ParseInt(string s)
     {
         int result = -1;
         if (!int.TryParse(s, System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.GetCultureInfo("en-US"), out result))

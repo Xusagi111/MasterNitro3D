@@ -4,10 +4,12 @@ using UnityEngine;
 [RequireComponent(typeof(UrlSheetLoading))]
 public class DataTransferUsingGoogleSheet : MonoBehaviour // Актуальный используемый ControllerGoogleSheet 
 {
-    public static event Action<BuyStateToList, int[]> EventData;
+    public static event Action<BuyStateToList, int[]> EventDataBuy;
 
-    public static event Action<CarStateToList, int[]> OnProcessData;
+    public static event Action<CarStateToList, int[]> OnProcessDataCar;
     public static event Action LoadingCar;
+
+    public static event Action<GiftsStatsToList, int[]> EventDataGift;
 
     [SerializeField] private  string _sheetIdBuyStateToList;
     [SerializeField] private  string _sheetIdCarStateToList;
@@ -15,10 +17,11 @@ public class DataTransferUsingGoogleSheet : MonoBehaviour // Актуальный использу
 
     public BuyStateToList _dataBuy;
     public CarStateToList _dataCar;
+    public GiftsStatsToList _dataGifts;
 
     private int[] IndexProduct;
-    private UrlSheetLoading _urlSheetLoading; // Один экземпляр передачи текстового файла с сервера
-    private ReadingGoogleSheet _readingGoogleSheet = new ReadingGoogleSheet(); // Один экземпляр обработчика 
+    private UrlSheetLoading _urlSheetLoading; // Один экземпляр передачи текстового файла с сервера.
+    private ReadingGoogleSheet _readingGoogleSheet = new ReadingGoogleSheet(); // Один экземпляр обработчика. 
 
 
     private void Start()
@@ -26,7 +29,7 @@ public class DataTransferUsingGoogleSheet : MonoBehaviour // Актуальный использу
         _urlSheetLoading = GetComponent<UrlSheetLoading>();
         DownloadTable(DataName.BuyState, _sheetIdBuyStateToList);
         DownloadTable(DataName.CarState, _sheetIdCarStateToList);
-        // DownloadTable(DataName.CarState, _sheetIdGift, _sheetIdGift);
+        DownloadTable(DataName.GiftsState, _sheetIdBuyStateToList, _sheetIdGift);
 
     }
 
@@ -41,13 +44,18 @@ public class DataTransferUsingGoogleSheet : MonoBehaviour // Актуальный использу
         if (CurrentProcessedClass == (int)DataName.BuyState)
         {
             (_dataBuy, IndexProduct) = (_readingGoogleSheet.ProcessDataOffers(rawCVSText));
-            EventData?.Invoke(_dataBuy, IndexProduct); //вернул отсортированный список с покупками 
+            EventDataBuy?.Invoke(_dataBuy, IndexProduct); //Вернул отсортированный список с покупками. 
         }
         else if (CurrentProcessedClass == (int)DataName.CarState)
         {
             (_dataCar, IndexProduct) = _readingGoogleSheet.ProcessDataCar(rawCVSText);
-            OnProcessData?.Invoke(_dataCar, IndexProduct); //вернул отсортированный список со статами машин
+            OnProcessDataCar?.Invoke(_dataCar, IndexProduct); //Вернул отсортированный список со статами машин.
             LoadingCar?.Invoke();
+        }
+        else if (CurrentProcessedClass == (int)DataName.GiftsState)
+        {
+            (_dataGifts, IndexProduct) = _readingGoogleSheet.ProcessDataGifts(rawCVSText);
+            EventDataGift?.Invoke(_dataGifts, IndexProduct); //Вернул отсортированный список со статами подарков.
         }
         else
         {

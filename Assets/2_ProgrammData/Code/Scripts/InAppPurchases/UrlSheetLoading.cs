@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public enum DataName
 {
-    BuyState, CarState
+    BuyState, CarState, GiftsState
 }
 public class UrlSheetLoading : MonoBehaviour 
 {
@@ -40,11 +40,6 @@ public class UrlSheetLoading : MonoBehaviour
             else
             {
                 Debug.Log(request.downloadHandler.text);
-                //if (_debug)
-                //{
-                //    Debug.Log(request.downloadHandler.text);
-                //    text.text = request.downloadHandler.text;
-                //}
                 NotConnectToServer?.Invoke(true);
                 callback(request.downloadHandler.text, (int)CurrentProcessedClass);
             }

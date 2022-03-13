@@ -9,10 +9,24 @@ public class BuyStateToList //переименовать
 public class Buy
 {
     public int IndexKey;
-    public int NameOffer;
+    public string NameOffer;
     public int CountCurrency;
     public int Level;
     public int PersentBust;
     public int Timer;
 }
 
+[System.Serializable]
+public class GiftsStatsToList
+{
+    public List<Cifts> ListCifts;
+}
+[System.Serializable]
+public class Cifts
+{
+    public int IndexKey;
+    public string NameOffer;
+    public int CountMoney;
+    public int CountDiamons;
+    public int BustPercent;
+}

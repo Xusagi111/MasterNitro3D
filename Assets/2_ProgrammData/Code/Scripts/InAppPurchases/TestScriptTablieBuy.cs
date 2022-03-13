@@ -16,7 +16,7 @@ public class TestScriptTablieBuy : MonoBehaviour //Возможно применять и без моно
             Instance = this;
         else Destroy(gameObject);
 
-        DataTransferUsingGoogleSheet.EventData += DataDistrebution;
+        DataTransferUsingGoogleSheet.EventDataBuy += DataDistrebution;
 
         _initializationPurchases.Add(new DiamonsData());
         _initializationPurchases.Add(new MoneyData());
