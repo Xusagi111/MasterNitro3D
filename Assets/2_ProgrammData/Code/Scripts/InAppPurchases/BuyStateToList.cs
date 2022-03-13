@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+
 [System.Serializable]
-public class BuyStateToList: MonoBehaviour//переименовать
+public class BuyStateToList //переименовать
 {
     public List<Buy> ListBuy;
 }

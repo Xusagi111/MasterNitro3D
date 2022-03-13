@@ -12,6 +12,7 @@ public class UrlSheetLoading : MonoBehaviour
 {
     [SerializeField] private Text text;
     private bool _debug = true;
+    private int testcount;
     private const string url = "https://docs.google.com/spreadsheets/d/*/export?format=csv"; // &gid=2056821665 смена листа
     public static event Action<bool> NotConnectToServer;
 
@@ -29,6 +30,7 @@ public class UrlSheetLoading : MonoBehaviour
         using (UnityWebRequest request = UnityWebRequest.Get(actualUrl))
         {
             yield return request.SendWebRequest();
+            Debug.Log("Вошел: " + testcount++);
             if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError ||
                 request.result == UnityWebRequest.Result.DataProcessingError)
             {
@@ -37,13 +39,14 @@ public class UrlSheetLoading : MonoBehaviour
             }
             else
             {
-                if (_debug)
-                {
-                    Debug.Log(request.downloadHandler.text);
-                    text.text = request.downloadHandler.text;
-                }
-                NotConnectToServer.Invoke(true);
-                callback(request.downloadHandler.text,(int)DataName.BuyState);
+                Debug.Log(request.downloadHandler.text);
+                //if (_debug)
+                //{
+                //    Debug.Log(request.downloadHandler.text);
+                //    text.text = request.downloadHandler.text;
+                //}
+                NotConnectToServer?.Invoke(true);
+                callback(request.downloadHandler.text, (int)CurrentProcessedClass);
             }
         }
         yield return null;

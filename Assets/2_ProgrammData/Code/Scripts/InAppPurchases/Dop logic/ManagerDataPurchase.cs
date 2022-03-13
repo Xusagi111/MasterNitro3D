@@ -10,7 +10,7 @@ public class ManagerDataPurchase : MonoBehaviour
 
     public static ManagerDataPurchase Instance;
 
-    private void Awake()
+    private void Awake() //Посмотреть сохранятлся ли ссылки при переходе на сцену
     {
         if (Instance == null)
             Instance = this;
