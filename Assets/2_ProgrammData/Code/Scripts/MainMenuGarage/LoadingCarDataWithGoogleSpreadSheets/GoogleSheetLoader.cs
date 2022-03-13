@@ -21,12 +21,12 @@ public class GoogleSheetLoader : MonoBehaviour
 
     private void DownloadTable()
     {
-        _loaderDataToGoogleSheets.DownloadTable(_sheetId, null,OnRawCVSLoaded);
+       // _loaderDataToGoogleSheets.DownloadTable(_sheetId, null,OnRawCVSLoaded);
     }
 
     private void OnRawCVSLoaded(string rawCVSText)
     {
-        _data = _sheetProcessor.ProcessDataCar(rawCVSText);
+       // _data = _sheetProcessor.ProcessDataCar(rawCVSText);
         OnProcessData?.Invoke(_data); //вернул отсортированный список со статами машин
         LoadingCar?.Invoke();
     }
