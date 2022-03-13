@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiamonsData : Data, IInitializationPurchasescs
+public class OffersData : Data, IInitializationPurchasescs
 {
-    private int _enumIdToBuy = (int)EnumIdToBuy.indexDiamons;
+    private int _enumIdToBuy = (int)EnumIdToBuy.indexOffers;
     public bool Getinizialization(int indexIdCurrentPurchases)
     {
         if (_enumIdToBuy == indexIdCurrentPurchases)
@@ -13,12 +13,12 @@ public class DiamonsData : Data, IInitializationPurchasescs
         }
         return false;
     }
-    public void TransferCurrentProduct(Buy buyDiamons)
+    public void TransferCurrentProduct(Buy buyMoney)
     {
-        Diamons.Add(buyDiamons);
+        OffersPurchases.Add(buyMoney);
     }
     public List<Buy> GetList()
     {
-        return Diamons;
+        return OffersPurchases;
     }
 }

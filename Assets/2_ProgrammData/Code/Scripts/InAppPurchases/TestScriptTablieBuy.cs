@@ -1,62 +1,53 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestScriptTablieBuy : MonoBehaviour
+public class TestScriptTablieBuy : MonoBehaviour //Возможно применять и без монобеха
 {
-    [SerializeField] private BuyStateToList BuyStateToList;
-    [SerializeField] private List<Buy> _buyStateToLists;
-    [SerializeField] private List<Buy> _diamons;
-    [SerializeField] private List<Buy> _money;
-    [SerializeField] private List<Buy> _offersPurchases;
-    [SerializeField] private int[] Index = new int[3];
-    public List<Buy> Diamons { get { return _diamons; } set { _diamons = value; } }
-    public List<Buy> Money { get { return _money; } set { _money = value; } }
-    public List<Buy> OffersPurchases { get { return _offersPurchases; } set { _offersPurchases = value; } }
-
     public static event Action LoadingData;
-    private void Start()
+    private List<IInitializationPurchasescs> _initializationPurchases = new List<IInitializationPurchasescs>(3);
+    [SerializeField] private BuyStateToList _buyStateToList;
+
+    public static TestScriptTablieBuy Instance;
+
+    private void Awake()
     {
-        DataTransferUsingGoogleSheet.EventData += GetList;
+        if (Instance == null)
+            Instance = this;
+        else Destroy(gameObject);
+
+        DataTransferUsingGoogleSheet.EventData += DataDistrebution;
+
+        _initializationPurchases.Add(new DiamonsData());
+        _initializationPurchases.Add(new MoneyData());
+        _initializationPurchases.Add(new OffersData());
     }
-    public void GetList(BuyStateToList buyStateToList)
+    public void DataDistrebution(BuyStateToList buyStateToList, int[] Indexid)
     {
-        _buyStateToLists = buyStateToList.ListBuy;
-        DataDistrebution();
-    }
-    public void DataDistrebution() //получение индексов
-    {
-        Index[0] = _buyStateToLists[0].IndexKey;
-        int ItemIndex = Index[0];
-        for (int i = 0; i < _buyStateToLists.Count; i++)
+        _buyStateToList = buyStateToList;
+         int[] Index = new int[3];
+        for (int i = 0; i < buyStateToList.ListBuy.Count; i++)
         {
-            if (ItemIndex != _buyStateToLists[i].IndexKey)
+            for (int h = 0; h < Index.Length; h++)
             {
-                for (int h = 0; h < Index.Length; h++)
+                if (_initializationPurchases[h].Getinizialization(buyStateToList.ListBuy[i].IndexKey))
                 {
-                    if (Index[h]  != 0)
-                    {
-                        Index[h] = _buyStateToLists[i].IndexKey;
-                        ItemIndex = _buyStateToLists[i].IndexKey;
-                        break;
-                    }
+                    _initializationPurchases[h].TransferCurrentProduct(buyStateToList.ListBuy[i]);
+                    break;
                 }
             }
         }
-        
-        for (int i = 0; i < _buyStateToLists.Count; i++)
-        {
-            //int ItemInt;
-            //if (_buyStateToLists[i].IndexKey == CurrentIndex)
-            //{
-            //    _diamons.Add(_buyStateToLists[i]);
-            //}
-            //if
-            //{
-            //    _money.Add(_buyStateToLists[i]);
-            //}
-        }
         LoadingData?.Invoke();
+    }
+    public List<Buy> GetListIndexed(EnumIdToBuy enumIdToBuy)
+    {
+        for (int i = 0; i < _initializationPurchases.Count; i++)
+        {
+            if (_initializationPurchases[i].Getinizialization((int)enumIdToBuy))
+            {
+                return _initializationPurchases[i].GetList();
+            }
+        }
+        return null;
     }
 }

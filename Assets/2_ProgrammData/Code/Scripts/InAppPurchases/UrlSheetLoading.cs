@@ -4,20 +4,27 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class UrlSheetLoading : MonoBehaviour // Можно переиспользовать. //Добавить подгрузку с помощью изменения листа.
+public enum DataName
+{
+    BuyState, CarState
+}
+public class UrlSheetLoading : MonoBehaviour 
 {
     [SerializeField] private Text text;
     private bool _debug = true;
     private const string url = "https://docs.google.com/spreadsheets/d/*/export?format=csv"; // &gid=2056821665 смена листа
     public static event Action<bool> NotConnectToServer;
 
-    public void DownloadTable(string sheetId, Action<string> onSheetLoadedAction)
+
+    public void DownloadTable(string sheetId, string addLastString, Action<string, int> onSheetLoadedAction, DataName CurrentProcessedClass)
     {
         string actualUrl = url.Replace("*", sheetId);
-        StartCoroutine(DownloadRawCvsTable(actualUrl, onSheetLoadedAction));
+        if (addLastString != null)
+            actualUrl = actualUrl + addLastString;
+        StartCoroutine(DownloadRawCvsTable(actualUrl, onSheetLoadedAction, CurrentProcessedClass));
     }
 
-    private IEnumerator DownloadRawCvsTable(string actualUrl, Action<string> callback)
+    private IEnumerator DownloadRawCvsTable(string actualUrl, Action<string, int> callback, DataName CurrentProcessedClass)
     {
         using (UnityWebRequest request = UnityWebRequest.Get(actualUrl))
         {
@@ -36,7 +43,7 @@ public class UrlSheetLoading : MonoBehaviour // Можно переиспользовать. //Добави
                     text.text = request.downloadHandler.text;
                 }
                 NotConnectToServer.Invoke(true);
-                callback(request.downloadHandler.text);
+                callback(request.downloadHandler.text,(int)DataName.BuyState);
             }
         }
         yield return null;

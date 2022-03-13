@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-// Не используется -------------------------------------------------
-public class loaderDataToGoogleSheets : MonoBehaviour  //загузка по url гугл таблицы
+public class LoadUrlGoogleList : MonoBehaviour
 {
-    [SerializeField] private Text text;
-    private bool _debug = true;
-    private const string url = "https://docs.google.com/spreadsheets/d/*/export?format=csv"; // &gid=2056821665 смена листа
+#if UNITY_EDITOR
+    bool _debug = true;
+#endif
+    private const string url = "https://docs.google.com/spreadsheets/d/*/export?format=csv&gid=2127756539";
 
     public void DownloadTable(string sheetId, Action<string> onSheetLoadedAction)
     {
@@ -32,12 +32,11 @@ public class loaderDataToGoogleSheets : MonoBehaviour  //загузка по url гугл таб
                 if (_debug)
                 {
                     Debug.Log(request.downloadHandler.text);
-                    //text.text = request.downloadHandler.text;
+                    Debug.Log("===============================================================================================");
                 }
 
                 callback(request.downloadHandler.text);
             }
-            
         }
         yield return null;
     }

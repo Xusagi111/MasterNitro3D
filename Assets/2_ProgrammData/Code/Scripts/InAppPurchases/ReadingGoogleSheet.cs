@@ -1,58 +1,105 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class ReadingGoogleSheet : MonoBehaviour
+public class ReadingGoogleSheet
 {
-    #region Const
     private const int _id = 0;
-    private const int _nameOffer = 1;
-    private const int _countCurrency = 2;
-    private const int _levelBust= 3;
-    private const int _persentBust = 4;
     private const char _cellSeporator = ',';
     private const char _inCellSeporator = ';';
+
+    #region Const
+    private const int _const1 = 1;
+    private const int _const2 = 2;
+    private const int _const3 = 3;
+    private const int _const4 = 4;
+    private const int _const5 = 5;
     #endregion
-    private int _idCar;
+
+
     private int dataStartRawIndex = 1;
 
-    public BuyStateToList ProcessData(string cvsRawData) //logic filling in existing machine statistics
+    private int _idCar;
+    private int _indexIdProduct;
+
+    private int[] indexId = new int[5];
+
+    private void ParserTable<T>(string cvsRawData, int _index, T data)
     {
+        if (indexId[0] != 0)
+        {
+            for (int i = 0; i < indexId.Length; i++)
+                indexId[i] = 0;
+        }
         char lineEnding = GetPlatformSpecificLineEnd();
         string[] rows = cvsRawData.Split(lineEnding);
-        BuyStateToList data = new BuyStateToList();
-        data.ListBuy = new List<Buy>();
 
         for (int i = dataStartRawIndex; i < rows.Length; i++)
         {
             string[] cells = rows[i].Split(_cellSeporator);
             int id = ParseInt(cells[_id]);
-            int NameOffer = ParseInt(cells[_nameOffer]);
-            int CountCurrency = ParseInt(cells[_countCurrency]);
-            int LevelBust = ParseInt(cells[_levelBust]);
-            int PersentBust = ParseInt(cells[_persentBust]);
-            if (id != 0 && _idCar != ParseInt(cells[_id]))
+            int const1 = ParseInt(cells[_const1]);
+            string const2 = cells[_const2];
+            int const3 = ParseInt(cells[_const3]);
+            int const4 = ParseInt(cells[_const4]);
+            int const5 = ParseInt(cells[_const5]);
+
+            if (id != 0 && _index != ParseInt(cells[_id]))
             {
-                _idCar = id;
+                _index = id;
+                for (int b = 0; b < indexId.Length; b++)
+                {
+                    if (indexId[b] == 0)
+                    {
+                        indexId[b] = _index;
+
+                        break;
+                    }
+
+                }
             }
             else
             {
-                id = _idCar;
+                id = _index;
+
             }
-            if (NameOffer.ToString() != "" && CountCurrency != 0)
+            if (const1.ToString() != "" && const1 != 0)
             {
-                data.ListBuy.Add(new Buy()
-                {
-                    IndexKey = id,
-                    NameOffer = NameOffer,
-                    CountCurrency = CountCurrency,
-                    LevelBust = LevelBust,
-                    PersentBust = PersentBust
-                });
+                if(data is BuyStateToList listbuy)
+                    listbuy.ListBuy.Add(new Buy()
+                    {
+                        IndexKey = id,
+                        NameOffer = const1,
+                        CountCurrency = ParseInt(const2),
+                        Level = const3,
+                        PersentBust = const4,
+                        Timer = const5,
+                    });
+                if(data is CarStateToList carState)
+                    carState.CarsPlayersList.Add(new CarS_Player()
+                    {
+                        IndexMachin = id,
+                        levelCar = const2,
+                        Power = const3,
+                        Speed = const4,
+                        Control = const5
+                    });
             }
         }
-        //Debug.Log(data.ListBuy.ToString());
-        return data;
+    }
+
+    public (BuyStateToList, int[] IndexId) ProcessDataOffers(string cvsRawData) //logic filling in existing machine statistics
+    {
+        BuyStateToList data = new BuyStateToList();
+        data.ListBuy = new List<Buy>();
+        ParserTable(cvsRawData, _indexIdProduct, data);
+        return (data, indexId);
+    }
+
+    public (CarStateToList, int[] IndexID) ProcessDataCar(string cvsRawData) //logic filling in existing machine statistics
+    {
+        CarStateToList data = new CarStateToList();
+        data.CarsPlayersList = new List<CarS_Player>();
+        ParserTable(cvsRawData, _idCar, data);
+        return (data, indexId);
     }
     #region DopLogic
     private int ParseInt(string s)

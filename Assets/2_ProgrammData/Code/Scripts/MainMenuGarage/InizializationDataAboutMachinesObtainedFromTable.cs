@@ -47,7 +47,7 @@ public class InizializationDataAboutMachinesObtainedFromTable : MonoBehaviour //
         {
 
         }
-        EventClassDisplayToUi evt= EventManager.EventDisplayUi;
+        EventClassDisplayToUi evt = EventManager.EventDisplayUi;
         evt.Power = Power;
         EventManagerGame.Broadcast(evt);
         LoadingStatsPoIndex();

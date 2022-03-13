@@ -1,63 +1,65 @@
-using System.Collections;
-using System.Collections.Generic;
+п»їusing System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-// Не используется --------------------------------------------
-public class ReadingDataFromSheet: MonoBehaviour
+public class HeaderListGifts: MonoBehaviour
 {
     #region Const
     private const int _id = 0;
-    private const int _nameCar = 1;
-    private const int _levelCar = 2;
-    private const int _power = 3;
-    private const int _speed = 4;
-    private const int _control = 5;
+    private const int _nameOffer = 1;
+    private const int _countCoint = 2;
+    private const int _countDiamons = 3;
+
     private const char _cellSeporator = ',';
     private const char _inCellSeporator = ';';
     #endregion
-    private int _idCar;
+    private int _indexIdProduct;
     private int dataStartRawIndex = 1;
+    private int[] indexId = new int[3];
 
-    public CarStateToList ProcessData(string cvsRawData) //logic filling in existing machine statistics
+    public (GiftsStatsToList, int[] IndexId) ProcessData(string cvsRawData) //logic filling in existing machine statistics
     {
         char lineEnding = GetPlatformSpecificLineEnd();
         string[] rows = cvsRawData.Split(lineEnding);
-        CarStateToList data = new CarStateToList();
-        data.CarsPlayersList = new List<CarS_Player>();
+        GiftsStatsToList data = new GiftsStatsToList();
+        data.ListCifts = new List<Cifts>();
 
         for (int i = dataStartRawIndex; i < rows.Length; i++)
         {
             string[] cells = rows[i].Split(_cellSeporator);
             int id = ParseInt(cells[_id]);
-            string NameCar = (cells[_nameCar]);
-            string levelCar = (cells[_levelCar]);
-            int Power = ParseInt(cells[_power]);
-            int Speed = ParseInt(cells[_speed]);
-            int Control = ParseInt(cells[_control]);
-            if (id != 0 && _idCar != ParseInt(cells[_id]))
+            string NameOffer = cells[_nameOffer];
+            int CountCoint = ParseInt(cells[_countCoint]);
+            int CountDiamons = ParseInt(cells[_countDiamons]);
+
+            if (id != 0 && _indexIdProduct != ParseInt(cells[_id]))
             {
-                _idCar = id;
+                _indexIdProduct = id;
+                for (int b = 0; b < indexId.Length; b++)
+                {
+                    if (indexId[b] == 0)
+                    {
+                        indexId[b] = _indexIdProduct;
+
+                        break;
+                    }
+                }
             }
             else
             {
-                id = _idCar;
+                id = _indexIdProduct;
             }
-            if (levelCar != "" && Power != 0)
+            if (NameOffer.ToString() != "" && CountCoint != 0)
             {
-                data.CarsPlayersList.Add(new CarS_Player()
+                data.ListCifts.Add(new Cifts()
                 {
-                    IndexMachin = id,
-                    NameCar = NameCar,
-                    levelCar = levelCar,
-                    Power = Power,
-                    Speed = Speed,
-                    Control = Control
+                    IndexKey = id,
+                    NameOffer = NameOffer,
+                    CountMoney = CountCoint,
+                    CountDiamons = CountDiamons,
                 });
             }
         }
-        Debug.Log(data.CarsPlayersList.ToString());
-        return data;
+        return (data, indexId);
     }
     #region DopLogic
     private int ParseInt(string s)
@@ -70,7 +72,7 @@ public class ReadingDataFromSheet: MonoBehaviour
 
         return result;
     }
-    
+
     private float ParseFloat(string s)
     {
         float result = -1;
@@ -81,7 +83,7 @@ public class ReadingDataFromSheet: MonoBehaviour
 
         return result;
     }
-    
+
     private char GetPlatformSpecificLineEnd()
     {
         char lineEnding = '\n';
@@ -91,4 +93,6 @@ public class ReadingDataFromSheet: MonoBehaviour
         return lineEnding;
     }
     #endregion
+
 }
+
