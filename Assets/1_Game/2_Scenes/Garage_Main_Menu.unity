@@ -492,6 +492,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111c71c3db4cf8f48bf82246ac828a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &225963743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1921729208881373592, guid: ecd779234e044154fa8ccaafe20e6b7a, type: 3}
+  m_PrefabInstance: {fileID: 1921729209708750465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &231749036 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2634429982033430361, guid: 5adf01b4471c78d4ea50fb4a0829b670, type: 3}
@@ -2900,7 +2905,7 @@ MonoBehaviour:
   finishMenu: {fileID: 0}
   scrollerMenu: {fileID: 0}
   deadMenu: {fileID: 0}
-  PopupCompletePanel: {fileID: 0}
+  PopupCompletePanel: {fileID: 225963743}
 --- !u!4 &1688163141 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4865026159288915207, guid: 8a804b0ff1bfa9144bcc81ebc161c392, type: 3}

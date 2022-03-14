@@ -23,8 +23,10 @@ public class IAPurchase : IStoreListener
     public const string buycoin6 = "buycoin6";
 
     #endregion
-    string[] ArrayConstValueId = { diamonsbuy1, diamonsbuy2, diamonsbuy3, diamonsbuy4, diamonsbuy5, diamonsbuy6, buycoin1, buycoin2, buycoin3, buycoin4, buycoin5, buycoin6 };
 
+    private string[] _arrayConstCointId = { buycoin1, buycoin2, buycoin3, buycoin4, buycoin5, buycoin6 };
+    private string[] _arrayConstDiamonsId = { diamonsbuy1, diamonsbuy2, diamonsbuy3, diamonsbuy4, diamonsbuy5, diamonsbuy6 };
+    List<ConfigurationBuilder> test = new List<ConfigurationBuilder>(12);
     public static IStoreController _storeController;
     private static IExtensionProvider _storeExtensionProvider;
 
@@ -33,7 +35,7 @@ public class IAPurchase : IStoreListener
 
     public List<ConfigurationBuilder> IapInitializate()
     {
-        List<ConfigurationBuilder> test = new List<ConfigurationBuilder>(12);
+
         if (IsIapInitialized())
             return test;
         //Пример продажи товара
@@ -43,9 +45,15 @@ public class IAPurchase : IStoreListener
 
         var configurationBilderInstance = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
 
-        for (int i = 0; i < ArrayConstValueId.Length; i++)
+        for (int i = 0; i < _arrayConstCointId.Length; i++)
         {
-            configurationBilderInstance.AddProduct(ArrayConstValueId[i], ProductType.NonConsumable);
+            configurationBilderInstance.AddProduct(_arrayConstCointId[i], ProductType.NonConsumable);
+            UnityPurchasing.Initialize(this, configurationBilderInstance);
+            test.Add(configurationBilderInstance);
+        }
+        for (int i = 0; i < _arrayConstDiamonsId.Length; i++)
+        {
+            configurationBilderInstance.AddProduct(_arrayConstDiamonsId[i], ProductType.NonConsumable);
             UnityPurchasing.Initialize(this, configurationBilderInstance);
             test.Add(configurationBilderInstance);
         }
@@ -83,18 +91,28 @@ public class IAPurchase : IStoreListener
 
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs purchaseEvent)// вызывается после покупки.
     {
-        switch (purchaseEvent.purchasedProduct.definition.id)
+        //switch (purchaseEvent.purchasedProduct.definition.id)
+        //{
+        //    case _removeADS:
+        //        break;
+        //}
+        TestScriptTablieBuy testScriptTablieBuy = TestScriptTablieBuy.FindObjectOfType<TestScriptTablieBuy>();
+        for (int i = 0; i < test.Count; i++) // сделать сохранение и вывод на UI
         {
-            //case _removeADS:
-            //    break;
-            //case _testPurch:
-            //    break;
-           /* case _subscribtionIdWeek:
+            if (_arrayConstCointId[i].ToString() == purchaseEvent.purchasedProduct.definition.id)
+            {
+                var a = int.Parse(testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexMoney)[i].NameOffer);
+                Debug.Log("НАГРАДА ЗА ПОКУПКУ: " + a);
                 break;
-            case _subscribtionIdYear:
-                break;*/
+            }
+            if (_arrayConstDiamonsId[i].ToString() == purchaseEvent.purchasedProduct.definition.id)
+            {
+                var a = int.Parse(testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexDiamons)[i].NameOffer);
+                Debug.Log("НАГРАДА ЗА ПОКУПКУ: " + a);
+                break;
+            }
         }
-        AdsAndIAP.isRemoveADS = true;
+        //AdsAndIAP.isRemoveADS = true;
         AdsAndIAP.instance.HideAds(); Debug.Log("buy: " + (purchaseEvent.purchasedProduct.definition.id));
         PurchaseComplete?.Invoke();
         return PurchaseProcessingResult.Complete;
