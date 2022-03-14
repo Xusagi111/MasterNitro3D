@@ -8,16 +8,35 @@ public class IAPurchase : IStoreListener
 {
     //public const string _removeADS = "remove_ads";
     public const string _testPurch = "4141411";
+    #region ConstIdPurchases
+    public const string diamonsbuy1 = "diamonsbuy1";
+    public const string diamonsbuy2 = "diamonsbuy2";
+    public const string diamonsbuy3 = "diamonsbuy3";
+    public const string diamonsbuy4 = "diamonsbuy4";
+    public const string diamonsbuy5 = "diamonsbuy5";
+    public const string diamonsbuy6 = "diamonsbuy6";
+
+    public const string buycoin1 = "buycoin1";
+    public const string buycoin2 = "buycoin2";
+    public const string buycoin3 = "buycoin3";
+    public const string buycoin4 = "buycoin4";
+    public const string buycoin5 = "buycoin5";
+    public const string buycoin6 = "buycoin6";
+
+    #endregion
+    string[] ArrayConstValueId = { diamonsbuy1, diamonsbuy2, diamonsbuy3, diamonsbuy4, diamonsbuy5, diamonsbuy6, buycoin1, buycoin2, buycoin3, buycoin4, buycoin5, buycoin6 };
+
     public static IStoreController _storeController;
     private static IExtensionProvider _storeExtensionProvider;
 
     public static UnityEvent PurchaseComplete = new UnityEvent();
 
 
-    public void IapInitializate()
+    public List<ConfigurationBuilder> IapInitializate()
     {
+        List<ConfigurationBuilder> test = new List<ConfigurationBuilder>(12);
         if (IsIapInitialized())
-            return;
+            return test;
         //Пример продажи товара
         //var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
         //builder.AddProduct(_removeADS, ProductType.NonConsumable);
@@ -27,8 +46,16 @@ public class IAPurchase : IStoreListener
         NewBilder.AddProduct(_testPurch, ProductType.NonConsumable);
         UnityPurchasing.Initialize(this, NewBilder);
 
-    }
+        for (int i = 0; i < ArrayConstValueId.Length; i++)
+        {
+            var a = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+            a.AddProduct(ArrayConstValueId[i], ProductType.NonConsumable);
+            UnityPurchasing.Initialize(this, a);
+            test.Add(a);
+        }
+        return test;
 
+    }
     public static bool IsIapInitialized()
     {
         return _storeController != null && _storeExtensionProvider != null;

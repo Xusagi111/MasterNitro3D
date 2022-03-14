@@ -6,6 +6,7 @@ public class AdsAndIAP : MonoBehaviour
 {
     public static bool isRemoveADS;
     
+
     public static AdsAndIAP instance;
 
     [SerializeField]
@@ -20,7 +21,7 @@ public class AdsAndIAP : MonoBehaviour
     private void Start()
     {
         IAPurchase iAPurchase = new IAPurchase();
-        iAPurchase.IapInitializate();
+        var a = iAPurchase.IapInitializate();
         //StartCoroutine(IAPurchase.CheckSubscription());
     }
 
@@ -40,6 +41,6 @@ public class AdsAndIAP : MonoBehaviour
     //Buy Product.
     public void BuyProduct(string IdProduct) //вешается на кнопку покупки продукта
     {
-        IAPurchase.BuyProductID(IdProduct);
+        IAPurchase.BuyProductID(IAPurchase._testPurch);
     }
 }
