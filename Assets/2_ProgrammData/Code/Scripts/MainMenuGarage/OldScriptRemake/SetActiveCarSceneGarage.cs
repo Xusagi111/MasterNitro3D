@@ -34,9 +34,9 @@ public class SetActiveCarSceneGarage : MonoBehaviour
                 CarSevDesc.SetActive(false);
                 inite.SetActive(true);
                 //Event
-                CarS_Player evt = EventManager.EventAllGarageCarsThePlayer;
-                evt = AllGarageCarsThePlayer.AllCarState[count -1];
-                EventManagerGame.Broadcast(evt);
+                //CarS_Player evt = EventManager.EventAllGarageCarsThePlayer;
+                //evt = AllGarageCarsThePlayer.AllCarState[count -1];
+                //EventManagerGame.Broadcast(evt);
             }
             count--;
             
@@ -57,9 +57,9 @@ public class SetActiveCarSceneGarage : MonoBehaviour
             CarSevDesc.SetActive(false);
             inite.SetActive(true);
             //Event
-            CarS_Player evt = EventManager.EventAllGarageCarsThePlayer;
-            evt = AllGarageCarsThePlayer.AllCarState[count];
-            EventManagerGame.Broadcast(evt);
+            //CarS_Player evt = EventManager.EventAllGarageCarsThePlayer;
+            //evt = AllGarageCarsThePlayer.AllCarState[count];
+            //EventManagerGame.Broadcast(evt);
         }
     }  
 }

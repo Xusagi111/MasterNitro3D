@@ -19,8 +19,6 @@ public class ControllerUIPurchases : MonoBehaviour
         TestScriptTablieBuy.LoadingData -= InitializationPurchases;
     }
 
-    //Узнать на сколько долго будет выполняться данная операция.
-
     private void InitializationPurchases() 
     {
         int CountDiamons = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexDiamons).Count;

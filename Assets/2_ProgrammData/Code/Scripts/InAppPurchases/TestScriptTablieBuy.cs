@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestScriptTablieBuy : MonoBehaviour //¬озможно примен€ть и без монобеха
+public class TestScriptTablieBuy : MonoBehaviour //сделать возиожность переипользовать
 {
     public static event Action LoadingData;
     private List<IInitializationPurchasescs> _initializationPurchases = new List<IInitializationPurchasescs>(3);

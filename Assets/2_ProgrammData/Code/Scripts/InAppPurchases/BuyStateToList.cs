@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 [System.Serializable]
-public class BuyStateToList //переименовать
+public class BuyStateToList
 {
     public List<Buy> ListBuy;
 }

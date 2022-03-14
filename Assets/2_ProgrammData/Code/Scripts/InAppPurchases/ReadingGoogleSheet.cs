@@ -41,32 +41,6 @@ public class ReadingGoogleSheet
             int const3 = ParseInt(cells[_const3]);
             int const4 = ParseInt(cells[_const4]);
             int const5 = ParseInt(cells[_const5]);
-            //if (dataStartRawIndex == 0)
-            //{
-            //    if (data is BuyStateToList listbuy)
-            //    {
-            //        if (listbuy.ListBuy[0].IndexKey == ButtonClassSave.LoadFromPlayerPrefs(listbuy.ListBuy[0].IndexKey, "BuyStateToList"))
-            //        {
-            //             (listbuy, indexId) = (ButtonClassSave.LoadFromPlayerPrefs(listbuy, "BuyStateToList"), indexId) ;
-            //            return;
-            //        }
-            //        else
-            //        {
-            //            ButtonClassSave.SaveToPlayerPrefs(listbuy.ListBuy[0].IndexKey, "BuyStateToList");
-            //        }
-                    
-            //    }
-            //    else if (data is CarStateToList carState)
-            //    {
-
-            //        return;
-            //    }
-            //    else if (data is GiftsStatsToList giftsStatsToList)
-            //    {
-
-            //        return;
-            //    }
-            //}
 
             if ( id != 0 && _index != ParseInt(cells[_id]))
             {
@@ -85,10 +59,6 @@ public class ReadingGoogleSheet
             else
             {
                 id = _index;
-
-            }
-            if (true)
-            {
 
             }
             if (dataStartRawIndex == 0 || const1 != null && const2 != 0)
