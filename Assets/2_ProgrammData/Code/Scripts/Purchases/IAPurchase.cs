@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class IAPurchase : IStoreListener
 {
     //public const string _removeADS = "remove_ads";
-    public const string _testPurch = "4141411";
     #region ConstIdPurchases
     public const string diamonsbuy1 = "diamonsbuy1";
     public const string diamonsbuy2 = "diamonsbuy2";
@@ -42,16 +41,13 @@ public class IAPurchase : IStoreListener
         //builder.AddProduct(_removeADS, ProductType.NonConsumable);
         //UnityPurchasing.Initialize(this, builder);
 
-        var NewBilder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
-        NewBilder.AddProduct(_testPurch, ProductType.NonConsumable);
-        UnityPurchasing.Initialize(this, NewBilder);
+        var configurationBilderInstance = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
 
         for (int i = 0; i < ArrayConstValueId.Length; i++)
         {
-            var a = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
-            a.AddProduct(ArrayConstValueId[i], ProductType.NonConsumable);
-            UnityPurchasing.Initialize(this, a);
-            test.Add(a);
+            configurationBilderInstance.AddProduct(ArrayConstValueId[i], ProductType.NonConsumable);
+            UnityPurchasing.Initialize(this, configurationBilderInstance);
+            test.Add(configurationBilderInstance);
         }
         return test;
 
@@ -91,8 +87,8 @@ public class IAPurchase : IStoreListener
         {
             //case _removeADS:
             //    break;
-            case _testPurch:
-                break;
+            //case _testPurch:
+            //    break;
            /* case _subscribtionIdWeek:
                 break;
             case _subscribtionIdYear:

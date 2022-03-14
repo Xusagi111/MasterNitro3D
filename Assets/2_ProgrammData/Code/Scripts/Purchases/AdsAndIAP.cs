@@ -41,6 +41,6 @@ public class AdsAndIAP : MonoBehaviour
     //Buy Product.
     public void BuyProduct(string IdProduct) //вешается на кнопку покупки продукта
     {
-        IAPurchase.BuyProductID(IAPurchase._testPurch);
+        IAPurchase.BuyProductID(IdProduct);
     }
 }

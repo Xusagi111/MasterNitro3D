@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225600689939189667, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1225600690231819956, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_LocalScale.x
@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225600690231819957, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ' buycoin3'
+      value: buycoin3
       objectReference: {fileID: 0}
     - target: {fileID: 1225600690231819957, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -165,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225600690366947290, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ' buycoin2'
+      value: buycoin2
       objectReference: {fileID: 0}
     - target: {fileID: 1225600690366947290, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -213,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225600690414801539, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ' buycoin1'
+      value: buycoin1
       objectReference: {fileID: 0}
     - target: {fileID: 1225600690414801539, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -269,7 +269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225600691527863659, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ' buycoin5'
+      value: buycoin5
       objectReference: {fileID: 0}
     - target: {fileID: 1225600691527863659, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225600691537661712, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ' buycoin6'
+      value: buycoin6
       objectReference: {fileID: 0}
     - target: {fileID: 1225600691537661712, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -353,7 +353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225600691968360559, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ' buycoin4'
+      value: buycoin4
       objectReference: {fileID: 0}
     - target: {fileID: 1225600691968360559, guid: 395e8437c2e4e1d4cb55822adfeb0699, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _quantityPurchasedProduct: {fileID: 294868222081482710}
   _prisePurchasedProduct: {fileID: 294868220639226461}
---- !u!95 &1696318201
+--- !u!95 &4085779494056997372
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -769,7 +769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _quantityPurchasedProduct: {fileID: 294868221279222954}
   _prisePurchasedProduct: {fileID: 294868221757059629}
---- !u!95 &4085779494056997372
+--- !u!95 &7945095465858611204
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0

@@ -43,7 +43,7 @@ public class UIController : MonoBehaviour
 
     public void OpenPopupPurchase()
     {
-        PopupCompletePanel.SetActive(true);
+        //PopupCompletePanel.SetActive(true);
     }
 
     public void DisactivPanel(GameObject gameObject)
