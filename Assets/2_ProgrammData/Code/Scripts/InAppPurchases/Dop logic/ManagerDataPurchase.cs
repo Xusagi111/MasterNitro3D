@@ -6,7 +6,6 @@ public class ManagerDataPurchase : MonoBehaviour
 {
     [SerializeField] private List<InPurchaseModuleUIElements> _listDataOffersMoney;
     [SerializeField] private List<InPurchaseModuleUIElements> _listDataOffersDiamons;
-    [SerializeField] private FirstPackUIElement _DataOffersFirstPack;
 
     public static ManagerDataPurchase Instance;
 
@@ -28,10 +27,5 @@ public class ManagerDataPurchase : MonoBehaviour
         set { _listDataOffersDiamons = value; }
     }
 
-    public FirstPackUIElement DataOffersFirstPack
-    {
-        get { return _DataOffersFirstPack; }
-        set { _DataOffersFirstPack = value; }
-    }
 }
     

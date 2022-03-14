@@ -35,12 +35,5 @@ public class ControllerUIPurchases : MonoBehaviour
             _managerShopping.ListDataOffersMoney[i].PrisePurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexMoney)[i].CountCurrency.ToString();
         }
 
-        //НАдо прокинуть ссылки, я хз где они находились раньше 
-
-        //_managerShopping.DataOffersFirstPack.CoinPurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].NameOffer.ToString();
-        //_managerShopping.DataOffersFirstPack.DiamondPurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].CountCurrency.ToString();
-        //_managerShopping.DataOffersFirstPack.PrisePurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].Level.ToString();
-        //_managerShopping.DataOffersFirstPack.Timer.text = $"TIME LEFT: {_testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].Timer}:00:00";
-
     }
 }
