@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 2322903889337899605}
   - component: {fileID: 6417226253991992585}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,7 +270,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 45.5, y: 28.95581}
+  m_AnchoredPosition: {x: 45.5, y: -36}
   m_SizeDelta: {x: 491, y: 652.0884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8664158221049890756
@@ -346,7 +346,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -86, y: -83}
+  m_AnchoredPosition: {x: -35, y: -81}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6526447266209378528
@@ -980,13 +980,14 @@ GameObject:
   - component: {fileID: 6194503836993765327}
   - component: {fileID: 6194503836993765325}
   - component: {fileID: 6194503836993765326}
+  - component: {fileID: 3748944665133217903}
   m_Layer: 5
   m_Name: Offers_purchases
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6194503836993765327
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1048,6 +1049,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3748944665133217903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6194503836993765360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819f3b70de36a3d4aaff40e252d9992e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinPurchasedProduct: {fileID: 8631053260392004769}
+  _diamondPurchasedProduct: {fileID: 7659581499273868715}
+  _prisePurchasedProduct: {fileID: 4450260294161986259}
+  _timer: {fileID: 6417226253991992585}
 --- !u!1 &6978084396313912195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,7 +1143,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10.000
+  m_Text: 99
 --- !u!1 &8225896699532405030
 GameObject:
   m_ObjectHideFlags: 0
