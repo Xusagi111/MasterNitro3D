@@ -3,66 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class FirstPack : MonoBehaviour
 {
-    private ManagerDataPurchase _managerShopping;
-    private TestScriptTablieBuy _testScriptTablieBuy;
+    public delegate void TimerInfo(int _timer);
+    public static event TimerInfo TimerInfoEvent;
 
     [SerializeField] private Text _coinPurchasedProduct;
     [SerializeField] private Text _diamondPurchasedProduct;
     [SerializeField] private Text _prisePurchasedProduct;
-
     [SerializeField] private Text _timer;
-    private int timeInSec;
-    private int hours;
-    private int minutes = 59;
-    private int seconds = 59;
 
-
-    private void Awake()
+    public Text CoinPurchasedProduct
     {
-        _managerShopping = ManagerDataPurchase.Instance;
-        _testScriptTablieBuy = TestScriptTablieBuy.Instance;
-
-        _coinPurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].NameOffer.ToString();
-        _diamondPurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].CountCurrency.ToString();
-        _prisePurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].Level.ToString();
-
-        hours = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].Timer;
-
-        Debug.Log("timeeeer" + hours);
-        timeInSec = hours * 3600;
-        _timer.text = $"TIME LEFT: {hours}:00:00";
-        hours--;
+        get { return _coinPurchasedProduct; }
+        set { _coinPurchasedProduct = value; }
+    }
+    public Text DiamondPurchasedProduct
+    {
+        get { return _diamondPurchasedProduct; }
+        set { _diamondPurchasedProduct = value; }
+    }
+    public Text PricePurchasedProduct
+    {
+        get { return _prisePurchasedProduct; }
+        set { _prisePurchasedProduct = value; }
+    }
+    public Text Timer
+    {
+        get { return _timer; }
+        set { _timer = value; }
     }
 
-    private void OnEnable()
+    public void SentTimerInfo()
     {
-        StartCoroutine(Timer());
-    }
-    void Update()
-    {
-        
-    }
-
-    private IEnumerator Timer()
-    {
-        for (int i = timeInSec; i >= 0; i--)
-        {
-            if(seconds == 0)
-            {
-                minutes--;
-                seconds = 59;
-            }
-            if(minutes == 0)
-            {
-                hours--;
-                minutes = 59;
-            }
-            yield return new WaitForSeconds(1f);
-            
-            _timer.text = "TIME LEFT: " + hours + ":" + minutes + ":" + seconds.ToString("D2");
-            seconds--;
-        }
+        if (!PlayerPrefs.HasKey("flagFirstPack"))
+            TimerInfoEvent?.Invoke(int.Parse(_timer.text));
     }
 }

@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ControllerUIPurchases : MonoBehaviour
 {
     private ManagerDataPurchase _managerShopping;
     private TestScriptTablieBuy _testScriptTablieBuy;
+    public FirstPack FirstPack;
+
+    public static UnityEvent StartTimer = new UnityEvent();
+
+    public static UnityEvent InitializationPurchase = new UnityEvent();
 
     private void Start()
     {
@@ -35,5 +41,24 @@ public class ControllerUIPurchases : MonoBehaviour
             _managerShopping.ListDataOffersMoney[i].PrisePurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexMoney)[i].CountCurrency.ToString();
         }
 
+        if (!PlayerPrefs.HasKey("flagFirstPack"))
+        {
+            this.FirstPack.gameObject.SetActive(true);
+            _managerShopping.firstPack.Timer.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].Timer.ToString();
+            FirstPackPurchases();
+        }
+        else {
+            this.FirstPack.gameObject.SetActive(true);
+            FirstPackPurchases();
+        }
+        
+    }
+
+    private void FirstPackPurchases()
+    {
+        _managerShopping.firstPack.CoinPurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].NameOffer.ToString();
+        _managerShopping.firstPack.DiamondPurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].CountCurrency.ToString();
+        _managerShopping.firstPack.PricePurchasedProduct.text = _testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].Level.ToString();
+        
     }
 }

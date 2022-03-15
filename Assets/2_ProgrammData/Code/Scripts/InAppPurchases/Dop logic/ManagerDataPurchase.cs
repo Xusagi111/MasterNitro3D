@@ -6,6 +6,7 @@ public class ManagerDataPurchase : MonoBehaviour
 {
     [SerializeField] private List<InPurchaseModuleUIElements> _listDataOffersMoney;
     [SerializeField] private List<InPurchaseModuleUIElements> _listDataOffersDiamons;
+    public FirstPack firstPack;
 
     public static ManagerDataPurchase Instance;
 
