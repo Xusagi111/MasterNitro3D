@@ -60,24 +60,13 @@ public class Timer : MonoBehaviour
         timeInSec = hoursTimer * 3600;
         _timer.text = "TIME LEFT: " + hoursTimer.ToString("D2") + ":" + minutesTimer.ToString("D2") + ":" + secondsTimer.ToString("D2");
 
+        DateTime dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, hoursRealTimeOrigin, minutesRealTimeOrigin, secondsRealTimeOrigin);
+        TimeSpan timeSpan = DateTime.Now.Subtract(dateTime);
 
-        if (DateTime.Now.Hour > hoursRealTimeOrigin)
-        {
-            int delta = DateTime.Now.Hour - hoursRealTimeOrigin;
-            hoursTimer -= delta;
-        }
+        hoursTimer -= timeSpan.Hours;
+        minutesTimer -= timeSpan.Minutes;
+        secondsTimer -= timeSpan.Seconds;
 
-        if (DateTime.Now.Minute > minutesRealTimeOrigin)
-        {
-            int delta = DateTime.Now.Minute - minutesRealTimeOrigin;
-            minutesTimer -= delta;
-        }
-
-        if (DateTime.Now.Second > secondsRealTimeOrigin)
-        {
-            int delta = DateTime.Now.Second - secondsRealTimeOrigin;
-            secondsTimer -= delta;
-        }
         StartCoroutine(TimerCor());
     }
     public void SetTimerOrigin(int hours)
@@ -113,7 +102,7 @@ public class Timer : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
             _timer.text = "TIME LEFT: " + hoursTimer.ToString("D2") + ":" + minutesTimer.ToString("D2") + ":" + secondsTimer.ToString("D2");
-            _timerMainMenu.text = "TIME LEFT: " + hoursTimer.ToString("D2") + ":" + minutesTimer.ToString("D2") + ":" + secondsTimer.ToString("D2");
+            _timerMainMenu.text = hoursTimer.ToString("D2") + ":" + minutesTimer.ToString("D2") + ":" + secondsTimer.ToString("D2");
             secondsTimer--;
         }
     }
