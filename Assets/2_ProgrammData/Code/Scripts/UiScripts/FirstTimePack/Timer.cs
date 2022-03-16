@@ -69,6 +69,8 @@ public class Timer : MonoBehaviour
 
         StartCoroutine(TimerCor());
     }
+
+
     public void SetTimerOrigin(int hours)
     {
         if (!PlayerPrefs.HasKey("hours"))
@@ -89,6 +91,9 @@ public class Timer : MonoBehaviour
     {
         for (int i = timeInSec; i >= 0; i--)
         {
+            if (hoursTimer <= 0 && minutesTimer <= 0)
+                DelPrefs();
+
             if (secondsTimer <= 0)
             {
                 minutesTimer--;
