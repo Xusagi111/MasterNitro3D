@@ -39,3 +39,9 @@ public class EventPushList : GameEvent
 {
     public int indexCarMachin;
 }
+public class EventSaveStatePlyer : GameEvent
+{
+    public int Money;
+    public int Diamons;
+}
+

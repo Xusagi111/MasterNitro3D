@@ -6,24 +6,36 @@ using System;
 
 public class GarageController : MonoBehaviour 
 {
-    [SerializeField] public static SavePlayerStats savePlayerStats = new SavePlayerStats(); //статистика игрока
+    private SavePlayerStats _savePlayerStats = new SavePlayerStats();
     [SerializeField] Text conclusionOnMoneyUI;
-    [SerializeField] Text conclusionOnDiamondsUI;
+    [SerializeField] Text conclusionOnDiamondsUI; // Убрать текст от сюда. 2) Возможно реализовать через скрипы с ивентами.
+    public SavePlayerStats instanseSavePlayerState { get => _savePlayerStats; private set => _savePlayerStats = value; }
     private void Start()
     {
-        loaging(); // Загрузка профиля персонажа
+        loagingPlayerState(); // Загрузка профиля персонажа
+        UpdateDisplayValue();
     }
-    public void SaveAndConclusionMetod()
+    public void SetValueSavePlayerStats(int value, EnumIdToBuy enumIdToBuy, bool UpdateDisplay = true)
     {
-        ButtonClassSave.SaveToPlayerPrefs<SavePlayerStats>(savePlayerStats, "SavePlayerStats");
-        conclusionOnMoneyUI.text = savePlayerStats.Money.ToString(); // вывод на ui
-        Debug.Log(savePlayerStats.Money);
+        if (EnumIdToBuy.indexMoney == enumIdToBuy) { instanseSavePlayerState.Money += value; }
+        if (EnumIdToBuy.indexDiamons == enumIdToBuy) { instanseSavePlayerState.Diamons += value; }
+        if (UpdateDisplay)
+        {
+            SavePlayerState();
+        }
     }
-    public void loaging()
+    public void SavePlayerState()
     {
-        savePlayerStats = ButtonClassSave.LoadFromPlayerPrefs<SavePlayerStats>(savePlayerStats, "SavePlayerStats");
-        Debug.Log("Кол-во денег " + savePlayerStats.Money.ToString());
-        conclusionOnMoneyUI.text = savePlayerStats.Money.ToString(); // вывод на ui
+        ButtonClassSave.SaveToPlayerPrefs<SavePlayerStats>(instanseSavePlayerState, "instanseSavePlayerState");
+    }
+    public void loagingPlayerState()
+    {
+        instanseSavePlayerState = ButtonClassSave.LoadFromPlayerPrefs<SavePlayerStats>(instanseSavePlayerState, "instanseSavePlayerState");
+    }
+    public void UpdateDisplayValue()
+    {
+        conclusionOnDiamondsUI.text = instanseSavePlayerState.Diamons.ToString();
+        conclusionOnMoneyUI.text = instanseSavePlayerState.Money.ToString();
     }
 
 }

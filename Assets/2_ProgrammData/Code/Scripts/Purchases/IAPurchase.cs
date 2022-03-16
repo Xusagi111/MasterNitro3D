@@ -26,18 +26,18 @@ public class IAPurchase : IStoreListener
 
     private string[] _arrayConstCointId = { buycoin1, buycoin2, buycoin3, buycoin4, buycoin5, buycoin6 };
     private string[] _arrayConstDiamonsId = { diamonsbuy1, diamonsbuy2, diamonsbuy3, diamonsbuy4, diamonsbuy5, diamonsbuy6 };
-    List<ConfigurationBuilder> test = new List<ConfigurationBuilder>(12);
+    List<ConfigurationBuilder> CurrentConfigurationBilderGoods = new List<ConfigurationBuilder>(12);
     public static IStoreController _storeController;
     private static IExtensionProvider _storeExtensionProvider;
 
     public static UnityEvent PurchaseComplete = new UnityEvent();
 
 
-    public List<ConfigurationBuilder> IapInitializate()
+    public void IapInitializate()
     {
 
         if (IsIapInitialized())
-            return test;
+            return;
         //Ïðèìåð ïðîäàæè òîâàðà
         //var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
         //builder.AddProduct(_removeADS, ProductType.NonConsumable);
@@ -49,15 +49,15 @@ public class IAPurchase : IStoreListener
         {
             configurationBilderInstance.AddProduct(_arrayConstCointId[i], ProductType.NonConsumable);
             UnityPurchasing.Initialize(this, configurationBilderInstance);
-            test.Add(configurationBilderInstance);
+            CurrentConfigurationBilderGoods.Add(configurationBilderInstance);
         }
         for (int i = 0; i < _arrayConstDiamonsId.Length; i++)
         {
             configurationBilderInstance.AddProduct(_arrayConstDiamonsId[i], ProductType.NonConsumable);
             UnityPurchasing.Initialize(this, configurationBilderInstance);
-            test.Add(configurationBilderInstance);
+            CurrentConfigurationBilderGoods.Add(configurationBilderInstance);
         }
-        return test;
+        return;
 
     }
     public static bool IsIapInitialized()
@@ -97,18 +97,21 @@ public class IAPurchase : IStoreListener
         //        break;
         //}
         TestScriptTablieBuy testScriptTablieBuy = TestScriptTablieBuy.FindObjectOfType<TestScriptTablieBuy>();
-        for (int i = 0; i < test.Count; i++) // ñäåëàòü ñîõðàíåíèå è âûâîä íà UI
+        GarageController garageController = GarageController.FindObjectOfType<GarageController>();
+        for (int i = 0; i < CurrentConfigurationBilderGoods.Count; i++) 
         {
             if (_arrayConstCointId[i].ToString() == purchaseEvent.purchasedProduct.definition.id)
             {
-                var a = int.Parse(testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexMoney)[i].NameOffer);
-                Debug.Log("ÍÀÃÐÀÄÀ ÇÀ ÏÎÊÓÏÊÓ: " + a);
+                var currentReward = int.Parse(testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexMoney)[i].NameOffer);
+                garageController.SetValueSavePlayerStats(currentReward, EnumIdToBuy.indexMoney, false);
+                Debug.Log("ÍÀÃÐÀÄÀ ÇÀ ÏÎÊÓÏÊÓ: " + currentReward);
                 break;
             }
             if (_arrayConstDiamonsId[i].ToString() == purchaseEvent.purchasedProduct.definition.id)
             {
-                var a = int.Parse(testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexDiamons)[i].NameOffer);
-                Debug.Log("ÍÀÃÐÀÄÀ ÇÀ ÏÎÊÓÏÊÓ: " + a);
+                var currentReward = int.Parse(testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexDiamons)[i].NameOffer);
+                garageController.SetValueSavePlayerStats(currentReward, EnumIdToBuy.indexDiamons, false);
+                Debug.Log("ÍÀÃÐÀÄÀ ÇÀ ÏÎÊÓÏÊÓ: " + currentReward);
                 break;
             }
         }

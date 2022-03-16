@@ -21,7 +21,7 @@ public class AdsAndIAP : MonoBehaviour
     private void Start()
     {
         IAPurchase iAPurchase = new IAPurchase();
-        var a = iAPurchase.IapInitializate();
+        iAPurchase.IapInitializate();
         //StartCoroutine(IAPurchase.CheckSubscription());
     }
 
