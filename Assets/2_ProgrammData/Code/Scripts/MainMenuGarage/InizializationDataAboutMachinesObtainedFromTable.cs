@@ -16,15 +16,15 @@ public class InizializationDataAboutMachinesObtainedFromTable : MonoBehaviour //
     {
         allGarageCarsThePlayer = ButtonClassSave.LoadFromPlayerPrefs<AllGarageCarsThePlayer>(allGarageCarsThePlayer, "AllGarageCarsThePlayer");
         EventManagerGame.AddListener<EventPushList>(GetIndexMachin);
-        GoogleSheetLoader.OnProcessData += LoadingCarExcel;
+       // DataTransferUsingGoogleSheet.OnProcessData += LoadingCarExcel;
     }
     public void OnDestroy()
     {
-        GoogleSheetLoader.OnProcessData -= LoadingCarExcel;
+        DataTransferUsingGoogleSheet.OnProcessDataCar -= LoadingCarExcel;
     }
     // Иницизация полученного списка машин с гугл таблицы.
     //Сделать меньши ответственности.
-    public void LoadingCarExcel(CarStateToList carStateToList) 
+    public void LoadingCarExcel(CarStateToList carStateToList, int[] test) 
     {
         ListClassCarState = carStateToList.CarsPlayersList;
         foreach (var item in carStateToList.CarsPlayersList)
@@ -47,7 +47,7 @@ public class InizializationDataAboutMachinesObtainedFromTable : MonoBehaviour //
         {
 
         }
-        EventClassDisplayToUi evt= EventManager.EventDisplayUi;
+        EventClassDisplayToUi evt = EventManager.EventDisplayUi;
         evt.Power = Power;
         EventManagerGame.Broadcast(evt);
         LoadingStatsPoIndex();

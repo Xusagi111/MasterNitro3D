@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class GarageController : MonoBehaviour //ToDo решить как улучшить этот метод
+public class GarageController : MonoBehaviour 
 {
     [SerializeField] public static SavePlayerStats savePlayerStats = new SavePlayerStats(); //статистика игрока
     [SerializeField] Text conclusionOnMoneyUI;

@@ -2,19 +2,25 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestScriptTablieBuy : MonoBehaviour //¬озможно примен€ть и без монобеха
+public class TestScriptTablieBuy : MonoBehaviour //сделать возиожность переипользовать
 {
     public static event Action LoadingData;
     private List<IInitializationPurchasescs> _initializationPurchases = new List<IInitializationPurchasescs>(3);
     [SerializeField] private BuyStateToList _buyStateToList;
 
+    public static TestScriptTablieBuy Instance;
+
     private void Awake()
     {
-        DataTransferUsingGoogleSheet.EventData += DataDistrebution;
+        if (Instance == null)
+            Instance = this;
+        else Destroy(gameObject);
+
+        DataTransferUsingGoogleSheet.EventDataBuy += DataDistrebution;
 
         _initializationPurchases.Add(new DiamonsData());
         _initializationPurchases.Add(new MoneyData());
-        _initializationPurchases.Add(new MoneyData());
+        _initializationPurchases.Add(new OffersData());
     }
     public void DataDistrebution(BuyStateToList buyStateToList, int[] Indexid)
     {

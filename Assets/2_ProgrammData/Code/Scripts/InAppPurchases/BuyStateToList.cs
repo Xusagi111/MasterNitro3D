@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+
 [System.Serializable]
-public class BuyStateToList: MonoBehaviour//переименовать
+public class BuyStateToList
 {
     public List<Buy> ListBuy;
 }
@@ -10,8 +9,24 @@ public class BuyStateToList: MonoBehaviour//переименовать
 public class Buy
 {
     public int IndexKey;
-    public int NameOffer;
+    public string NameOffer;
     public int CountCurrency;
-    public int LevelBust;
+    public int Level;
     public int PersentBust;
+    public int Timer;
+}
+
+[System.Serializable]
+public class GiftsStatsToList
+{
+    public List<Cifts> ListCifts;
+}
+[System.Serializable]
+public class Cifts
+{
+    public int IndexKey;
+    public string NameOffer;
+    public int CountMoney;
+    public int CountDiamons;
+    public int BustPercent;
 }
