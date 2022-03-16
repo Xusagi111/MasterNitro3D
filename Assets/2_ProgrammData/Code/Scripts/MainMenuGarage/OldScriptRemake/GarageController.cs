@@ -15,13 +15,15 @@ public class GarageController : MonoBehaviour
         loagingPlayerState(); // Загрузка профиля персонажа
         UpdateDisplayValue();
     }
-    public void SetValueSavePlayerStats(int value, EnumIdToBuy enumIdToBuy, bool UpdateDisplay = true)
+    public void SetValueSavePlayerStats(int value, EnumIdToBuy enumIdToBuy, bool UpdateDisplay = true, int value2 = 0)
     {
         if (EnumIdToBuy.indexMoney == enumIdToBuy) { instanseSavePlayerState.Money += value; }
         if (EnumIdToBuy.indexDiamons == enumIdToBuy) { instanseSavePlayerState.Diamons += value; }
+        if (EnumIdToBuy.indexOffers == enumIdToBuy) { instanseSavePlayerState.Money += value; instanseSavePlayerState.Diamons += value2; }
+        SavePlayerState();
         if (UpdateDisplay)
         {
-            SavePlayerState();
+            UpdateDisplayValue();
         }
     }
     public void SavePlayerState()

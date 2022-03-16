@@ -22,6 +22,9 @@ public class IAPurchase : IStoreListener
     public const string buycoin5 = "buycoin5";
     public const string buycoin6 = "buycoin6";
 
+    // FirstTimeOffer
+    public const string firsttimeoffer = "firsttimeoffer";
+
     #endregion
 
     private string[] _arrayConstCointId = { buycoin1, buycoin2, buycoin3, buycoin4, buycoin5, buycoin6 };
@@ -57,6 +60,11 @@ public class IAPurchase : IStoreListener
             UnityPurchasing.Initialize(this, configurationBilderInstance);
             CurrentConfigurationBilderGoods.Add(configurationBilderInstance);
         }
+
+        configurationBilderInstance.AddProduct(firsttimeoffer, ProductType.NonConsumable);
+        UnityPurchasing.Initialize(this, configurationBilderInstance);
+        CurrentConfigurationBilderGoods.Add(configurationBilderInstance);
+
         return;
 
     }
@@ -112,6 +120,14 @@ public class IAPurchase : IStoreListener
                 var currentReward = int.Parse(testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexDiamons)[i].NameOffer);
                 garageController.SetValueSavePlayerStats(currentReward, EnumIdToBuy.indexDiamons, false);
                 Debug.Log("Õ¿√–¿ƒ¿ «¿ œŒ ”œ ”: " + currentReward);
+                break;
+            }
+            if (firsttimeoffer.ToString() == purchaseEvent.purchasedProduct.definition.id)
+            {
+                var currentRewardMoney = int.Parse(testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].NameOffer);
+                var currentRewardDiamons = testScriptTablieBuy.GetListIndexed(EnumIdToBuy.indexOffers)[0].CountCurrency;
+                garageController.SetValueSavePlayerStats(currentRewardMoney, EnumIdToBuy.indexOffers, false, currentRewardDiamons);
+                Debug.Log("Õ¿√–¿ƒ¿ «¿ œŒ ”œ ”: FirstPack Money: " + currentRewardMoney + " Diamons: " + currentRewardDiamons);
                 break;
             }
         }
