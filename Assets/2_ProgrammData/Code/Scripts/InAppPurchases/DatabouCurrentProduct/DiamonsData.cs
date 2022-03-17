@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class DiamonsData : Data, IInitializationPurchasescs
+public class DiamonsData : IInitializationPurchasescs<Buy>
 {
+    private List<Buy> buys = new List<Buy>(6);
     private int _enumIdToBuy = (int)EnumIdToBuy.indexDiamons;
+
     public bool Getinizialization(int indexIdCurrentPurchases)
     {
         if (_enumIdToBuy == indexIdCurrentPurchases)
@@ -13,12 +13,17 @@ public class DiamonsData : Data, IInitializationPurchasescs
         }
         return false;
     }
-    public void TransferCurrentProduct(Buy buyDiamons)
-    {
-        Diamons.Add(buyDiamons);
-    }
+ 
     public List<Buy> GetList()
     {
-        return Diamons;
+        return buys;
     }
+    public void TransferCurrentProduct<T>(T product)
+    {
+        if (product is Buy buy)
+        {
+            buys.Add(buy);
+        }
+    }
+
 }

@@ -1,15 +1,25 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
-public abstract class Data
+public abstract class Data: IInitializationPurchasescs<Buy>
 {
-    private List<Buy> _diamons = new List<Buy>(6);
-    private List<Buy> _money = new List<Buy>(6);
-    private List<Buy> _offersPurchases = new List<Buy>(6);
     private int[] Index = new int[3];
     private int _enumIdToBuy;
-    protected List<Buy> Diamons { get { return _diamons; } set { _diamons = value; } }
-    protected List<Buy> Money { get { return _money; } set { _money = value; } }
-    protected List<Buy> OffersPurchases { get { return _offersPurchases; } set { _offersPurchases = value; } }
+
+    public bool Getinizialization(int indexIdCurrentPurchases)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public List<Buy> GetList()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void TransferCurrentProduct<T>(T product)
+    {
+        throw new System.NotImplementedException();
+    }
 }
 
 

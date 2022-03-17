@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoneyData : Data, IInitializationPurchasescs
+public class MoneyData : IInitializationPurchasescs<Buy>
 {
+    private List<Buy> buys = new List<Buy>(6);
     private int _enumIdToBuy = (int)EnumIdToBuy.indexMoney;
+
     public bool Getinizialization(int indexIdCurrentPurchases)
     {
         if (_enumIdToBuy == indexIdCurrentPurchases)
@@ -13,13 +15,17 @@ public class MoneyData : Data, IInitializationPurchasescs
         }
         return false;
     }
-    public void TransferCurrentProduct(Buy buyMoney)
-    {
-        Money.Add(buyMoney);
-    }
+
     public List<Buy> GetList()
     {
-        return Money;
+        return buys;
+    }
+    public void TransferCurrentProduct<T>(T product)
+    {
+        if (product is Buy buy)
+        {
+            buys.Add(buy);
+        }
     }
 
 }

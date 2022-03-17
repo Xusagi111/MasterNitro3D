@@ -89,7 +89,6 @@ public class ReadingGoogleSheet
                         NameOffer = const1,
                         CountMoney = const2,
                         CountDiamons = const3,
-                        BustPercent = const4
                     });
                 
             }

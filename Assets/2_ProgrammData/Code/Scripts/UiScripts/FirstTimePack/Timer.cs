@@ -19,7 +19,7 @@ public class Timer : MonoBehaviour
     private int minutesRealTimeOrigin;
     private int secondsRealTimeOrigin;
 
-    private TestScriptTablieBuy _testScriptTablieBuy;
+    private SortedDataController _testScriptTablieBuy;
 
     // Start is called before the first frame update
     void Awake()

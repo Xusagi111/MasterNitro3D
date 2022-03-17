@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yodo1.MAS;
 
-public class YodoAnalitycs : MonoBehaviour
+public class YodoAnalitycs : MonoBehaviour // Реклама
 {
     // Start is called before the first frame update
     private Yodo1U3dBannerAdView bannerAdView;
@@ -94,7 +94,7 @@ public class YodoAnalitycs : MonoBehaviour
 
         //найти класс в который сохраняется значение с подарка игрока
         //скорее всего сделать обработку логики в контроллере.
-        var a  = FindObjectOfType<MainMenuController>();
+        var a  = FindObjectOfType<MainMenuGameController>();
         //a.PropDataGiftsStatsToList.ListCifts;
 
     }

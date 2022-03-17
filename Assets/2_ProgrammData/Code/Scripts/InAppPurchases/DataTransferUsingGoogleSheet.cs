@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(UrlSheetLoading))]
 public class DataTransferUsingGoogleSheet : MonoBehaviour // Актуальный используемый ControllerGoogleSheet 
 {
-    public static event Action<BuyStateToList, int[]> EventDataBuy;
+    public static event Action<BuyStateToList, int[], DataName> EventDataBuy;
 
     public static event Action<CarStateToList, int[]> OnProcessDataCar;
     public static event Action LoadingCar;
@@ -43,7 +43,7 @@ public class DataTransferUsingGoogleSheet : MonoBehaviour // Актуальный использу
         if (CurrentProcessedClass == (int)DataName.BuyState)
         {
             (_dataBuy, IndexProduct) = (_readingGoogleSheet.ProcessDataOffers(rawCVSText));
-            EventDataBuy?.Invoke(_dataBuy, IndexProduct); //Вернул отсортированный список с покупками. 
+            EventDataBuy?.Invoke(_dataBuy, IndexProduct, DataName.BuyState); //Вернул отсортированный список с покупками. 
         }
         else if (CurrentProcessedClass == (int)DataName.CarState)
         {

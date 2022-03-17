@@ -1,10 +1,9 @@
-﻿
-interface IInitializationPurchasescs : IGetDataToIistPurchases
+﻿using System.Collections.Generic;
+
+public interface IInitializationPurchasescs<T> : IGetDataToIistPurchases<T>
 {
     public bool Getinizialization(int indexIdCurrentPurchases);
-    public void TransferCurrentProduct(Buy buyDiamons);
-
+    public void TransferCurrentProduct<T>(T product);
+    
 }
-
-
-
+   

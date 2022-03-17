@@ -8,6 +8,11 @@ public enum DataName
 {
     BuyState, CarState, GiftsState
 }
+public enum InintializatorPurchases
+{
+    BuyState, CarState, GiftsState
+}
+
 public class UrlSheetLoading : MonoBehaviour 
 {
     [SerializeField] private Text text;

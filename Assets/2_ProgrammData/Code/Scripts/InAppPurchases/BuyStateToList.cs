@@ -28,5 +28,4 @@ public class Cifts
     public string NameOffer;
     public int CountMoney;
     public int CountDiamons;
-    public int BustPercent;
 }
