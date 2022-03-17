@@ -19,10 +19,10 @@ public class Buy
 [System.Serializable]
 public class GiftsStatsToList
 {
-    public List<Cifts> ListCifts;
+    public List<Gifts> ListCifts;
 }
 [System.Serializable]
-public class Cifts
+public class Gifts
 {
     public int IndexKey;
     public string NameOffer;

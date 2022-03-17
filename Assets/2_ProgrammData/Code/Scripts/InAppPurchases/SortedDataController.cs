@@ -5,9 +5,9 @@ using UnityEngine;
 public class SortedDataController : MonoBehaviour
 {
     public static event Action LoadingData;
+
     private List<IInitializationPurchasescs<Buy>> _initializationPurchases = new List<IInitializationPurchasescs<Buy>>(3);
-    private List<IInitializationPurchasescs<Cifts>> _initializationPresent = new List<IInitializationPurchasescs<Cifts>>(1);
-    [SerializeField] private BuyStateToList _buyStateToList;
+    private List<IInitializationPurchasescs<Gifts>> _initializationPresent = new List<IInitializationPurchasescs<Gifts>>(1);
 
     public static SortedDataController Instance;
 
@@ -17,34 +17,54 @@ public class SortedDataController : MonoBehaviour
             Instance = this;
         else Destroy(gameObject);
 
-       // test.Add(new DiamonsData());
+        DataTransferUsingGoogleSheet.EventDataBuy += DistributionData;
 
-        DataTransferUsingGoogleSheet.EventDataBuy += RunRequiredHandler;
         _initializationPurchases.Add(new DiamonsData());
         _initializationPurchases.Add(new MoneyData());
         _initializationPurchases.Add(new OffersData());
 
 
-        //_initializationPurchases.Add(new DiamonsData());
-        //_initializationPurchases.Add(new MoneyData());
-        //_initializationPurchases.Add(new OffersData());
+        _initializationPresent.Add(new GiftsData());
 
-        //_initializationPurchases.Add(new Cifts());
     }
-    public void RunRequiredHandler(BuyStateToList buyStateToList, int[] Indexid, DataName dataName)
+    #region DistributionData
+    private void DistributionData<T>(T buyStateToList, int[] Indexid)
     {
-        if (DataName.BuyState == dataName)
+        if (buyStateToList is BuyStateToList buy)
         {
-            DistributionData(buyStateToList, Indexid, _initializationPurchases);
+            for (int i = 0; i < buy.ListBuy.Count; i++)
+            {
+                for (int h = 0; h < Indexid.Length; h++)
+                {
+                    if (_initializationPurchases[h].Getinizialization((buy.ListBuy[i].IndexKey)))
+                    {
+                        _initializationPurchases[h].TransferCurrentProduct(buy.ListBuy[i]);
+                        break;
+                    }
+                }
+            }
             LoadingData?.Invoke();
         }
-        if (DataName.GiftsState == dataName)
-        {
-            DistributionData(buyStateToList, Indexid, _initializationPresent);
-            
-        }
-    }
 
+        if (buyStateToList is GiftsStatsToList gifts)
+        {
+            for (int i = 0; i < gifts.ListCifts.Count; i++)
+            {
+                for (int h = 0; h < Indexid.Length; h++)
+                {
+                    if (_initializationPresent[h].Getinizialization((gifts.ListCifts[i].IndexKey)))
+                    {
+                        _initializationPresent[h].TransferCurrentProduct(gifts.ListCifts[i]);
+                        break;
+                    }
+                }
+            }
+        }
+
+    }
+    #endregion
+
+    #region Getlist
     public List<Buy> GetListProcessingDataBuy(EnumIdToBuy enumIdToBuy, DataName dataName)
     {
         if (DataName.BuyState == dataName)
@@ -55,7 +75,7 @@ public class SortedDataController : MonoBehaviour
         Debug.LogError("Oшибка такого листа не сущесвует!");
         return null;
     }
-    public List<Cifts> GetListProcessingDataGiftsData(EnumIdToBuy enumIdToBuy, DataName dataName)
+    public List<Gifts> GetListProcessingDataGiftsData(EnumIdToBuy enumIdToBuy, DataName dataName)
     {
         if (DataName.GiftsState == dataName)
         {
@@ -64,7 +84,7 @@ public class SortedDataController : MonoBehaviour
         Debug.LogError("Oшибка такого листа не сущесвует!");
         return null;
     }
-
+  
 
     private List<T> GetSelectedListData<T>(EnumIdToBuy enumIdToBuy, DataName dataName, List<IInitializationPurchasescs<T>> initializationPurchasescs)
     {
@@ -77,50 +97,5 @@ public class SortedDataController : MonoBehaviour
         }
         return null;
     }
-    private void DistributionData<T>(BuyStateToList buyStateToList, int[] Indexid, List<IInitializationPurchasescs<T>> initializationPurchasescs)
-    {
-        _buyStateToList = buyStateToList;
-        int[] Index = new int[3];
-        for (int i = 0; i < buyStateToList.ListBuy.Count; i++)
-        {
-            for (int h = 0; h < Index.Length; h++)
-            {
-                if (initializationPurchasescs[h].Getinizialization((buyStateToList.ListBuy[i].IndexKey)))
-                {
-                    initializationPurchasescs[h].TransferCurrentProduct(buyStateToList.ListBuy[i]);
-                    break;
-                }
-            }
-        }
-
-    }
-
-    //public void DataDistrebution(BuyStateToList buyStateToList, int[] Indexid, DataName dataName)
-    //{
-    //    _buyStateToList = buyStateToList;
-    //    int[] Index = new int[3];
-    //    for (int i = 0; i < buyStateToList.ListBuy.Count; i++)
-    //    {
-    //        for (int h = 0; h < Index.Length; h++)
-    //        {
-    //            if (_initializationPurchases[h].Getinizialization(buyStateToList.ListBuy[i].IndexKey))
-    //            {
-    //                _initializationPurchases[h].TransferCurrentProduct(buyStateToList.ListBuy[i]);
-    //                break;
-    //            }
-    //        }
-    //    }
-    //    LoadingData?.Invoke();
-    //}
-    //public List<Buy> GetListIndexed(EnumIdToBuy enumIdToBuy)
-    //{
-    //    for (int i = 0; i < _initializationPurchases.Count; i++)
-    //    {
-    //        if (_initializationPurchases[i].Getinizialization((int)enumIdToBuy))
-    //        {
-    //            return _initializationPurchases[i].GetList();
-    //        }
-    //    }
-    //    return null;
-    //}
+    #endregion
 }

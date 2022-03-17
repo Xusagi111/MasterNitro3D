@@ -1,26 +1,29 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-public class GiftsData //: Data, IInitializationPurchasescs
+public class GiftsData :  IInitializationPurchasescs<Gifts>
 {
-    //public bool Getinizialization(int indexIdCurrentPurchases)
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+    private List<Gifts> buys = new List<Gifts>(6);
+    private int _enumIdToBuy = (int)EnumIdToBuy.indexOffers;
 
-    //public List<Buy> GetList()
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+    public bool Getinizialization(int indexIdCurrentPurchases)
+    {
+        if (_enumIdToBuy == indexIdCurrentPurchases)
+        {
+            return true;
+        }
+        return false;
+    }
 
-    //public void TransferCurrentProduct<T>(T buyDiamons)
-    //{
-    //    throw new System.NotImplementedException();
-    //}
-
-    //public void TransferCurrentProduct<T>(T product)
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+    public List<Gifts> GetList()
+    {
+        return buys;
+    }
+    public void TransferCurrentProduct<T>(T product)
+    {
+        if (product is Gifts buy)
+        {
+            buys.Add(buy);
+        }
+    }
 }
 

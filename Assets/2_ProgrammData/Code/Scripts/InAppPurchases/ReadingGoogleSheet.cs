@@ -83,7 +83,7 @@ public class ReadingGoogleSheet
                         Control = const4
                     });
                 else if (data is GiftsStatsToList giftsStatsToList)
-                    giftsStatsToList.ListCifts.Add(new Cifts()
+                    giftsStatsToList.ListCifts.Add(new Gifts()
                     {
                         IndexKey = id,
                         NameOffer = const1,
@@ -113,7 +113,7 @@ public class ReadingGoogleSheet
     public (GiftsStatsToList, int[] IndexId) ProcessDataGifts(string cvsRawData) //logic filling in existing machine statistics
     {
         GiftsStatsToList data = new GiftsStatsToList();
-        data.ListCifts = new List<Cifts>();
+        data.ListCifts = new List<Gifts>();
         ParserTable(cvsRawData, _idCar, data);
         return (data, indexId);
     }   
