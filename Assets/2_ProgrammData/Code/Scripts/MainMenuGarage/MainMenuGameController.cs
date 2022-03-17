@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenuController : MonoBehaviour
+public class MainMenuGameController : MonoBehaviour
 {
     private GiftsStatsToList DataGiftsStatsToList = new GiftsStatsToList(); //проверить будет ли работать без new
     public GiftsStatsToList PropDataGiftsStatsToList
