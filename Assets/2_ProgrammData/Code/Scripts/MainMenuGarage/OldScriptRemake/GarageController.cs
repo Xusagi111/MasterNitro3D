@@ -1,19 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System;
 
 public class GarageController : MonoBehaviour 
 {
     private SavePlayerStats _savePlayerStats = new SavePlayerStats();
-    [SerializeField] Text conclusionOnMoneyUI;
-    [SerializeField] Text conclusionOnDiamondsUI; // Убрать текст от сюда. 2) Возможно реализовать через скрипы с ивентами.
     public SavePlayerStats instanseSavePlayerState { get => _savePlayerStats; private set => _savePlayerStats = value; }
     private void Start()
     {
-        loagingPlayerState(); // Загрузка профиля персонажа
-        UpdateDisplayValue();
+        loagingPlayerState();
+        StartUpdateDisplayValue();
     }
     public void SetValueSavePlayerStats(int value, EnumIdToBuy enumIdToBuy, bool UpdateDisplay = true, int value2 = 0)
     {
@@ -23,7 +17,7 @@ public class GarageController : MonoBehaviour
         SavePlayerState();
         if (UpdateDisplay)
         {
-            UpdateDisplayValue();
+            StartUpdateDisplayValue();
         }
     }
     public void SavePlayerState()
@@ -34,10 +28,11 @@ public class GarageController : MonoBehaviour
     {
         instanseSavePlayerState = ButtonClassSave.LoadFromPlayerPrefs<SavePlayerStats>(instanseSavePlayerState, "instanseSavePlayerState");
     }
-    public void UpdateDisplayValue()
+    public void StartUpdateDisplayValue()
     {
-        conclusionOnDiamondsUI.text = instanseSavePlayerState.Diamons.ToString();
-        conclusionOnMoneyUI.text = instanseSavePlayerState.Money.ToString();
+        EventSaveStatePlyer evt = EventManager.EventSaveStatePlyer;
+        evt.Money = instanseSavePlayerState.Money;
+        evt.Diamons = instanseSavePlayerState.Diamons;
+        EventManagerGame.Broadcast(evt);
     }
-
 }

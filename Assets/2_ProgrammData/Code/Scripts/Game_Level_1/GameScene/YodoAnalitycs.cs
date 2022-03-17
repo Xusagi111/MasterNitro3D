@@ -91,9 +91,12 @@ public class YodoAnalitycs : MonoBehaviour
     //Что получает пользователь при просмотре рекламы.
     private void OnAdReceivedRewardEvent()
     {
-        //GarageController _garageController = FindObjectOfType<GarageController>();
-        //GarageController.savePlayerStats.Money = 10000;
-        //_garageController.SaveAndConclusionMetod();
+
+        //найти класс в который сохраняется значение с подарка игрока
+        //скорее всего сделать обработку логики в контроллере.
+        var a  = FindObjectOfType<MainMenuController>();
+        //a.PropDataGiftsStatsToList.ListCifts;
+
     }
 
     private void OnRewardedAdErorEvent(Yodo1U3dAdError adError)

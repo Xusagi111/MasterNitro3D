@@ -860,8 +860,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd378ce68067c04a92a1b10a21c8683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conclusionOnMoneyUI: {fileID: 1779447202}
-  conclusionOnDiamondsUI: {fileID: 231749036}
 --- !u!114 &357599912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,6 +1086,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 3748944665133217900}
+    - target: {fileID: 5939589701780663817, guid: e4f8af65673623049b44529f0dc63207, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: StartUpdateDisplayValue
+      objectReference: {fileID: 0}
     - target: {fileID: 5939589702170240393, guid: e4f8af65673623049b44529f0dc63207, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1104,6 +1106,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 3748944665133217900}
+    - target: {fileID: 5939589702170240393, guid: e4f8af65673623049b44529f0dc63207, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: StartUpdateDisplayValue
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f8af65673623049b44529f0dc63207, type: 3}
 --- !u!114 &437573408 stripped
@@ -2861,6 +2867,7 @@ GameObject:
   - component: {fileID: 1657980973}
   - component: {fileID: 1657980976}
   - component: {fileID: 1657980977}
+  - component: {fileID: 1657980978}
   m_Layer: 0
   m_Name: UI_Manager
   m_TagString: Untagged
@@ -3039,6 +3046,20 @@ MonoBehaviour:
   scrollerMenu: {fileID: 0}
   deadMenu: {fileID: 0}
   PopupCompletePanel: {fileID: 2024365435}
+--- !u!114 &1657980978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657980971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 600eba5930a5e8145bec5deef397ceea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conclusionOnMoneyUI: {fileID: 1779447202}
+  conclusionOnDiamondsUI: {fileID: 231749036}
 --- !u!1 &1769219113
 GameObject:
   m_ObjectHideFlags: 0

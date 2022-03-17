@@ -11,6 +11,7 @@ public class EventManager : MonoBehaviour
     public static EventPushList EventPushOn = new EventPushList();
     public static EventClassDisplayToUi EventDisplayUi = new EventClassDisplayToUi();
     public static CarS_Player EventAllGarageCarsThePlayer = new CarS_Player();
+    public static EventSaveStatePlyer EventSaveStatePlyer = new EventSaveStatePlyer();
     [SerializeField] Text MoneDisplayUi; // убрать от сюда вывод на ui 
     int Money; //Прикрутить текущие кол-во денег
     private void Start()
@@ -18,7 +19,7 @@ public class EventManager : MonoBehaviour
         EventManagerGame.AddListener<EventMoney>(UpdateMoneyDisplay);
         
     }
-    public void UpdateMoneyDisplay(EventMoney evt)
+    public void UpdateMoneyDisplay(EventMoney evt) 
     {
         Money += evt.value;
         MoneDisplayUi.text = Money.ToString();
