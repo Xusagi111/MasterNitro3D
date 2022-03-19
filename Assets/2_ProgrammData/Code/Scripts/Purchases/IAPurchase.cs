@@ -48,7 +48,7 @@ public class IAPurchase : IStoreListener
 
         var configurationBilderInstance = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
 
-        for (int i = 0; i < _arrayConstCointId.Length; i++)
+        for (int i = 0; i < _arrayConstCointId.Length; i++) // UnityPurchasing.Initialize(this, configurationBilderInstance); // Попробовать убрать.
         {
             configurationBilderInstance.AddProduct(_arrayConstCointId[i], ProductType.NonConsumable);
             UnityPurchasing.Initialize(this, configurationBilderInstance);
@@ -62,7 +62,7 @@ public class IAPurchase : IStoreListener
         }
 
         configurationBilderInstance.AddProduct(firsttimeoffer, ProductType.NonConsumable);
-        UnityPurchasing.Initialize(this, configurationBilderInstance);
+        UnityPurchasing.Initialize(this, configurationBilderInstance); // попробовать убрать.
         CurrentConfigurationBilderGoods.Add(configurationBilderInstance);
 
         return;
@@ -124,10 +124,15 @@ public class IAPurchase : IStoreListener
             }
             if (firsttimeoffer.ToString() == purchaseEvent.purchasedProduct.definition.id)
             {
+                
                 var currentRewardMoney = int.Parse(testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexOffers, DataName.BuyState)[0].NameOffer);
                 var currentRewardDiamons = testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexOffers, DataName.BuyState)[0].CountCurrency;
                 garageController.SetValueSavePlayerStats(currentRewardMoney, EnumIdToBuy.indexOffers, false, currentRewardDiamons);
+
                 Debug.Log("НАГРАДА ЗА ПОКУПКУ: FirstPack Money: " + currentRewardMoney + " Diamons: " + currentRewardDiamons);
+
+                PlayerPrefs.SetInt(StringValue.flagFirstPackBuy, currentRewardDiamons); //Сохранение  о том что была совершена покупка.
+                Timer.FindObjectOfType<Timer>().DelTimer();
                 break;
             }
         }

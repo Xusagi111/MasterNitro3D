@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4310209913020694658}
   - component: {fileID: 4310209913020694663}
   - component: {fileID: 4310209913020694660}
-  - component: {fileID: 4310209913020694661}
+  - component: {fileID: 2061435934784647824}
   m_Layer: 0
   m_Name: In-app Purchases_Google_Sheets
   m_TagString: Untagged
@@ -67,7 +67,7 @@ MonoBehaviour:
     CarsPlayersList: []
   _dataGifts:
     ListCifts: []
---- !u!114 &4310209913020694661
+--- !u!114 &2061435934784647824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,5 +79,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6ab0f674504f74e9841558daa8f84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buyStateToList:
-    ListBuy: []

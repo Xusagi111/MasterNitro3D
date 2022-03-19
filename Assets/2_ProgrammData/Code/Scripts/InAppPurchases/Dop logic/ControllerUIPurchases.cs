@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,11 +11,12 @@ public class ControllerUIPurchases : MonoBehaviour
     public static UnityEvent StartTimer = new UnityEvent();
 
     public static UnityEvent InitializationPurchase = new UnityEvent();
+    public static Action<bool> isPlayTimePurchases;
 
     private void Start()
     {
         _managerShopping = ManagerDataPurchase.Instance;
-        _testScriptTablieBuy = SortedDataController.Instance;
+        _testScriptTablieBuy = FindObjectOfType<SortedDataController>();
         SortedDataController.LoadingData += InitializationPurchases;
     }
 
@@ -38,25 +40,28 @@ public class ControllerUIPurchases : MonoBehaviour
             _managerShopping.ListDataOffersMoney[i].QuantityPurchasedProduct.text = _testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexMoney, DataName.BuyState)[i].NameOffer.ToString();
             _managerShopping.ListDataOffersMoney[i].PrisePurchasedProduct.text = _testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexMoney, DataName.BuyState)[i].CountCurrency.ToString();
         }
+        if (!PlayerPrefs.HasKey(StringValue.flagFirstPackBuy))
+        {
+            LoadingFirstPackPurchases();
+        }
+    }
+    // Осуществляется проверка на был ли запущен таймер.
+    // Если таймер не запущен то мы прокидываем событие в котором передаем текущие часы.
+    // Так же запускаем Текст в таймере.
 
+    private void LoadingFirstPackPurchases()
+    {
         if (!PlayerPrefs.HasKey("flagFirstPack"))
         {
-            this.FirstPack.gameObject.SetActive(true);
             _managerShopping.firstPack.Timer.text = _testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexOffers, DataName.BuyState)[0].Timer.ToString();
-            FirstPackPurchases();
         }
-        else {
-            this.FirstPack.gameObject.SetActive(true);
-            FirstPackPurchases();
-        }
-        
+        this.FirstPack.gameObject.SetActive(true);
+        UpdateUiFirstPackPurchases();
     }
-
-    private void FirstPackPurchases()
+    private void UpdateUiFirstPackPurchases() //Передача Данных с сервера на UI.
     {
         _managerShopping.firstPack.CoinPurchasedProduct.text = _testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexOffers, DataName.BuyState)[0].NameOffer.ToString();
         _managerShopping.firstPack.DiamondPurchasedProduct.text = _testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexOffers, DataName.BuyState)[0].CountCurrency.ToString();
         _managerShopping.firstPack.PricePurchasedProduct.text = _testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexOffers, DataName.BuyState)[0].Level.ToString();
-        
     }
 }

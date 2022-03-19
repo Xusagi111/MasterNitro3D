@@ -13,9 +13,9 @@ public class MainMenuController : MonoBehaviour
     private void Awake()
     {
         UrlSheetLoading.NotConnectToServer += ServerConnectionCheck;
-        if (DontDestroy.CountLoad == 0) { LoadingPanel.SetActive(true); }
-            
+        if (DontDestroy.CountLoad == 0) { LoadingPanel.SetActive(true); }    
     }
+
     private void OnDestroy()
     {
         UrlSheetLoading.NotConnectToServer -= ServerConnectionCheck;

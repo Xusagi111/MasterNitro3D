@@ -6,19 +6,12 @@ public class SortedDataController : MonoBehaviour
 {
     public static event Action LoadingData;
 
-    private List<IInitializationPurchasescs<Buy>> _initializationPurchases = new List<IInitializationPurchasescs<Buy>>(3);
+    private  List<IInitializationPurchasescs<Buy>> _initializationPurchases = new List<IInitializationPurchasescs<Buy>>(3);
     private List<IInitializationPurchasescs<Gifts>> _initializationPresent = new List<IInitializationPurchasescs<Gifts>>(1);
-
-    public static SortedDataController Instance;
-
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else Destroy(gameObject);
 
         DataTransferUsingGoogleSheet.EventDataBuy += DistributionData;
-
         _initializationPurchases.Add(new DiamonsData());
         _initializationPurchases.Add(new MoneyData());
         _initializationPurchases.Add(new OffersData());
@@ -27,6 +20,7 @@ public class SortedDataController : MonoBehaviour
         _initializationPresent.Add(new GiftsData());
 
     }
+   
     #region DistributionData
     private void DistributionData<T>(T buyStateToList, int[] Indexid)
     {
@@ -98,4 +92,8 @@ public class SortedDataController : MonoBehaviour
         return null;
     }
     #endregion
+    private void OnDestroy()
+    {
+        DataTransferUsingGoogleSheet.EventDataBuy -= DistributionData;
+    }
 }

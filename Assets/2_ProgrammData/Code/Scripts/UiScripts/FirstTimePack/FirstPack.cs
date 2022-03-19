@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-
 
 public class FirstPack : MonoBehaviour
 {
@@ -38,7 +34,7 @@ public class FirstPack : MonoBehaviour
 
     public void SentTimerInfo()
     {
-        if (!PlayerPrefs.HasKey("flagFirstPack"))
+        if (!PlayerPrefs.HasKey("flagFirstPack") && !PlayerPrefs.HasKey(StringValue.flagFirstPackBuy))
             TimerInfoEvent?.Invoke(int.Parse(_timer.text));
     }
 }

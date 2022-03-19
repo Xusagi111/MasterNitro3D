@@ -43,7 +43,10 @@ public class UIController : MonoBehaviour
 
     public void OpenPopupPurchase()
     {
-        PopupCompletePanel.SetActive(true);
+        if (!PlayerPrefs.HasKey(StringValue.flagFirstPackBuy))
+        {
+            PopupCompletePanel.SetActive(true);
+        }
     }
 
     public void DisactivPanel(GameObject gameObject)

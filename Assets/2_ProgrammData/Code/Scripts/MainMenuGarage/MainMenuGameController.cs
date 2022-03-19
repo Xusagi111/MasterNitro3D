@@ -14,6 +14,10 @@ public class MainMenuGameController : MonoBehaviour
     {
         DataTransferUsingGoogleSheet.EventDataGift += DataPresents;
     }
+    private void OnDestroy()
+    {
+        DataTransferUsingGoogleSheet.EventDataGift -= DataPresents;
+    }
     public void DataPresents(GiftsStatsToList giftsStatsToList, int[] indexPresent)
     {
         PropDataGiftsStatsToList.ListCifts = giftsStatsToList.ListCifts;

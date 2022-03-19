@@ -5,7 +5,7 @@ class UpdatePlayerStateUI : MonoBehaviour
 {
     [SerializeField] Text conclusionOnMoneyUI;
     [SerializeField] Text conclusionOnDiamondsUI;
-    private void Start()
+    private void Awake()
     {
         EventManagerGame.AddListener<EventSaveStatePlyer>(DisplayUiStatsR);
     }
