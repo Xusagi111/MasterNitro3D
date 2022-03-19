@@ -9,6 +9,7 @@ public class YodoAnalitycs : MonoBehaviour // Реклама
     // Start is called before the first frame update
     private Yodo1U3dBannerAdView bannerAdView;
     public static YodoAnalitycs instance;
+    public static event Action OnReset;
     private void Awake()
     {
         instance = this;
@@ -89,14 +90,12 @@ public class YodoAnalitycs : MonoBehaviour // Реклама
         //PlayerPrefs.SetString("Reward", GameManager.Reward.ToString());
     }
     //Что получает пользователь при просмотре рекламы.
-    private void OnAdReceivedRewardEvent()
+    private void OnAdReceivedRewardEvent() // пока доступен только первый левел
     {
-
-        //найти класс в который сохраняется значение с подарка игрока
-        //скорее всего сделать обработку логики в контроллере.
-        var a  = FindObjectOfType<MainMenuGameController>();
-        //a.PropDataGiftsStatsToList.ListCifts;
-
+        var SaveClass = FindObjectOfType<GarageController>();
+        var DataPresent = FindObjectOfType<UpdatePresentPanel>();
+        SaveClass.SetValueSavePlayerStats(EnumIdToBuy.indexOffers, true, DataPresent.Money, DataPresent.Diamond);
+        OnReset?.Invoke();
     }
 
     private void OnRewardedAdErorEvent(Yodo1U3dAdError adError)

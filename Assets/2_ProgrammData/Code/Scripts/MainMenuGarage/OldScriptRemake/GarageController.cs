@@ -9,7 +9,7 @@ public class GarageController : MonoBehaviour
         loagingPlayerState();
         StartUpdateDisplayValue();
     }
-    public void SetValueSavePlayerStats(int value, EnumIdToBuy enumIdToBuy, bool UpdateDisplay = true, int value2 = 0)
+    public void SetValueSavePlayerStats(EnumIdToBuy enumIdToBuy, bool UpdateDisplay = true, int value = 0, int value2 = 0)
     {
         if (EnumIdToBuy.indexMoney == enumIdToBuy) { instanseSavePlayerState.Money += value; }
         if (EnumIdToBuy.indexDiamons == enumIdToBuy) { instanseSavePlayerState.Diamons += value; }

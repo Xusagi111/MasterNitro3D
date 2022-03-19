@@ -3,7 +3,7 @@
 public class GiftsData :  IInitializationPurchasescs<Gifts>
 {
     private List<Gifts> buys = new List<Gifts>(6);
-    private int _enumIdToBuy = (int)EnumIdToBuy.indexOffers;
+    private int _enumIdToBuy = (int)EnumIdToBuy.GiftsData;
 
     public bool Getinizialization(int indexIdCurrentPurchases)
     {

@@ -45,10 +45,10 @@ public class ControllerUIPurchases : MonoBehaviour
             LoadingFirstPackPurchases();
         }
     }
+
     // Осуществляется проверка на был ли запущен таймер.
     // Если таймер не запущен то мы прокидываем событие в котором передаем текущие часы.
     // Так же запускаем Текст в таймере.
-
     private void LoadingFirstPackPurchases()
     {
         if (!PlayerPrefs.HasKey("flagFirstPack"))

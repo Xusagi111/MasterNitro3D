@@ -51,13 +51,11 @@ public class IAPurchase : IStoreListener
         for (int i = 0; i < _arrayConstCointId.Length; i++) // UnityPurchasing.Initialize(this, configurationBilderInstance); // Ïîïðîáîâàòü óáðàòü.
         {
             configurationBilderInstance.AddProduct(_arrayConstCointId[i], ProductType.NonConsumable);
-            UnityPurchasing.Initialize(this, configurationBilderInstance);
             CurrentConfigurationBilderGoods.Add(configurationBilderInstance);
         }
         for (int i = 0; i < _arrayConstDiamonsId.Length; i++)
         {
             configurationBilderInstance.AddProduct(_arrayConstDiamonsId[i], ProductType.NonConsumable);
-            UnityPurchasing.Initialize(this, configurationBilderInstance);
             CurrentConfigurationBilderGoods.Add(configurationBilderInstance);
         }
 
@@ -111,14 +109,14 @@ public class IAPurchase : IStoreListener
             if (_arrayConstCointId[i].ToString() == purchaseEvent.purchasedProduct.definition.id)
             {
                 var currentReward = int.Parse(testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexMoney, DataName.BuyState)[i].NameOffer);
-                garageController.SetValueSavePlayerStats(currentReward, EnumIdToBuy.indexMoney, false);
+                garageController.SetValueSavePlayerStats(EnumIdToBuy.indexMoney, false, currentReward);
                 Debug.Log("ÍÀÃÐÀÄÀ ÇÀ ÏÎÊÓÏÊÓ: " + currentReward);
                 break;
             }
             if (_arrayConstDiamonsId[i].ToString() == purchaseEvent.purchasedProduct.definition.id)
             {
                 var currentReward = int.Parse(testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexDiamons, DataName.BuyState)[i].NameOffer);
-                garageController.SetValueSavePlayerStats(currentReward, EnumIdToBuy.indexDiamons, false);
+                garageController.SetValueSavePlayerStats(EnumIdToBuy.indexDiamons, false, currentReward);
                 Debug.Log("ÍÀÃÐÀÄÀ ÇÀ ÏÎÊÓÏÊÓ: " + currentReward);
                 break;
             }
@@ -127,7 +125,7 @@ public class IAPurchase : IStoreListener
                 
                 var currentRewardMoney = int.Parse(testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexOffers, DataName.BuyState)[0].NameOffer);
                 var currentRewardDiamons = testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexOffers, DataName.BuyState)[0].CountCurrency;
-                garageController.SetValueSavePlayerStats(currentRewardMoney, EnumIdToBuy.indexOffers, false, currentRewardDiamons);
+                garageController.SetValueSavePlayerStats(EnumIdToBuy.indexOffers, false, currentRewardMoney, currentRewardDiamons);
 
                 Debug.Log("ÍÀÃÐÀÄÀ ÇÀ ÏÎÊÓÏÊÓ: FirstPack Money: " + currentRewardMoney + " Diamons: " + currentRewardDiamons);
 

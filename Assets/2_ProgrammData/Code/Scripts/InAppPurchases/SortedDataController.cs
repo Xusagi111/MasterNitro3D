@@ -5,6 +5,7 @@ using UnityEngine;
 public class SortedDataController : MonoBehaviour
 {
     public static event Action LoadingData;
+    public static event Action LoadingDataGift;
 
     private  List<IInitializationPurchasescs<Buy>> _initializationPurchases = new List<IInitializationPurchasescs<Buy>>(3);
     private List<IInitializationPurchasescs<Gifts>> _initializationPresent = new List<IInitializationPurchasescs<Gifts>>(1);
@@ -12,6 +13,7 @@ public class SortedDataController : MonoBehaviour
     {
 
         DataTransferUsingGoogleSheet.EventDataBuy += DistributionData;
+        DataTransferUsingGoogleSheet.EventDataGift += DistributionData;
         _initializationPurchases.Add(new DiamonsData());
         _initializationPurchases.Add(new MoneyData());
         _initializationPurchases.Add(new OffersData());
@@ -53,6 +55,7 @@ public class SortedDataController : MonoBehaviour
                     }
                 }
             }
+            LoadingDataGift?.Invoke();
         }
 
     }
@@ -80,13 +83,13 @@ public class SortedDataController : MonoBehaviour
     }
   
 
-    private List<T> GetSelectedListData<T>(EnumIdToBuy enumIdToBuy, DataName dataName, List<IInitializationPurchasescs<T>> initializationPurchasescs)
+    private List<T> GetSelectedListData<T>(EnumIdToBuy enumIdToBuy, DataName dataName, List<IInitializationPurchasescs<T>> initializationPurchasesås)
     {
-        for (int i = 0; i < _initializationPurchases.Count; i++)
+        for (int i = 0; i < initializationPurchasesås.Count; i++)
         {
-            if (initializationPurchasescs[i].Getinizialization((int)enumIdToBuy))
+            if (initializationPurchasesås[i].Getinizialization((int)enumIdToBuy))
             {
-                return initializationPurchasescs[i].GetList();
+                return initializationPurchasesås[i].GetList();
             }
         }
         return null;
