@@ -6,19 +6,28 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject ResumeObj;
-    private IEnumerator StopGameCor()
-    {
-        yield return new WaitForSeconds(1f);
-        ResumeObj.SetActive(true);
-        Time.timeScale = 0;
-    }
+    private GameObject PlayerLink;
+    [SerializeField] private DriftCount—ontrollerScene _DriftCount—ontrollerScene;
 
-    public void StopGame() => StartCoroutine(StopGameCor());
+    private void Start()
+    {
+        
+    }
+    public void StopGame()
+    {
+        PlayerLink = GameObject.Find("Player");
+        ResumeObj.SetActive(true);
+        _DriftCount—ontrollerScene.enabled = false;
+        PlayerLink.GetComponent<Rigidbody>().isKinematic = true;
+        PlayerLink.GetComponent<CarController>().enabled = false;
+    }
 
     public void ResumeGame()
     {
-        Time.timeScale = 1;
         ResumeObj.SetActive(false);
+        _DriftCount—ontrollerScene.enabled = true;
+        PlayerLink.GetComponent<Rigidbody>().isKinematic = false;
+        PlayerLink.GetComponent<CarController>().enabled = true;
     }
 
     public void QuitGame() => Application.Quit();
