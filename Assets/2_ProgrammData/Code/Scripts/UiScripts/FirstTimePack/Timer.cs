@@ -60,8 +60,14 @@ public class Timer : MonoBehaviour
         timeInSec = hoursTimer * 3600;
         _timer.text = "TIME LEFT: " + hoursTimer.ToString("D2") + ":" + minutesTimer.ToString("D2") + ":" + secondsTimer.ToString("D2");
 
-        DateTime dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, hoursRealTimeOrigin, minutesRealTimeOrigin, secondsRealTimeOrigin);
+        DateTime dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, PlayerPrefs.GetInt("dayRealTime"), hoursRealTimeOrigin, minutesRealTimeOrigin, secondsRealTimeOrigin);
         TimeSpan timeSpan = DateTime.Now.Subtract(dateTime);
+
+        if(timeSpan.Hours > hoursTimer)
+        {
+            Debug.Log("timespaaanHours: " + timeSpan.Hours);
+            gameObject.SetActive(false);
+        }
 
         hoursTimer -= timeSpan.Hours;
         minutesTimer -= timeSpan.Minutes;
@@ -77,9 +83,12 @@ public class Timer : MonoBehaviour
             PlayerPrefs.SetInt("hours", hours);
             PlayerPrefs.SetInt("minutes", minutesTimer);
             PlayerPrefs.SetInt("sec", secondsTimer);
+
+            PlayerPrefs.SetInt("dayRealTime", DateTime.Now.Day);
             PlayerPrefs.SetInt("hoursRealTime", DateTime.Now.Hour);
             PlayerPrefs.SetInt("minutesRealTime", DateTime.Now.Minute);
             PlayerPrefs.SetInt("secondsRealTime", DateTime.Now.Second);
+
             Debug.Log("MinutesReal" + DateTime.Now.Minute);
             SetTimer();
         }
@@ -118,6 +127,8 @@ public class Timer : MonoBehaviour
         PlayerPrefs.SetInt("hours", hoursTimer);
         PlayerPrefs.SetInt("minutes", minutesTimer);
         PlayerPrefs.SetInt("sec", secondsTimer);
+
+        PlayerPrefs.SetInt("dayRealTime", DateTime.Now.Day);
         PlayerPrefs.SetInt("hoursRealTime", DateTime.Now.Hour);
         PlayerPrefs.SetInt("minutesRealTime", DateTime.Now.Minute);
         PlayerPrefs.SetInt("secondsRealTime", DateTime.Now.Second);
