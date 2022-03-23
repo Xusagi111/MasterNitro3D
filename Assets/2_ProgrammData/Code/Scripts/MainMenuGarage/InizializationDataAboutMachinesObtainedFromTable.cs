@@ -15,7 +15,7 @@ public class InizializationDataAboutMachinesObtainedFromTable : MonoBehaviour //
     private void Start() 
     {
         allGarageCarsThePlayer = ButtonClassSave.LoadFromPlayerPrefs<AllGarageCarsThePlayer>(allGarageCarsThePlayer, "AllGarageCarsThePlayer");
-        EventManagerGame.AddListener<EventPushList>(GetIndexMachin);
+        EventManagerGame.AddListener<EventIndexCar>(GetIndexMachin);
        // DataTransferUsingGoogleSheet.OnProcessData += LoadingCarExcel;
     }
     public void OnDestroy()
@@ -110,15 +110,15 @@ public class InizializationDataAboutMachinesObtainedFromTable : MonoBehaviour //
             }
             ItemsListMachin.Clear() ;
         }
-        foreach (var item in ListClassCarState) //текущая машина, используемая под прокачку 
-        {
-            if (SetActiveCarSceneGarage.IndexMachinInList == item.IndexMachin)
-            {
-                ItemsListMachin.Add(item);
-            }
-        }
+        //foreach (var item in ListClassCarState) //текущая машина, используемая под прокачку 
+        //{
+        //    if (SetActiveCarSceneGarage.IndexMachinInList == item.IndexMachin)
+        //    {
+        //        ItemsListMachin.Add(item);
+        //    }
+        //}
     }
-    public void GetIndexMachin(EventPushList evt)
+    public void GetIndexMachin(EventIndexCar evt)
     {
         this.IndexCar = evt.indexCarMachin;
     }

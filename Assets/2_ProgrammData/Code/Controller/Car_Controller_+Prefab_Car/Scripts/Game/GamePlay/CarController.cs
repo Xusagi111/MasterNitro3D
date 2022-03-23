@@ -252,9 +252,10 @@ public class CarController :MonoBehaviour
 		//Wheel turn limitation.
 		targetAngle = Mathf.Clamp (targetAngle + CurrentSteerAngle, -(MaxSteerAngle + 10), MaxSteerAngle + 10);
 
-		//Front wheel turn.
-		Wheels[0].WheelCollider.steerAngle = targetAngle;
-		Wheels[1].WheelCollider.steerAngle = targetAngle;
+        //Front wheel turn.
+       
+			Wheels[0].WheelCollider.steerAngle = targetAngle;
+			Wheels[1].WheelCollider.steerAngle = targetAngle;
 
 		if (needHelp)
 		{

@@ -22,10 +22,21 @@ public class BodyTilt :MonoBehaviour
 	{
 		Car = GetComponent<CarController>();
 	}
+    private void Start()
+    {
+		ManagerGameScene.eventTrue += GetBodyPlayer;
+    }
+    private void OnDestroy()
+    {
+		ManagerGameScene.eventTrue -= GetBodyPlayer;
+	}
+    private void GetBodyPlayer()
+    {
+		Body = FindObjectOfType<WellPlayerData>().transform;
+	}
 
 	private void Update ()
 	{
-
 		if (Car.CarDirection == 1)
 			Angle = -Car.VelocityAngle * AngleVelocityMultiplayer;
 		else if (Car.CarDirection == -1)
