@@ -9,7 +9,6 @@ using UnityEngine;
 [RequireComponent (typeof (CarController))]
 public class BodyTilt :MonoBehaviour
 {
-
 	[SerializeField] Transform Body;                                //Link to car body.
 	[SerializeField] float MaxAngle = 10;                           //Max tilt angle of car body.
 	[SerializeField] float AngleVelocityMultiplayer = 0.2f;         //Rotation angle multiplier when moving forward.
@@ -21,7 +20,7 @@ public class BodyTilt :MonoBehaviour
 
 	private void Awake ()
 	{
-		Car = GetComponent<CarController> ();
+		Car = GetComponent<CarController>();
 	}
 
 	private void Update ()

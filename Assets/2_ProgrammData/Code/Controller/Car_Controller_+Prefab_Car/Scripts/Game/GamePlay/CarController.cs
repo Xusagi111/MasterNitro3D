@@ -9,11 +9,11 @@ using UnityEngine;
 [RequireComponent (typeof (Rigidbody))]
 public class CarController :MonoBehaviour
 {
-	[SerializeField] Wheel FrontLeftWheel;
-	[SerializeField] Wheel FrontRightWheel;
-	[SerializeField] Wheel RearLeftWheel;
-	[SerializeField] Wheel RearRightWheel;
-	[SerializeField] Transform COM;
+//    [SerializeField] Wheel FrontLeftWheel;
+//    [SerializeField] Wheel FrontRightWheel;
+//    [SerializeField] Wheel RearLeftWheel;
+//    [SerializeField] Wheel RearRightWheel;
+    [SerializeField] Transform COM;
 	[SerializeField] List<ParticleSystem> BackFireParticles = new List<ParticleSystem>();
 
 	[SerializeField] CarConfig CarConfig;
@@ -59,7 +59,7 @@ public class CarController :MonoBehaviour
 	#endregion //Properties of drif Settings
 
 	public CarConfig GetCarConfig { get { return CarConfig; } }
-	public Wheel[] Wheels { get; private set; }										//All wheels, public link.			
+	public Wheel[] Wheels { get; set; }										        //All wheels, public link.			
 	public System.Action BackFireAction;                                            //Backfire invoked when cut off (You can add a invoke when changing gears).
 
 	float[] AllGearsRatio;															 //All gears (Reverce, neutral and all forward).
@@ -98,19 +98,22 @@ public class CarController :MonoBehaviour
 
     int FirstDriveWheel;
 	int LastDriveWheel;
-
-	private void Awake ()
+    private void OnDestroy()
+    {
+		WellPlayerData.EventTransferCarWheel -= TransferCarWheel;
+	}
+    private void Awake ()
 	{
 		RB.centerOfMass = COM.localPosition;
 
 		//Copy wheels in public property
-		Wheels = new Wheel[4] {
-			FrontLeftWheel,
-			FrontRightWheel,
-			RearLeftWheel,
-			RearRightWheel
-		};
-
+		//Wheels = new Wheel[4] {
+		//	FrontLeftWheel,
+		//	FrontRightWheel,
+		//	RearLeftWheel,
+		//	RearRightWheel
+		//};
+		WellPlayerData.EventTransferCarWheel += TransferCarWheel;
 		//Set drive wheel.
 		switch (DriveType)
 		{
@@ -146,7 +149,11 @@ public class CarController :MonoBehaviour
 			BackFireAction += () => particles.Emit (2);
 		}
 	}
+	private void TransferCarWheel(Wheel[] wheels)
+    {
+		Wheels = wheels;
 
+	}
 	/// <summary>
 	/// Update controls of car, from user control (TODO AI control).
 	/// </summary>
@@ -190,10 +197,18 @@ public class CarController :MonoBehaviour
 
         if (InHandBrake)
         {
-            RearLeftWheel.WheelCollider.brakeTorque = MaxBrakeTorque;
-            RearRightWheel.WheelCollider.brakeTorque = MaxBrakeTorque;
-            FrontLeftWheel.WheelCollider.brakeTorque = 0;
-            FrontRightWheel.WheelCollider.brakeTorque = 0;
+            for (int i = 0; i < Wheels.Length; i++)
+            {
+                if (i >= 1)
+                {
+					Wheels[i].WheelCollider.brakeTorque = 0;
+				}
+                else
+                {
+					Wheels[i].WheelCollider.brakeTorque = MaxBrakeTorque;
+
+				}
+            }
         }
 
         for (int i = 0; i < Wheels.Length; i++)
