@@ -19,6 +19,10 @@ public class EventManager : MonoBehaviour
         EventManagerGame.AddListener<EventMoney>(UpdateMoneyDisplay);
         
     }
+    private void OnDestroy()
+    {
+        EventManagerGame.RemoveListener<EventMoney>(UpdateMoneyDisplay);
+    }
     public void UpdateMoneyDisplay(EventMoney evt) 
     {
         Money += evt.value;

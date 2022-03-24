@@ -24,15 +24,15 @@ public class BodyTilt :MonoBehaviour
 	}
     private void Start()
     {
-		ManagerGameScene.eventTrue += GetBodyPlayer;
+		ManagerGameScene.CurrentCarPlayer += GetBodyPlayer;
     }
     private void OnDestroy()
     {
-		ManagerGameScene.eventTrue -= GetBodyPlayer;
+		ManagerGameScene.CurrentCarPlayer -= GetBodyPlayer;
 	}
-    private void GetBodyPlayer()
+    private void GetBodyPlayer(GameObject BobyPlayer)
     {
-		Body = FindObjectOfType<WellPlayerData>().transform;
+		Body = BobyPlayer.GetComponentInChildren<WellPlayerData>().gameObject.transform;
 	}
 
 	private void Update ()

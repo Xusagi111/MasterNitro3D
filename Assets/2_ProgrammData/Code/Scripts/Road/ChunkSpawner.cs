@@ -6,9 +6,7 @@ using System;
 
 public class ChunkSpawner : MonoBehaviour
 {
-    private CarController CarController;
-    private GameObject PlayerLink;
-    private Transform Player;
+    private CarController _carController;
     private Chunk[] GamePrefabsCountRoad;
     public Chunk[] ChunkPrefabs;
     public Chunk firstChunk;
@@ -17,19 +15,23 @@ public class ChunkSpawner : MonoBehaviour
     private ArrayList arrayList = new ArrayList();
     private List<Chunk> SpawnPrefab = new List<Chunk>();
     private RotateType rotateType;
-
-    private void Start()
+    private void Awake()
     {
-        PlayerLink = GameObject.Find("Player");
-        CarController = PlayerLink.GetComponent<CarController>();
-        this.Player = PlayerLink.transform;
         spawnedChunks.Add(firstChunk);
-        
+        ManagerGameScene.CurrentCarPlayer += InitializationPLayer;
+    }
+    private void OnDestroy()
+    {
+        ManagerGameScene.CurrentCarPlayer -= InitializationPLayer;
+    }
+    private void InitializationPLayer(GameObject Player)
+    {
+        _carController = Player.GetComponent<CarController>();
     }
     private void FixedUpdate()
     {
 
-        if (Vector3.Distance(spawnedChunks[spawnedChunks.Count - 1].End.position, Player.position) < 50f)
+        if (Vector3.Distance(spawnedChunks[spawnedChunks.Count - 1].End.position, _carController.gameObject.transform.position) < 50f)
         {
             SpawnCheckedBlockLevel();
         }

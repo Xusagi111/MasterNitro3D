@@ -5,31 +5,35 @@ using UnityEngine.UI;
 
 public class DriftCountСontrollerScene : MonoBehaviour //Наработки
 {
-    [SerializeField] Text ConclusionUi;
-    [SerializeField] Transform View;
-    [SerializeField] GameObject ViewPlayerTransform;
-    int DriftCount;
-    int _PointDriftCount = 5000;
-    int SumMoneyPassagePoint = 1000;
-    int CountMoney = 10;
-    int ProgressCounterDefolt = 50;
-    public int ProgressCounterDinamic = 50;
-    public int a = 0;
+    [SerializeField] private Text ConclusionUi;
+    private GameObject ViewPlayer;
+    private int DriftCount;
+    private int _PointDriftCount = 5000;
+    private int SumMoneyPassagePoint = 1000;
+    private int CountMoney = 10;
+    
     EventManager EventManager;
-    CarController SpeedCar;
-
+    private void Awake()
+    {
+        ManagerGameScene.CurrentCarPlayer += GetPlayer;
+    }
+    private void OnDestroy()
+    {
+        ManagerGameScene.CurrentCarPlayer -= GetPlayer;
+    }
     private void Start()
     {
-        ViewPlayerTransform = GameObject.Find("ViewPlayer");
-        SpeedCar = FindObjectOfType<CarController>();
-        View = ViewPlayerTransform.transform;
         EventManager = FindObjectOfType<EventManager>();
+    }
+    private void GetPlayer(GameObject Player)
+    {
+        ViewPlayer = Player.GetComponentInChildren<WellPlayerData>().gameObject;
     }
     private void FixedUpdate()
     {
-        if (View.rotation.eulerAngles.z > 3f && View.rotation.eulerAngles.z < 357f)
+        if (ViewPlayer.gameObject.transform.rotation.eulerAngles.z > 3f && ViewPlayer.gameObject.transform.rotation.eulerAngles.z < 357f)
         {
-            DriftCount += 10;
+            DriftCount += CountMoney;
             ConclusionUi.text = DriftCount.ToString();
             if (DriftCount >= _PointDriftCount)
             {
@@ -39,27 +43,5 @@ public class DriftCountСontrollerScene : MonoBehaviour //Наработки
                 _PointDriftCount += 5000;
             }
         }
-        //if (SpeedCar.SpeedInHour > 50)
-        //{
-        //    if (SpeedCar.SpeedInHour > 50 && SpeedCar.SpeedInHour > ProgressCounterDinamic + 10)
-        //    {
-        //        ProgressCounterDinamic += 1;
-        //        a = ((ProgressCounterDinamic - 50) / 10) * 5; //текущий бонус 
-        //                                                      // money +5
-        //    }
-        //    if (SpeedCar.SpeedInHour > 50 && SpeedCar.SpeedInHour < ProgressCounterDinamic)
-        //    {
-        //        ProgressCounterDinamic -= 10;
-
-        //        if (a == 0)
-        //        {
-        //            a = ((ProgressCounterDinamic - 50) / 10) * 5; //текущий бонус 
-        //        }
-        //    }
-        //    EventManager.StateMoneyUpdateDisplayUi(CountMoney + a);
-        //    a = 0;
-        //}
-
     }
-
 }

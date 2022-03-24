@@ -4,7 +4,7 @@ using UnityEngine;
 public class ManagerGameScene : MonoBehaviour
 {
     public static Action<int> Indexid;
-    public static Action eventTrue;
+    public static Action<GameObject> CurrentCarPlayer;
     private static bool _isLoading;
     private ArrayDataCar _arrayDataCar;
     private FactoryPlayer _factoryPlayer;
@@ -24,12 +24,11 @@ public class ManagerGameScene : MonoBehaviour
     }
     public void instansePlayerToScene()
     {
-        new FactoryPlayer(_arrayDataCar.PropCarData, _indexCar);
-        eventTrue?.Invoke();
+        _factoryPlayer = new FactoryPlayer(_arrayDataCar.PropCarData, _indexCar);
+        CurrentCarPlayer?.Invoke(_factoryPlayer.Player);
     }
     private void SetIndexCar(EventIndexCar evt)
     {
         this._indexCar = evt.indexCarMachin;
     }
-   
 }
