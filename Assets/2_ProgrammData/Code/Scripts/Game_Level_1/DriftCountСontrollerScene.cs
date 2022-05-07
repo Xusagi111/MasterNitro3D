@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class DriftCountСontrollerScene : MonoBehaviour //Наработки
 {
     [SerializeField] private Text ConclusionUi;
-    private GameObject ViewPlayer;
+    private Transform ViewPlayer;
     private int DriftCount;
     private int _PointDriftCount = 5000;
     private int SumMoneyPassagePoint = 1000;
     private int CountMoney = 10;
+    private Text TextTest;
+    private int TestCountToAndroid;
     
     EventManager EventManager;
     private void Awake()
@@ -27,11 +29,13 @@ public class DriftCountСontrollerScene : MonoBehaviour //Наработки
     }
     private void GetPlayer(GameObject Player)
     {
-        ViewPlayer = Player.GetComponentInChildren<WellPlayerData>().gameObject;
+        
+        ViewPlayer = Player.GetComponentInChildren<WellPlayerData>().gameObject.transform;
+        
     }
     private void FixedUpdate()
     {
-        if (ViewPlayer.gameObject.transform.rotation.eulerAngles.z > 3f && ViewPlayer.gameObject.transform.rotation.eulerAngles.z < 357f)
+        if (ViewPlayer.rotation.eulerAngles.z > 3f && ViewPlayer.rotation.eulerAngles.z < 357f)
         {
             DriftCount += CountMoney;
             ConclusionUi.text = DriftCount.ToString();
@@ -42,6 +46,7 @@ public class DriftCountСontrollerScene : MonoBehaviour //Наработки
                 EventManagerGame.Broadcast(evt);
                 _PointDriftCount += 5000;
             }
+            return;
         }
     }
 }

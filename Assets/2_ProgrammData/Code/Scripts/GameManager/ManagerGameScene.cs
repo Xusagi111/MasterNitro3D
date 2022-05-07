@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ManagerGameScene : MonoBehaviour
 {
@@ -21,11 +22,18 @@ public class ManagerGameScene : MonoBehaviour
     {
         _arrayDataCar = GetComponent<ArrayDataCar>();
         EventManagerGame.AddListener<EventIndexCar>(SetIndexCar);
+
     }
     public void instansePlayerToScene()
     {
         _factoryPlayer = new FactoryPlayer(_arrayDataCar.PropCarData, _indexCar);
         CurrentCarPlayer?.Invoke(_factoryPlayer.Player);
+        if (CurrentCarPlayer != null)
+        {
+            var a = GetComponentInChildren<Text>();
+            a.text = _factoryPlayer.Player +  " ";
+        }
+
     }
     private void SetIndexCar(EventIndexCar evt)
     {

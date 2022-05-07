@@ -1,19 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// To tilt the car body (Visually only).
 /// </summary>
 
-[RequireComponent (typeof (CarController))]
-public class BodyTilt :MonoBehaviour
+[RequireComponent(typeof(CarController))]
+public class BodyTilt : MonoBehaviour
 {
 	[SerializeField] Transform Body;                                //Link to car body.
 	[SerializeField] float MaxAngle = 10;                           //Max tilt angle of car body.
 	[SerializeField] float AngleVelocityMultiplayer = 0.2f;         //Rotation angle multiplier when moving forward.
 	[SerializeField] float RearAngleVelocityMultiplayer = 0.4f;     //Rotation angle multiplier when moving backwards.
 	[SerializeField] float MaxTiltOnSpeed = 60;                     //The speed at which the maximum tilt is reached.
+	private Text TextTest;
+	[SerializeField] Text NewText;
+	
 
 	CarController Car;
 	float Angle;
@@ -33,6 +37,8 @@ public class BodyTilt :MonoBehaviour
     private void GetBodyPlayer(GameObject BobyPlayer)
     {
 		Body = BobyPlayer.GetComponentInChildren<WellPlayerData>().gameObject.transform;
+		TextTest = FindObjectOfType<ManagerGameScene>().GetComponentInChildren<Text>();
+		TextTest.text += " Текущий боди плеера: " + Body.name;
 	}
 
 	private void Update ()
@@ -51,5 +57,6 @@ public class BodyTilt :MonoBehaviour
 		Angle *= Mathf.Clamp01 (Car.SpeedInHour / MaxTiltOnSpeed);
 		Angle = Mathf.Clamp (Angle, -MaxAngle, MaxAngle);
 		Body.localRotation = Quaternion.AngleAxis (Angle, Vector3.forward);
+		NewText.text = Body.localRotation.z.ToString();
 	}
 }
