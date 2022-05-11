@@ -32,5 +32,5 @@ public class AllGarageCarsThePlayer //текущий индекс машины
 }
 //перенести этот класс где будет реализованна гугл таблица
 [System.Serializable]
-public class AllCarState { }
+public class CurrentCarPlayer { public List<int> CarPlayer = new List<int>() { 123}; }
 

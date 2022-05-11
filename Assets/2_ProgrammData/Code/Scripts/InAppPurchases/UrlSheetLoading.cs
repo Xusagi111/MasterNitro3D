@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public enum DataName
 {
-    BuyState, CarState, GiftsState
+    Offers, CarPrice, GiftsState
 }
 public enum InintializatorPurchases
 {
-    BuyState, CarState, GiftsState
+    OffersState, CarState, GiftsState
 }
 
 public class UrlSheetLoading : MonoBehaviour 

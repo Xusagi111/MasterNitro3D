@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 
-public class ReadingGoogleSheet
+public class ReadingGoogleSheet ///999999 это прочерк
 {
     private const int _id = 0;
     private const char _cellSeporator = ',';
     private const char _inCellSeporator = ';';
-
+    
     #region Const
     private const int _const1 = 1;
     private const int _const2 = 2;
@@ -19,7 +19,7 @@ public class ReadingGoogleSheet
     private int _idCar;
     private int _indexIdProduct;
 
-    private int[] indexId = new int[5];
+    private int[] indexId = new int[3];
 
     private void ParserTable<T>(string cvsRawData, int _index, T data)
     {
@@ -37,7 +37,17 @@ public class ReadingGoogleSheet
             string[] cells = rows[i].Split(_cellSeporator);
             int id = ParseInt(cells[_id]);
             string const1 = cells[_const1];
-            int const2 = ParseInt(cells[_const2]);
+            int const2 = 0;
+            if (cells[_const2] == "-")
+            {
+                 const2 = ParseInt(cells[_const2]);
+                 const2 = 999999;
+            }
+            else
+            {
+                 const2 = ParseInt(cells[_const2]);
+            }
+           
             int const3 = ParseInt(cells[_const3]);
             int const4 = ParseInt(cells[_const4]);
             int const5 = ParseInt(cells[_const5]);
@@ -61,7 +71,7 @@ public class ReadingGoogleSheet
                 id = _index;
 
             }
-            if (dataStartRawIndex == 0 || const1 != null && const2 != 0)
+            if (dataStartRawIndex == 0 || const1 != null && const2 != 0 || const2== 999999)
             {
                 if(data is BuyStateToList listbuy)
                     listbuy.ListBuy.Add(new Buy()
@@ -73,15 +83,6 @@ public class ReadingGoogleSheet
                         PersentBust = const4,
                         Timer = const5,
                     });
-                else if(data is CarStateToList carState)
-                    carState.CarsPlayersList.Add(new CarS_Player()
-                    {
-                        IndexMachin = id,
-                        levelCar = const1,
-                        Power = const2,
-                        Speed = const3,
-                        Control = const4
-                    });
                 else if (data is GiftsStatsToList giftsStatsToList)
                     giftsStatsToList.ListCifts.Add(new Gifts()
                     {
@@ -89,8 +90,25 @@ public class ReadingGoogleSheet
                         NameOffer = const1,
                         CountMoney = const2,
                         CountDiamons = const3,
+
                     });
-                
+                else if (data is CarPriceToList carState)
+                    carState.ListCarPrice.Add(new CarPrice()
+                    {
+                        IndexMachin = id,
+                        NameCar = const1,
+                        PriceMoney = const2,
+                        PriceDiamons = const3,
+                    });
+                //else if(data is CarStateToList carState)
+                //    carState.CarsPlayersList.Add(new CarS_Player()
+                //    {
+                //        IndexMachin = id,
+                //        levelCar = const1,
+                //        Power = const2,
+                //        Speed = const3,
+                //        Control = const4
+                //    });
             }
         }
     }
@@ -102,12 +120,12 @@ public class ReadingGoogleSheet
         ParserTable(cvsRawData, _indexIdProduct, data);
         return (data, indexId);
     }
-
-    public (CarStateToList, int[] IndexID) ProcessDataCar(string cvsRawData) //logic filling in existing machine statistics
+ 
+    public (CarPriceToList, int[] IndexId) ProcessDataPriceCar(string cvsRawData) //logic filling in existing machine statistics
     {
-        CarStateToList data = new CarStateToList();
-        data.CarsPlayersList = new List<CarS_Player>();
-        ParserTable(cvsRawData, _idCar, data);
+        CarPriceToList data = new CarPriceToList();
+        data.ListCarPrice = new List<CarPrice>();
+        ParserTable(cvsRawData, _indexIdProduct, data);
         return (data, indexId);
     }
     public (GiftsStatsToList, int[] IndexId) ProcessDataGifts(string cvsRawData) //logic filling in existing machine statistics
@@ -116,9 +134,16 @@ public class ReadingGoogleSheet
         data.ListCifts = new List<Gifts>();
         ParserTable(cvsRawData, _idCar, data);
         return (data, indexId);
-    }   
-        #region DopLogic
-        private int ParseInt(string s)
+    }
+    //public (CarStateToList, int[] IndexID) ProcessDataCar(string cvsRawData) //logic filling in existing machine statistics
+    //{
+    //    CarStateToList data = new CarStateToList();
+    //    data.CarsPlayersList = new List<CarS_Player>();
+    //    ParserTable(cvsRawData, _idCar, data);
+    //    return (data, indexId);
+    //}
+    #region DopLogic
+    private int ParseInt(string s)
     {
         int result = -1;
         if (!int.TryParse(s, System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.GetCultureInfo("en-US"), out result))

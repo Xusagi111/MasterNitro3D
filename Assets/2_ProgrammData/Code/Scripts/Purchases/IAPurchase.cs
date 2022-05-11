@@ -108,14 +108,14 @@ public class IAPurchase : IStoreListener
         {
             if (_arrayConstCointId[i].ToString() == purchaseEvent.purchasedProduct.definition.id)
             {
-                var currentReward = int.Parse(testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexMoney, DataName.BuyState)[i].NameOffer);
+                var currentReward = int.Parse(testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexMoney, DataName.Offers)[i].NameOffer);
                 garageController.SetValueSavePlayerStats(EnumIdToBuy.indexMoney, false, currentReward);
                 Debug.Log("Õ¿√–¿ƒ¿ «¿ œŒ ”œ ”: " + currentReward);
                 break;
             }
             if (_arrayConstDiamonsId[i].ToString() == purchaseEvent.purchasedProduct.definition.id)
             {
-                var currentReward = int.Parse(testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexDiamons, DataName.BuyState)[i].NameOffer);
+                var currentReward = int.Parse(testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexDiamons, DataName.Offers)[i].NameOffer);
                 garageController.SetValueSavePlayerStats(EnumIdToBuy.indexDiamons, false, currentReward);
                 Debug.Log("Õ¿√–¿ƒ¿ «¿ œŒ ”œ ”: " + currentReward);
                 break;
@@ -123,8 +123,8 @@ public class IAPurchase : IStoreListener
             if (firsttimeoffer.ToString() == purchaseEvent.purchasedProduct.definition.id)
             {
                 
-                var currentRewardMoney = int.Parse(testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexOffers, DataName.BuyState)[0].NameOffer);
-                var currentRewardDiamons = testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexOffers, DataName.BuyState)[0].CountCurrency;
+                var currentRewardMoney = int.Parse(testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexOffers, DataName.Offers)[0].NameOffer);
+                var currentRewardDiamons = testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexOffers, DataName.Offers)[0].CountCurrency;
                 garageController.SetValueSavePlayerStats(EnumIdToBuy.indexOffers, false, currentRewardMoney, currentRewardDiamons);
 
                 Debug.Log("Õ¿√–¿ƒ¿ «¿ œŒ ”œ ”: FirstPack Money: " + currentRewardMoney + " Diamons: " + currentRewardDiamons);

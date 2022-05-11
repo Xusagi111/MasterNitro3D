@@ -29,3 +29,19 @@ public class Gifts
     public int CountMoney;
     public int CountDiamons;
 }
+
+
+[System.Serializable]
+public class CarPriceToList
+{
+    public List<CarPrice> ListCarPrice;
+}
+[System.Serializable]
+
+public class CarPrice 
+{
+    public int IndexMachin;
+    public string NameCar;
+    public int PriceMoney;
+    public int PriceDiamons;
+}

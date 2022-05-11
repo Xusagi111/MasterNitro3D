@@ -6,21 +6,21 @@ public class SortedDataController : MonoBehaviour
 {
     public static event Action LoadingData;
     public static event Action LoadingDataGift;
+    public static event Action SetDataPriceCar;
 
+    private List<CarPrice> CarPricesToList = new List<CarPrice>();
     private  List<IInitializationPurchasescs<Buy>> _initializationPurchases = new List<IInitializationPurchasescs<Buy>>(3);
     private List<IInitializationPurchasescs<Gifts>> _initializationPresent = new List<IInitializationPurchasescs<Gifts>>(1);
     private void Awake()
     {
-
         DataTransferUsingGoogleSheet.EventDataBuy += DistributionData;
         DataTransferUsingGoogleSheet.EventDataGift += DistributionData;
+        DataTransferUsingGoogleSheet.EventDataCar += SetCarPrice;
         _initializationPurchases.Add(new DiamonsData());
         _initializationPurchases.Add(new MoneyData());
         _initializationPurchases.Add(new OffersData());
 
-
         _initializationPresent.Add(new GiftsData());
-
     }
    
     #region DistributionData
@@ -59,12 +59,16 @@ public class SortedDataController : MonoBehaviour
         }
 
     }
+    private void SetCarPrice(CarPriceToList carPriceToList)
+    {
+        CarPricesToList = carPriceToList.ListCarPrice;
+    }
     #endregion
 
     #region Getlist
     public List<Buy> GetListProcessingDataBuy(EnumIdToBuy enumIdToBuy, DataName dataName)
     {
-        if (DataName.BuyState == dataName)
+        if (DataName.Offers == dataName)
         {
             return GetSelectedListData(enumIdToBuy, dataName, _initializationPurchases);
         }
@@ -81,8 +85,7 @@ public class SortedDataController : MonoBehaviour
         Debug.LogError("O¯Ë·Í‡ Ú‡ÍÓ„Ó ÎËÒÚ‡ ÌÂ ÒÛ˘ÂÒ‚ÛÂÚ!");
         return null;
     }
-  
-
+    public List<CarPrice> carPrices { get => CarPricesToList; set => CarPricesToList = value; } 
     private List<T> GetSelectedListData<T>(EnumIdToBuy enumIdToBuy, DataName dataName, List<IInitializationPurchasescs<T>> initializationPurchasesÂs)
     {
         for (int i = 0; i < initializationPurchasesÂs.Count; i++)
@@ -94,6 +97,7 @@ public class SortedDataController : MonoBehaviour
         }
         return null;
     }
+
     #endregion
     private void OnDestroy()
     {

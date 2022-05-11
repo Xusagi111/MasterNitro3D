@@ -6,17 +6,18 @@ public class DataTransferUsingGoogleSheet : MonoBehaviour // Актуальный использу
 {
     public static event Action<BuyStateToList, int[]> EventDataBuy;
 
-    public static event Action<CarStateToList, int[]> OnProcessDataCar;
-    public static event Action LoadingCar;
+    public static event Action<CarPriceToList> EventDataCar;
 
     public static event Action<GiftsStatsToList, int[]> EventDataGift;
 
     [SerializeField] private  string _sheetIdBuyStateToList;
-    [SerializeField] private  string _sheetIdCarStateToList;
+    [SerializeField] private  string _sheetIdCarStateToList; //No Used
     [SerializeField] private  string _sheetIdGift;
+    [SerializeField] private string _sheetIdCarPrice;
+
 
     public BuyStateToList _dataBuy;
-    public CarStateToList _dataCar;
+    public CarPriceToList _dataCar;
     public GiftsStatsToList _dataGifts;
 
     private int[] IndexProduct;
@@ -27,8 +28,8 @@ public class DataTransferUsingGoogleSheet : MonoBehaviour // Актуальный использу
     private void Start()
     {
         _urlSheetLoading = GetComponent<UrlSheetLoading>();
-        DownloadTable(DataName.BuyState, _sheetIdBuyStateToList);
-        DownloadTable(DataName.CarState, _sheetIdCarStateToList);
+        DownloadTable(DataName.Offers, _sheetIdBuyStateToList, "&gid=0");
+        DownloadTable(DataName.CarPrice, _sheetIdBuyStateToList, _sheetIdCarPrice);
         DownloadTable(DataName.GiftsState, _sheetIdBuyStateToList, _sheetIdGift);
     }
 
@@ -40,16 +41,22 @@ public class DataTransferUsingGoogleSheet : MonoBehaviour // Актуальный использу
     private void OnRawCVSLoaded(string rawCVSText, int CurrentProcessedClass)
     {
        
-        if (CurrentProcessedClass == (int)DataName.BuyState)
+        if (CurrentProcessedClass == (int)DataName.Offers)
         {
             (_dataBuy, IndexProduct) = (_readingGoogleSheet.ProcessDataOffers(rawCVSText));
+
             EventDataBuy?.Invoke(_dataBuy, IndexProduct); //Вернул отсортированный список с покупками. 
         }
-        else if (CurrentProcessedClass == (int)DataName.CarState)
+        //else if (CurrentProcessedClass == (int)DataName.CarState)
+        //{
+        //    (_dataCar, IndexProduct) = _readingGoogleSheet.ProcessDataCar(rawCVSText);
+        //    OnProcessDataCar?.Invoke(_dataCar, IndexProduct); //Вернул отсортированный список со статами машин.
+        //    LoadingCar?.Invoke();
+        //}
+        else if (CurrentProcessedClass == (int)DataName.CarPrice)
         {
-            (_dataCar, IndexProduct) = _readingGoogleSheet.ProcessDataCar(rawCVSText);
-            OnProcessDataCar?.Invoke(_dataCar, IndexProduct); //Вернул отсортированный список со статами машин.
-            LoadingCar?.Invoke();
+            (_dataCar, IndexProduct) = _readingGoogleSheet.ProcessDataPriceCar(rawCVSText);
+            EventDataCar?.Invoke(_dataCar); //Вернул отсортированный список со статами машин.
         }
         else if (CurrentProcessedClass == (int)DataName.GiftsState)
         {

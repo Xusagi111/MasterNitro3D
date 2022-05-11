@@ -6,7 +6,7 @@ using UnityEngine;
 /// For user multiplatform control.
 /// </summary>
 [RequireComponent (typeof (CarController))]
-public class UserControl :MonoBehaviour
+public class UserControl :MonoBehaviour //Controller Movment Machin
 {
 
 	CarController ControlledCar;
