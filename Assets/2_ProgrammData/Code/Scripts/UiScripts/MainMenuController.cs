@@ -10,6 +10,10 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject PlayGameButton;
     [SerializeField] private GameObject PlayerNoConnectToServerImage;
 
+    [SerializeField] private DontDestroy _dontDestroy;
+    [SerializeField] private GameManagerToScenesd _gameManagerToScene;
+
+
     private void Awake()
     {
         UrlSheetLoading.NotConnectToServer += ServerConnectionCheck;
@@ -20,8 +24,23 @@ public class MainMenuController : MonoBehaviour
     {
         UrlSheetLoading.NotConnectToServer -= ServerConnectionCheck;
     }
-    public void OpenGame()
+    public void OpenGame(int Level) 
     {
+        _gameManagerToScene = FindObjectOfType<GameManagerToScenesd>();
+        switch (Level)
+        {
+            case (int)StartLevel.DinamicCreateLevel:
+                _gameManagerToScene.startLevel = StartLevel.DinamicCreateLevel;
+                break;
+            case (int)StartLevel.OneScene:
+                _gameManagerToScene.startLevel = StartLevel.OneScene;
+                break;
+            case (int)StartLevel.TwoScene:
+                _gameManagerToScene.startLevel = StartLevel.TwoScene;
+                break;
+            default:
+                break;
+        }
         SceneManager.LoadScene("Game");
     }
     public void OpenUpdatePanel()

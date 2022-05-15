@@ -7,8 +7,6 @@ public class DontDestroy : MonoBehaviour
     private static bool loaded;
     [SerializeField] private GameObject _dontDestroy;
     public static int CountLoad;
-
-
     void Awake()
     {
         if (!loaded)

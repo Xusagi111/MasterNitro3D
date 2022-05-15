@@ -15,8 +15,8 @@ public class DriftCountСontrollerScene : MonoBehaviour //Наработки
     int ProgressCounterDefolt = 50;
     public int ProgressCounterDinamic = 50;
     public int a = 0;
-    EventManager EventManager;
-    CarController SpeedCar;
+    [SerializeField] EventManager EventManager;
+    [SerializeField] CarController SpeedCar;
 
     private void Start()
     {

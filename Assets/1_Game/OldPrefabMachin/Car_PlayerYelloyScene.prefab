@@ -5073,26 +5073,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d204033c4a67b4f868a9a1a2715013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FrontLeftWheel:
-    WheelCollider: {fileID: 2264681506026723103}
-    WheelView: {fileID: 2122420778615563311}
-    SlipForGenerateParticle: 0.4
-    TrailOffset: {x: 0.1, y: 0.05, z: 0}
-  FrontRightWheel:
-    WheelCollider: {fileID: 2261574519883485327}
-    WheelView: {fileID: 2122525774230812367}
-    SlipForGenerateParticle: 0.4
-    TrailOffset: {x: -0.1, y: 0.05, z: 0}
-  RearLeftWheel:
-    WheelCollider: {fileID: 2264510925723049939}
-    WheelView: {fileID: 2122354198941672607}
-    SlipForGenerateParticle: 0.4
-    TrailOffset: {x: 0.1, y: 0.05, z: 0}
-  RearRightWheel:
-    WheelCollider: {fileID: 2264614148737930359}
-    WheelView: {fileID: 2119694896201893151}
-    SlipForGenerateParticle: 0.4
-    TrailOffset: {x: -0.1, y: 0.05, z: 0}
   COM: {fileID: 2119724708061491213}
   BackFireParticles:
   - {fileID: 2280113422425582561}
@@ -5277,6 +5257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2122392847766631247}
+  - component: {fileID: 909373805836921057}
   m_Layer: 8
   m_Name: Wheels
   m_TagString: Untagged
@@ -5302,6 +5283,35 @@ Transform:
   m_Father: {fileID: 2120061457967779217}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &909373805836921057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116962319492712045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5019cc06e84226d45bc8c921f6ff8ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wheels:
+  - WheelCollider: {fileID: 2264681506026723103}
+    WheelView: {fileID: 82274610666500377}
+    SlipForGenerateParticle: 0
+    TrailOffset: {x: 0, y: 0, z: 0}
+  - WheelCollider: {fileID: 2261574519883485327}
+    WheelView: {fileID: 3273008178982660022}
+    SlipForGenerateParticle: 0
+    TrailOffset: {x: 0, y: 0, z: 0}
+  - WheelCollider: {fileID: 2264510925723049939}
+    WheelView: {fileID: 3378787846196900217}
+    SlipForGenerateParticle: 0
+    TrailOffset: {x: 0, y: 0, z: 0}
+  - WheelCollider: {fileID: 2264614148737930359}
+    WheelView: {fileID: 296312551616752173}
+    SlipForGenerateParticle: 0
+    TrailOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &2116997778649148503
 GameObject:
   m_ObjectHideFlags: 0
