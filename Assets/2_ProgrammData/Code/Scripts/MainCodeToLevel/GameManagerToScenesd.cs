@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class GameManagerToScenesd : MonoBehaviour
 {
-    public Action<int> EventIndexCar;
-    public int CurrentIndexCar { get; set; }
+    public Action<int> EventTransferCar;
+    public int IndexCar { get; set; }
 
     public StartLevel startLevel;
-    void Start()
+    void Awake()
     {
-        EventIndexCar += UpdateIndexCar;
+        EventTransferCar += UpdateIndexCar;
     }
-    private void UpdateIndexCar(int indexCar)
+    private void UpdateIndexCar(int CurrentCar)
     {
-        CurrentIndexCar = indexCar;
+        this.IndexCar = CurrentCar;
     } 
 }

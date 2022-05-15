@@ -10,10 +10,14 @@ public class StarterToLevel : MonoBehaviour
     [SerializeField] private Material MaterialFreeScene;
     public StartLevel startLevel;
     [SerializeField] private DontDestroy _dontDestroy;
+    [SerializeField] private BodyTilt _bodyTilt;
     private GameManagerToScenesd _gameManagerToScene;
+    
+    public GameObject PLayerCar { get; set; }
+    public GameObject PublicPlayerGameObject;
     void Awake()
     {
-        _gameManagerToScene = FindObjectOfType<GameManagerToScenesd>(); 
+        _gameManagerToScene = FindObjectOfType<GameManagerToScenesd>();
         switch (_gameManagerToScene.startLevel)
         {
             case StartLevel.DinamicCreateLevel:
@@ -29,7 +33,23 @@ public class StarterToLevel : MonoBehaviour
                 break;
         }
 
+        CreateCar(FindObjectOfType<DictionaryPlayerCar>(), _gameManagerToScene.IndexCar);
     }
+    private void CreateCar(DictionaryPlayerCar dictionaryPlayerCar, int indexCar)
+    {
+        for (int i = 0; i < dictionaryPlayerCar.InstanseCarPlayerS.Length; i++)
+        {
+            if (dictionaryPlayerCar.InstanseCarPlayerS[i].indexCar == indexCar)
+            {
+                PLayerCar = Instantiate(dictionaryPlayerCar.InstanseCarPlayerS[i].Car,Vector3.zero, Quaternion.identity);
+                PLayerCar.transform.SetParent(_bodyTilt.gameObject.transform);
+                PublicPlayerGameObject = PLayerCar;
+                _bodyTilt.Body = PLayerCar.GetComponentInChildren<WellPlayerData>().gameObject.transform;
+                break;
+            }
+        }
+    }
+   
 }
 [System.Serializable]
 public class DataLevel
@@ -38,3 +58,4 @@ public class DataLevel
     public GameObject prefabOneLevel;
     public GameObject PrefabTwoLevel;
 }
+public class DataPlayer { }

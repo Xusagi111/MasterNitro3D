@@ -13,7 +13,7 @@ public class SetActiveCarSceneGarage : MonoBehaviour
     private GameObject CarSevDesc;
     private int count = 0;
     private UpdateCheckToBuyMachin _updateCheckToBuyMachin;
-   
+    private GameManagerToScenesd _gameManagerToScenesd;
     private void Awake()
     {
         IndexMachinInList = IndexCar[0];
@@ -21,6 +21,12 @@ public class SetActiveCarSceneGarage : MonoBehaviour
         CarDestroy[count] = inite;
         inite.SetActive(true);
         _updateCheckToBuyMachin = GetComponent<UpdateCheckToBuyMachin>();
+        _gameManagerToScenesd = FindObjectOfType<GameManagerToScenesd>();
+    }
+    private void Start()
+    {
+        _gameManagerToScenesd.EventTransferCar?.Invoke(IndexMachinInList);
+
     }
     public void LeftSwitchbutton()
     {
@@ -36,7 +42,8 @@ public class SetActiveCarSceneGarage : MonoBehaviour
                 CarSevDesc.SetActive(false);
                 inite.SetActive(true);
                 //Event
-                _updateCheckToBuyMachin.EventUpdateCar.Invoke(IndexMachinInList);
+                _updateCheckToBuyMachin.EventUpdateCar?.Invoke(IndexMachinInList);
+                _gameManagerToScenesd.EventTransferCar?.Invoke(IndexMachinInList);
             }
             count--;
             
@@ -58,6 +65,7 @@ public class SetActiveCarSceneGarage : MonoBehaviour
             inite.SetActive(true);
             //Event
             _updateCheckToBuyMachin.EventUpdateCar.Invoke(IndexMachinInList);
+            _gameManagerToScenesd.EventTransferCar?.Invoke(IndexMachinInList);
         }
     }  
 }
