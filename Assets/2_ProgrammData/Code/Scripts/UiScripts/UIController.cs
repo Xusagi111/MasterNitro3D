@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +12,6 @@ public class UIController : MonoBehaviour
     [SerializeField]GameObject scrollerMenu;
     [SerializeField]GameObject deadMenu;
     [SerializeField] private GameObject PopupCompletePanel;
-
 
     private void Start()
     {

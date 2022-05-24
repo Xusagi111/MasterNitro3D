@@ -10,8 +10,11 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject PlayGameButton;
     [SerializeField] private GameObject PlayerNoConnectToServerImage;
 
-    [SerializeField] private DontDestroy _dontDestroy;
-    [SerializeField] private GameManagerToScenesd _gameManagerToScene;
+    [SerializeField] private GameObject PanelActiveLevel;
+    [SerializeField] private GarageController _garageController;
+
+    [SerializeField] private GameObject LoadingToMovmentScene;
+    private GameManagerToScenesd _gameManagerToScene; 
 
 
     private void Awake()
@@ -26,7 +29,6 @@ public class MainMenuController : MonoBehaviour
     }
     public void OpenGame(int Level) 
     {
-        _gameManagerToScene = FindObjectOfType<GameManagerToScenesd>();
         switch (Level)
         {
             case (int)StartLevel.DinamicCreateLevel:
@@ -41,31 +43,48 @@ public class MainMenuController : MonoBehaviour
             default:
                 break;
         }
-        SceneManager.LoadScene("Game");
+        StartCoroutine(StartLevelToActiveLoadingPanel());
+    }
+    public void StartPanelChoiuseLevel()
+    {
+        _gameManagerToScene = FindObjectOfType<GameManagerToScenesd>();
+        for (int i = 0; i < _garageController.instanseCurrentCarPlayer.CarPlayer.Count; i++)
+        {
+            if (_gameManagerToScene.IndexCar == _garageController.instanseCurrentCarPlayer.CarPlayer[i])
+            {
+                PanelActiveLevel.SetActive(true);
+                return;
+            }
+        }
+    }
+   
+    private IEnumerator StartLevelToActiveLoadingPanel()
+    {
+
+        var MovingToScene = SceneManager.LoadSceneAsync("Game");
+        MovingToScene.allowSceneActivation = false;
+        LoadingToMovmentScene.SetActive(true);
+
+        yield return new WaitForSeconds(3f);
+        MovingToScene.allowSceneActivation = true;
+        
     }
     public void OpenUpdatePanel()
     {
         if (!UpdatePanel.activeSelf )
-        {
             UpdatePanel.SetActive(true);
-        }
+
         else
-        {
             UpdatePanel.SetActive(false);
-        }
 
     }
     public void OpenFpsPanel()
     {
         if (!FpsPanel.activeSelf)
-        {
             FpsPanel.SetActive(true);
-        }
-        else
-        {
-            FpsPanel.SetActive(false);
-        }
 
+        else
+            FpsPanel.SetActive(false);
     }
     public void ServerConnectionCheck(bool state)
     {

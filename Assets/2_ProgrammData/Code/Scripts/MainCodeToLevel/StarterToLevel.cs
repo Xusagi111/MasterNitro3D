@@ -11,6 +11,7 @@ public class StarterToLevel : MonoBehaviour
     public StartLevel startLevel;
     [SerializeField] private DontDestroy _dontDestroy;
     [SerializeField] private BodyTilt _bodyTilt;
+    [SerializeField] private GameObject _cinemachinCamera;
     private GameManagerToScenesd _gameManagerToScene;
     
     public GameObject PLayerCar { get; set; }
@@ -23,6 +24,7 @@ public class StarterToLevel : MonoBehaviour
             case StartLevel.DinamicCreateLevel:
                 _dataLEvel.DinamicCreateLevel.SetActive(true);
                 RenderSettings.skybox = MaterialTwoDinamicRoad;
+              //  _cinemachinCamera.GetComponent<>()
                 break;
             case StartLevel.OneScene:
                 _dataLEvel.prefabOneLevel.SetActive(true);
@@ -58,4 +60,3 @@ public class DataLevel
     public GameObject prefabOneLevel;
     public GameObject PrefabTwoLevel;
 }
-public class DataPlayer { }
