@@ -3,7 +3,42 @@ guid: 9286acd5ec74a1445b19977522e1ade5
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 9967de550a12c9942b9c613bd970d48f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 89d93946ecafb9149a5c401bcda5cb30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 9bb49d402dc299c499e1ee69fef7328c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B.003"
+    second: {fileID: 2100000, guid: 9aa4df973aa50644b8f576bee575be73, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041E\u0441\u043D\u043E\u0432\u0430"
+    second: {fileID: 2100000, guid: ca4e82fd13221d341b151585791ea2ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041E\u0441\u043D\u043E\u0432\u0430.004"
+    second: {fileID: 2100000, guid: 1cb4dc01197dd5b49a81296b3905795c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041E\u0441\u043D\u043E\u0432\u0430.005"
+    second: {fileID: 2100000, guid: 09eedafad0d0cf24181daa56c3122969, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -45,7 +80,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -57,11 +92,11 @@ ModelImporter:
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15.000001
+    secondaryUVAreaDistortion: 15
     secondaryUVHardAngle: 88
     secondaryUVMarginMethod: 1
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
+    secondaryUVMinLightmapResolution: 3
+    secondaryUVMinObjectScale: 20
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:

@@ -45,3 +45,18 @@ public class CarPrice
     public int PriceMoney;
     public int PriceDiamons;
 }
+
+[System.Serializable]
+public class DataConstLevel
+{
+    public List<LevelConst> LevelConsts;
+}
+[System.Serializable]
+public class LevelConst
+{
+    public int[] level;
+    public int DefoltExp;
+    public int UpReward;
+    public float Coefficient;
+    public int Conversion;
+}

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public enum DataName
 {
-    Offers, CarPrice, GiftsState
+    Offers, CarPrice, GiftsState, LevelPlayer
 }
 public enum InintializatorPurchases
 {

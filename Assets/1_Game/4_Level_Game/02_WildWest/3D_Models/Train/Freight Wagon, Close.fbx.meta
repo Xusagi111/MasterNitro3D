@@ -3,7 +3,37 @@ guid: b101801c78c4cad4588682e8f5eb05c3
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 294f56de7bc7c6b4d9b7b1136aa2dbb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B.001"
+    second: {fileID: 2100000, guid: a43bb8a2af83efd4a83203da7902c810, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B.003"
+    second: {fileID: 2100000, guid: dbd809d10eb67c44a8403a4db5485265, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041E\u0441\u043D\u043E\u0432\u0430"
+    second: {fileID: 2100000, guid: 9c0e77b995000ae4791e4d21a1d395b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041E\u0441\u043D\u043E\u0432\u0430.001"
+    second: {fileID: 2100000, guid: cac388766d5d5744f8af7a0f06100ed8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041E\u0441\u043D\u043E\u0432\u0430.002"
+    second: {fileID: 2100000, guid: ed497d2964d6ee349b133cdaad89c9c6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -45,7 +75,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -57,11 +87,11 @@ ModelImporter:
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15.000001
+    secondaryUVAreaDistortion: 15
     secondaryUVHardAngle: 88
     secondaryUVMarginMethod: 1
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
+    secondaryUVMinLightmapResolution: 3
+    secondaryUVMinObjectScale: 20
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:

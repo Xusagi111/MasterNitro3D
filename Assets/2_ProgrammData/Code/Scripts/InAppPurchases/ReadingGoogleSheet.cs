@@ -100,15 +100,6 @@ public class ReadingGoogleSheet ///999999 это прочерк
                         PriceMoney = const2,
                         PriceDiamons = const3,
                     });
-                //else if(data is CarStateToList carState)
-                //    carState.CarsPlayersList.Add(new CarS_Player()
-                //    {
-                //        IndexMachin = id,
-                //        levelCar = const1,
-                //        Power = const2,
-                //        Speed = const3,
-                //        Control = const4
-                //    });
             }
         }
     }
@@ -135,13 +126,6 @@ public class ReadingGoogleSheet ///999999 это прочерк
         ParserTable(cvsRawData, _idCar, data);
         return (data, indexId);
     }
-    //public (CarStateToList, int[] IndexID) ProcessDataCar(string cvsRawData) //logic filling in existing machine statistics
-    //{
-    //    CarStateToList data = new CarStateToList();
-    //    data.CarsPlayersList = new List<CarS_Player>();
-    //    ParserTable(cvsRawData, _idCar, data);
-    //    return (data, indexId);
-    //}
     #region DopLogic
     private int ParseInt(string s)
     {
