@@ -3,7 +3,47 @@ guid: 76549d1f7c3d4664a8178217ea4f5f6a
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 8acb4889173d3fd468740d28dae15145, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: ba8077d3c7dfdfa4e9bee11bed2bad7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 952ac5c85a1089b4fa92728a16da59b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B"
+    second: {fileID: 2100000, guid: 4e6cf03614f82114491800660b66958a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B.003"
+    second: {fileID: 2100000, guid: bc8409e786fedfb48b6db8ce351e1841, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041E\u0441\u043D\u043E\u0432\u0430"
+    second: {fileID: 2100000, guid: 2e19b18afcee7d54cb9a4cb3cdc109e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041E\u0441\u043D\u043E\u0432\u0430.004"
+    second: {fileID: 2100000, guid: df9ffc96db154394d84110c02d99ed2c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041E\u0441\u043D\u043E\u0432\u0430.005"
+    second: {fileID: 2100000, guid: 8c2922aa856411a489017ec1ef829782, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -45,7 +85,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -57,11 +97,11 @@ ModelImporter:
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15.000001
+    secondaryUVAreaDistortion: 15
     secondaryUVHardAngle: 88
     secondaryUVMarginMethod: 1
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
+    secondaryUVMinLightmapResolution: 3
+    secondaryUVMinObjectScale: 20
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
