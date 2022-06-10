@@ -36,7 +36,7 @@ public class DataTransferUsingGoogleSheet : MonoBehaviour // Актуальный использу
         DownloadTable(DataName.Offers, _sheetIdBuyStateToList, "&gid=0");
         DownloadTable(DataName.CarPrice, _sheetIdBuyStateToList, _sheetIdCarPrice);
         DownloadTable(DataName.GiftsState, _sheetIdBuyStateToList, _sheetIdGift);
-        DownloadTable(DataName.LevelPlayer, _sheetIdBuyStateToList, _sheetLevelPlayer);
+       // DownloadTable(DataName.LevelPlayer, _sheetIdBuyStateToList, _sheetLevelPlayer);
     }
 
     private void DownloadTable(DataName dataName, string sheetID, string Listid = null)
