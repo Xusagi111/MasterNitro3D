@@ -12,19 +12,19 @@ public class StarterToLevel : MonoBehaviour
     [SerializeField] private DontDestroy _dontDestroy;
     [SerializeField] private BodyTilt _bodyTilt;
     [SerializeField] private GameObject _cinemachinCamera;
-    private GameManagerToScenesd _gameManagerToScene;
+    private GameManagerToScenes _gameManagerToScene;
     
     public GameObject PLayerCar { get; set; }
     public GameObject PublicPlayerGameObject;
     void Awake()
     {
-        _gameManagerToScene = FindObjectOfType<GameManagerToScenesd>();
+        _gameManagerToScene = FindObjectOfType<GameManagerToScenes>();
         switch (_gameManagerToScene.startLevel)
         {
             case StartLevel.DinamicCreateLevel:
                 _dataLEvel.DinamicCreateLevel.SetActive(true);
                 RenderSettings.skybox = MaterialTwoDinamicRoad;
-              //  _cinemachinCamera.GetComponent<>()
+              //  _cinemachinCamera.GetComponent<>() TODO ADD SINEMACHIN
                 break;
             case StartLevel.OneScene:
                 _dataLEvel.prefabOneLevel.SetActive(true);
@@ -51,7 +51,6 @@ public class StarterToLevel : MonoBehaviour
             }
         }
     }
-   
 }
 [System.Serializable]
 public class DataLevel

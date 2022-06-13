@@ -31,7 +31,6 @@ public class GarageController : MonoBehaviour
     {
         ButtonClassSave.SaveToPlayerPrefs<SavePlayerStats>(instanseSavePlayerState, "instanseSavePlayerState");
         ButtonClassSave.SaveToPlayerPrefs<CurrentCarPlayer>(instanseCurrentCarPlayer, "instanseCurrentCarPlayer");
-
     }
     public void loagingPlayerState()
     {
@@ -43,6 +42,7 @@ public class GarageController : MonoBehaviour
         EventSaveStatePlyer evt = EventManager.EventSaveStatePlyer;
         evt.Money = instanseSavePlayerState.Money;
         evt.Diamons = instanseSavePlayerState.Diamons;
+        evt.Level = instanseSavePlayerState.LevelPlayer;
         EventManagerGame.Broadcast(evt);
     }
 }

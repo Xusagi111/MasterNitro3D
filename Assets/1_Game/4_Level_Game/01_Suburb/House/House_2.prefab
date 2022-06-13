@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23900576288628364}
   - component: {fileID: 4384312185737709820}
   - component: {fileID: 2172294066436142369}
+  - component: {fileID: 3418793491160414588}
   m_Layer: 0
   m_Name: House_2
   m_TagString: Untagged
@@ -109,3 +110,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd043fda47ffaf4688055053ce648fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!205 &3418793491160414588
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637367218074080}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.00000047683716, y: 2.1611307, z: 0.000006198883}
+  m_Size: 5.6193337
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.056224145
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23900576288628364}
+  m_Enabled: 1

@@ -7,7 +7,7 @@ using UnityEngine;
 /// Move and rotation camera controller
 /// </summary>
 
-public class CameraController :Singleton<CameraController>
+public class CameraController : Singleton<CameraController>
 {
 
 	[SerializeField] KeyCode SetCameraKey = KeyCode.C;                              //Set next camore on PC hotkey.

@@ -34,17 +34,18 @@ public class ReadLevel : MonoBehaviour
             CurrentContLevel = "";
             bool flagSwitchingLevel = false;
             string[] CurrentLevel = new string[2];
+          
             for (int b = 0; b < cells[level].Length; b++) //Преобразование level из String  в int
             {
                 if (cells[level][b] != _defis)
                 {
                     if (!flagSwitchingLevel)
                     {
-                        CurrentLevel[1] += cells[level][b];
+                        CurrentLevel[0] += cells[level][b];
                     }
                     else
                     {
-                        CurrentLevel[2] += cells[level][b];
+                        CurrentLevel[1] += cells[level][b];
                     }
                   
                 }
@@ -52,28 +53,30 @@ public class ReadLevel : MonoBehaviour
                     flagSwitchingLevel = true;
                
             }
-            //for (int i = 0; i < length; i++)
-            //{
+            if (CurrentLevel[0] == null && CurrentLevel[1] == null) continue;
+            int[] CurrentLevelToPush = new int[2];
+            CurrentLevelToPush[0] = int.Parse(CurrentLevel[0]);
 
-            //}
-            //int const1 = ParseInt(cells[_const1]);
-            //int const2 = ParseInt(cells[_const1]);
-            //float const3 = ParseFloat(cells[_const3]);
-            //int const4 = ParseInt(cells[_const4]);
+            CurrentLevelToPush[1] = int.Parse(CurrentLevel[1]);
 
-            //if (Level != 0 && const3 != 0 && const4 != 0)
-            //{
-            //    if (data is DataConstLevel dataConstLevel)
-            //        dataConstLevel.LevelConsts.Add(new LevelConst()
-            //        {
-            //            level = CurrentContLevel,
-            //            DefoltExp = const1,
-            //            UpReward = const2,
-            //            Coefficient = const3,
-            //            Conversion = const4,
-            //        });
+            int const1 = ParseInt(cells[_const1]);
+            int const2 = ParseInt(cells[_const1]);
+            float const3 = ParseFloat(cells[_const3]);
+            int const4 = ParseInt(cells[_const4]);
 
-            //}
+            if (const3 != 0 && const4 != 0)
+            {
+                if (data is DataConstLevel dataConstLevel)
+                    dataConstLevel.LevelConsts.Add(new LevelConst()
+                    {
+                        level = CurrentLevelToPush,
+                        DefoltExp = const1,
+                        UpReward = const2,
+                        Coefficient = const3,
+                        Conversion = const4,
+                    });
+
+            }
 
         }
     }

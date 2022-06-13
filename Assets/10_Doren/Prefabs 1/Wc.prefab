@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23826276522480976}
   - component: {fileID: 542590804984740583}
   - component: {fileID: 6842970599735329496}
+  - component: {fileID: 7745471721438818134}
   m_Layer: 0
   m_Name: Wc
   m_TagString: Untagged
@@ -110,6 +111,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd043fda47ffaf4688055053ce648fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!205 &7745471721438818134
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478138296031608}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0008980632, y: 1.1617143, z: 0.08202189}
+  m_Size: 2.3410382
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.06497847
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23826276522480976}
+    - renderer: {fileID: 23906676374284536}
+  m_Enabled: 1
 --- !u!1 &1996419669569076
 GameObject:
   m_ObjectHideFlags: 0

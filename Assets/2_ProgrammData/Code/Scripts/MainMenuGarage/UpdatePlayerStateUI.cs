@@ -3,16 +3,18 @@ using UnityEngine.UI;
 
 class UpdatePlayerStateUI : MonoBehaviour
 {
-    [SerializeField] Text conclusionOnMoneyUI;
-    [SerializeField] Text conclusionOnDiamondsUI;
+    [field: SerializeField] private Text MoneyUI { get; set; }
+    [field: SerializeField] private Text DiamondsUI { get; set; }
+    [field: SerializeField] private  Text Level { get; set; }
     private void Awake()
     {
         EventManagerGame.AddListener<EventSaveStatePlyer>(DisplayUiStatsR);
     }
     public void DisplayUiStatsR(EventSaveStatePlyer evt)
     {
-        conclusionOnMoneyUI.text = evt.Money.ToString();
-        conclusionOnDiamondsUI.text = evt.Diamons.ToString();
+        MoneyUI.text = evt.Money.ToString();
+        DiamondsUI.text = evt.Diamons.ToString();
+        Level.text = "LEVEL " + evt.Level.ToString();
     }
     private void OnDisable()
     {

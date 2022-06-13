@@ -25,8 +25,8 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.9490197, g: 0.6156863, b: 0.5058824, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 20f6d22d93779de4ea6f62f8ab305593, type: 2}
+  m_SubtractiveShadowColor: {r: 0.43529415, g: 0.5254902, b: 0.6117647, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b3c529bfb8081764ba5d11c4d8efe685, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.8951981, g: 0.3532011, b: 0.23448698, a: 1}
+  m_IndirectSpecularColor: {r: 0.19536673, g: 0.23779535, b: 0.28024212, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15364,8 +15364,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57499765107cc034782545d6bc2ace0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConclusionUi: {fileID: 455124005}
   _starterToLevel: {fileID: 1990716392}
+  <_uiStateToScene>k__BackingField:
+    <CurrentDriftGlasses>k__BackingField: {fileID: 455124005}
+    <MoneyToSceneT>k__BackingField: {fileID: 1079014152}
 --- !u!4 &607512063
 Transform:
   m_ObjectHideFlags: 0
@@ -16577,7 +16579,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 438626329126179513, guid: 5c983a1ba2872ea47bb62a25b1b7cc50, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 438626329126179513, guid: 5c983a1ba2872ea47bb62a25b1b7cc50, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17769,7 +17771,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.5905e-41, y: 0, z: 0, w: 2.8180974e+20}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -30474,7 +30476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1557112108912918216, guid: 3d2ba9ef321502e48bcfcbb6b1bdb550, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1557112108912918216, guid: 3d2ba9ef321502e48bcfcbb6b1bdb550, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -47540,7 +47542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3913730958948728942, guid: 898c64199f1f6544f8bfaebbc6074f50, type: 3}
       propertyPath: far clip plane
-      value: 1000
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 3913730958948728942, guid: 898c64199f1f6544f8bfaebbc6074f50, type: 3}
       propertyPath: near clip plane
@@ -47573,6 +47575,10 @@ PrefabInstance:
     - target: {fileID: 3913730958948728943, guid: 898c64199f1f6544f8bfaebbc6074f50, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.0037034396
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913730959160929725, guid: 898c64199f1f6544f8bfaebbc6074f50, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8125992799251183856, guid: 898c64199f1f6544f8bfaebbc6074f50, type: 3}
       propertyPath: m_RootOrder
@@ -47627,6 +47633,11 @@ PrefabInstance:
 --- !u!4 &1201255779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8125992799251183856, guid: 898c64199f1f6544f8bfaebbc6074f50, type: 3}
+  m_PrefabInstance: {fileID: 1201255778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1201255780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8125992799251183859, guid: 898c64199f1f6544f8bfaebbc6074f50, type: 3}
   m_PrefabInstance: {fileID: 1201255778}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1202155452 stripped
@@ -55431,7 +55442,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8394d4e579d7f48a3fbc7060b72334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoneDisplayUi: {fileID: 1079014152}
 --- !u!4 &1529310382 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8803238666519552260, guid: 1cffe0a014f5d5045ac75c4d6989f758, type: 3}
@@ -66513,10 +66523,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 140877465}
     m_Modifications:
-    - target: {fileID: 1483938305278764, guid: 3023143f80410e345aef19db1f82c9ea, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1901630030723546, guid: 3023143f80410e345aef19db1f82c9ea, type: 3}
       propertyPath: m_Name
       value: FXController
@@ -66564,18 +66570,6 @@ PrefabInstance:
     - target: {fileID: 4622598348882566, guid: 3023143f80410e345aef19db1f82c9ea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82279450089836288, guid: 3023143f80410e345aef19db1f82c9ea, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199362628286919318, guid: 3023143f80410e345aef19db1f82c9ea, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199729217124764016, guid: 3023143f80410e345aef19db1f82c9ea, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3023143f80410e345aef19db1f82c9ea, type: 3}
@@ -68784,11 +68778,11 @@ MonoBehaviour:
     prefabOneLevel: {fileID: 1850015626}
     PrefabTwoLevel: {fileID: 0}
   MaterialTwoDinamicRoad: {fileID: 2100000, guid: 5c57bb9da366e944a8f4ae9be4f413ec, type: 2}
-  MaterialFreeScene: {fileID: 2100000, guid: 20f6d22d93779de4ea6f62f8ab305593, type: 2}
+  MaterialFreeScene: {fileID: 2100000, guid: b3c529bfb8081764ba5d11c4d8efe685, type: 2}
   startLevel: 0
   _dontDestroy: {fileID: 0}
   _bodyTilt: {fileID: 1825523218}
-  _cinemachinCamera: {fileID: 0}
+  _cinemachinCamera: {fileID: 1201255780}
   PublicPlayerGameObject: {fileID: 0}
 --- !u!4 &1991184719 stripped
 Transform:

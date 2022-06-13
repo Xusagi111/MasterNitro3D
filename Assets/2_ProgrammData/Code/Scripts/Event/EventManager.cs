@@ -1,30 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class EventManager : MonoBehaviour
 {
-    public static EventMoney OptionsMenuEvent = new EventMoney();
+    public static EventMoney OptionsMenuEvent { get; set; } = new EventMoney();
     public static EventPushList EventPushOn = new EventPushList();
     public static EventClassDisplayToUi EventDisplayUi = new EventClassDisplayToUi();
     public static CarS_Player EventAllGarageCarsThePlayer = new CarS_Player();
-    public static EventSaveStatePlyer EventSaveStatePlyer = new EventSaveStatePlyer();
-    [SerializeField] Text MoneDisplayUi; // убрать от сюда вывод на ui 
-    int Money; //Прикрутить текущие кол-во денег
-    private void Start()
-    {
-        EventManagerGame.AddListener<EventMoney>(UpdateMoneyDisplay);
-        
-    }
-    public void UpdateMoneyDisplay(EventMoney evt) 
-    {
-        Money += evt.value;
-        MoneDisplayUi.text = Money.ToString();
-    }
-
+    public static EventSaveStatePlyer EventSaveStatePlyer = new EventSaveStatePlyer();  
 }
 public class EventMoney : GameEvent
 {
@@ -44,5 +27,10 @@ public class EventSaveStatePlyer : GameEvent
 {
     public int Money;
     public int Diamons;
+    public int Level;
 }
-
+public class StateToLevel: GameEvent
+{
+    public int Money;
+    public int DriiftGlasses;
+} 

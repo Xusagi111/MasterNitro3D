@@ -13,7 +13,7 @@ public class SetActiveCarSceneGarage : MonoBehaviour
     private GameObject CarSevDesc;
     private int count = 0;
     private UpdateCheckToBuyMachin _updateCheckToBuyMachin;
-    private GameManagerToScenesd _gameManagerToScenesd;
+    private GameManagerToScenes _gameManagerToScenesd;
     private void Awake()
     {
         IndexMachinInList = IndexCar[0];
@@ -21,7 +21,7 @@ public class SetActiveCarSceneGarage : MonoBehaviour
         CarDestroy[count] = inite;
         inite.SetActive(true);
         _updateCheckToBuyMachin = GetComponent<UpdateCheckToBuyMachin>();
-        _gameManagerToScenesd = FindObjectOfType<GameManagerToScenesd>();
+        _gameManagerToScenesd = FindObjectOfType<GameManagerToScenes>();
     }
     private void Start()
     {

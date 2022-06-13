@@ -14,7 +14,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GarageController _garageController;
 
     [SerializeField] private GameObject LoadingToMovmentScene;
-    private GameManagerToScenesd _gameManagerToScene; 
+    private GameManagerToScenes _gameManagerToScene; 
 
 
     private void Awake()
@@ -47,7 +47,7 @@ public class MainMenuController : MonoBehaviour
     }
     public void StartPanelChoiuseLevel()
     {
-        _gameManagerToScene = FindObjectOfType<GameManagerToScenesd>();
+        _gameManagerToScene = FindObjectOfType<GameManagerToScenes>();
         for (int i = 0; i < _garageController.instanseCurrentCarPlayer.CarPlayer.Count; i++)
         {
             if (_gameManagerToScene.IndexCar == _garageController.instanseCurrentCarPlayer.CarPlayer[i])
