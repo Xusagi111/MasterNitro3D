@@ -9,11 +9,12 @@ namespace Code.MainMenuGarage
         [field: SerializeField] private GameObject[] DiamondPanel { get; set; }
         [field: SerializeField] private Button SwitchingMoney { get; set; }
         [field: SerializeField] private Button SwitchingDiamond { get; set; }
-
+        [field: SerializeField] private GameObject CurentPanelOffers { get; set; }
+        
         private void Awake()
         {
-            SwitchingMoney.onClick.AddListener(() => SetActivePanel(true, false));
-            SwitchingDiamond.onClick.AddListener(() => SetActivePanel(false, true));
+            SwitchingMoney.onClick.AddListener(() => StartPanel(true));
+            SwitchingDiamond.onClick.AddListener(() => StartPanel(false));
         }
         public void StartPanel(bool isMoney)
         {
@@ -22,6 +23,8 @@ namespace Code.MainMenuGarage
             else
 
                 SetActivePanel(false, true);
+
+            CurentPanelOffers.SetActive(true);
         }
         private void SetActivePanel(bool isMoneyPanel, bool isDiamondPanel)
         {
