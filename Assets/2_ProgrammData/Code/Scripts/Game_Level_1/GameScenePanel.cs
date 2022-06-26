@@ -37,5 +37,9 @@ namespace Code.Game_Level_1
             OpenPanel(false);
             SceneManager.LoadScene("Game");
         }
+        public void LoadMainMenu()
+        {
+            SceneManager.LoadScene("Garage_Main_Menu");
+        }
     }
 }
