@@ -16,6 +16,11 @@ namespace Code.MainMenuGarage
             SwitchingMoney.onClick.AddListener(() => StartPanel(true));
             SwitchingDiamond.onClick.AddListener(() => StartPanel(false));
         }
+        private void OnDestroy()
+        {
+            SwitchingMoney.onClick.RemoveListener(() => StartPanel(true));
+            SwitchingDiamond.onClick.RemoveListener(() => StartPanel(false));
+        }
         public void StartPanel(bool isMoney)
         {
             if (isMoney)

@@ -16,7 +16,8 @@ public class StarterToLevel : MonoBehaviour
     
     public GameObject PLayerCar { get; set; }
     public GameObject PublicPlayerGameObject;
-    void Awake()
+    public static int CurrentIndexMachin { get; set; }
+   public void Awake()
     {
         _gameManagerToScene = FindObjectOfType<GameManagerToScenes>();
         switch (_gameManagerToScene.startLevel)
@@ -34,11 +35,15 @@ public class StarterToLevel : MonoBehaviour
                 _dataLEvel.PrefabTwoLevel.SetActive(true);
                 break;
         }
-
-        CreateCar(FindObjectOfType<DictionaryPlayerCar>(), _gameManagerToScene.IndexCar);
+        //if (CurrentIndexMachin != 0)
+        //{
+        //    CurrentIndexMachin = 0;
+        //}
+        CreateCar(_gameManagerToScene.IndexCar);
     }
-    private void CreateCar(DictionaryPlayerCar dictionaryPlayerCar, int indexCar)
+    public void CreateCar(int indexCar)
     {
+        DictionaryPlayerCar dictionaryPlayerCar = FindObjectOfType<DictionaryPlayerCar>();
         for (int i = 0; i < dictionaryPlayerCar.InstanseCarPlayerS.Length; i++)
         {
             if (dictionaryPlayerCar.InstanseCarPlayerS[i].indexCar == indexCar)
