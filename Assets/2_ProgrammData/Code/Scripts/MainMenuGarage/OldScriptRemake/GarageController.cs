@@ -42,7 +42,7 @@ public class GarageController : MonoBehaviour
         EventSaveStatePlyer evt = EventManager.EventSaveStatePlyer;
         evt.Money = instanseSavePlayerState.Money;
         evt.Diamons = instanseSavePlayerState.Diamons;
-        evt.Level = instanseSavePlayerState.LevelPlayer;
+        //evt.Level = instanseSavePlayerState.ExpPlayer;
         EventManagerGame.Broadcast(evt);
     }
 }

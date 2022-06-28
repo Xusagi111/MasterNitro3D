@@ -14,7 +14,6 @@ class UpdatePlayerStateUI : MonoBehaviour
     {
         MoneyUI.text = evt.Money.ToString();
         DiamondsUI.text = evt.Diamons.ToString();
-        Level.text = "LEVEL " + evt.Level.ToString();
     }
     private void OnDisable()
     {

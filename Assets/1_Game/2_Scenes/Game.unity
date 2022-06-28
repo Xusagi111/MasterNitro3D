@@ -2225,6 +2225,14 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetMusicSlider
       objectReference: {fileID: 0}
+    - target: {fileID: 8913031157290991119, guid: 5c120d8f87ece07448fe4bd964851f76, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1527518990}
+    - target: {fileID: 8913031157290991119, guid: 5c120d8f87ece07448fe4bd964851f76, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Save
+      objectReference: {fileID: 0}
     - target: {fileID: 8913031157612932061, guid: 5c120d8f87ece07448fe4bd964851f76, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -4310,18 +4318,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 140877465}
     m_Modifications:
-    - target: {fileID: 2582401073241013623, guid: 878a2f6378c99d445a2a76594755b551, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2582401074739460883, guid: 878a2f6378c99d445a2a76594755b551, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2582401074739460893, guid: 878a2f6378c99d445a2a76594755b551, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7296824185429726712, guid: 878a2f6378c99d445a2a76594755b551, type: 3}
       propertyPath: m_RootOrder
       value: 5

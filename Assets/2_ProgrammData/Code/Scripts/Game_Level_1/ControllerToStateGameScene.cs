@@ -8,8 +8,8 @@ public class ControllerToStateGameScene : MonoBehaviour //Наработки
     [SerializeField] private StarterToLevel _starterToLevel;
     private Transform ViewPlayer;
     private int DriftCount;
-    private int _PointDriftCount = 5000;
-    private int SumMoneyPassagePoint = 1000;
+    private int _PointDriftCount = 50;
+    private int SumMoneyPassagePoint = 1;
     private int CountValue = 10;
     private int MoneyToScene;
     [field: SerializeField] private UiStateToScene _uiStateToScene { get; set; } = new UiStateToScene();
@@ -40,7 +40,7 @@ public class ControllerToStateGameScene : MonoBehaviour //Наработки
                 EventMoney evt = EventManager.OptionsMenuEvent;
                 evt.value = SumMoneyPassagePoint;
                 EventManagerGame.Broadcast(evt);
-                _PointDriftCount += 5000;
+                _PointDriftCount += 50;
             }
             return;
         }

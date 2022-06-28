@@ -13,7 +13,8 @@ public class StarterToLevel : MonoBehaviour
     [SerializeField] private BodyTilt _bodyTilt;
     [SerializeField] private GameObject _cinemachinCamera;
     private GameManagerToScenes _gameManagerToScene;
-    
+
+    private MusicSaveVolumeScript _musicSaveVolumeScript;
     public GameObject PLayerCar { get; set; }
     public GameObject PublicPlayerGameObject;
     public static int CurrentIndexMachin { get; set; }
@@ -40,6 +41,7 @@ public class StarterToLevel : MonoBehaviour
         //    CurrentIndexMachin = 0;
         //}
         CreateCar(_gameManagerToScene.IndexCar);
+        _musicSaveVolumeScript.loaging();
     }
     public void CreateCar(int indexCar)
     {
