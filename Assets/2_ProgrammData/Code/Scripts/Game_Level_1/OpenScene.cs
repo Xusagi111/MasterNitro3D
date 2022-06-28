@@ -6,6 +6,7 @@ public class OpenScene : MonoBehaviour
 {
     public void OpenGame()
     {
+        Time.timeScale = 1f;
         ControllerToStateGameScene.EventGetStateToManagerMenu?.Invoke();
         StartCoroutine(StartScene());
     }

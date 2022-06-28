@@ -8,13 +8,15 @@ public class UpdateCheckToBuyMachin : MonoBehaviour
     public Action<int> EventUpdateCar;
     [SerializeField] private Text Countprice;
     [SerializeField] private Text CountpriceMainMenu;
-    [SerializeField] private GameObject BuyButton;
+    [SerializeField] private GameObject BuyPanel;
     [SerializeField] private Button ButtonPurchaseVerification;
     [SerializeField] private GameObject AcrivePanelPurchaces;
     [SerializeField] private GameObject ErrorText;
     private GarageController _garageController;
     private SortedDataController _sortedDataController;
 
+    [SerializeField] private Image[] ImageDaimond;
+    [SerializeField] private Image[] ImageMoney;
     private void Awake()
     {
         EventUpdateCar += UpdateCar;
@@ -35,6 +37,8 @@ public class UpdateCheckToBuyMachin : MonoBehaviour
     private void OnDestroy()
     {
         EventUpdateCar -= UpdateCar;
+        ButtonPurchaseVerification.onClick.RemoveAllListeners();
+
     }
     private void UpdateCar(int IndexCar) // Осуществить проверку на то есть ли машина в сетапе или нет.
     {
@@ -42,34 +46,58 @@ public class UpdateCheckToBuyMachin : MonoBehaviour
         {
             if (_garageController.instanseCurrentCarPlayer.CarPlayer[i] == IndexCar)
             {
-                BuyButton.SetActive(false);
+                BuyPanel.SetActive(false);
                     return;
             }
             else
             {
                 var indexMAchin = SetActiveCarSceneGarage.IndexMachinInList;
-                BuyButton.SetActive(true);
+                BuyPanel.SetActive(true);
                 for (int b = 0; b < _sortedDataController.carPrices.Count; b++)
                 {
                     if (indexMAchin == _sortedDataController.carPrices[b].IndexMachin)
                     {
                         if (_sortedDataController.carPrices[b].PriceMoney != 999999)
-                            UpdateUiPriceCar(_sortedDataController.carPrices[b].PriceMoney);
+                            UpdateUiPriceCar(_sortedDataController.carPrices[b].PriceMoney,true);
 
                         else
-                            UpdateUiPriceCar(_sortedDataController.carPrices[b].PriceDiamons);
+                            UpdateUiPriceCar(_sortedDataController.carPrices[b].PriceDiamons,false);
 
-                        _garageController.SavePlayerState();
-                        _garageController.StartUpdateDisplayValue();
+                        //_garageController.SavePlayerState();
+                        //_garageController.StartUpdateDisplayValue();
                     }
                 }
             }
         }
     }
-    private void UpdateUiPriceCar(int CurrentPrice)
+    private void UpdateUiPriceCar(int CurrentPrice, bool isMoney) //TODO Добавить отображение текущей иконки монетки или алмаза.
     {
+        if (isMoney)
+        {
+            MoneyActive(true);
+            DiamondActive(false);
+        }
+        else
+        {
+            MoneyActive(false);
+            DiamondActive(true);
+        }
         Countprice.text = CurrentPrice.ToString();
         CountpriceMainMenu.text = Countprice.text;
+    }
+    private void MoneyActive(bool isActive)
+    {
+        for (int i = 0; i < ImageMoney.Length; i++)
+        {
+            ImageMoney[i].SetActive(isActive);
+        }
+    }
+    private void DiamondActive(bool isActive)
+    {
+        for (int i = 0; i < ImageDaimond.Length; i++)
+        {
+            ImageDaimond[i].SetActive(isActive);
+        }
     }
     private void BuyMachin()
     {
@@ -103,7 +131,7 @@ public class UpdateCheckToBuyMachin : MonoBehaviour
     private void CheckMoneyToPlayer(int Money = 0, int Diamond = 0)
     {
         var indexMachin = SetActiveCarSceneGarage.IndexMachinInList;
-        BuyButton.SetActive(false);
+        BuyPanel.SetActive(false);
 
         if (Money!=0)
             _garageController.instanseSavePlayerState.Money -= Money;
@@ -111,9 +139,11 @@ public class UpdateCheckToBuyMachin : MonoBehaviour
         else
             _garageController.instanseSavePlayerState.Diamons -= Diamond;
 
-        BuyButton.SetActive(false);
+        BuyPanel.SetActive(false);
         _garageController.instanseCurrentCarPlayer.CarPlayer.Add(indexMachin);
         AcrivePanelPurchaces.SetActive(false);
+        _garageController.SavePlayerState();
+        _garageController.StartUpdateDisplayValue();
     }
     private IEnumerator ErrorPanelToText()
     {

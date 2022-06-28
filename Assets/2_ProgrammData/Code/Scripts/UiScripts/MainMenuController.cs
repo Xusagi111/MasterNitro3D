@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -14,8 +15,11 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GarageController _garageController;
 
     [SerializeField] private GameObject LoadingToMovmentScene;
-    private GameManagerToScenes _gameManagerToScene; 
+    private GameManagerToScenes _gameManagerToScene;
 
+    [SerializeField] private GameObject ActiveLoadingBar;
+    [SerializeField] private Image ActiveLoadingBarImage;
+    [SerializeField] private Text CurrentPercentLoading;
 
     private void Awake()
     {
@@ -108,8 +112,33 @@ public class MainMenuController : MonoBehaviour
     }
     IEnumerator ActivationPlayButton()
     {
+        ActiveLoadingBar.SetActive(true);
+        StartCoroutine(StartMoveSlider(0));
         yield return new WaitForSeconds(3f);
         PlayGameButton.SetActive(true);
+        CurrentPercentLoading.SetActive(false);
+        ActiveLoadingBar.SetActive(false);
+
+    }
+    IEnumerator StartMoveSlider(float CurrentValueImage)
+    {
+        int currentPercent = 0;
+        while (currentPercent < 97)
+        {
+            CurrentValueImage += 0.0016f;
+            ActiveLoadingBarImage.fillAmount = CurrentValueImage;
+            currentPercent = (int)(CurrentValueImage / 0.01f);
+            CurrentPercentLoading.text = currentPercent + " %";
+            if (currentPercent > 99)
+            {
+                StopCoroutine(StartMoveSlider(CurrentValueImage));
+            }
+            yield return new WaitForSeconds(0.003f);
+        }
+        if (currentPercent >= 97)
+        {
+            CurrentPercentLoading.text = "100 %";
+        }
     }
     public void NoServerConnection()
     {

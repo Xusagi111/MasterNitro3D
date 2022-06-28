@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class ControllerUIPurchases : MonoBehaviour
 {
     private ManagerDataPurchase _managerShopping;
-    private SortedDataController _testScriptTablieBuy;
+    private SortedDataController _sortedDataController;
     public FirstPack FirstPack;
 
     public static UnityEvent StartTimer = new UnityEvent();
@@ -16,7 +16,7 @@ public class ControllerUIPurchases : MonoBehaviour
     private void Start()
     {
         _managerShopping = ManagerDataPurchase.Instance;
-        _testScriptTablieBuy = FindObjectOfType<SortedDataController>();
+        _sortedDataController = FindObjectOfType<SortedDataController>();
         SortedDataController.LoadingData += InitializationPurchases;
     }
 
@@ -27,18 +27,18 @@ public class ControllerUIPurchases : MonoBehaviour
 
     private void InitializationPurchases() 
     {
-        int CountDiamons = _testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexDiamons, DataName.Offers).Count;
-        int CountMoney = _testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexMoney, DataName.Offers).Count;
+        int CountDiamons = _sortedDataController.GetListProcessingDataBuy(EnumIdToBuy.indexDiamons, DataName.Offers).Count;
+        int CountMoney = _sortedDataController.GetListProcessingDataBuy(EnumIdToBuy.indexMoney, DataName.Offers).Count;
         for (int i = 0; i < CountDiamons; i++)
         {
-            _managerShopping.ListDataOffersDiamons[i].QuantityPurchasedProduct.text = _testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexDiamons, DataName.Offers)[i].NameOffer.ToString();
-            _managerShopping.ListDataOffersDiamons[i].PrisePurchasedProduct.text = _testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexDiamons, DataName.Offers)[i].CountCurrency.ToString();
-            Debug.Log(_testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexDiamons, DataName.Offers)[i].CountCurrency.ToString());
+            _managerShopping.ListDataOffersDiamons[i].QuantityPurchasedProduct.text = _sortedDataController.GetListProcessingDataBuy(EnumIdToBuy.indexDiamons, DataName.Offers)[i].NameOffer;
+            _managerShopping.ListDataOffersDiamons[i].PrisePurchasedProduct.text = _sortedDataController.GetListProcessingDataBuy(EnumIdToBuy.indexDiamons, DataName.Offers)[i].CountCurrency.ToString();
+            Debug.Log(_sortedDataController.GetListProcessingDataBuy(EnumIdToBuy.indexDiamons, DataName.Offers)[i].CountCurrency.ToString());
         }
         for (int i = 0; i < CountMoney; i++)
         {
-            _managerShopping.ListDataOffersMoney[i].QuantityPurchasedProduct.text = _testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexMoney, DataName.Offers)[i].NameOffer.ToString();
-            _managerShopping.ListDataOffersMoney[i].PrisePurchasedProduct.text = _testScriptTablieBuy.GetListProcessingDataBuy(EnumIdToBuy.indexMoney, DataName.Offers)[i].CountCurrency.ToString();
+            _managerShopping.ListDataOffersMoney[i].QuantityPurchasedProduct.text = _sortedDataController.GetListProcessingDataBuy(EnumIdToBuy.indexMoney, DataName.Offers)[i].NameOffer;
+            _managerShopping.ListDataOffersMoney[i].PrisePurchasedProduct.text = _sortedDataController.GetListProcessingDataBuy(EnumIdToBuy.indexMoney, DataName.Offers)[i].CountCurrency.ToString();
         }
         //if (!PlayerPrefs.HasKey(StringValue.flagFirstPackBuy))
         //{

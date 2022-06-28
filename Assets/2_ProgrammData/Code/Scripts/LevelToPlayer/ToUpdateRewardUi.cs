@@ -15,6 +15,8 @@ public class ToUpdateRewardUi : MonoBehaviour
 
     [field: SerializeField] private Image BarExp { get; set; }
     [field: SerializeField] private Button ButtonGetReward;
+
+    [SerializeField] private Image BarPlayerMainMenu;
     private bool isClickPlayer { get; set; }
     private void Awake()
     {
@@ -33,15 +35,16 @@ public class ToUpdateRewardUi : MonoBehaviour
     }
     private void UpdateDisplay(int CurrentExpLevel, int ExpToNewLevel, int CurrentLevel, int Money) 
     {
-        
         var a =  ((float)CurrentExpLevel / (float)ExpToNewLevel);
         BarExp.fillAmount = a;
+        BarPlayerMainMenu.fillAmount = a;
 
         TextDisplayExperience.text = CurrentExpLevel.ToString() + "/" + ExpToNewLevel;
         TextDisplayLevel.text = CurrentLevel.ToString();
         TextDisplayToNewLevel.text = (CurrentLevel + 1).ToString();
         TextToMoneyMainMenu.text = Money.ToString();
-        CurrentLevelToMainMenu.text = $"LEVEL {_garageController.instanseSavePlayerState.LevelPlayer}"; 
+        CurrentLevelToMainMenu.text = TextDisplayExperience.text;
+        
     }
     private void OpenPanelExp()
     {
