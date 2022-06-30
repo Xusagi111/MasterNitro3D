@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -112,32 +114,58 @@ public class MainMenuController : MonoBehaviour
     }
     IEnumerator ActivationPlayButton()
     {
+        isUpdateTime = true;
         ActiveLoadingBar.SetActive(true);
-        StartCoroutine(StartMoveSlider(0));
+        //StartCoroutine(StartMoveSlider(0));
         yield return new WaitForSeconds(3f);
+        CurrentPercentLoading.text = "100 %";
+        Thread.Sleep(100);
+        isUpdateTime = false;
         PlayGameButton.SetActive(true);
         CurrentPercentLoading.SetActive(false);
         ActiveLoadingBar.SetActive(false);
 
     }
+    //TODO 1: TEST
+    bool isUpdateTime = false;
+    int currentPercent = 0;
+    float CurrentValueImage;
     IEnumerator StartMoveSlider(float CurrentValueImage)
     {
         int currentPercent = 0;
         while (currentPercent < 97)
         {
-            CurrentValueImage += 0.0016f;
-            ActiveLoadingBarImage.fillAmount = CurrentValueImage;
-            currentPercent = (int)(CurrentValueImage / 0.01f);
-            CurrentPercentLoading.text = currentPercent + " %";
+            for (int i = 0; i < 10; i++)
+            {
+                CurrentValueImage += 0.016f;
+                ActiveLoadingBarImage.fillAmount = CurrentValueImage;
+                currentPercent = (int)(CurrentValueImage / 0.01f);
+                CurrentPercentLoading.text = currentPercent + " %";
+            }        
             if (currentPercent > 99)
             {
                 StopCoroutine(StartMoveSlider(CurrentValueImage));
             }
-            yield return new WaitForSeconds(0.003f);
+            yield return new WaitForSeconds(0.2f);
         }
         if (currentPercent >= 97)
         {
             CurrentPercentLoading.text = "100 %";
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (isUpdateTime)
+        {
+            CurrentValueImage += 0.015f;
+            ActiveLoadingBarImage.fillAmount = CurrentValueImage;
+            currentPercent = (int)(CurrentValueImage / 0.01f);
+            CurrentPercentLoading.text = currentPercent + " %";
+            if (currentPercent >= 100)
+            {
+                CurrentPercentLoading.text = "100 %";
+                isUpdateTime = false;
+            }
         }
     }
     public void NoServerConnection()
