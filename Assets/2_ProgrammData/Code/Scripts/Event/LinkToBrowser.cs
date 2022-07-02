@@ -12,7 +12,7 @@ namespace Code.Event
         [field: SerializeField] private Button DiscordButton { get; set; }
         [field: SerializeField] private Button EllediaButton { get; set; }
 
-
+        [field: SerializeField] private Button EllediaButtonToAvtorsPanel { get; set; } //TODO 1: ДОбавить
 
         [field: SerializeField] private Button TelegramG { get; set; }
         [field: SerializeField] private Button TelegramM { get; set; }
@@ -24,7 +24,10 @@ namespace Code.Event
         private void Awake()
         {
             DiscordButton.onClick.AddListener(() => Application.OpenURL(LinkDiscord));
-            EllediaButton.onClick.AddListener(()=> Application.OpenURL(linkElledia));
+            EllediaButtonToAvtorsPanel.onClick.AddListener(()=> Application.OpenURL(linkElledia));
+
+
+            EllediaButton.onClick.AddListener(() => Application.OpenURL(linkElledia));
 
             TelegramG.onClick.AddListener(() => Application.OpenURL(TelegramLink.GEORGIY_LUZYANIN));
             TelegramM.onClick.AddListener(() => Application.OpenURL(TelegramLink.MAXIM_ZHBANOV));
@@ -38,11 +41,15 @@ namespace Code.Event
             DiscordButton.onClick.RemoveAllListeners();
             EllediaButton.onClick.RemoveAllListeners();
 
+            EllediaButtonToAvtorsPanel.onClick.RemoveAllListeners();
+
             TelegramG.onClick.RemoveAllListeners();
             TelegramM.onClick.RemoveAllListeners();
             TelegramA.onClick.RemoveAllListeners();
             TelegramDANIYAR_LATYSHEV.onClick.RemoveAllListeners();
             TelegramDANIIAR_ZORIN.onClick.RemoveAllListeners();
+
+       
         }
     }
     public static class TelegramLink

@@ -17,8 +17,8 @@ public class SavePlayerStats
 }
 public class SaveMusicStats
 {
-    public float Music;
-    public float Effects;
+    public float Music = 0.35f;
+    public float Effects = 0.5f;
 }
 
 [System.Serializable]
