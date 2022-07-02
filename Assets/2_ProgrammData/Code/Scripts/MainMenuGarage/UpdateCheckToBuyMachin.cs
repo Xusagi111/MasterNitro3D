@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UpdateCheckToBuyMachin : MonoBehaviour
 {
     public Action<int> EventUpdateCar;
-    [SerializeField] private Text Countprice;
-    [SerializeField] private Text CountpriceMainMenu;
+    [SerializeField] private TextMeshProUGUI[] CountpriceText;
     [SerializeField] private GameObject BuyPanel;
     [SerializeField] private Button ButtonPurchaseVerification;
     [SerializeField] private GameObject AcrivePanelPurchaces;
@@ -15,8 +15,6 @@ public class UpdateCheckToBuyMachin : MonoBehaviour
     private GarageController _garageController;
     private SortedDataController _sortedDataController;
 
-    [SerializeField] private Image[] ImageDaimond;
-    [SerializeField] private Image[] ImageMoney;
     private void Awake()
     {
         EventUpdateCar += UpdateCar;
@@ -70,34 +68,22 @@ public class UpdateCheckToBuyMachin : MonoBehaviour
             }
         }
     }
-    private void UpdateUiPriceCar(int CurrentPrice, bool isMoney) //TODO Добавить отображение текущей иконки монетки или алмаза.
+    private void UpdateUiPriceCar(int CurrentPrice, bool isMoney) 
     {
+        string CurrentSprite = "";
         if (isMoney)
         {
-            MoneyActive(true);
-            DiamondActive(false);
+            CurrentSprite = "  <sprite=1>";
         }
         else
         {
-            MoneyActive(false);
-            DiamondActive(true);
+            CurrentSprite = "  <sprite=0>";
         }
-        Countprice.text = CurrentPrice.ToString();
-        CountpriceMainMenu.text = Countprice.text;
-    }
-    private void MoneyActive(bool isActive)
-    {
-        for (int i = 0; i < ImageMoney.Length; i++)
+        for (int i = 0; i < CountpriceText.Length; i++)
         {
-            ImageMoney[i].SetActive(isActive);
+            CountpriceText[i].text = CurrentPrice.ToString() + CurrentSprite;
         }
-    }
-    private void DiamondActive(bool isActive)
-    {
-        for (int i = 0; i < ImageDaimond.Length; i++)
-        {
-            ImageDaimond[i].SetActive(isActive);
-        }
+      
     }
     private void BuyMachin()
     {
@@ -109,7 +95,7 @@ public class UpdateCheckToBuyMachin : MonoBehaviour
                 if (_sortedDataController.carPrices[i].PriceMoney == 999999)
                 {
                     if (_garageController.instanseSavePlayerState.Diamons >= _sortedDataController.carPrices[i].PriceDiamons)
-                        CheckMoneyToPlayer(_sortedDataController.carPrices[i].PriceDiamons);
+                        CheckMoneyToPlayer(0,_sortedDataController.carPrices[i].PriceDiamons);
 
                     else
                         StartCoroutine(ErrorPanelToText());
