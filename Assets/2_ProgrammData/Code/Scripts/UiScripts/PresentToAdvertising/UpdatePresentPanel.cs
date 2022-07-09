@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UpdatePresentPanel : MonoBehaviour
 {
-    [SerializeField] private Text CurrentPresentT;
-    [SerializeField] private Image _moneyImage;
-    [SerializeField] private Image _diamonsImage;
+    [SerializeField] private TextMeshProUGUI CurrentPresentT;
     [SerializeField] private GameObject PresentPanel;
     private const int _currentValue = 0;
     private const int _probability = 4;
@@ -32,20 +31,19 @@ public class UpdatePresentPanel : MonoBehaviour
         if (_listDataGift[_probability].CountMoney > RandomPercent)
         {
             Money = CountMoney;
-            CurrentPresentT.text = Money.ToString();
-            _moneyImage.SetActive(true);
+            YodoAnalitycs.instance.enumIdToBuy = EnumIdToBuy.indexMoney;
+           CurrentPresentT.text = $"{Money}   <sprite=1>";
         }
         else
         {
             Diamond = CountDiamons;
-            CurrentPresentT.text = Diamond.ToString();
-            _diamonsImage.SetActive(true);
+            YodoAnalitycs.instance.enumIdToBuy = EnumIdToBuy.indexDiamons;
+            CurrentPresentT.text = $"{Diamond}   <sprite=0>";
         }
+       
     }
     public void OnReset()
     {
-        _moneyImage.SetActive(false);
-        _diamonsImage.SetActive(false);
         PresentPanel.SetActive(false);
     }
     private void OnDisable()

@@ -19,7 +19,7 @@ public class GarageController : MonoBehaviour
     public void SetValueSavePlayerStats(EnumIdToBuy enumIdToBuy, bool UpdateDisplay = true, int value = 0, int value2 = 0)
     {
         if (EnumIdToBuy.indexMoney == enumIdToBuy) { instanseSavePlayerState.Money += value; }
-        if (EnumIdToBuy.indexDiamons == enumIdToBuy) { instanseSavePlayerState.Diamons += value; }
+        if (EnumIdToBuy.indexDiamons == enumIdToBuy) { instanseSavePlayerState.Diamons += value2; }
         if (EnumIdToBuy.indexOffers == enumIdToBuy) { instanseSavePlayerState.Money += value; instanseSavePlayerState.Diamons += value2; }
         SavePlayerState();
         if (UpdateDisplay)

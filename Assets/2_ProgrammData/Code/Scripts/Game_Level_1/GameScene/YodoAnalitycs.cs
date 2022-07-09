@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Yodo1.MAS;
 
@@ -10,10 +8,14 @@ public class YodoAnalitycs : MonoBehaviour // Реклама
     private Yodo1U3dBannerAdView bannerAdView;
     public static YodoAnalitycs instance;
     public static event Action OnReset;
+    public EnumIdToBuy enumIdToBuy { get; set; }
     private void Awake()
     {
+        if (instance != null )
+        {
+            Destroy(instance);
+        }
         instance = this;
-        //DontDestroy.DontDestroyOnLoad(this);
     }
     void Start()
     {
@@ -90,12 +92,11 @@ public class YodoAnalitycs : MonoBehaviour // Реклама
         //PlayerPrefs.SetString("Reward", GameManager.Reward.ToString());
     }
     //Что получает пользователь при просмотре рекламы.
-    private void OnAdReceivedRewardEvent() // пока доступен только первый левел
+    private void OnAdReceivedRewardEvent() //TODO Подредактировать
     {
         var SaveClass = FindObjectOfType<GarageController>();
         var DataPresent = FindObjectOfType<UpdatePresentPanel>();
-        SaveClass.SetValueSavePlayerStats(EnumIdToBuy.indexOffers, true, DataPresent.Money, DataPresent.Diamond);
-        OnReset?.Invoke();
+        SaveClass.SetValueSavePlayerStats(enumIdToBuy, true, DataPresent.Money, DataPresent.Diamond);
     }
 
     private void OnRewardedAdErorEvent(Yodo1U3dAdError adError)
